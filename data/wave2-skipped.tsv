@@ -1,0 +1,1679 @@
+b001	prosciutto	Cured meat bought from a producer, not a home recipe
+b001	wasabi	Opened page is an article with no full recipe
+b001	jamon-serrano	Cured ham bought from a producer, not a home recipe
+b001	jamon-iberico	Cured ham bought from a producer, not a home recipe
+b001	yellow-mustard	Commercial condiment, not a home-cooked recipe
+b001	sriracha	Branded sauce, not a home-cooked recipe
+b001	pepperoni	Bought cured sausage, not a home recipe
+b001	century-egg	Opened recipe is for quail eggs, not century duck eggs
+b001	worcestershire-sauce	Branded factory-fermented sauce, not a home-cooked recipe
+b002	surstromming	bought canned fermented fish, not a home recipe
+b002	saucisson	no full dry-cured recipe with a named cook or publication found
+b005	snow-cone	street treat, not a home recipe; no trustworthy recipe page
+b007	black-forest-ham	cured ham is a bought product, not a home-cooked recipe
+b007	krupuk	packaged cracker is bought, not made at home from a recipe
+b012	christmas-dinner	whole meal or event, not a single recipe
+b012	kippers	bought smoked fish, not a home-made dish from a recipe
+b008	bourekas	page names no cook or publication
+b006	shark-fin-soup	banquet restaurant dish; shark fin is not a home-cooked recipe
+b013	canapes	generic appetizer category; only page found was one mushroom variant
+b014	nasi-campur	a mixed plate of many dishes, not one recipe; no trustworthy single recipe page found
+b014	nasi-padang	a restaurant meal of many dishes, not one recipe; no trustworthy single recipe page found
+b018	chili-powder	bought spice blend, not a dish cooked from a recipe
+b018	garden-salad	raw assembled salad, no cooking; not a recipe-style dish
+b018	ham-and-eggs	whole breakfast meal, not a single recipe
+b019	oysters-on-the-half-shell	raw shellfish served as bought, not a recipe to cook at home
+b022	plate-lunch	whole meal of several dishes, not one recipe
+b032	moo-kratha	tabletop grill and hot pot meal, not a single recipe; no trustworthy recipe page found
+b025	hakarl	cured and buried over weeks, not a home-cooked recipe
+b030	guanciale	no cook or publication name shown on page
+b030	ebi-furai	no cook or publication name shown on page
+b034	pie-a-la-mode	serving style (pie with ice cream), not a standalone recipe
+b036	chip-butty	no full recipe page found; top hits were articles or unreadable pages
+b036	doubanjiang	bought ingredient, not made at home from a recipe
+b036	steamed-fish-head-with-chopped-chili	closest page uses fish fillets, not a whole fish head
+b037	tapsilog	whole meal (cured beef, garlic rice and egg set), not a single recipe
+b039	prosciutto-cotto	bought cured ham, not a dish cooked from a recipe
+b039	prosciutto-di-san-daniele	bought cured ham, not a dish cooked from a recipe
+b040	sannakji	only muneo-sukhoe (boiled octopus) recipes found, not sannakji
+b042	chelow	rejected: url already used
+b044	shurpa	only Tatar or blog matches found; no trustworthy Uzbek or Afghan recipe
+b045	bologna-sausage	only a venison ring bologna recipe found, a loose match
+b046	country-ham	bought cured meat, not cooked from a home recipe
+b046	fish-fry	a whole meal, not a single recipe
+b046	ice-cream-bar	generic name resolves to bought brand products; no clear home recipe
+b048	tv-dinner	whole frozen tray meal, not a single dish
+b049	rijsttafel	a whole meal of many dishes, not one recipe
+b050	scottish-smoked-salmon	bought product, not a home recipe; no trustworthy match
+b053	crudites	assembled raw platter, not a recipe dish
+b053	jambon-de-bayonne	protected dry-cured ham that is bought, not made at home
+b054	lubecker-marzipan	Protected regional product bought, not made; no trustworthy home recipe found
+b056	antipasto-misto	assembled platter of bought cured meats and cheeses, not a recipe
+b058	mentaiko	bought ingredient (salted pollock roe), not a home-cooked recipe
+b060	chapulines	only found a guacamole garnish page; no dedicated recipe opened
+r001	salmon-roll	not returned
+b067	arroz-e-feijao	no full recipe covering both rice and beans found
+b069	shuan-yangrou	no named-cook recipe found in two searches
+b071	gudeg	no trustworthy full recipe found in two searches
+r002	andong-jjimdak	only generic jjimdak pages found, no Andong-specific recipe confirmed
+r002	mechoui	only leg, shoulder or oven roasts found, no whole spit-roasted lamb
+r002	alheira	only a sausage-maker site with no named cook found, not a known publication
+r006	mao-xue-wang	no trustworthy recipe page found in two searches
+r007	pizza-prosciutto-e-funghi	no full recipe page confirmed after two searches
+r007	fugu	restaurant-only dish, not cooked at home from a recipe
+r007	sanuki-udon	no full Sanuki-style recipe page confirmed after two searches
+b075	banana-leaf-rice	whole meal of rice and several curries, not one recipe
+b077	brazo-de-gitano	no full plain sponge-roll recipe found after 2 searches and 3 fetches
+b080	kasekrainer	mostly a bought butcher sausage; no named-cook home recipe found
+b080	cheese-on-toast	generic dish; only Welsh rarebit recipes found, a different dish
+b080	lincolnshire-sausage	mostly a bought sausage; no named-cook home recipe found
+b080	kampot-pepper-crab	only unnamed-cook page found, and it uses black not green peppercorns
+b080	samlor-kari	no matching recipe found; only related curries and sour soups
+b081	boudin-noir	no full recipe from a named cook or known publication found
+b081	mtsvadi	only an unnamed-cook blog page found; no trustworthy source
+b083	tumpeng	whole meal set, not a single recipe
+b085	kabab-soltani	no full recipe page found for this combination plate
+b086	kuay-jap	no full recipe for this dish found in two searches
+b089	honey-bun	no named cook or known publication on the only usable page; brand-style snack
+b086	kung-chae-nam-pla	dropped by lead: related prawn salad, not the dish
+b093	dry-pot-chicken	no full recipe found; closest hits were a news feature and a different dish
+b094	zha-cai	preserved vegetable sold as a bought ingredient, not a home-cooked dish
+b096	sadya	whole feast, not a single recipe
+b097	edomae-sushi	no trustworthy home recipe found for cured-fish Edomae style
+b097	kake-udon	rejected: url already used
+b098	teishoku	whole meal set, not a single recipe
+b099	sajji	no full recipe found; results were news and history pieces
+b100	tallarin-saltado	only full recipe found was a chicken version, not beef
+b100	pastelillos	only full recipe found was titled empanadillas, not pastelillos
+b100	chistorra	bought sausage, not a dish made from a recipe
+b101	peanut-ice-cream-roll	best match uses fried milk buns, not the crepe roll
+b101	small-sausage-in-large-sausage	no full home recipe found in two searches
+b102	full-scottish-breakfast	whole meal, not a single recipe
+b103	soy-sauce-chow-mein	rejected: url already used
+b106	bakmi	rejected: url already used
+b106	cap-cay	no trustworthy full recipe from a known publication after 2 searches
+b106	es-campur	only paywalled or unknown-blog recipes found
+b106	sate-kambing	no full goat satay recipe from a known publication after 2 searches
+b106	semur	no full recipe from a known publication after 2 searches
+b107	israeli-breakfast	a whole meal spread, not one recipe
+b108	speck-alto-adige	cured ham bought from producers, not a home-cooked recipe
+b108	haejang-guk	no full recipe for the ox-blood version found; only a bone-broth variant or a paywalled page
+b109	cecina	cured beef sold as a product; no trustworthy home recipe found
+b110	salty-liquorice	no trustworthy recipe found; mostly a bought confection
+b111	tosta-mista	no trustworthy full recipe found in two searches; sources were articles or brand pages
+b111	salchichon	home-cured charcuterie, normally bought; not a typical home-cooked recipe
+b114	dry-fried-shredded-beef	best match was a sliced dry-fried beef, not shredded; no better page found
+b114	buddha-bowl	a whole meal built from a template, not one recipe
+b116	tater-tot-hotdish	rejected: url already used
+b119	beyaynetu	a whole meal (platter of several stews), not one recipe
+b119	nata-de-coco	bought as a packaged ingredient, not a recipe cooked at home
+b120	oeufs-mayonnaise	rejected: url already used
+b120	blutwurst	charcuterie product, mostly bought; no trusted home recipe found
+b121	kokkinisto	no trustworthy full recipe confirmed; braise with wine not shown on pages checked
+b121	hungarian-salami	matched pages were smoked and dried but not mold-ripened or pork-only
+b123	bint-al-sahn	only user-posted recipe found on a community platform; no trusted publication
+b123	breakfast-roll	no trustworthy recipe page; only a retailer page and a Wikipedia entry turned up
+b124	bottarga	plain cured roe ingredient, bought not cooked from a recipe
+b125	kamaboko	mostly a factory-made product, not a dish cooked at home
+b125	shichimi-togarashi	a bought spice blend, not a home-cooked dish
+b126	keropok-lekor	commercial snack sold ready-made; no home recipe found
+b126	nasi-dagang	no full recipe page found in two searches
+b129	bundnerfleisch	bought cured meat product; no home recipe found
+b129	st-galler-bratwurst	protected butcher sausage; no trustworthy home recipe found
+b130	goong-pao	no trustworthy grilled river prawn recipe found
+b130	luk-chin-ping	no grilled meatball skewer recipe found; hits were other dishes
+b130	pismaniye	no trustworthy homemade recipe found
+b131	attieke	bought staple; only a weak home recipe source found
+lead	lomo-embuchado	dropped by lead: smoked, not air-dried
+lead	borodinsky-bread	dropped by lead: home take, not classic
+lead	ovos-moles	dropped by lead: content-farm source
+lead	batagor	dropped by lead: chicken, not fish
+b132	chuchvara	no trustworthy full recipe page found in two searches
+b132	sabzi-challow	only a spinach and lamb curry without rice found; not the same dish
+b132	beijing-beef	only a Panda Express copycat found; chain menu item
+b133	combination-plate	a whole meal, not a single recipe
+b133	conversation-hearts	brand product, bought not made at home
+b135	gumdrops	commercial candy, bought rather than cooked from a recipe
+b135	meat-and-three	a whole meal, not a single recipe
+b136	pig-roast	whole-hog roast is a gathering, not a recipe dish
+b136	pu-pu-platter	assorted appetizer tray is a meal spread, not one recipe
+b140	prsut	cured ham is bought, not made from a home recipe
+b141	bobo-de-camarao	no trustworthy recipe page found; fetches of candidate pages failed
+b141	escondidinho	no trustworthy recipe page found; candidate pages were user-submitted or failed to open
+b141	misto-quente	no trustworthy recipe page found; candidate pages were aggregators or failed to open
+b142	butterscotch	no named cook or known publication among results, only aggregators and community posts
+b142	chipolata	results are retail product pages, no home recipe found
+b142	english-mustard	only general mustard page found, not English mustard specifically
+b142	rich-tea	only a tea company blog and community recipe found, loose match
+b143	saveloy	only supplier and forum pages found, no trustworthy recipe
+b143	fried-tarantulas	only news and travel pages found, no recipe
+b143	samlor-machu	only beef or generic pages found, no trustworthy fish recipe
+b143	ketchup-chips	bought snack brand product, not a home recipe
+b144	chinese-sesame-paste	bought condiment sold ready-made, not a dish cooked from a recipe
+b144	douchi	bought fermented ingredient, not a dish cooked from a recipe
+b145	fermented-bean-curd	only ingredient guides found, no full recipe
+b145	goubuli-baozi	only generic baozi recipes found, none for Goubuli
+b145	guilinggao	recipe page lists conflicting water amounts (2000 g vs 4 kg)
+b146	sai-mai-lo	no matching recipe found in two searches; hits were mango sago, a different dish
+b146	suan-cai	only loose matches found (a sour cabbage stew), no recipe for the pickle itself
+b146	sugar-roasted-chestnuts	no trustworthy recipe found in two searches and one fetch
+b147	teochew-beef-balls	no trustworthy full recipe found in two searches
+b148	obleas	no full obleas recipe confirmed; only loose matches found
+b149	bagoong	only blog pages found; no trustworthy source for a homemade paste
+b149	fishball-filipino	page names no cook or publication; source unclear
+b151	matjes	cured herring bought as a finished product, not a home-cooked recipe
+b152	greek-yogurt-with-honey	plain bought ingredients assembled, no recipe to cook
+b155	culatello	cured meat bought from producers, not a dish cooked at home from a recipe
+b156	finocchiona	no cook or publication name on the page
+b156	lardo-di-colonnata	bought cured product, not a home-cooked recipe
+b157	ekiben	boxed meal sold at railway stations, a whole meal not cooked from a recipe at home
+b158	osechi	whole New Year meal set, not a single dish cooked from one recipe
+b159	dak-hanmari	searches returned only dakgomtang and samgyetang, no dak-hanmari recipe
+b159	dosirak	a packed meal, not a single recipe
+b159	hodu-gwaja	no fetched page had a full ingredient list and method
+b160	kaipen	No written home recipe found; the method appears only in a video
+b160	khao-lam	Only coconut-shell oven versions found, not Lao bamboo-roasted rice
+b161	economy-rice	a hawker meal built from a display, not one home recipe
+b161	lemang	no full recipe found; pages checked were a bare method intro and a travel post
+b162	tacos-de-guisado	category of many home stews, no single recipe
+b162	boodog	whole-animal hot-stone dish, not a home recipe; no trustworthy recipe found
+b163	poronkaristys	no full recipe from a trusted source found after two searches
+b165	presunto	cured ham made by producers, not a home-cooked recipe
+b167	pig-s-blood-cake	no full recipe by a named cook found; only encyclopedia and loose pages
+b167	tainan-beef-soup	results were restaurant pages and beef noodle soup, no matching recipe
+b167	taiwanese-grilled-squid	no Taiwanese grilled squid recipe by a named cook found
+b167	wheel-pie	only Japanese imagawayaki matches found; loose fit
+b167	kaeng-lueang	results were sour kaeng som or plain yellow curry; loose fit
+b168	bal-kaymak	served as bought kaymak with honey, not a home recipe
+b168	kofte-ekmek	no trustworthy full recipe found in two searches
+b168	yogurtlu-kebab	only full recipe found has no cook or title on the page
+b169	nem-chua	only beef or cooked-ham versions turned up; no raw-pork recipe confirmed
+b169	kenkey	no full recipe with ingredients confirmed; fetched pages were intro or had no ingredient list
+lead	tamago-kake-gohan	dropped by lead: url truncated
+lead	carne-de-porco-a-alentejana	dropped by lead: Food52 community recipe
+lead	bolo-rei	dropped by lead: Food52 community recipe
+lead	nasi-kandar	dropped by lead: Slurrp aggregator
+lead	mutabbaq	dropped by lead: Slurrp aggregator
+lead	kepiting-saus-padang	dropped by lead: Slurrp aggregator
+lead	soan-papdi	dropped by lead: content-farm site
+lead	alaska-roll	dropped by lead: content-farm site
+lead	saltah	dropped by lead: Flavor365
+lead	tehari	dropped by lead: Flavor365
+b170	chinese-walnut-cookies	only butter versions found; lard not used in the pages opened
+b170	donkey-burger	no donkey recipe found; rou jia mo pages opened use lamb or pork
+b171	kazy	no full recipe found in two searches; pages found lacked ingredients or steps
+b171	cottage-fries	only roasted or diner home-fries versions found; no fried cottage fries recipe
+b172	pork-roll	bought processed meat product, not made from a recipe
+b173	trout-amandine	rejected: url already used
+b174	boulets-a-la-liegeoise	no full recipe found; Milk Street pages paywalled or lack ingredients and steps
+b175	shwe-yin-aye	no trustworthy full recipe page found
+b176	tajadas	No full recipe for thin fried plantain found; one tips article, one ripe-plantain recipe (loose match)
+b177	gaifan	generic rice-plate category; no trusted recipe for rice with stir-fry topping found
+b177	haw-flakes	packaged snack; no trusted home recipe found
+b177	jinhua-ham	bought cured ham, not a home-cooked recipe
+b177	poon-choi	a whole feast, not a single home recipe
+b178	bocadillo	guava paste bar is a bought product, not a home-cooked recipe
+b178	prazska-sunka	protected brand-name cured ham, bought not made at home
+b180	cornichons	plain bought ingredient, not a home-cooked recipe
+b181	westphalian-ham	plain cured ham, bought not made
+b182	csabai-kolbasz	only a general sausage page with no named cook; loose match
+b184	tahu-isi	only meat-filled tahu isi found; no vegetable-filled recipe from a trusted source
+b184	agnolotti-del-plin	rejected: url already used
+b186	konpeito	factory-made confection, not cooked at home from a recipe
+b187	yuzu-kosho	no full recipe found on trusted pages; only an info page
+b187	potato-kugel	rejected: url already used
+b187	dakbal	only a reader forum thread found, no trusted publication recipe
+b187	dongnae-pajeon	only community-posted recipes found, none trusted
+b188	makchang-gui	no full recipe found in two searches
+b188	makguksu	only loose matches; noodle salad, not Chuncheon chilled broth
+b188	sundae-gukbap	only loose match (blood sausage soup page); rice not confirmed
+b189	mashawi	mixed grill platter is a whole meal; no trustworthy single recipe found
+b190	escamoles	no full recipe for this preparation found; results were loose matches
+b190	falukorv	mass-produced sausage that is bought, not made from a recipe
+b190	julbord	whole holiday meal, not a single recipe
+b192	pierniki	no full Torun gingerbread recipe confirmed on an allowed site after two searches
+b194	flame-grilled-beef-cubes	no full home recipe found in two searches, only restaurant and travel pages
+b194	khao-na-pet	no full recipe found; search returned an article and unrelated duck dishes
+b194	kuay-teow-nuea-pueay	only cookbook paywall page or a different dish (boat noodles) found
+b194	pla-sam-rot	no match for this dish in two searches; closest hits were a different fish dish
+b194	khao-kluk-kapi	not returned
+b195	kavurma	no clear recipe found; results were sac kavurma variants only
+b195	chao-ga	rejected: url already used
+b196	yunnan-flower-cakes	no named cook on the brand or user-submitted recipe pages found
+b197	mesano-meso	mixed grill platter of several meats, a whole meal rather than one recipe
+b198	mitraillette	street-food sandwich assembled from a friterie, a whole meal rather than a home recipe
+b198	mixed-grill	a whole meal of several grilled meats, not a single recipe
+b199	boodle-fight	communal feast laid out on banana leaves, a whole meal rather than one recipe
+b200	isaw	no full recipe with ingredient list found in 2 searches and 3 fetches
+b200	tosilog	whole meal (cured pork, garlic rice and egg), not a single recipe
+b201	jambon-de-paris	bought deli ham, not a home-cooked recipe
+b201	tartine	generic open sandwich, no single recipe to match
+b202	shotis-puri	no full recipe found in two searches
+b203	bakpia	no trustworthy full recipe page found in two searches
+b203	bika-ambon	only a shopping-site recipe page found; excluded
+b205	pizza-ai-frutti-di-mare	only full recipe found was an oven maker's blog with no named cook
+b206	negitoro-maki	lead: page had no title or cook
+b207	wanko-soba	served as a dining format at restaurants, no home recipe found
+b207	haemuljjim	two searches found no haemuljjim recipe page
+b207	jangeo-gui	mostly restaurant-grilled item, no trustworthy home recipe found
+b208	ping-pa	no trustworthy full recipe found in two searches
+b208	baharat	spice blend, an ingredient rather than a cooked dish
+lead	punschkrapfen	dropped by lead: staging URL
+b209	japanese-peanuts	no recipe page found; mostly a bought snack
+b209	aaruul	no full recipe with ingredients found
+b209	choila	no trustworthy buffalo choila recipe found
+b209	kraftskiva	a whole crayfish feast, an event rather than one recipe
+b210	kabab-bakhtiari	no trustworthy full recipe found in two searches
+b212	salt-water-chicken	no Taiwanese salt water chicken recipe found; results were only Cantonese white cut chicken
+b213	etli-ekmek	only full recipe found is a tourism ministry page, not a food publication
+b213	midye-tava	rejected: blocked site
+b213	ic-pilav	candidates were a personal blog with no liver, or a government page
+b214	banh-can	no full recipe page found in two searches
+b214	mam-tom	condiment usually bought as a finished product, not a cooked dish
+b218	peanut-butter-bars	no page with chewy bars and chocolate topping confirmed with a named cook
+b220	smithfield-ham	brand-made cured ham, bought not cooked from a recipe
+b222	goiabada	guava paste is a bought ingredient, not a home-cooked dish from a recipe
+b222	pave	no trustworthy recipe with a named cook or publication found
+b222	romeu-e-julieta	two bought ingredients assembled, no trustworthy recipe found
+b222	torresmo	no trustworthy Brazilian recipe page found
+b224	coconut-pudding	no layered coconut jelly recipe by a named cook found
+b224	crystal-shrimp	only Longjing tea shrimp recipes found, a different dish
+b224	dezhou-braised-chicken	only encyclopedia and travel pages found, no home recipe
+b225	kao-lengmian	no full recipe from a named cook or publication turned up in two searches
+b225	lotus-seed-buns	lead: page had no cook or site name
+b225	lou-fo-tong	closest result was a pork radish old-fire soup, not a herbal lou fo tong
+b225	mijian	candied fruit is a shop-bought preserve, not a home recipe
+b226	siu-mei-platter	assembled platter of several roast meats, not one recipe
+b226	snake-soup	no trustworthy full recipe found; results were spam or restaurant pages
+b227	sui-kau	no full recipe by a named cook found for this Hong Kong dumpling after two searches
+b227	fritanga	a platter of mixed fried foods, a whole meal rather than one recipe
+b230	arare	bought snack; no home recipe found in search
+b230	kaki-no-tane	brand product, bought not made
+b230	makunouchi-bento	no makunouchi recipe found; only a teriyaki salmon bento
+b231	beondegi	usually bought ready-steamed from vendors; no trustworthy home recipe found
+b232	guriltai-shol	checked top results: squid-titled page mismatched, other match a Zabaikal-style loose variant
+b232	tsampa	roasted barley flour is a bought plain ingredient, not a recipe dish
+b234	a-gei	no matching full recipe found in two searches
+b234	cuttlefish-thick-soup	no matching full recipe found in two searches
+b234	iron-eggs	only a paywalled Lu Dan page with no steps; no other match in two searches
+b235	griessnockerlsuppe	only a dumpling recipe found; no soup recipe with ingredients and steps confirmed
+b236	stornoway-black-pudding	bought product, not a home-cooked recipe
+b236	a-kyaw	no trustworthy recipe for the assorted fritter dish; results were single-type fritters
+b236	meeshay	only full recipe found was on a low-profile aggregator-style site
+b237	trey-ang	no trustworthy grilled trey ang recipe found in two searches; closest hits were Burmese or fried fish
+b237	olla-de-carne	Howler Magazine page lacks measurements and steps; no other full recipe found in two searches
+b237	torrejas	only full recipe found has no named cook or site and is Mexican-style; no Central American match in two searches
+b238	garlic-grilled-oysters	no full recipe for garlic oysters with vermicelli from a named cook or publication; results were community recipe sites and a different dish
+b239	longsilog	whole breakfast meal (longganisa, rice and egg), not one recipe
+b239	sorbetes	no trustworthy named-cook recipe found; only community or unnamed blog pages
+b240	dragees	only chocolate-coated or community recipes found; no sugar-coated almond recipe from a named cook or publication
+b240	fleischwurst	only hobby sausage-making site found; no named cook or food publication
+b242	dodol	only full recipe found was on Flavor365, excluded
+b242	nasi-kucing	street-stall rice packet, not a home recipe
+b242	soto-madura	no full recipe from a named cook or publication found in two searches
+b242	tahu-sumedang	no full recipe page found in two searches
+b243	luganega	sausage is a bought product; no trustworthy home recipe found
+b245	ikayaki	no full recipe with a named cook or publication found in two searches
+b245	kagami-mochi	New Year display piece; search found only plain mochi recipes
+b245	kishimen	two searches gave no full recipe for this dish
+b245	nagashi-somen	an event (flume serving), not a recipe dish
+b245	wantanmen	two searches returned Cantonese or Malaysian wonton noodles, not wantanmen
+b245	boribap	two searches returned bibimbap pages, not a barley boribap recipe
+b246	gopchang-jeongol	no full recipe from a trusted cook or publication found in two searches
+b246	hanjeongsik	a whole multi-course meal, not a single home recipe
+b246	milmyeon	no recipe specific to milmyeon found; results were naengmyeon or restaurant pages
+b247	mul-mandu	no full boiled mul-mandu recipe found; only general mandu pages
+b247	suwon-galbi	only marinated galbi found; no salt-seasoned Suwon version
+b248	fish-soup-bee-hoon	no full recipe with steps found in two searches; opened pages had none
+b248	lok-lok	no home recipe found in two searches; results were restaurant or product pages
+b248	roti-tisu	no full written recipe found; Ruyi page gives method only in a video
+b251	jigar	page found was truncated, full recipe not confirmed
+b251	seco-de-cabrito	only a regional Ecuadorian goat stew found, not Peruvian
+b251	crab-stick-salad	Russian crab salad found, corn and rice not confirmed in the version opened
+b253	chingrit-thot	no full recipe page found in two searches
+b253	kaeng-khae	no full recipe page found in two searches
+b253	pla-ra	fermented condiment; no full recipe page found in two searches
+b253	sukhothai-noodles	no full recipe from a named cook or publication found in two searches
+b255	oc-xao	no stir-fried snail recipe found in two searches; results were steamed or unrelated
+b255	ciba	no trustworthy ciba recipe found in two searches
+b255	curry-beef-brisket	two Hong Kong curry beef pages checked used stew meat or chuck, not brisket
+b255	afghan-burger	only a recipe video page and a community recipe site turned up
+b256	kuurdak	only beef blog version found, no offal recipe
+b256	norin	found norin with horse sausage, but serving temperature not cold
+b256	almond-chicken	no battered version found; cooked page was seared thighs
+b256	chicken-maryland	only a tourism-site page and an essay found; no clean recipe
+b258	bife-a-caballo	only fetched page was a grilled steak with chimichurri eggs, sausage and garlic toast; no clean match, other sources blocked
+b259	picada	assembled snack board of bought items; no full recipe found
+b259	mohr-im-hemd	opened page is a different cake under its own title; no clear full recipe match
+b259	komplet-lepinja	bakery street-food sandwich; no trustworthy full recipe found
+b260	srpska-salata	only sopska salata with feta or encyclopedia pages turned up, no loose-free match
+b260	rui-macher-kalia	matches were katla-based or not kalia; no rohu kalia recipe page found
+b261	cuberdon	commercial candy sold as a brand product, not cooked from a home recipe
+b262	arbroath-smokie	bought smoked fish; no full recipe for the dish itself found
+b263	kyar-zan-hinga	no trustworthy full recipe found in two searches
+b263	mont-lin-maya	no trustworthy full recipe found in two searches
+b263	wet-tha-doke-htoe	no trustworthy full recipe found in two searches
+b263	chha-kh-nhei	only loose matches found (mushroom variant or paywalled page)
+b263	nhoam-svay	only loose match found (Thai-style smoked trout salad)
+b264	cook-up-rice	no full recipe with the meats and coconut found in two searches
+b264	barros-jarpa	sandwich assembly with no real recipe method found; only wiki and cookpad pages
+b265	changsha-rice-noodles	no home recipe page found in two searches
+b265	drunken-shrimp	no live-shrimp recipe found; only cooked or loose versions
+b265	ningbo-tangyuan	only generic black sesame tangyuan found, not Ningbo style
+b266	savory-soy-milk	only a plain soy milk and youtiao page found, no curdled savory version
+b266	stuffed-three-treasures	only a yong tau foo page found, with no eggplant or pepper
+b266	sweet-bean-sauce	bought condiment, not a home-cooked recipe
+b266	wuchang-fish	no trustworthy full recipe by a named cook or publication found
+b267	bariis-iskukaris	no meat-based iskukaris recipe found on trusted pages; top hit is a vegan bariis
+b267	fesikh	only home-method page found warns against home fermenting; not a safe home recipe
+b269	mesclun	bought salad mix, not a dish cooked from a recipe
+b269	rosette-de-lyon	commercial dry-cured sausage; no trustworthy home recipe found
+b269	saucisse-de-strasbourg	no trustworthy recipe by a named cook or publication found
+b269	piti	no trustworthy recipe by a named cook or publication found
+b272	kadhi-chawal	only kadhi pakora pages found, no kadhi chawal recipe
+b272	poriyal	poriyal is a category of vegetable dishes, no single trustworthy recipe
+b273	cilok	no named-cook or publication recipe found in two searches
+b273	empal-gepuk	no named-cook or publication recipe found in two searches
+b273	emping	mostly a bought snack; only a garlic variant with unclear byline found
+b273	es-pisang-ijo	no named-cook or publication recipe found in two searches
+b273	getuk	no named-cook or publication recipe found in two searches
+b273	nasi-timbel	no named-cook or publication recipe found in two searches
+b274	shafut	no trustworthy recipe page found in two searches
+b276	colatura-di-alici	bought condiment (fish sauce), not a home-made recipe
+b276	cuscus-alla-trapanese	only an aggregator reprint of a Guardian recipe found; no direct publication page
+b276	gianduiotto	bought confection; no home recipe found
+b277	battera	no trustworthy recipe page for battera found; only loose matches
+b277	cream-korokke	rejected: url already used
+b278	horumonyaki	restaurant offal grill, no trustworthy home recipe found
+b278	kushiyaki	category term for grilled skewers, not one dish
+b278	momiji-manju	confection, no trustworthy home recipe found
+b278	mori-soba	rejected: url already used
+b278	nama-yatsuhashi	rejected: url already used
+b278	narezushi	no full recipe from a named cook or publication found
+b278	narutomaki	bought fish cake product, not made at home
+lead	jjolmyeon	dropped by lead: truncated url
+b279	nerikiri	MasterClass page has no named cook and is not a food publication
+b279	shijimi-jiru	no trustworthy recipe found in two searches
+b279	10-won-bread	no trustworthy recipe found in two searches
+b280	chueotang	no full recipe by a named cook or publication found; only community and wiki pages
+b280	gat-kimchi	only a Maangchi page with no ingredient list; other results are community posts
+b280	hoe-naengmyeon	no full recipe by a named cook or publication found
+b280	hwangnam-ppang	no full recipe by a named cook or publication found; only community and wiki pages
+b281	saeu-jeot	bought preserved ingredient, not a cooked dish
+b281	samhap	no full recipe for the dish found on opened pages
+b281	sinseollo	no full recipe from a named cook or publication found
+b281	wang-mandu	no full recipe for pork wang-mandu found
+b281	yugwa	no full recipe found; results were for yakgwa
+b281	tom-padaek	no full recipe found
+b282	zarb	no trustworthy full recipe found in two searches
+b283	sup-tulang	fetched recipe uses beef bones, not mutton, so not a match
+b285	hangikjot	only named author is a blog handle; no named cook or known publication
+b286	chakhchoukha	no trustworthy lamb recipe found; only chicken or unattributed pages
+b287	choclo-con-queso	no full recipe from a named cook or known publication found
+b289	napolitana	two searches found only mille-feuille or unrelated pages, no trustworthy napolitana recipe
+b290	meringue-double-creme	no full recipe with Gruyere double creme found; recipe pages checked had none
+b291	hsinchu-pork-balls	no full recipe for the clear-soup version found in two searches
+b291	kaeng-khua-sapparot	best full recipe found (Hot Thai Kitchen) uses no turmeric; loose match
+b291	khao-yam	pages found had no budu dressing and no matching named recipe
+b291	roti-sai-mai	no full recipe by a named cook found in two searches
+b291	thong-yip	no trustworthy full recipe found in two searches
+b291	tom-khlong	best full recipe found is a leftover-turkey version; loose match
+b292	karisik-izgara	mixed platter of several dishes, a whole meal rather than one recipe
+b293	banh-mi-que	only a news article found, no full recipe
+b293	banh-it	only unwrapped tran versions found, not banana-leaf
+b293	keo-dua	no full home recipe for the Ben Tre candy found
+b293	vit-quay	method thin and mostly video, full recipe not confirmed
+b295	blue-plate-special	a diner meal of the day, not one recipe
+b296	eggplant-casserole	only matches had no named cook or publication, or were tomato bakes
+b296	fried-bologna-sandwich	rejected: url already used
+b297	lebanon-bologna	commercial cured meat, bought not cooked from a recipe
+b297	oyster-crackers	packaged cracker product, bought not made from a recipe
+b297	pistachio-pudding	results were pistachio desserts, no match for the instant pudding
+b298	primanti-sandwich	restaurant chain item, not a home recipe
+b298	runza	regional restaurant chain item, not a home recipe
+b298	starlight-mints	brand-made candy, bought rather than cooked at home
+b299	tutti-frutti-ice-cream	no full ice cream recipe with candied fruit from a trusted source found
+b299	kiwi-dip	checked NZ Herald classic kiwi dip; no onion soup mix in it, no other match found
+b299	janjetina-na-raznju	only general spit-lamb recipe found (SBS, Greek-style cook); no Balkan source confirmed
+b300	kalojam	no full recipe with ingredients and steps found after 2 searches
+b300	bolinho-de-aipim	only aggregator or community recipe pages with meat filling found
+b300	prato-feito	a whole meal, not a single recipe dish
+b301	sanduiche-de-mortadela	only loose variants found (canoe-shaped sovado, fried); no thick-style match
+b301	crisp-sandwich	only redirects and a feature article found; no full recipe page opened
+b302	salt-beef-bagel	only a salt beef recipe found, no trustworthy bagel recipe in two searches
+b302	york-ham	bought cured ham, not a home-cooked recipe
+b302	htamin-jin	no trustworthy recipe found, only encyclopedia and index pages
+b302	thayet-chin-thoke	no trustworthy Burmese green mango salad recipe found in two searches
+b303	mariscada	no trustworthy creamy version found; the matches were brothy or unsourced
+b303	longaniza	no trustworthy Chillán longaniza recipe found
+b303	pastel-de-jaiba	no trustworthy pastel de jaiba recipe page found
+b303	curry-squid	no trustworthy Chinese curry squid recipe found
+b303	dalapi	only redirecting or loose-match pages found
+b303	durian-pastry	only choux-style durian puffs found, not flaky pastry
+b304	guoba	no full recipe for the crispy rice snack itself; results were dishes that use guoba
+b304	huoshao	no trustworthy recipe found for huoshao after two searches
+b304	jiaxing-zongzi	only generic zongzi recipes found, none Jiaxing-style
+b304	kaorou	no trustworthy griddle-roasted kaorou recipe found after two searches
+b305	luobo-si-bing	no full recipe for this pastry found in two searches; results were turnip cake
+b305	shandong-jianbing	only Beijing-style jianbing found; no Shandong version
+b306	sugar-painting	craft demonstration; no home recipe page found
+b306	tang-you-baba	only database-style pages found; no trusted cook
+b306	tieguo-dun	no trusted recipe for this version found
+b307	picada-colombiana	shared platter of several grilled meats and sides, a whole meal rather than one recipe
+b307	koprovka	only sauce recipes found; the beef-in-dill dish did not match
+b308	gored-gored	only full recipe found seared the beef, so it is not the raw dish
+b308	tinapa	bought smoked fish, not a dish cooked from a recipe
+b308	tuyo	bought salted dried fish, not a dish cooked from a recipe
+b309	saucisse-de-morteau	bought charcuterie product, not a home recipe
+b309	kupati	no named cook or known publication; only a loose match found
+b309	ojakhuri	no named cook or known publication; only an unknown blog found
+b309	shekerbura	no trustworthy named cook or food publication found
+b312	gujarati-thali	a whole meal of many dishes, not one recipe
+b313	wazwan	a multi-course feast, not a single home recipe
+b314	qeema	no trustworthy full recipe for Ashura chickpea and meat dish; hits were community posts or a stew, not a porridge
+b314	saloona	only match was salonat lahem, a goat and root vegetable stew, not the tomato stew described
+b316	anman	No anman recipe found; matches were tansan manju and anpan
+b316	basashi	Bought raw meat, not a home recipe; nothing trustworthy found
+b316	ebi-senbei	Mostly a bought snack; results were product and encyclopedia pages
+b316	kamaage-udon	No kamaage udon recipe found in two searches; other udon dishes only
+b317	shiokara	no full recipe with ingredient list found; method pages only
+b317	tarako	plain ingredient bought, not made
+b317	ujikintoki	no full recipe with complete ingredient list found
+b318	cup-bap	no trustworthy home recipe found in two searches
+b318	dubu-jjigae	results only showed soft tofu (sundubu) recipes, not firm tofu
+b318	gogi-guksu	only aggregator or unopened cookbook pages found in two searches
+b318	kimchi-bokkeum	results were other dishes (buta kimchi, fried rice, noodles), no matching recipe
+b319	yeot	no recipe page found in two searches; only encyclopedia, news and unrelated recipe pages
+b319	ayam-pansuh	only brand, blog and file-sharing pages found; no trustworthy recipe
+b319	frog-leg-porridge	only restaurant listings and unrelated recipes found in two searches
+b320	serunding	loose match: SBS page titled serunding daging is a dry beef rendang with sticky rice, not a meat floss
+b321	flan-napolitano	rejected: url already used
+b321	tacos-de-sesos	no full recipe found in two searches
+b321	banshtai-shol	only a dumpling recipe from an unknown blog found, no soup recipe
+b321	budaatai-khuurga	only an unnamed-cook niche site page found, not a known publication
+b322	thakali-khana	whole meal set, not a single recipe
+b322	medisterpolse	lead: link is a blog tag page, not the recipe
+b323	chicken-shashlik	no full recipe with method found; Masala TV page had no steps
+b323	gola-ganda	only news and vendor pages found, no trustworthy home recipe
+b324	sekacz	no full recipe found; opened two candidate pages, both were blog posts or roundups
+b324	pastel-de-tentugal	no full recipe found; hits were history pages, video or a different pastry
+b326	berner-platte	whole meal platter of several meats, not a single home recipe
+b327	tamsui-fish-balls	no trustworthy pork-stuffed Tamsui version found in two searches
+b327	tube-rice-pudding	only recipe found is on a grocer's shop site
+b327	ba-mee-pet	no recipe matched the dish in two searches
+b327	khanom-tokyo	only recipe page found has no named cook and its key method comes from a reader comment
+b327	khanom-jeen-nam-prik	no matching recipe found in two searches
+b327	khantoke	a set meal and event, not a single cooked recipe
+b328	khao-rad-kaeng	a whole meal of rice with several curries, not one recipe
+b328	koi-pla	no full recipe for this dish turned up in two searches
+b328	nam-prik-kha	no full recipe for this dish turned up in two searches
+b329	leblebi	roasted chickpea snack is bought, not a home-cooked recipe
+b330	bo-7-mon	whole multi-course restaurant meal, not one home recipe
+b330	bo-bit-tet	rejected: url already used
+b330	bun-xao	no trustworthy match found; hits were other noodle dishes
+b330	com	green rice flakes are a bought specialty ingredient, not a home recipe
+b331	pha-lau	no full recipe found; results were encyclopedia, news and article pages
+b331	poulet-braise	closest match was a Cameroon barbecue chicken, not the same dish
+b331	yangrou-tang	closest match was lamb shank noodle soup, not mutton bone soup
+b331	girde-nan	only articles and a flatbread recipe found; no girde nan recipe
+b332	kolcha	no page for the cardamom and nut cookie; results were rice-flour kulche or generic cardamom cookies
+b332	suoman	no recipe page named suoman; results were laghman noodle dishes
+b333	lexington-style-barbecue	rejected: url already used
+b334	smoked-whitefish	no trustworthy full recipe for hot-smoked whitefish found in two searches
+b334	super-burrito	no recipe with rice and guacamole found in two searches
+b334	morcipan	sandwich built from bought sausage; no trustworthy recipe page found
+b335	chushki-burek	only roasted pepper versions found; no battered fried recipe confirmed
+b335	lukanka	no full home recipe page found in two searches
+b336	suho-meso	cured product made by producers; no trustworthy home recipe found
+b336	shutki-bhuna	no trustworthy full recipe found in results
+b336	angu	only low-quality recipe pages with unclear cook and publication
+b336	bacalhoada	closest results were a different dish (bacalhau a gomes de sa)
+b337	chips-and-gravy	no full recipe found; search returned only poutine and cheese-chip pages
+b338	kendal-mint-cake	brand product, bought not cooked from a recipe
+b338	seaside-rock	no trustworthy recipe found for lettered seaside rock
+b338	kat-kyi-kaik	no trustworthy recipe found, only encyclopedia pages
+b338	mont-di	no trustworthy recipe found, results were mohinga pages
+b338	panthay-khauk-swe	rejected: url already used
+b339	pauk-see	no full recipe page found in two searches
+b339	b-c-roll	only salmon skin roll pages found, none called B.C. roll with a named cook or publication
+b340	milcao	search gave only chapaleles, a different potato bread; no milcao recipe found
+b340	daokou-braised-chicken	no trustworthy home recipe found after two searches
+b341	deep-fried-pork-intestines	only recipe page found names no cook or publication
+b341	ham-and-egg-bun	only matching recipe uses Spam, not ham; loose match
+b341	kaishui-baicai	no trustworthy recipe page found in two searches
+b341	lai-tangyuan	only generic tangyuan recipes found, no Chengdu lai version
+b341	lawei-hezheng	no trustworthy recipe page found in two searches
+b341	ox-tongue-pastry	no trustworthy recipe page found in two searches
+b341	piggy-bun	no trustworthy recipe page found in two searches
+b341	pork-stomach-chicken-soup	only page found is pig stomach soup, chicken not confirmed; loose match
+b342	sanzi	no trustworthy recipe for sanzi found; results were youtiao
+b342	siwawa	no trustworthy recipe for siwawa found
+b342	steamed-pork-with-salted-fish	rejected: url already used
+b342	stir-fried-lotus-root	only pepper or garlic-sauce lotus root recipes found, no vinegar version
+b342	taro-pastry	only a taro mooncake recipe found, not a taro pastry
+b342	thousand-layer-cake	steamed thousand-layer recipes found were incomplete or lacked salted egg
+b342	xiaoguo-mixian	rejected: url already used
+b343	bratislavske-rozky	no full Bratislava-style recipe found; poppy-seed brand page and a paywalled page only
+b344	shekla-tibs	only generic beef or lamb tibs pages found, no clay-pot shekla version
+b345	biscotte	no trustworthy full recipe found in two searches
+b345	galantine	no full recipe opened; search results were videos, encyclopedia entries or off-topic pages
+b345	macedoine-de-legumes	no trustworthy full recipe found in two searches
+b345	chikhirtma	best candidate (Milk Street) is paywalled; no other full recipe found
+b346	brotzeit	assembled platter of bought items, not one recipe
+b346	jagdwurst	charcuterie made with curing equipment; no trustworthy named-cook recipe found
+b346	teewurst	bought charcuterie; no trustworthy named-cook recipe found
+b347	lakerda	no full recipe found; checked pages were a feature story and a paywalled recipe
+b347	crack-seed	mostly a shop-bought snack; no trustworthy home recipe found
+b349	jowar-roti	rejected: url already used
+b350	kerupuk-kulit	no trustworthy home recipe found; mostly a commercial cracker, search results were news or product pages
+b350	areeka	opened pages had no full areeka recipe, only passing mentions
+b353	salame-felino	protected product bought from producers; only a hobby-site home recipe, no cook named
+b354	amanatto	no home recipe found in two searches
+b354	amezaiku	artisan candy craft, no home recipe found
+b354	ankimo	three pages opened, none had an ingredient list
+b354	karashi	bought condiment, not made at home
+b355	mame-daifuku	no match found; checked 2 searches and 3 fetches, pages were red bean or smooth paste fillings, not whole beans
+b355	shirokuma	no recipe found; 2 searches gave only ice cream posts, general kakigori pages and encyclopedia entries
+b356	tsukimi-soba	only a chilled tsukimi soba page found; hot version not confirmed
+b356	bokguk	pufferfish soup is a licensed restaurant dish, not a home recipe
+b356	dakttongjip-bokkeum	no trustworthy full recipe page found in two searches
+b356	gukhwa-ppang	no full recipe page found; results were encyclopedia or shop pages
+b357	hongeo-hoe	no full recipe found in two searches; results were wiki, forum and video pages
+b357	kongbap	generic term; search results were mostly soybean sprout rice, a looser match than a skip
+b357	pat-kalguksu	Maangchi page names no cook or site; no other full recipe found in two searches
+b357	pon	dish is pon pa leum (pounded catfish); the only full recipe page found redirected to an unopened domain
+b360	chanasan-makh	only candidate page gives no ingredient list or steps
+b360	niislel-salad	no trustworthy full recipe page found in two searches
+b361	samay-baji	no full recipe found in two searches; the one candidate page had empty method and ingredient sections
+b362	kateh	no trustworthy full recipe page found; only a travel-site byline and a health-info site turned up
+b365	milk-hoppers	no full recipe for sweet coconut-milk hoppers found; results were other hopper types
+b366	khanom-thuai-talai	no page matched the talai version; hits were other coconut custards
+b366	khao-tom-kui	nothing trustworthy matched the sweet khao tom kui in two searches
+b366	phla-mu	no page for phla mu in two searches; hits were laab and nam tok, other dishes
+b367	yam-naem	only match was the crispy-rice variant (yum naem kao tod), not the plain sour sausage salad
+b367	sucuk-ekmek	sandwich assembly, not a home recipe; found pages were brand or unnamed sites
+b368	canh-cua-rau-day	no trustworthy recipe found; only a brand blog page with a handle byline and no named cook
+b369	com-nieu	no trustworthy full recipe found in two searches
+b369	mut	a category of candied foods for Tet, not one recipe
+b370	huo-bao-yao-hua	no full recipe confirmed; best page cut off before the method ends
+b370	xuanwei-ham	a cured meat product that is bought, not cooked at home from a recipe
+b370	shorlog	no trustworthy shorlog recipe turned up in two searches
+b371	charque	cured meat bought ready-made; searches only surfaced dishes that use it
+b371	pao-na-chapa	no trustworthy full recipe page confirmed; results off-topic or pages failed to open
+b372	hog-s-pudding	no full home recipe found; the Slow Food page is a product description, other hits were Wikipedia or retailers
+b372	bein-mont	no trustworthy full recipe found in two searches; Saveur result was kallappams, not bein mont
+b373	halawa	no Burmese halawa recipe found on a trusted page
+b373	hin-gyo	no Burmese hin gyo recipe found on a trusted page
+b373	hpet-htoke	no Burmese hpet htoke recipe found; results were generic pork dumplings
+b373	hsi-htamin	only loose match was golden sticky rice, and its link redirected off-site, not followed
+b373	shauk-thi-thoke	no citron salad recipe found; pomelo results are a different dish
+b373	mombar	only recipe found poaches the casings from an unknown site; description says fried
+b374	batard	no full recipe for this loaf shape found in 2 searches and 2 pages checked
+b376	potee-auvergnate	no trustworthy Auvergne recipe found; top hits were aggregators or a Savoyard version
+b377	bismarckhering	no full recipe page found in two searches; pages seen were encyclopedia or other-style herring
+b377	butterbrot	an assembled open sandwich, not a recipe to cook
+b377	spargelcremesuppe	recipe pages checked named no cook or publication
+b378	lountza	only source is a tourism-board page with no named cook
+b379	tarhonya	plain bought ingredient; the only full recipe found was a soup that uses it
+b381	mie-jawa	no full recipe page found in two searches; pages checked were background or not recipes
+b381	nasi-kapau	restaurant-style rice meal; no trustworthy home recipe found in two searches
+b381	pallubasa	no trustworthy recipe found in two searches; pages checked were other dishes
+b382	agrodolce	no full recipe for the sauce found; results were onion dishes or articles
+b382	cacciatorini	cured salami, bought rather than cooked from a recipe
+b382	ciauscolo	spreadable cured salami, bought rather than cooked from a recipe
+b383	cuoppo	a mixed street-food assortment served in a cone, not one recipe
+b384	passato-di-verdure	no full recipe from a trusted source found; pages checked were not a puree soup
+b384	ravioli-capresi	only loose matches found (Caprese-style ravioli with pecorino, no caciotta); no Capri recipe confirmed
+b385	tortano	only a news article with a video; no full home recipe found
+b385	ventricina	search returned only commercial salami; no trustworthy home recipe
+b386	tatsuta-age	no full recipe with a named cook or publication confirmed; paywalled or unnamed author
+b387	gwamegi	Dried fish made by producers and bought, not cooked from a home recipe
+b387	jeolpyeon	No trustworthy full recipe found in two searches
+b387	jeonbokjjim	No trustworthy full recipe found in two searches; results were abalone porridge
+b387	jeungpyeon	No trustworthy full recipe found in two searches
+b387	jwipo	Packaged dried snack, bought rather than cooked from a recipe
+b387	morkovcha	rejected: url already used
+b388	palbochae	no full recipe from a named cook or publication found
+b388	ulmyeon	only encyclopedia and loose noodle matches found
+b388	yangjangpi	no full recipe from a named cook or publication found
+b389	laksam	no full recipe confirmed; Asian Inspirations page had no ingredients list
+b389	satay-bee-hoon	recipe pages found had no ingredients or method
+b389	burrito-percheron	no recipe for the Sonoran burro percheron found in two searches
+b390	gusanos-de-maguey	no trustworthy full recipe found in two searches
+b391	polkagris	regional candy made in factories; no home recipe found
+b392	koloocheh	no trustworthy full recipe found after two searches
+b393	taftoon	rejected: url already used
+b393	stroganina	no trustworthy recipe page found in two searches
+b394	mojama	cured fish bought as a product, not cooked from a recipe
+b394	parrillada-de-marisco	only match was a tourism-board fish and shellfish page, a loose match
+b394	picos	no recipe page found in two searches; results were shops and articles
+b395	tortell	Only Catalan tortell de reis found; fetched page leaves filling open, marzipan not confirmed
+b395	saucisson-vaudois	Protected regional sausage, normally bought; no trustworthy home recipe found
+b395	kaeng-om	Only loose matches; fetched page is a Northeastern herb soup, not a northern curry
+b395	krayasat	No trustworthy recipe found in two searches; only articles and product pages
+b396	nam-prik-pla-ra	no recipe page found in two searches
+b396	nang-kai-thot	closest page names no cook or site as author, only a commenter
+b396	phat-yot-fak-maeo	no Thai recipe page found in two searches
+b396	thong-yot	only a course listing and articles found, no recipe
+b396	tom-luead-moo	closest page is a different pork blood soup, no tofu
+b397	buryan-kebabi	no full büryan recipe from a named cook or publication; pit kebab found was another dish
+lead	kwati	dropped by lead: dev subdomain url
+lead	potjevleesch	dropped by lead: generic listing url
+lead	yam-mu-krop	dropped by lead: blog tag page, not the recipe
+lead	soki-soba	dropped by lead: odd pbs subdomain (dipsy.pbs.org)
+b398	banh-com	no trustworthy recipe page with a named cook found in two searches
+b398	banh-gai	no trustworthy recipe page with a named cook found in two searches
+b398	bun-nuoc-leo	results were news and travel articles; no recipe page found in two searches
+b398	che-khuc-bach	only candidate was a dairy company page with no named cook
+b398	che-thap-cam	no mixed chè recipe found in two searches; results were other chè dishes
+b398	che-trai-cay	results were chè Thái, a different dish; no chè trái cây recipe found
+b398	cha-bo	no recipe page found in two searches
+b398	cha-muc-ha-long	only a news feature found; no recipe page with a named cook
+b399	dua-kieu	no full kieu pickle recipe found; only a shallot recipe and a memoir-style article
+b399	goi-ca-trich	only travel and news features found, no full recipe
+b399	muc-kho-nuong	only a tips article and retailer blogs found, no full recipe
+b399	o-mai	no trustworthy full recipe found
+b399	alabama-style-barbecue	only a white-sauce chicken sandwich recipe found, not the barbecue dish
+b400	candy-pumpkins	brand confection, bought not made; homemade versions were loose matches
+b401	city-ham	bought cured ham product, not a home-cooked recipe
+b403	hog-jowl	only full recipe found was on Flavor365, an excluded source
+b403	hot-hamburger-plate	no full recipe found for an open-faced hamburger patty on bread with gravy
+b403	maple-sugar-candy	recipes found make molded candy from maple syrup, not pressed maple sugar
+b404	pickling-spice	spice blend normally bought, not a cooked dish
+b404	pit-beef	rejected: url already used
+b404	poultry-seasoning	spice blend normally bought, not a cooked dish
+b406	trenton-tomato-pie	no full recipe page found after two searches and one fetch
+b406	bizcochitos-de-grasa	only full recipe found uses butter, not lard; loose match
+b407	boil-up	only roast pork shoulder variant found, not a boil-up with greens
+b407	akhni	only general layered biryani pages found, no Sylheti akhni recipe
+b407	chui-jhal	no beef chui jhal recipe by a named cook or publication found
+b407	puli-pitha	only recipe found was posted under a web design firm byline
+b407	shutki-bhorta	only dried prawn version found, not dried fish
+b408	sarapatel	no trustworthy full recipe found; results were Goan sorpotel or blog variants
+b408	persians	full recipe but no named cook and site unclear
+b408	poutine-rapee	pages opened were an encyclopedia entry and a category listing, not a recipe
+b408	guirila	opened pages were an encyclopedia entry and a category listing, not a recipe
+b408	pio-quinto	opened page had ingredients but no steps; no full recipe found
+b409	baby-bok-choy-in-superior-stock	no recipe for this dish found in two searches
+b409	bazi-rou	no matching recipe for this dish found in two searches
+b410	cantonese-seafood-soup	no trustworthy full recipe found in two searches
+b410	century-egg-salad	fetched page was a stir-fry, not a chili and vinegar salad
+b410	changde-rice-noodles	no page found that names the dish with a recipe and cook
+b410	chaogan	fetched page was a short article, not a full recipe
+b410	chaomian-pian	only loose matches found, no named cook or site
+b411	dan-hong-gao	no full recipe found in two searches
+b411	dan-san	no full recipe found in two searches; matches were other sweets
+b411	drunken-crab	fetched page showed no ingredients or steps; other matches not a known publication
+b411	fresh-bamboo-roll	best match (Saveur fu pi juan) has no bamboo shoot; not a true match
+b411	fuzhou-oyster-cakes	only loose matches found; no confirmed Fuzhou recipe
+b412	hainan-rice-noodles	only Hainanese soup or unrelated noodle dishes found, no match
+b412	ji-gong-bao	lead: key ingredients not confirmed on page
+b412	jiang-bao-ji-ding	only Beijing chicken with walnuts found, not a clean match
+b412	jook-sing-noodles	craft restaurant noodle, no home recipe found
+b412	kao-quanyang	banquet whole-lamb dish, only encyclopedia pages found
+b412	lai-fun	fresh noodle usually bought, only ho fun soup found
+b412	laobing	only baked shaobing found, pan-fried only as an alternative
+b413	luncheon-meat-and-egg-noodles	no exact match; closest page was a generic Hong Kong instant noodle recipe
+b413	maodoufu	no maodoufu recipe found in two searches; results were mapo tofu
+b413	olive-vegetable	no matching recipe found; olive vegetable is mainly a bought condiment
+b413	pipa-duck	only a page without ingredients or steps was found; no full recipe opened
+b414	red-fermented-bean-curd	bought condiment; no full home recipe found
+b414	rousong-bing	only a user contest entry and a loose match found; no trustworthy pastry recipe
+b414	salted-egg-yolk-corn	only a page covering salted duck egg; corn method not confirmed
+b414	shark-fin-dumplings	built on shark fin; no clean home recipe found
+b414	superior-stock-lobster	no recipe found for lobster braised in superior stock
+b414	tangyou-guozi	only tangyuan and sesame ball recipes found; loose match
+b415	teochew-cold-crab	no full recipe with a named cook found in two searches
+b415	teochew-kway-teow-soup	only match was a Singapore chicken-stock soup, not Teochew pork broth
+b415	tujia-jiangxiang-bing	only aggregator pages without a named cook
+b415	tusun-dong	no recipe page found, only travel and food-news pieces
+b415	wanza-mian	Chongqing noodle recipes found have no peas; loose match
+b415	xiang-gan-chao-rou	no page confirmed smoked dried tofu with a named cook
+b415	xiao-huntun	recipes found are chili-oil wontons, not broth; loose match
+b415	yacai	preserved ingredient that is bought, not a home-cooked recipe
+b416	yellow-bean-paste	bought condiment, not a dish cooked from a recipe
+b416	zha-wanzi	no trustworthy Beijing zha wanzi recipe found in two searches
+b416	zhu-jiao-fan	no full recipe for this rice dish found; matches were loose braised pork
+b416	pastel-de-chucho	no trustworthy recipe found in two searches; one result redirected to an unrelated site
+b417	azifa	no full recipe from a trustworthy source; only a spice-brand blog matched
+b417	dulet	matches were an article and a cookbook excerpt without a method
+b417	hurricane-popcorn	matched page is a soy butter popcorn, not the furikake version
+b418	daulat-ki-chaat	no full recipe with ingredients and steps found on trusted sites
+b418	goan-sausage	no trustworthy full recipe for the cured sausage found
+b419	prosciutto-toscano	cured ham sold as a bought product, not a home recipe
+b419	inaniwa-udon	mainly a factory-made dried noodle; no home recipe page found
+b420	karaage-bento	a whole packed meal, not a single recipe
+b420	kuri-manju	no trustworthy recipe found, only personal blogs and community posts
+b420	ningyo-yaki	no recipe found, only shop listings and related cakes
+b420	purin-a-la-mode	only a loose match; the SBS page is a baked Japanese-style creme caramel
+b420	rock-and-roll	no recipe found for this roll name
+b420	shinshu-soba	only generic or regional soba pages, none for Shinshu soba
+b421	wakame-udon	no full recipe with wakame topping found in two searches
+b421	ul-boov	no trustworthy recipe page found; results were encyclopedia, food-magazine or excluded sites
+b421	chairo	only weak recipe pages found, no named cook or known publication
+b422	king-kong	no full recipe page found in two searches
+b422	shambar	only page with steps not found; cooksense page has ingredients in prose and no method
+b422	seswaa	only full recipe found is a community submission with no named cook
+b422	breudher	only recipe found is a non-yeast Christmas cake that never names breudher
+b423	chhau-a-koe	no trustworthy Taiwanese savory mugwort recipe found in two searches
+b423	qozon-kabob	no full recipe page found; results were news items and dish profiles
+b423	shelpek	no named cook or confirmed publication; PDF lead redirected to a homepage
+b424	abara	no recipe page from a named cook or publication; only an unnamed blog found
+b424	arroz-com-pequi	no full recipe from a named cook or publication; broadcaster page would not open
+b426	edinburgh-rock	only match was a recipe-app page with no clear publication and cut-off method
+b426	veal-and-ham-pie	results were recipe-app pages only, no named cook or known publication
+b426	htamane	no full recipe page found in two searches
+b426	fufu-corn	only match was a blog with no named cook or publication
+b426	liboke	only match had no named cook or publication
+b426	riguas	no full recipe from a known publication in two searches
+b427	dalian-huoshao	no full recipe with a named cook or publication found
+b427	xiangyou-shanhu	only full recipes found had no named cook or publication, or an unnamed author
+b427	xihongshi-dun-niunan	only candidates were community posts or used sirloin, not brisket
+b427	yang-za-sui	no trustworthy lamb offal soup recipe found
+b428	hilib-ari	only full recipe found described a stewed version, not roasted; loose match
+b428	mahindi-choma	no trustworthy full recipe found; hits were articles or community posts
+b428	cornick	fetched page had no ingredient list or steps; other hit was baked, not fried
+b429	andouille-de-vire	Bought charcuterie product, not a home recipe; no trustworthy recipe found
+b429	civet-de-sanglier	Only full recipe found sits on a food-shop site; not trustworthy enough
+b430	figatellu	no trustworthy full recipe page found
+b430	lievre-a-la-royale	no trustworthy full recipe page found
+b431	rougail	no page with a named cook or publication and a full recipe found
+b431	sauce-nantua	rejected: url already used
+b431	tarte-au-fromage-blanc	no Alsatian fromage blanc tart page with a named cook found; PBS tart is a loose match
+b432	quarkkeulchen	no trustworthy traditional recipe: opened pages were a sweet potato variant or had no named cook
+b433	schmalzbrot	only a goose-lard spread recipe found, not a bread dish; loose match
+b433	antikristo	search results were travel and news pages, no full recipe found
+b438	i-fu-mie	no full recipe found in two searches
+b438	kue-mangkok	only a roundup crediting Cookpad community posts
+b438	lontong-balap	lead: beef soup version, not the sprout-and-lentho dish
+b438	lontong-cap-go-meh	lead: no quantities on page
+b438	lumpia-basah	Semarang version with shrimp and chicken filling, not the jicama version
+b438	nasi-ambeng	a whole communal meal, not one recipe
+b438	oncom	fermented ingredient bought, not a home-cooked recipe
+b439	fatoot	no full recipe from a trusted source found in two searches
+b440	cassata-gelata	no full frozen cassata recipe found; pages were overviews or sponge-cake cassata
+b440	cioccolato-di-modica	bought chocolate product, not a dish cooked from a recipe
+b440	ciuppin	no full recipe naming ciuppin found; closest page is a related chowder, not confirmed
+b440	coppia-ferrarese	no full Ferrara coppia recipe confirmed; article is not a recipe and the recipe page did not name Ferrara
+b441	iris	no fried Palermo iris recipe confirmed; only a baked-style ricotta pie and an unrelated ciambelle page found
+b441	marubini	only a partial preview behind a paywall; no full method found
+b442	pane-di-matera	no full recipe found in two searches; pages were features or blog posts
+b443	pesto-alla-calabrese	lead: eggplant variant without ricotta, loose match
+b443	risotto-al-gorgonzola	only pear, walnut or tomato-paste variants found; no plain version by a named cook
+b443	risotto-alla-parmigiana	only versions with added onion found; attribution unclear, loose match
+b444	stigghiola	street food sold by vendors; no trustworthy home recipe found
+b445	anago-meshi	no full recipe found in two searches; results were government pages and unagi recipes
+b445	ayu-shioyaki	full recipes found had no named cook or publication, or were a grill retailer's blog
+b445	goheimochi	only full recipe found had no named cook, a loose match
+b445	himono	a bought preserved fish, not a home recipe
+b445	hishi-mochi	no trustworthy full recipe found in two searches
+b445	ikameshi	full recipes found were community posts or a site with no named cook
+b446	juwari-soba	no 100% buckwheat recipe found; recipes opened used wheat flour
+b446	karukan	only a blueberry variant found, not the classic yam cake
+b446	mimiga	only sauced variants found, no plain vinegar version
+b446	monaka-ice-cream	no recipe for ice cream in monaka wafers found
+b447	nikomi-hambagu	rejected: url already used
+b447	nira-reba	no trustworthy full recipe found; only a dog-themed show blog and unnamed pages
+b447	sanratanmen	no full sanratanmen recipe found in search results
+b447	sansai-soba	only vegan adaptation with liquid smoke found, a loose match
+b447	soki	results only gave soki soba noodle dishes and rafute, not braised ribs
+b447	tamago-boro	no trustworthy recipe page found in two searches
+b448	tsunamayo-maki	no recipe for tsunamayo maki found; results were spicy tuna rolls
+b448	wakayama-ramen	only a Marutaka chuka soba clone and generic tonkotsu or shoyu recipes found
+b448	changnan-jeot	bought condiment; no home recipe found
+b449	saeujeot-jjigae	no saeujeot jjigae recipe found; results were roundups and guides
+b449	sultan-ibrahim	no Levantine sultan ibrahim recipe found; results were other fried mullet dishes
+b450	budu	no full recipe found in two searches, only articles and encyclopedia pages
+b450	chicken-rice-balls	only loose matches found, no Malacca chicken rice ball recipe from a trusted source
+b450	cincalok	no trustworthy recipe for the condiment itself found in two searches
+b450	heong-peng	no recipe found; the one candidate was a different flaky pastry
+b450	nasi-briyani-gam	candidate method differs: meat set in a centre hole, not under the rice; no trusted source
+b450	sliced-fish-soup	no sliced fish soup recipe from a trusted publication found in two searches
+b451	caldo-de-piedra	no full recipe found in two searches; only feature stories opened
+b451	caldo-siete-mares	rejected: url already used
+b451	churipo	no clear churipo recipe found in two searches; only chile colorado and blog posts
+b451	enchiladas-regiomontanas	no full recipe found in two searches
+b452	pan-de-huevo	no full recipe found; yolk bread and history post were loose matches
+b452	saladitos	sold as a packaged candy, not made at home
+b453	tacos-de-cazo	no full recipe page found in two searches; results were loose matches
+b453	taas	no full recipe page found in two searches; sources were articles or community posts
+b454	blodpudding	no full recipe on opened pages; a redirect target was not from search results, not followed
+b454	orramatur	whole midwinter platter of many foods, not one dish to cook
+b454	tunisian-tajine	lead: no cheese, loose match
+b455	kabab-bonab	no trustworthy Bonab-specific recipe page found in two searches
+b455	samanu	rejected: url already used
+b455	pasztecik-szczecinski	no recipe page found in two searches
+b455	gandinga	no trustworthy Puerto Rican recipe page found in two searches
+b456	chorizo-de-pamplona	cured sausage product that is bought, not a home-cooked recipe dish
+b458	khanom-farang-kudi-chin	no full recipe with ingredients and steps found in two searches
+b458	khanom-tan	only blog or aggregator recipes found; no trustworthy named source
+b458	nam-prik-khaep-mu	no direct recipe for this dip found in two searches
+b458	nam-prik-kung-siap	no direct recipe for this dip found in two searches
+b459	phla-pla-muek	closest squid salad uses fresh chilli, not roasted chili paste
+b459	pla-nin-tod-samun-phrai	no matching recipe found; results were other fish dishes
+b459	sarim	no full recipe opened; closest page had no ingredient lists
+b459	si-khrong-mu-thot	closest match uses pineapple juice, not tamarind; loose match
+b459	ay-coregi	opened Milk Street page had paywalled recipe, no ingredients visible
+b460	pestil	no full homemade recipe found; the only full recipe used store-bought leather rolled around walnuts
+b460	tahin-pekmez	no full recipe found; the only candidate page was a food feature without steps
+b461	banh-canh-trang-bang	only tourism and news pages found in two searches, no recipe from a named cook
+b461	banh-canh-cha-ca	rejected: url already used
+b461	banh-khoai-mon	no Vietnamese taro cake recipe found in two searches, only a Malaysian steamed taro cake
+b461	banh-que	no trustworthy recipe found in two searches
+b461	bun-sua	only restaurant and travel pages found in two searches
+b462	che-dau-do	results were a Chinese red bean soup and a red bean ice cream; no Vietnamese che found
+b462	cha-ca-nha-trang	results were Hanoi-style cha ca; no Nha Trang recipe found
+b462	dua-hanh	pages found were fried shallots and a cooked spring onion pickle; no match
+b462	lau-de	no full goat hot pot recipe found; only a goat curry and a travel article
+b462	mam-ruoc	fermented krill paste is a bought condiment, not a home-cooked recipe
+b463	pho-kho-gia-lai	only restaurant and regional travel pieces found, no home recipe page
+b463	foutou	only page found covers plantain and cassava, not yam, and names no cook
+b463	kocho	no full recipe page from a trusted source turned up
+b463	gambir	only recipe page found is from an unnamed site with no cook
+b463	kokonte	page covers making the cassava flour only, not the swallow
+b464	bridge-mix	bought candy product, not a home recipe
+b464	buffalo-style-pizza	no trustworthy full recipe found in two searches
+b465	concrete	restaurant chain menu item (Culver's, Steak n Shake style), not a home recipe
+b465	cranberry-salad	no trustworthy chopped-cranberry recipe found; the molded gelatin version did not match
+b466	fat-sandwich	brand-owned recipe page for a regional sandwich; no publication recipe found
+b467	jumbo-slice	oversized pizzeria slice, not a home recipe; search gave only generic New York-style pizza
+b467	maryland-crab-feast	a whole meal or event, not a single recipe
+b468	oyster-roast	event, not a home recipe
+b468	pistolette	no full recipe from a trusted source found in two searches
+b469	root-beer-barrels	brand product (Dad's), bought not made
+b469	slinger	no trustworthy full recipe page found in two searches
+b470	beirute	no trustworthy full recipe page found in two searches
+b471	quibebe	only aggregator recipe pages found in two searches
+b471	tucupi	ingredient broth, usually bought; no home recipe found
+b472	loso-na-madesu	no trustworthy full recipe found in two searches; only a loose bean-stew match
+b472	sopa-borracha	lead: cake form not confirmed on page
+b472	baijimo	no baijimo flatbread recipe found; only roujiamo filling pages turned up
+b472	bairou-xuechang	pages found left out blood sausage or lacked quantities; loose match
+b473	century-egg-pastry	recipe page cut off partway, full method not confirmed
+b473	chai-poh	bought ingredient, not a dish cooked from a recipe
+b473	cong-shao-jiyu	versions found use other fish, not crucian carp
+b473	crystal-cake	no trustworthy full recipe found in two searches
+b473	ding-ding-tong	candidate recipe page would not open
+b473	dongpo-pork-knuckle	only recipe found uses pork shoulder steak, not knuckle
+b473	dragon-beard-noodles	only general hand-pulled noodle recipes found, not ultra-thin dragon beard
+b474	feichang-fen	no full recipe by a named cook or publication found; only a university description page
+b474	gai-zai-beng	recipe page names no cook or publication; not used
+b474	gun-tong-gau	no trustworthy recipe found for this dish
+b474	guo-you-rou	rejected: url already used
+b474	guobacai	no trustworthy recipe found for this dish
+b474	hongmen-yangrou	no page for this dish found; only generic red-braised lamb
+b475	hulu-ji	no trustworthy full recipe found in two searches
+b475	jiangshui-noodles	no full recipe from a named cook or publication found
+b475	jinggao	results were nian gao or red date cakes, not jinggao
+b475	kao-mianjin	no full recipe from a named cook or publication found
+b475	la-niurou-jiamo	no full recipe from a named cook or publication found
+b475	macanese-curry-crab	no Macanese-specific recipe from a named cook found
+b476	nailao	no full recipe found in two searches; results were encyclopedia pages or other milk puddings
+b476	orange-cuttlefish	no full recipe from a trusted source in two searches
+b476	paigu-dun-doujiao	only loose matches in two searches (potato versions or other stews)
+b476	pian-erchuan	no trusted full recipe in two searches
+b476	qianceng-bing	only loose matches in two searches (scallion pancakes, a different dish)
+b476	qingtang-wanzi	no trusted full recipe in two searches; results were lion's head or unrelated
+b476	rouyan	no trusted full recipe in two searches; results were encyclopedia pages
+b477	san-da-pao	no full recipe page found in two searches
+b477	spicy-duck-tongues	only a user-submitted recipe found, not a trustworthy source
+b477	su-ji	no tofu-skin su ji recipe by a named cook found in two searches
+b477	suan-cai-hot-pot	no hot pot recipe from a trustworthy source found in two searches
+b477	teochew-fried-tofu	no recipe with a chive dip found in two searches
+b478	teochew-marinated-raw-crab	only user-submitted recipe pages matched
+b478	tong-bat-lat	only generic glutinous rice ball recipes found, no match
+b478	tong-chung-beng	only dadar gulung and kuih matches, not this dish
+b478	waipo-cai	no matching recipe found in two searches
+b478	white-cloud-phoenix-claws	only user-submitted recipe pages matched
+b478	wotou	only user-submitted recipe pages matched
+b478	xiangxi-sour-meat	no matching recipe found in two searches
+b478	xue-cai	bought preserved ingredient, not a dish made from a recipe
+b478	xuyi-crayfish	only user-submitted recipe pages matched
+b478	yiliang-roast-duck	restaurant specialty, no home recipe found
+b478	you-doufu-xianfen-tang	no matching recipe found, only loose matches
+b479	yun-cheung	no recipe found; results were lap cheong and other sausage pages
+b479	yunpian-gao	no recipe found; results were nian gao, not yunpian gao
+b479	zhenjiang-yao-rou	only aggregator or non-cook pages for crystal pork jelly
+b479	nsenene	only travel and news pages, no recipe found
+b479	omena	only stew recipes found, no fried omena recipe
+b480	kategna	no cook-named full recipe for toasted injera turned up; only loose matches
+b480	cascaron	search only returned karioka-type sweet rice balls; no trustworthy cascaron recipe
+b481	bulots-mayonnaise	no full recipe page found in two searches
+b481	betises-de-cambrai	industrial brand confection, not a home recipe
+b481	cervelas-lyonnais	only full page found is a pistachio variant with method cut off
+b482	friture	no full recipe found; results were generic fish-fry pages and a fishing article with no ingredients
+b482	fruits-confits	only a single-fruit candied citron recipe found, not the Provencal whole-fruit dish
+b482	gateau-de-riz	only an 1825 historic recipe on a foundation site with no cook; not a trustworthy match
+b483	rillons	no full recipe confirmed; one page blocked, another was an encyclopedia entry
+b483	sauce-marchand-de-vin	no full recipe confirmed in two searches; one page showed no method
+b483	saucisson-de-lyon	results were dishes that use the sausage, not a recipe for making it
+b484	steak-a-cheval	no trustworthy French recipe from a named cook or publication found
+b484	tablier-de-sapeur	only a feature article found, no full recipe; other pages failed to open
+b484	tripoux	only an explainer article and a paywalled or loose-match page found, no trustworthy full recipe
+b484	gelbwurst	a bought cold-cut sausage, not a home-cooked recipe dish
+b485	kieler-sprotten	bought smoked product, not a home recipe
+b485	lachsschinken	bought cured meat product, no home recipe found
+b485	raucheraal	bought smoked product, not a home recipe
+b486	avgotaracho	bought cured roe product, not a home-cooked recipe
+b486	gourounopoulo	only restaurant blog pages found, no trustworthy home recipe
+b487	po-e	only a banana pudding blog match, not baked fruit pudding
+b488	kaliya	no kaliya-specific recipe found; results were korma and qaliya variants
+b489	ledikeni	no trustworthy recipe page found in two searches
+b491	telebhaja	umbrella term for mixed fritters; only loose single-item matches found
+b491	apem	no trustworthy full recipe from a named cook or publication found
+b492	laklak	no full recipe found after 2 searches and 3 fetches; Tempo page had no method
+b492	nasi-jamblang	only home recipe found wraps in banana leaf, not teak leaf; no teak-leaf recipe found
+b493	mathbi	no full home recipe found for mathbi in two searches
+b493	ziva	no trustworthy Yemenite ziva recipe found in two searches
+b494	cartoccio-di-ricotta	cook only inferred from a reader comment, no clearly attributed fried recipe
+b494	confetti-di-sulmona	factory-made PGI confection, not a home recipe
+b495	krumiri	lead: syndicated mirror of an 'inspired by' recipe
+b495	grattachecca	street-vendor shaved ice; only brand syrup or personal blog recipes found
+b495	lonza	bought cured meat; only home-curing blogs found
+b495	maiale-ubriaco	only loose matches (tuna-style pork in Chianti) and personal blogs found
+b495	mandorlato	mostly a commercial nougat; no trustworthy home recipe found
+b496	pane-guttiau	only loose matches: generic Sardinian flatbread, no guttiau recipe found
+b497	peara	rejected: url already used
+b497	pizza-al-metro	only a pizzeria recipe found, not a home dish
+b497	salama-da-sugo	bought PGI cured sausage; only a cooking guide found, no ingredient list
+b497	salame-toscano	cured salume made by producers, not a home-cooked dish
+b498	salsiccia-di-bra	bought regional product, no home recipe from a named cook found
+b498	sopressa-vicentina	commercial cured salami made by producers, not a home recipe
+b498	spaghetti-alla-siracusana	only generic anchovy and breadcrumb recipes found, page does not tie to Syracuse
+b499	veneziana	only paywalled or non-recipe pages found
+b499	age-gyoza	no deep-fried age gyoza recipe found; matches were pan-fried
+b499	agepan	no matching recipe page found in two searches
+b499	ankake-spaghetti	only restaurant guide pages found, no full recipe
+b500	botchan-dango	only hanami dango pages found, a different dish
+b500	cheese-katsu	no full recipe by a named cook or publication found
+b500	fugu-chiri	restaurant-only dish, needs licensed fugu preparation, not a home recipe
+b500	goboten-udon	no full recipe found in two searches
+b500	hakata-udon	only generic udon recipes found, none Hakata-specific
+b500	hegi-soba	regional noodle, no full home recipe found
+b501	hinomaru-bento	plain rice and pickled plum assembly, not a recipe
+b501	ichigo-ni	no full home recipe found; results were canned product and descriptions
+b501	ikizukuri	live-seafood preparation, not a home recipe
+b501	ise-udon	no full recipe by a named cook found
+b501	jaga-bata	opened page had ingredients only, no steps; no other full recipe found
+b501	kanazawa-curry	no full recipe by a named cook found
+b501	karasumi	bought salted roe, not a home-cooked recipe
+b501	kazunoko	bought salted herring roe, not a home-cooked recipe
+b502	kintsuba	no plain kintsuba recipe from a named cook found; only a sweet potato variant
+b502	mango-roll	no recipe matched crab, shrimp tempura and mango; only generic mango rolls
+b502	maze-gohan	generic category of mixed rice, not one dish with a single recipe
+b502	minazuki	no full minazuki recipe found; pages were a tea method and a shop review
+b502	mizu-manju	no trustworthy mizu manju recipe found; only a mizu yokan recipe
+b502	nakatsu-karaage	no Nakatsu-style recipe found; only generic karaage pages
+b502	nameko-soba	no nameko soba recipe from a trusted source found
+b502	narazuke	no home narazuke recipe found; results were encyclopedic or general sake lees pickling
+b503	nozawanazuke	lead: ingredient guide, not a recipe
+b503	okosama-lunch	whole meal, not a single home recipe
+b503	rebasashi	raw liver dish served in restaurants, not a home recipe
+b503	sanmamen	no full recipe for this dish found; only a loose soup match
+b503	sarashina-soba	no specific sarashina recipe found; only generic soba
+b503	shio-yakisoba	no recipe for salt-seasoned version found; results were shio koji variants
+b503	sugukizuke	only a regional description page found, no home recipe
+b503	sunagimo	no specific sunagimo recipe found; only general yakitori pages
+b504	tokushima-ramen	no trustworthy Tokushima ramen recipe in two searches
+b504	torisashi	restaurant specialty; raw chicken is not a home recipe
+b504	toruko-rice	a whole plate of three dishes, not one recipe
+b504	wakame-soba	no wakame soba recipe found in two searches
+b504	jatguksu	no pine nut noodle recipe found; only soy milk noodles turned up
+b504	mandugwa	no trustworthy recipe found in two searches
+b505	kellaj	only a dairy brand page found, no cook named, not a food publication
+b505	sajiyeh	no trustworthy full recipe found in two searches
+b506	hakka-mee	no trustworthy recipe found for this version after 2 searches
+b506	nasi-tumpang	no trustworthy Kelantan recipe found after 2 searches
+b506	agujas-nortenas	no trustworthy Monterrey grilled recipe found after 2 searches
+b506	bolis	bagged fruit ice; no bag-specific recipe found after 2 searches
+b507	charales	no full recipe page found in two searches
+b507	chilapas	no full recipe page found in two searches
+b507	empanadas-de-cazon	no full recipe page found in two searches
+b507	enchiladas-huastecas	no full recipe page found in two searches
+b507	gaoneras	no full recipe page found in two searches
+b508	mole-blanco	no open full recipe by a named cook; Milk Street page paywalled, other hit a handle-only blog
+b508	queso-de-puerco	no full recipe by a named cook or publication in two searches; article was informational
+b509	aloo-ko-achar	rejected: url already used
+b509	gyakok	no trustworthy home recipe found; results were restaurant reviews and generic Chinese hot pot
+b509	bruna-bonor	no trustworthy recipe page by a named cook or publication found
+b510	fenalar	cured meat bought, not made at home; only a dish that uses it was found
+b510	harfiskur	dried fish bought, not a home-cooked recipe
+b510	prinskorv	commercial sausage bought, not made at home
+b510	spekemat	cured meat assortment bought, not made from a recipe
+b510	spettekaka	no full recipe found in two searches
+b511	bsisa	no full recipe found; only a sparse magazine page and an article
+b512	pallo-machhi	no trustworthy full recipe found in two searches
+b512	kabab-vaziri	no recipe page found in two searches
+b512	kalle-joosh	no full recipe with walnut and whey confirmed in two searches
+b513	pan-chuta	only a feature article and community recipe sites found; no trustworthy full recipe
+b513	guanimes	only community, aggregator or non-recipe pages found; cookbook page incomplete
+b514	catanies	commercial confection sold as a brand product, not a home-cooked recipe
+b515	morcon	no recipe from a named cook or known publication found in two searches
+b515	peladillas	no trustworthy recipe from a named cook or publication found in two searches
+b516	aep-mu	no trustworthy recipe found in two searches
+b516	aitim-tat	vendor-sold ice cream bar, bought rather than cooked from a recipe
+b516	kaeng-het	no matching recipe found in two searches
+b516	kaeng-pli	no matching recipe found in two searches
+b516	kaeng-ranchuan	no matching recipe found in two searches
+b516	kai-tun-ya-chin	no matching recipe found in one search
+b516	kaolao	no matching recipe found in two searches
+b516	khanom-chak	no full recipe page found in two searches
+b516	khanom-thian	no matching recipe found in two searches
+b517	khao-niao-tua-dam	only a black sticky rice pudding or partial black bean recipe found
+b517	mamuang-dong	no trustworthy pickled green mango recipe from a named cook found
+b517	nam-prik-nam-pu	no full recipe from a named cook or publication found
+b517	nam-prik-tai-pla	no full recipe found; results were other fish sauce dips
+b517	tam-makhuea	only a dip blog page with a different dish name; loose match
+b517	akide-sekeri	no trustworthy home recipe found; results were product pages
+b517	bahcivan-kebabi	closest page is a beef version, not lamb; loose match
+b518	deniz-borulcesi-salatasi	full recipe found but no cook or publication named on the page
+b518	kagit-kebabi	checked pages used beef, or lamb with no vegetables; no lamb-and-vegetable version confirmed
+b519	comlek-kebabi	only user-submitted recipe found; SBS testi kebab variant is a casserole, not a pot
+b519	chynakhy	only chanakhi (Georgian-style) pages found; Ukrainian source page failed to open
+b519	kartoplianyky	only untitled, unnamed-cook page found; no trustworthy named source
+b519	banh-gan	results were bánh flan or liver cake, not caramel egg custard cake
+b519	banh-khao	no Vietnamese recipe page found for pressed roasted rice cake
+b519	banh-la	no specific Huế bánh lá recipe found, only generic rice cake pages
+b520	banh-quai-vac	only crispy fried dumpling found, not translucent tapioca version
+b520	banh-tro	no full recipe found, only articles and regional notes
+b520	banh-trang-phoi-suong	dew-dried rice paper is a bought regional product, no home recipe found
+b520	banh-tam-bi	only tapioca noodle salad found, not the pork skin version
+b520	banh-tam-ca-ri	results were generic chicken curry, no specific recipe found
+b520	banh-xep	no trustworthy recipe found
+b520	che-me-den	no Vietnamese recipe found, only Cantonese-style black sesame soup
+b520	com-ruou	only Chinese or chè trôi nước recipes found, no fermented rice version
+b520	goi-chan-vit	no duck feet salad recipe found, only duck and cabbage salads
+b521	goi-rau-muong	only a stir-fry found, no water spinach salad recipe
+b521	khau-nhuc	no Lang Son khau nhuc recipe found, only Hakka pork belly versions
+b521	pho-chua	no home recipe found, only restaurant and news pages
+b521	thang-co	no home recipe found, only travel and news pages
+b521	tiet-canh	no recipe found, only encyclopedia and travel pages
+b521	tom-chua	no recipe found, feature articles and canh chua soups only
+b521	ampesi	lead: page is a garden egg stew, not ampesi
+b521	palm-butter	no trustworthy recipe found, only blogs and video pages
+b522	thiebou-yapp	no trustworthy meat-version full recipe found; results were fish thieboudienne or unnamed niche site
+b522	kikomando	no trustworthy full recipe found in two searches
+b522	mchicha	no trustworthy full recipe found in two searches
+b522	galinha-a-zambeziana	only full recipe found had no named cook; publication not a known food outlet
+b523	blue-corn-tortilla-chips	no blue corn fried chip recipe found; only plain corn tortilla chips
+b523	cabbage-casserole	lead: page lacks ingredient amounts
+b523	caldillo	green chile stew pages found, none framed or titled as caldillo
+b523	candy-cigarettes	commercial candy, bought not made
+b523	cheese-dream	no trustworthy cheese dream recipe found; only related open-faced sandwiches
+b524	crab-stew	Only near match found: crab and shrimp stew with roux, not crab alone
+b524	creamed-eggs-on-toast	Only full recipe found was a spiced curry variant on a non-food site
+b524	eggs-neptune	No trusted full recipe found; only aggregators and a non-recipe story
+b524	fool-s-gold-loaf	Only full recipe found credited to an unknown site, no named cook
+b525	hasty-pudding	only baked versions found; dish here is a stovetop porridge
+b525	hog-maw	no trustworthy recipe page found; results were community or aggregator sites
+b525	hot-fish	no trustworthy recipe found for this specific dish
+r014	trida	no trustworthy full recipe found; results were wiki pages or loose matches (other Libyan or Moroccan pasta dishes)
+b526	maine-italian-sandwich	only article pages found, no full recipe confirmed
+b526	new-england-style-hot-dog	only articles and a retailer recipe page found, full recipe not confirmed
+b526	peanut-patties	only aggregator and community recipes found
+b526	peanuts-and-coke	drink and snack pairing, not a cooked recipe
+b528	seattle-roll	no trustworthy Seattle roll recipe found; results were Philadelphia rolls or unnamed blogs
+b528	shore-lunch	a whole meal or outdoor event, not a single home recipe
+b529	stick-candy	bought candy, no trustworthy home recipe found
+b529	ambrosia-brazilian	no named cook or publication recipe found, only community and aggregator pages
+b530	carolina	only match was a doce de leite-filled version, not a cream-filled puff
+b530	coxa-creme	no matching breaded coxa-creme recipe found in two searches
+b530	porco-no-rolete	only generic whole-pig spit roasts found; no matching recipe
+b531	rag-pudding	no full recipe by a named cook found in two searches
+b531	ntaba	only a template-style page with no named cook found
+b532	aozao-noodles	no full recipe page found in two searches
+b532	bantiao	no recipe matched; results were community posts or other dishes
+b532	banya	rejected: url already used
+b532	bear-s-paw-tofu	only page found had no cook and no publication name
+b532	cha-guo	results were savoury rice cakes, not the sweet bean dumpling described
+b532	changle-ice-rice	no recipe page found in two searches
+b532	chestnut-cake	rejected: url already used
+b532	chicken-and-duck-blood-soup	no full recipe found in two searches
+b532	chicken-bun	only recipe found used ground chicken, not shredded
+b533	chinese-style-beef-tenderloin	no full recipe found matching beef fillet in sweet soy gravy
+b533	chu-hou-paste	bought condiment, not a home-cooked recipe dish
+b533	cornmeal-congee	no trustworthy cornmeal congee recipe found
+b533	egg-tong-sui	only savoury egg drop soup recipes found, not sweet egg tong sui
+b533	gan-bian-fei-chang	no trustworthy dry-fried pork intestine recipe found
+b533	ganmianpi	only liangpi cold noodle recipes found, not Qishan ganmianpi
+b533	guangbing	no full recipe from a named cook or publication found
+b533	guogai-mian	only feature article on the lid-cooked noodles, no recipe found
+b534	hanzhong-mipi	no full recipe page found in two searches
+b534	hokkien-mooncake	no recipe with candied melon filling found in two searches
+b534	hongzao	fermented lees is a bought ingredient, not a dish made from a recipe
+b534	huamo	only a huajuan (flower roll) recipe found, not huamo
+b534	huangshan-shaobing	no full recipe page found in two searches
+b534	huaxi-beef-noodles	no full recipe page found in two searches
+b534	husband-cake	only wife cake recipes found, a different pastry
+b534	jiaji-duck	no full recipe page found in two searches
+b534	jiang-ban-ya	no full recipe page found in one search
+b534	jingbajian	a set of eight pastries rather than one dish; no recipe found
+b535	jinhua-su-bing	no home recipe found in two searches
+b535	laobian-dumplings	no recipe page found in two searches
+b535	lap-ngap	no wax-cured duck recipe found in two searches
+b535	liang-xia	no matching recipe found in two searches
+b535	liangxi-crispy-eel	only news and travel pages found in two searches
+b535	ligao-tang	sold as a candy, not a home-cooked recipe
+b535	love-tofu	fetched page was a rice tofu recipe, not Guiyang love tofu
+b536	lung-fung-soup	no trustworthy full recipe found in two searches
+b536	luzhou-roast-duck	only generic Peking-style roast duck pages found, no Luzhou match
+b536	matang	no Uyghur matang recipe found, only generic nut brittle pages
+b536	mending-roubing	pages found were not nail-shaped pies, one source unreliable
+b536	mianwo	only encyclopedia and general pages found, no trustworthy recipe
+b536	nian-dou-bao	only generic red bean bun pages found, no sticky millet bun recipe
+b536	niangpi	only Xi'an liangpi pages found, not the Qinghai niangpi
+b536	ou-fen	no ou fen recipe found, only osmanthus and lotus dessert pages
+b536	pig-skin-and-radish	only pork belly and radish pages found, none with pig skin
+b536	pingyao-beef	no home recipe found, only encyclopedia and travel pages
+b537	qiaojiao-niurou	two searches gave only restaurant, tourism and aggregator pages
+b537	red-braised-potatoes	two searches gave only community posts and unrelated braises
+b537	ruanzha-liji	only encyclopedia, forum and unnamed-cook pages found
+b537	san-bu-zhan	two searches gave no recipe by a named cook or publication
+b537	scallion-bread	top match was a steamed bao recipe, not the soft baked bun
+b537	shiping-tofu	two searches gave only sauce-style or travel pages, no grilled recipe
+b537	shuangniang-tuan	two searches gave no matching recipe
+b537	shuipen-yangrou	results were bread-in-lamb-soup (paomo) recipes, a different dish
+b537	si-guo-tang	two searches gave no trustworthy recipe
+b538	song-gao	no full recipe found; the cooksense page lists no ingredients or steps
+b538	steamed-hilsa	no trustworthy match; results were generic steamed fish, not Reeves shad
+b538	taigu-cake	no full recipe page found in two searches
+b538	teochew-cold-fish	results were hot steamed fish; no chilled version found
+b538	tian-pi-ya	no trustworthy recipe found in two searches
+b538	tian-shao-bai	no sweet version found; results were savory fen zheng rou
+b538	tianjin-preserved-vegetable	bought pantry ingredient, not a home-cooked dish
+b538	tunur-kawap	found only grilled kebabs; no tandoor or pit-oven recipe
+b538	wansan-pork-hock	no trustworthy recipe found in two searches
+b538	west-lake-water-shield-soup	recipe page names no cook and no publication
+b539	wuding-bao	no full recipe found in two searches
+b539	xiaogan-matang	no full recipe found in two searches
+b539	xuecai-rousi	only a recipe page with empty ingredients and method found
+b539	yacai-bao	only a Cantonese mei cai bao found, not the same dish
+b539	yellow-lantern-chili-sauce	only an ingredient guide found, no full recipe
+b539	yumilao	no matching recipe found in two searches
+b539	zaoni-mabing	only an informational article found, no full recipe
+b539	zhoucun-shaobing	only generic shaobing recipes found, no Zhoucun version
+b539	zhu-er-ba	only a ye er ba recipe found, a different dish name
+b540	mish	aged cheese bought, not a home recipe; only a blog post found
+b540	mulabbas	only generic candied almond recipes found, no Egyptian mulabbas recipe
+b540	ringa	bought cured fish, not a home-cooked recipe
+b540	hilbet	only lentil stews or Yemeni hilbeh found, no Eritrean fenugreek paste recipe
+b540	penoy	boiled duck egg; no full recipe page found
+b541	andouille-de-guemene	a bought charcuterie product, not a home-cooked recipe
+b541	bercy-sauce	only full recipe found used beef stock, a loose match for a fish sauce
+b541	brochet-au-beurre-blanc	no trusted pike recipe; one page uses pike-perch, another is paywalled
+b541	canistrelli	page names no cook or site, only the blog address
+b541	chichi-fregi	no trusted full recipe found after two searches
+b542	croustillons	only baked Nord craquelins found, not fried fair dough
+b542	cepes-a-la-bordelaise	fetched pages were excerpts without full method
+b542	grattons	only Cajun cracklins and Pays de la Loire rillons found, not grattons
+b542	haricot-de-mouton	fetched pages were excerpts or had no cook; no full recipe
+b542	hochepot	fetched pages were excerpts or articles; no full recipe
+b543	jesus-de-lyon	no home recipe found in two searches; mainly a bought sausage
+b543	langue-de-boeuf-sauce-piquante	no full recipe on a trusted page after two searches and two fetches
+b543	macarons-de-nancy	no full recipe on a trusted page after two searches; ckbk page had no method
+b543	nougatine	only a seeded modern variant from a trusted cook; classic recipe found was on Flavor365, excluded
+b544	salade-alsacienne	no clean Alsatian cervelas salad recipe found; results were Swiss Wurstsalat or non-recipe pages
+b545	bregenwurst	no trustworthy recipe naming Bregenwurst found; top hits were unnamed or used other sausages
+b546	halve-hahn	assembled sandwich of bought roll and cheese; no recipe page found
+b546	knipp	bought sausage product; no trustworthy home recipe found
+b546	konigsberger-marzipan	no full recipe page found after two searches
+b546	mutzbraten	found recipes had a broken ingredient list or grilled cubes on skewers
+b546	saure-kutteln	only restaurant-credited recipe found; no named cook
+b547	achinosalata	only a family olive oil blog with no named cook; not a trusted publication
+b547	bogana	no fetched page named the dish; only loose lamb roast matches
+b548	staka-me-avga	no trustworthy recipe found: first two hits fried eggs in olive oil or simmered them, not fried in staka
+b548	arisa-pitha	no clearly attributed full recipe found: HinduTone page has no cook and says untested; GOYA page cook unclear
+b549	bongu-chicken	no trustworthy home recipe found; results were news features and Wikipedia
+b550	joynagarer-moa	no full recipe found; search results gave only a 404 page or history articles
+b551	kalyani-biryani	no specific recipe page found, only a personal blog post
+b551	kathal-ki-sabzi	full recipe found but page names no cook or publication
+b551	khatti-dal	rejected: url already used
+b552	naatu-kodi-pulusu	no named cook or known publication recipe page found; only blogs and brand pages
+b552	pachadi	a family of dishes, not one specific recipe; loose match
+b552	pathar-ka-gosht	no named cook or known publication recipe page found; only blogs and article pages
+r017	hot-texas-wiener	no full recipe for the whole dish found; sauce-only pages and an excerpt-only cookbook page
+b553	kue-bugis	no full recipe page found; the two Sri Owen pages opened were cut off or paywalled
+b554	kue-satu	no full recipe page found; search hits were blogs and Wikipedia
+b554	roti-buaya	no full recipe page found; results were cultural articles and Wikipedia
+b554	saksang	fetched candidate had no ingredients or steps; no other full recipe found
+b554	halva-parfait	only a tahini parfait and halva ice cream recipes found; no halva parfait match
+b554	alivi-cunzati	candidate cracked green olive recipe did not confirm vinegar and garlic dressing; no clear match
+b554	baci-di-cherasco	results were baci di dama or chocolate kiss recipes, not Cherasco clusters
+b554	baicoli	candidate pages had no recipe content; no full recipe found
+b555	biova	only a personal blog recipe found, not a known publication
+b555	biscotto-di-ceglie	no trustworthy full recipe found after two searches
+b555	calcioni	no full recipe for the pecorino version found after two searches
+b555	cappello-del-prete	cured sausage product, no home recipe found
+b556	cialda-di-montecatini	Commercial Montecatini wafer brand, bought not made; no home recipe found
+b556	coppiette	Street-food cured meat; no trustworthy home recipe found
+b556	cremino	Mostly a commercial chocolate product; no trustworthy home recipe found
+b556	crispelle-di-riso	Page is a Sicilian rice fritter; Catania link and honey not confirmed
+b556	finanziera	Only recipe found is on an unknown recipe site, not a known publication
+b557	maccheroni-alla-molinara	two searches found no trustworthy full recipe for this dish
+b557	nocciolini-di-chivasso	only a small personal blog found; the biscuit is mostly a commercial product
+b558	pane-casareccio-di-genzano	no named cook or publication on the page
+b558	pasta-al-fume	only loose matches found; the one full recipe had an unusual spice mix and no confirmed cream
+b559	prosciutto-di-norcia	cured ham is bought, not cooked from a recipe
+b560	salame-di-varzi	commercial PDO product made by licensed producers, not a home recipe
+b560	sanguinaccio	only blood-free version found; loose match to pork blood pudding
+b560	sgabei	recipe found is Lunigiana (Tuscan) version with only a first-name cook
+b560	sise-delle-monache	no trustworthy full recipe found; results were personal blogs or other regional sweets
+b560	sospiro-di-bisceglie	no trustworthy full recipe found after two searches
+b560	spiedini-di-mare	recipes found were oven-baked or personal blogs, not grilled skewers from a trusted source
+b561	torta-mantovana	no full recipe with ingredients and steps among the pages checked
+b561	zaleti	only full recipe found had no cook or site name
+b562	akumaki	no full recipe page found in two searches
+b562	beko-mochi	no full recipe page found; only regional government pages
+b562	bettarazuke	only a blog page with no named cook or site, amazake variant
+b562	butabara	no full recipe page from a named cook or publication
+b562	chakin-zushi	no full recipe page from a named cook or publication
+b562	chirinabe	no full recipe page found in two searches
+b562	curry-korokke	no curry korokke recipe from a named cook or publication
+b562	doteni	no trustworthy recipe page found in two searches
+b562	echizen-soba	only generic oroshi soba pages, not the Fukui version
+b562	fu-chanpuru	only community and blog pages found
+b562	fugu-karaage	only a government regional-cuisine page found
+b563	gojiru	no recipe from a known cook or publication found in two searches
+b563	goto-udon	only a shop-site recipe found, not a trusted publication
+b563	gyunabe	only sukiyaki pages found, a loose match
+b563	harami	a bought cut of beef, not a dish made from a recipe
+b563	heejaa-jiru	no recipe page found in search results
+b563	himokawa-udon	noodle product, no recipe page found
+b563	hittsumi	only a tourism-site recipe with no named cook
+b563	ika-somen	only community or unknown personal sites found
+b563	ikarimame	no trusted recipe found in two searches
+b563	ikasumi-jiru	only community recipe sites found
+b563	jakoten	no trusted Uwajima recipe found in search results
+b564	kamo-nabe	no full recipe confirmed as kamo nabe; only loose duck hotpot matches
+b564	kanijiru	only imitation-crab or other miso soups found; no real crab recipe confirmed
+b564	karedon	dashi curry page found but not named or confirmed as karedon
+b564	kawara-senbei	commercial confection; no trustworthy home recipe found
+b564	kurobuta-shabu	no kurobuta-specific recipe found; only generic pork shabu-shabu
+b564	kuzu-manju	only kudzu jelly and wheat-dough manju pages found; none matched
+b564	matsumaezuke	no cook-led recipe found; only government and reference pages
+b565	nanbu-senbei	commercial regional cracker, not a home-cooked recipe
+b565	nankotsu	no trustworthy recipe found in two searches
+b565	nure-senbei	commercial cracker, no trustworthy home recipe found
+b565	sake-bento	a boxed meal, not a single cooked dish
+b565	sake-manju	no trustworthy recipe found, results were recipe-spam sites
+b565	sansai-udon	no trustworthy udon recipe found in two searches
+b566	shokado-bento	whole multi-dish meal, not a single home recipe
+b566	spice-curry	no Osaka spice curry recipe found in two searches
+b566	tekone-zushi	only full recipe found uses bonito, not the tuna described
+b566	tentamadon	no tentamadon recipe found in two searches
+b567	wappameshi	no full recipe page found in two searches; only encyclopedia and culture pages
+b567	yubeshi	no trustworthy full recipe found; one source redirected to an unlisted host, not followed
+b567	helzel	pages found stuff the whole bird or sheika, not the helzel neck skin
+b567	ballourieh	only a shop product page had a method, no cook named
+b568	loubieh-bi-lahmeh	Pages found use beef; no lamb version confirmed in two searches
+b568	makmoura	No trustworthy full recipe page found in two searches
+b568	air-asam	No trustworthy recipe for this tamarind dip found in two searches
+b569	kuih-cara	no full recipe from a known cook or publication found
+b569	pucuk-paku	no trustworthy full recipe found; only a brand recipe page
+b569	sata	no trustworthy full recipe found in two searches
+b569	sinalau-bakas	roadside-stall smoked meat, no home recipe found
+b570	chahuis	no recipe found in two searches; only encyclopedia entries turned up
+b570	charamuscas	no home recipe found in two searches; only candy history and community posts
+b570	empedradas	no Tlaxcala recipe found in two searches; results were other empedraditas
+b571	escabeche-oriental	no full recipe for the turkey version found on a trusted site
+b571	fruta-cristalizada	no full recipe with ingredients and steps found on a trusted site
+b571	gorditas-de-la-villa	no full recipe with ingredients and steps found; pages checked were articles or unnamed
+b571	machaca-de-camaron	no full recipe from a trusted site found after two searches
+b571	mextlapique	no full recipe for mextlapique from a trusted site found; checked matches were other dishes
+b572	morelianas	packaged commercial wafer candy; no trustworthy home recipe found
+b572	monos	no trustworthy recipe found for this pastry
+b572	nieve-de-pasta	no trustworthy recipe found after two searches
+b572	pan-de-acambaro	results were articles about the bread, no trustworthy recipe found
+b572	pan-de-pulque	no trustworthy recipe found after two searches
+b572	pejelagarto-asado	no trustworthy grilled recipe found after two searches
+b573	piedras	no trustworthy recipe found in two searches
+b573	rollo-de-guayaba	only community posts and a brazo gitano variant found, no match
+b573	sopa-de-medula	only a restaurant roundup with no recipe found
+b573	tamal-de-bola	no trustworthy recipe page opened in two searches
+b573	tamales-de-ceniza	best page omits the ashes, so it does not match the dish
+b574	eezgii	lead: tag archive page, not a recipe page
+b574	balep-korkun	no full recipe for the barley pan bread found; results were wiki, oven or unrelated versions
+b574	bhakka	no full recipe found; results were articles or Maharashtrian bhakri
+b574	kinema	fermented soybean product rather than a recipe dish; results were articles and papers
+b574	shyakpa	no full recipe found; video-only or unrelated results
+b574	sinki	no full recipe found; results were encyclopedia, glossary or article pages
+b574	alkubus	only full method found had no cook and no publication name
+b575	fried-vendace	no full recipe from a named cook or publication found in two searches
+b575	isterband	no full recipe from a named cook or publication found; one blog page was prose only
+b575	kaest-skata	no full recipe from a named cook or publication found in two searches
+b575	maksalaatikko	only loose matches or pages without ingredients and steps found
+b576	babbouche	no trustworthy recipe page; hits were blogs with no named cook
+b576	dobara	only candidate was a site with no named cook, publication not clearly known
+b576	kaak	no full recipe from a named cook or known publication
+b576	khaddi-kebab	only recipe found was a pot-and-grill version, not whole lamb pit-roast
+b576	landi	recipe page names no cook or site; other pages were features
+b576	bozbash	hits were other dishes or a meatball variant; loose match
+b576	halim-bademjan	no full recipe from a named cook; hits were books or other dishes
+b577	kateh-kabab	no full recipe for Gilan kebab found in two searches
+b577	keshmesh-polo	no trustworthy recipe page found in two searches
+b577	khoresh-e-ghooreh	search results showed only other stews, no matching recipe page
+b577	masghati	page names no cook and no publication
+b577	nan-e-badami	no clear recipe page found in two searches
+b578	noghl	no trustworthy full recipe found
+b578	sirabi	recipe credited to an Instagram video, no named cook
+b578	zaban	no trustworthy full recipe found
+b579	cha-mongkut	no full recipe with ingredients and steps on the pages opened
+b579	kaeng-phak-wan-pa	no full recipe found in search results
+b580	khanom-nam-dok-mai	no trustworthy full recipe page found in two searches
+b580	mamuang-kuan	no trustworthy full recipe page found in two searches
+b580	sakhu-thua-dam	no trustworthy full recipe page found in two searches
+b580	thong-ek	no trustworthy full recipe page found in two searches
+b580	tom-phak-kat-dong	no trustworthy full recipe page found; opened Thairath page was a different soup
+b580	tom-som	no trustworthy full recipe page found; opened Simply Suwanee page was kaeng som
+b580	beykoz-kebabi	Yemek.com Beykoz recipe uses chicken, not lamb
+b580	filibe-kofte	no trustworthy full recipe page found in two searches
+b581	mesir-macunu	festival-made spice paste in bulk, no home recipe found
+b581	banh-cay	no full recipe found in two searches; results were news and shopping pages
+b581	banh-mat	no full recipe found in two searches; results were Wikipedia, news and generic rice cake recipes
+b581	canh-bong	no full recipe found in two searches; results were dish guides and news
+b581	chao-bau-duc	no full recipe found in two searches; results were retailer pages and porridge recipes for other dishes
+b581	chao-canh	no full recipe found in two searches; results were bánh canh and other noodle soups
+b582	cha-ruoi	no full home recipe by a named cook or publication found
+b582	cham-cheo	only feature articles and aggregator pages, no full recipe found
+b582	tung-lo-mo	only news features on the sausage, no home recipe found
+b582	choukouya	only an obscure site with no named cook, oven-baked, loose match
+b582	to	no full recipe from a named cook or publication found
+b582	kondre	only plantain-only stews on blogs, no goat version with a named cook
+b583	beach-pizza	only a banned-source recipe found in two searches
+b584	boudin-rouge	no recipe with pork blood found; pages opened were plain boudin
+b584	bulkie-roll	bulkie roll is a bought bakery roll; no trustworthy home recipe found
+b584	bull-roast	event-style whole-beef roast; only Baltimore pit beef recipes found, a loose match
+b584	cannibal-sandwich	only articles and a beef tartare recipe found; no raw beef on rye recipe
+b584	chaudin	only recipe found is a user-submitted page with a nickname cook; no known cook or publication
+b585	chicken-box	takeout combo meal, not a home recipe; no trustworthy recipe found
+b585	chicken-fried-bacon	only a feature article found; other hit was bacon tempura, a different dish
+b585	circus-peanuts	commercial candy, not a home recipe; no trustworthy recipe found
+b585	columbus-style-pizza	no full recipe page found from a trusted source
+b585	crispy-snoots	no full recipe page from a trusted source found
+b586	fleischkuekle	no deep-fried recipe from a named cook or publication found after 2 searches
+b586	flint-style-coney	rejected: url already used
+b587	hot-slaw	no recipe found that matches jalapenos; two searches and two opened pages did not match
+b588	navajo-mutton-stew	No trustworthy match: best page lacks potatoes, the other has no named cook
+b588	ohio-valley-style-pizza	No trustworthy home recipe page found in two searches
+b588	peanut-butter-and-pickle-sandwich	Plain sandwich assembly; results were community and aggregator pages only
+b588	peanut-butter-kisses	Brand candy, bought not made
+b588	pear-relish	Only an education-brand article matched; not a food publication
+b589	planked-whitefish	no full recipe with a named cook or publication found among opened pages
+b589	pot-liquor	byproduct of cooking greens; no standalone recipe page found
+b590	red-snapper-hot-dog	bought hot dog product sold finished, not a home recipe
+b590	reindeer-sausage	no reindeer recipe found, results only gave venison sausage
+b590	scrambled-dog	no trustworthy recipe found, results were community or unrelated chili dog pages
+b591	spanish-cream	only a Spanish pudding page matched, dish identity not confirmed
+b592	white-hot	no trustworthy recipe page found in two searches
+b592	afogado	no recipe page for this dish found in two searches
+b592	arroz-de-hauca	only a news feature and community recipe sites found
+b592	broinha-de-coco	only recipe aggregator results found
+b592	caldo-de-piranha	only community and news pages found, no trustworthy recipe
+b593	carneiro-no-buraco	no full recipe by a named cook or publication found
+b593	cueca-virada	no full recipe by a named cook or publication confirmed
+b593	doce-de-batata-doce	no full recipe by a named cook or publication confirmed
+b593	entrevero-de-pinhao	no full recipe by a named cook or publication confirmed
+b593	peixe-na-telha	no full recipe by a named cook or publication confirmed
+b593	quebra-queixo	no full recipe by a named cook or publication confirmed
+b593	xerem	only a loose match (coconut hominy porridge) found
+b593	kamundele	no recipe found beyond generic brochette pages
+b593	airplane-olives	a bought snack; no home recipe found
+b594	baiye-jie-shao-rou	no full recipe found for pork with tofu skin knots
+b594	basi-shanyao	no full recipe found; only news and encyclopedia pages
+b594	beijing-ma-doufu	no matching full recipe found
+b594	bianjing-roast-duck	no Kaifeng-style recipe found; results were Beijing or Cantonese duck
+b594	bingtang-zhouzi	only match was DayDayCook, a recipe platform with no named cook
+b594	braised-pork-ribs-with-konjac	no konjac and chili paste braise found
+b594	chao-geda	only China Daily article with no ingredients or steps
+b595	chatang	no sweet Beijing chatang recipe found; only savory sesame-paste mian cha
+b595	chinese-shortbread	no trustworthy recipe matched Chinese shortbread in two searches
+b595	chrysanthemum-fish	opened recipes use diamond or diagonal scoring, not chrysanthemum
+b595	chrysanthemum-shaomai	opened recipe lacks Changsha origin and sticky rice filling
+b595	ciba-chili	no trustworthy ciba chili paste recipe found
+b595	clams-in-chicken-soup	no Fujian-style clams in chicken soup recipe found
+b595	cong-bao-hui	no trustworthy recipe found in two searches
+b595	constant-set	whole cafe set meal, not a single home recipe
+b596	dongshan-lamb	no full recipe page found; results were culture and tourism pages
+b596	douhua-mian	only a Chongqing xiao mian page opened, not a soft tofu topping; cookbook redirect not followed
+b596	drunken-ribs	only user-submitted recipe database pages found, no named cook or publication
+b596	duck-feet-roll	no duck feet tofu skin roll recipe found
+b596	fast-set	a cafe set meal, not a single home recipe
+b596	fenggao	results only showed bai tang gao, a different cake; no fenggao page
+b596	fennel-beans	only user-submitted recipe database pages found, no named cook or publication
+b596	fentang-yangxue	only user-submitted recipe database pages found, no trustworthy page
+b596	five-willow-fish	cookbook page redirected off the search results and was not followed
+b596	four-treasure-chicken-roll	no four-treasure chicken roll recipe found
+b596	fuling-jiabing	results were Wikipedia and wiki mirrors only, no recipe page
+b597	furong-jipian	Only match was a minced-chicken version, not velveted slices
+b597	garlic-chive-flower-sauce	No trustworthy recipe for this relish found
+b597	ground-bean-sauce	Bought condiment; no trustworthy homemade recipe found
+b597	guihua-tang-yumiao	Only page found had directions, no ingredient list
+b597	haitang-gao	No recipe page found
+b597	hetao-gao	No recipe page found
+b597	hongshan-caitai	Only a mirror site carried the dish; not a trusted source
+b597	huang-gui-shizi-bing	Closest match has a walnut filling, not osmanthus
+b597	huanggao	Only community or mirror recipe sites found
+b597	hulu-tou	No recipe page found
+b597	hutangfen	Only mirror or unrelated dish pages found
+b598	jiaoquan	no jiaoquan recipe found in two searches, only youtiao and sesame ball pages
+b598	jidou-liangfen	only mung bean jelly recipes found, none for chickpea jelly
+b598	jitoumi	only lotus seed and fox nut recipes found, none for gorgon seeds
+b598	kaojijia	only a fried chicken carcass recipe from a restaurant, not grilled
+b598	layangrou	no Shaanxi cured lamb recipe found in two searches
+b598	liangban-doufugan	only baked tofu and celery salads found, none with smoked tofu and peanuts
+b598	lihao-chao-larou	no Artemisia and cured pork recipe found in two searches
+b598	lingao-suckling-pig	only encyclopedia-style pages found, no named cook or publication recipe
+b598	lingshui-sour-noodles	no Lingshui sour noodle recipe found, only other sour noodle dishes
+b598	mayuxing-bucket-chicken	no Kaifeng bucket chicken recipe found in two searches
+b599	meimao-su	no full recipe found in two searches
+b599	mianyang-sanzheng	set of three dishes; no trustworthy single recipe found
+b599	miba	no full recipe found in two searches
+b599	naiyou-zhagao	no full recipe found in two searches
+b599	nanchang-jar-soup	no full recipe by a named cook or publication found
+b599	patriotic-soup	only encyclopedia pages found; no full recipe
+r020	khanom-la	no full recipe page found in two searches; results were Wikipedia or unrelated dishes
+b600	qie-gao	rejected: url already used
+b600	qingtang-yuyuan	no Hubei-specific fish ball recipe found in two searches
+b600	rugao-ham	dry-cured ham is a factory product, not a home recipe
+b600	san-xian-huntun	wonton pages found left out liver from the filling; loose match only
+b600	shiquan-dabu-tang	no ten-herb tonic recipe with a named cook found; only generic herbal chicken soups
+b600	songzi-tang	no full recipe by a named cook found; only a news feature
+b601	spare-ribs-steamed-in-bamboo	no trustworthy Hunan bamboo-tube recipe found in two searches
+b601	stuffed-river-snails	only Vietnamese or escargot stuffed-snail pages found, no Guilin version
+b601	tangmian-zhagao	no clear hot-water dough sweet-filled fried cake recipe found
+b601	tasimi	only aggregator and unrelated lamb recipes found
+b601	teochew-crystal-dumplings	opened Chiu Chow crystal dumpling page has savory filling, not sweet
+b601	three-color-egg	found only a custard version, not the steamed loaf
+b601	tiaotou-gao	Shanghai osmanthus-topped version found, not red bean filled
+b602	toqach-nan	rejected: url already used
+b602	tou-nao	no full recipe by a named cook found after two searches
+b602	tuotuo-rou	no full recipe for Yi-style boiled pork found after two searches
+b602	xuemian-dousha	only match found has no cook or publication name on the page
+b602	yancai	no Guizhou dried salted greens recipe found; only general pickled greens
+b602	yangzhou-pickles	regional packaged product; no recipe by a named cook found
+b602	you-bao-shuang-cui	no full recipe by a named cook found after two searches
+b602	youcha	only oil-tea matches found; none confirmed as this fried flour porridge
+b602	youmian-cuoyu	no full hand-rolled oat noodle recipe by a named cook found
+b603	youxuan	no full recipe page found for this Henan bread in two searches
+b603	yutaza	no recipe for this Uyghur layered bread found; only a baker's overview page
+b603	zao-liu-yu-pian	only recipe pages without a named cook or publication; other hits were different dishes
+b603	zha-guanchang	search results showed only Chinese sausage dishes, not starch sausage
+b603	zhanshui	no Guizhou zhanshui recipe found; only related Yunnan dips
+b603	tihlo	no tihlo recipe page found in two searches, only encyclopedia entries
+b603	bergamotes-de-nancy	mass-produced brand confection, not a home-cooked recipe
+b604	carpe-frite	only a batter fritter recipe found; semolina coating not confirmed
+b604	galette-au-sucre	results were other regional versions; no Drôme recipe found
+b604	gratin-de-cardons	pages found use cream or no béchamel or marrow; no close match
+b604	gratin-de-queues-d-ecrevisses	no trustworthy Nantua crayfish gratin found; SBS page is lobster
+b604	haricots-a-la-bretonne	only a bean seller's blog and community sites found
+b605	moricette	no full recipe confirmed; searches gave no trusted page and the one blog fetch failed
+b605	museau-vinaigrette	no full recipe confirmed; searches gave no trusted page and the blog fetch failed
+b606	prisuttu	no recipe page found; cured ham is a bought charcuterie product
+b606	salambo	candidate pages gave fondant topping or no ingredient list; no clean match
+b606	sauce-poivrade	candidate pages lacked an ingredient list
+b606	saucisson-d-arles	no trustworthy recipe page found for this sausage
+b606	soupe-au-fromage	only page found was French onion soup, not the cheese soup
+b606	tourteau-fromage	only recipe page had no cook or publication name
+b607	pickert	no trustworthy full recipe found; matches were Lippe-style or encyclopedia pages
+b607	saures-lungerl	only matches were Beuschel or brand products, not the sour version
+b607	bourou-bourou	no recipe for this Corfu soup found in two searches
+b607	copenhagi	opened page is a walnut-almond meringue filling; filo and syrup not confirmed
+b608	kaparosalata	no trustworthy kaparosalata recipe page found in two searches
+b608	syglino	no Greek home recipe for making syglino found; results were dish-use or shop pages
+b609	ankapur-chicken	no trustworthy full recipe found in two searches
+b609	axone	opened page had no ingredient list; no other trustworthy recipe found
+b609	boti-curry	no trustworthy full recipe found in two searches
+b613	muttai-kalakki	no trustworthy full recipe page found in two searches
+b615	sutarfeni	only a kataifi-pastry shortcut version found, no traditional sugar-thread recipe
+b616	umbadiyu	no trustworthy recipe page found in two searches
+b617	brovada	only a partial recipe found (no ingredient list), not a full recipe
+b617	carne-salada	cured product made by producers, not a home-cooked recipe
+b618	castagne-del-prete	no full recipe found in two searches
+b618	civraxiu	recipe page's ingredient list did not render; full recipe not confirmed
+b618	cogna	only match was a different condiment (cunja); no cogna recipe found
+b618	cordula	only a producer's page with no named cook or publication
+b618	cri-cri	no matching recipe found; results were other chocolate truffles
+b618	cuzzupa	page is a buccellato recipe; loose match to cuzzupa
+b619	finocchini	no full recipe found in two searches
+b619	grano-cotto	only a chocolate-sweetened variant found; loose match
+b619	lard-d-arnad	cured product that is bought, not made from a recipe
+b619	lonzino-di-fico	no full recipe found in two searches
+b620	missoltini	dried shad is a bought preserved product; no trustworthy home recipe found
+b620	mocetta	cured meat made by producers, not cooked from a recipe
+b620	ostie-ripiene	only an Agnone recipe found, not Gargano; loose match
+b620	pan-dell-orso	only a parrozzo recipe found; no honey and the name is not confirmed
+b621	pizza-rossini	no full recipe page found; results were a paywalled preview and articles
+b621	polpettone-di-melanzane	no Ligurian eggplant loaf recipe confirmed; fetched pages were other loaves
+b622	pupazza-frascatana	no full recipe found; the only candidate page is paywalled
+b622	risotto-alla-certosina	page found uses lake fish and frog, not crayfish; no crayfish version confirmed
+b622	risotto-alla-piemontese	no Piedmontese recipe page found in two searches
+b622	rustisciada	results describe it as a veal ossobuco-style dish, not sausage; no trustworthy match
+b622	salame-cotto	charcuterie product rather than a home recipe; no trustworthy page found
+b622	scarola-alla-monachina	closest page has olives and raisins but no confirmed capers or pine nuts
+b623	sfilatino	no recipe page found in two searches, results were other breads
+b623	spiedo-bresciano	two recipe pages opened lacked ingredients or steps
+b623	strolghino	commercial cured salami, bought not made from a recipe
+b623	torcinello	method page lacked an ingredient list, full recipe not confirmed
+b623	torrone-gelato	two recipe pages opened lacked ingredients or steps
+b624	bonjiri	no recipe page for chicken tail skewers found
+b624	demi-katsudon	only video demi-glace katsudon found
+b624	dojo-nabe	no full recipe with steps found
+b624	dondon-yaki	only a news feature adapting a video, source unclear
+b624	gokabo	bought dagashi product, not a home recipe
+b624	gratin-korokke	no recipe for this specific korokke found
+b625	iizushi	no trustworthy recipe page found in two searches
+b625	kasutera-manju	no matching kasutera manju recipe in searches; pages found were other manju
+b625	kijoyu-udon	no trustworthy recipe page found in two searches
+b625	konohadon	no trustworthy recipe page found in two searches
+b625	mamina-chanpuru	no matching recipe found; opened MAFF page was goya chanpuru
+b625	maruten-udon	no trustworthy recipe page found in two searches
+b626	nabeyaki-ramen	no trustworthy recipe page found in two searches
+b626	obiten	no trustworthy recipe page found in two searches
+b626	okinawa-yakisoba	only loose matches (Hawaiian Spam yakisoba, Okinawa soup soba)
+b626	ruibe	no home recipe found; hits were history and frozen-sashimi features
+b626	sawachi-ryori	banquet platter, a whole meal rather than one recipe
+b626	seseri	no trustworthy recipe page found in two searches
+b626	shippoku-ryori	banquet of many dishes, a whole meal rather than one recipe
+b626	shoyumame	no trustworthy recipe page found; hits were other bean dishes
+b626	suama	no trustworthy recipe page found; hits were shop products
+b627	sutamina-udon	no full recipe found by a named cook or publication
+b627	tako-shabu	no full recipe found by a named cook or publication
+b627	tara-jiru	only government regional pages found, no named cook or food publication
+b627	tare-katsudon	only a government regional-cuisine page found, not a food publication
+b627	tontoro	no full recipe found by a named cook or publication
+b627	tsubaki-mochi	no full recipe found by a named cook or publication
+b627	yanagawa-nabe	no full recipe found by a named cook or publication
+b627	yaseuma	no full recipe found by a named cook or publication
+b627	yushi-tofu-soba	no full recipe found by a named cook or publication
+b627	al-rashoof	only unnamed recipe pages and a brand page found
+b627	arbood	no full recipe found by a named cook or publication
+b628	daoukiyeh	no full recipe found, only articles and mafroukeh recipes
+b628	kafta-nayyeh	only kibbeh nayyeh with bulgur turned up, a different dish
+b628	kebab-hindi	only a blog recipe with no named cook or known publication
+b628	kibbeh-zghartawiyeh	no Zgharta-specific recipe found, only generic baked kibbeh
+b628	kibdeh-nayyeh	no recipe found for the raw liver version
+r021	bicciolano	no trustworthy full recipe found in two searches
+b629	gong-pian	no full recipe found after 2 searches, results were only loose matches
+b629	kuih-cincin	no full recipe found after 2 searches, pages opened were other kuih
+b629	kuih-jelurut	no full recipe found after 2 searches, results were loose matches
+b629	lemak-siput	lead: page has no quantities
+b629	mee-siput-muar	no full recipe found after 2 searches, results were encyclopedia and news pages
+b629	ahuautle	recipe page opened lacked an ingredient list, no full recipe confirmed
+b629	alfajor-de-coco	pages found were a school infographic and loose matches, no full recipe
+b630	borrego-al-pastor	no fire-grilled Jalisco mutton recipe found; matches were oven-baked or other regions
+b630	caldo-de-indianilla	no trustworthy recipe found; only community and blog pages matched
+b630	chanclas	only page found was user-submitted with no named cook
+b630	chanfaina	no trustworthy full recipe found in two searches
+b630	chileajo	full recipe pages were paywalled or lacked steps
+b631	itacates	only feature articles found, no ingredient list or steps
+b631	mole-estofado	found almond and olive estofado, no capers, loose match
+b631	pata-de-mula	no trustworthy recipe found for this clam ceviche
+b631	picones	only a partial page and Cookpad results, no full recipe
+b631	piruli	commercial candy brand, bought not made
+b632	plato-huasteco	a platter of several dishes, a whole meal
+b632	pascal	only Cookpad and generic pipian pages found, no Huasteca recipe
+b632	queso-de-tuna	no trustworthy recipe page found in two searches
+b632	tamales-tontos	only a Guerrero-style unfilled tamal page found, not called tamales tontos
+b632	tortitas-de-coliflor	only Cookpad, aggregator and a torta de coliflor page found, no matching recipe
+b632	ximbo	page substitutes banana leaves for maguey, a loose match
+b632	bjugu	no recipe page found in two searches
+b633	ash-e-sak	only a vegan adaptation found, not a Kerman version
+b633	ash-e-torsh	no full recipe found in two searches
+b633	gazaneh	only a generic nettle stew found, no Gazaneh recipe
+b634	laboo	boiled beetroot is a bought snack, not a recipe dish
+b634	lovuez	no trustworthy full recipe found in two searches
+b634	mahi-doodi	smoked fish is bought, not cooked from a recipe
+b634	sirabij	no trustworthy full recipe found in two searches
+b636	ash-cake	no full recipe from a named cook or publication found
+b636	baltimore-snowball	stand-sold treat; no trustworthy home recipe found
+b636	benedictine-sandwich	rejected: url already used
+b636	brains-and-eggs	fetched options were an article without a recipe or calf brain not scrambled
+b636	brooklyn-charlotte-russe	only classic charlotte russe found, not the Brooklyn sponge cup
+b636	camel-rider	no named-cook recipe found; restaurant-style sandwich
+b636	chicago-style-tamale	no full recipe from a named cook or publication found
+b637	fried-brain-sandwich	no full recipe page found in two searches; the Takeout page is a narrative article
+r022	pan-e-sapa	no trustworthy full recipe page; only aggregator and brand or shop pages turned up, and a Roman must cake match was loose
+b638	kansas-city-style-hot-dog	no trustworthy Kansas City-style recipe found in two searches
+b639	new-jersey-beefsteak	banquet event, not a home recipe
+b639	olive-burger	found pages use cream cheese olive topping, not green olive mayonnaise
+b640	peas-and-eggs	no trustworthy American recipe found; results were Italian or Spanish
+b640	pilot-crackers	only a gluten-free variant found, not the classic cracker
+b640	shad-bake	event-style shad bake; planked shad page lacked a full ingredient list
+b641	washington-pie	no full jam-filled recipe found; results were cream-filled versions
+b641	bolacha-sete-capas	no recipe page for this dish in search results
+b642	bolo-de-noiva	no full recipe from a publication found; results were aggregators
+b642	cabeca-de-galo	no publication recipe found; results were aggregators and a wiki
+b642	chourico-doce	recipe page had no ingredients or steps; other hits were savory chouriço
+b642	furrundu	no trustworthy recipe found
+b642	lele	no lelê recipe found; hits were other corn puddings
+b642	quirera-com-sua	quirera found used smoked pork ribs, not suã
+b642	tareco	no trustworthy publication recipe found
+b642	ah-bo-liang	no Teochew recipe found; results were generic tang yuan
+b642	baishui-yangtou	boiled sheep head recipe found used a soy and vinegar dip, not spiced salt
+b642	chidou-hutang-zhou	no matching recipe found
+b642	da-fang-gao	no matching recipe found
+b642	dowry-cake	no recipe found; only a wiki description
+b643	fasi-niu-baiye	no trustworthy full recipe found in two searches
+b643	gangpen	no trustworthy full recipe found in two searches
+b643	gangzi-rou	no trustworthy full recipe found in two searches
+b643	got-fan-soup	no trustworthy full recipe found; kudzu soup results were savory, not sweet
+b643	hakka-caibao	no trustworthy full recipe found in two searches
+b643	hakka-glass-noodles	no trustworthy full recipe found in two searches
+b643	hupi-kourou	only full recipe found has no named cook and a non-food-publication source
+b643	hesip	no trustworthy full recipe found in two searches
+b643	jiaoye-kaoyu	no trustworthy full recipe found; candidate wrapped in lemongrass, not banana leaves
+b643	jiguanjiao	no trustworthy full recipe found in two searches
+b643	jiuniang-bing	candidate lacked lard and pine nuts; no trustworthy match in two searches
+b644	lotus-seed-and-pork-tripe-soup	no trustworthy full recipe found; only lotus pork belly or lotus root versions, and one page was a security interstitial
+b644	magao	no trustworthy recipe found; results were shaobing or other breads, not Changzhou magao
+b644	migan	no trustworthy recipe found; results were Yunnan mixian or encyclopedia pages
+b644	nuodeng-ham	a bought cured ham product, not a home-cooked recipe
+b644	pamirdin	no trustworthy recipe found; results were pilaf or other pies
+b644	pickled-daikon-skin	no recipe specific to daikon skin found; only general pickled daikon
+b644	qatlima	no trustworthy recipe found; results were Uyghur nangbing or encyclopedia pages
+b644	qingyan-tofu	no trustworthy recipe found; results were generic homestyle tofu
+b644	ruandou-changyu	no trustworthy recipe found; results were dish-info or aggregator pages
+b644	ruijin-beef-soup	no trustworthy recipe found; only an info page and unrelated beef soups
+b644	shuijing-zhouzi	no trustworthy recipe found; results were aggregators or unrelated jellied pork
+r023	bolo-marta-rocha	only full recipe found was sponsored bakery content; Band pages would not open
+r023	mi-zhi-huofang	no trustworthy full recipe found; results were a baked ham, a blocked page and an unopenable page

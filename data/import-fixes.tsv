@@ -1,0 +1,22 @@
+dish_id	reason
+tamago-kake-gohan	url truncated
+carne-de-porco-a-alentejana	Food52 community recipe
+bolo-rei	Food52 community recipe
+nasi-kandar	Slurrp aggregator
+mutabbaq	Slurrp aggregator
+kepiting-saus-padang	Slurrp aggregator
+soan-papdi	content-farm site
+alaska-roll	content-farm site
+saltah	Flavor365 content farm (row is in saved part04; ignore it)
+tehari	Flavor365 content farm (row is in saved part05; ignore it)
+punschkrapfen	SBS QA staging URL (row is in saved part07; ignore it)
+jjolmyeon	truncated URL (row is in saved part09; ignore it)
+pastila	CORRECTION (part10): cook should be Emmy Cho, source emmymade (row says Taking Big Bites)
+plokkfiskur	CHECK (part10): url may be cut off at "plokkfis"
+yeotgangjeong	CHECK (part11): url is a default squarespace subdomain (aqua-koala-g3ty), may not be the site's public address
+sfakianopita	CORRECTION (part12): cook should be Dimitra Alexandrakis, not Dimitra Khan
+ALL dimitrasdishes.com rows	CORRECTION (parts 12-14): cook should be Dimitra Alexandrakis (some rows say Dimitra Khan): bakaliaros-skordalia, revithada, sfakianopita, kotopoulo-kapama, tahinopita
+REVIEW	simplechinesefood.com	all rows (about 61): site takes recipes from home cooks under usernames; decide keep or drop on import
+FIX	cook=Ciao Italia	set cook to Mary Ann Esposito on import (Ciao Italia is her show)
+FIX	cook=Emeril Live or Emerils.com	set cook to Emeril Lagasse on import
+FIX	justonecookbook.com	set cook to Namiko Chen on import

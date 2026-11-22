@@ -1,0 +1,589 @@
+dish_id,dish,cuisine,description
+snow-pea-leaf-soup,Snow pea leaf soup,Chinese,Clear soup of pea shoots
+spicy-bamboo-shoot-salad,Spicy bamboo shoot salad,Chinese,Cooked spring bamboo shoots in chili dressing
+suan-tangzi,Suan tangzi,Chinese,Fermented corn flour noodles in soup
+suan-zhou,Suan zhou,Chinese,Fermented sour millet porridge
+suziye-doubao,Suziye doubao,Chinese,Sweet bean bun steamed in perilla leaves
+taitiao-huangyu,Taitiao huangyu,Chinese,Yellow croaker fillets fried in seaweed batter
+tang-juanguo,Tang juanguo,Chinese,"Fried yam and jujube roll, sugar glazed"
+tanzi-rou,Tanzi rou,Chinese,Jinan pork braised in a clay jar
+tengluo-bing,Tengluo bing,Chinese,Pastry filled with wisteria flowers
+teochew-pork-jelly,Teochew pork jelly,Chinese,"Braised pig leg set in jelly, served cold"
+tian-mo,Tian mo,Chinese,"Jinan savory millet porridge with peanuts, tofu"
+wangao,Wangao,Chinese,Steamed egg cake made in a bowl
+weining-ham,Weining ham,Chinese,"Dry-cured ham from Weining, Guizhou"
+xi-gua-lao,Xi gua lao,Chinese,Chilled thickened watermelon juice
+xiasha-shaomai,Xiasha shaomai,Chinese,Shanghai shaomai with pork and spring bamboo
+xiazi-jiaomian,Xiazi jiaomian,Chinese,Yangzhou noodle soup with shrimp roe and dumplings
+xueba-ya,Xueba ya,Chinese,"Duck steamed with blood-soaked sticky rice, then fried"
+yongfeng-chili-sauce,Yongfeng chili sauce,Chinese,Fermented chili and bean paste
+yu-gao,Yu gao,Chinese,Steamed fish paste cakes from Hubei
+yueguangbing,Yueguangbing,Chinese,Hakka moonlight cake for Mid-Autumn
+yutou-paobing,Yutou paobing,Chinese,Braised fish head eaten with flatbread
+zao-la,Zao la,Chinese,Guizhou fermented chopped chili sauce
+zaohua-su,Zaohua su,Chinese,Flower-shaped flaky pastry with jujube paste
+zhuyou-gao,Zhuyou gao,Chinese,Suzhou sweet rice cake studded with lard
+zongzi-tang,Zongzi tang,Chinese,Pyramid-shaped Suzhou boiled sugar candy
+bohemienne,Bohémienne,French,Provençal aubergine and tomato stew
+bonbons-piments,Bonbons piments,French,Réunion spicy fried split pea fritters
+chaudree,Chaudrée,French,Charente fish soup with white wine
+crespeou,Crespeou,French,Provençal layered vegetable omelette cake
+crique-ardechoise,Crique ardéchoise,French,Ardèche grated potato pancake
+croute-aux-morilles,Croûte aux morilles,French,Toast topped with morels in cream
+estofinado,Estofinado,French,Aveyron stockfish mashed with potatoes and eggs
+farcous,Farçous,French,Aveyron chard and herb fritters
+fromage-fort,Fromage fort,French,Fermented cheese spread with wine and spices
+gratin-de-blettes,Gratin de blettes,French,Swiss chard baked in béchamel
+gratin-de-chouchou,Gratin de chouchou,French,Réunion chayote baked with béchamel and cheese
+knepfle,Knepfle,French,Small Alsatian flour dumplings
+macaronade,Macaronade,French,Sète pasta with beef and sausage ragout
+matafan,Matafan,French,Thick Savoy and Lyon pancake
+mogettes,Mogettes,French,"Vendée white beans with butter, often on toast"
+pain-brie,Pain brié,French,Dense Normandy bread with tight crumb
+panade,Panade,French,Bread simmered into a thick soup
+petite-marmite,Petite marmite,French,Clear beef and chicken broth with vegetables
+potage-germiny,Potage Germiny,French,Sorrel soup enriched with egg and cream
+raviolis-nicois,Raviolis niçois,French,Nice ravioli filled with leftover daube
+sabodet,Sabodet,French,"Lyon pig head sausage, served poached"
+salade-aveyronnaise,Salade aveyronnaise,French,"Lettuce, Roquefort and walnut salad"
+seiche-a-la-rouille,Seiche à la rouille,French,Sète cuttlefish stewed in rouille sauce
+liegnitzer-bombe,Liegnitzer Bombe,German,Gingerbread cake filled with fruit and marzipan
+lazarakia,Lazarakia,Greek,Spiced buns shaped like swaddled Lazarus
+moungra,Moungra,Greek,Cypriot cauliflower pickled with mustard
+akkaravadisal,Akkaravadisal,Indian,"Rice cooked in milk, jaggery and ghee"
+aravanai,Aravanai,Indian,Temple rice and jaggery pudding with ghee
+atukula-dosa,Atukula dosa,Indian,Soft dosa made with flattened rice
+aval-payasam,Aval payasam,Indian,Flattened rice cooked in sweet milk
+bassaru,Bassaru,Indian,Lentil and greens broth served with ragi mudde
+besara,Besara,Indian,Odia vegetables in mustard paste gravy
+bommidala-pulusu,Bommidala pulusu,Indian,Andhra spiny eel in tamarind gravy
+chaulai-saag,Chaulai saag,Indian,Amaranth leaves sauteed with garlic
+cheppankizhangu-varuval,Cheppankizhangu varuval,Indian,Crisp spiced fried colocasia
+chhena-jhili,Chhena jhili,Indian,Fried chhena dumplings in sugar syrup
+chhena-kheeri,Chhena kheeri,Indian,Chhena cooked in sweetened thickened milk
+chicken-piralen,Chicken piralen,Indian,Kerala Syrian Christian stir-fried spiced chicken
+chura-matar,Chura matar,Indian,Flattened rice fried with green peas
+curry-leaf-rice,Curry leaf rice,Indian,Rice mixed with roasted curry leaf powder
+dahi-baigana,Dahi baigana,Indian,Odia fried eggplant in tempered yogurt
+dalithoy,Dalithoy,Indian,Konkani tempered split yellow lentils
+dhoper-chop,Dhoper chop,Indian,Bengali crumbed potato and vegetable croquette
+dibba-rotti,Dibba rotti,Indian,Thick Andhra rice and urad dal pancake
+dum-ke-roat,Dum ke roat,Indian,Baked semolina cookie made for Muharram
+elaneer-payasam,Elaneer payasam,Indian,Tender coconut and milk pudding
+fulwadi,Fulwadi,Indian,Gujarati fried gram-flour bits
+galho,Galho,Indian,Naga rice and lentil porridge with greens
+ghadichi-poli,Ghadichi poli,Indian,Layered triangular wheat flatbread
+ghila-pitha,Ghila pitha,Indian,Assamese fried rice flour and jaggery cakes
+gil-e-firdaus,Gil-e-firdaus,Indian,Bottle gourd and rice kheer
+goja,Goja,Indian,Bengali fried dough sweet soaked in syrup
+gojju,Gojju,Indian,"Sweet, sour and spicy tamarind vegetable relish"
+irachi-puttu,Irachi puttu,Indian,Steamed rice puttu layered with spiced meat
+jeera-rasam,Jeera rasam,Indian,Cumin-flavored rasam
+kadak-roti,Kadak roti,Indian,Crisp dried sorghum flatbread
+kalmi-vada,Kalmi vada,Indian,Rajasthani crisp chana dal fritters
+kamalabhog,Kamalabhog,Indian,Orange-flavored rasgulla
+kari-dosai,Kari dosai,Indian,Madurai dosa topped with minced mutton
+katachi-amti,Katachi amti,Indian,Sweet and sour dal from puran cooking water
+kathal-ke-kebab,Kathal ke kebab,Indian,Spiced jackfruit kebab patties
+kathirikai-gotsu,Kathirikai gotsu,Indian,Roasted brinjal tamarind gravy served with pongal
+keerai-masiyal,Keerai masiyal,Indian,Mashed greens with mustard seed tempering
+khad-khargosh,Khad khargosh,Indian,Rajasthani rabbit roasted in a pit
+kheer-sagar,Kheer sagar,Indian,Small chhena balls in saffron condensed milk
+khirmohan,Khirmohan,Indian,Chhena and semolina balls in sugar syrup
+kismur,Kismur,Indian,Goan dried fish with onion and coconut
+kolar-bora,Kolar bora,Indian,Bengali ripe banana fritters
+kollu-rasam,Kollu rasam,Indian,Horse gram rasam
+kootanchoru,Kootanchoru,Indian,Tirunelveli rice cooked with lentils and vegetables
+kotte-kadubu,Kotte kadubu,Indian,Idli batter steamed in jackfruit leaf cups
+kuzhalappam,Kuzhalappam,Indian,"Kerala rolled rice-flour tubes, deep fried"
+lasaniya-bateta,Lasaniya bateta,Indian,Baby potatoes in spicy garlic gravy
+maa-laddu,Maa laddu,Indian,Roasted gram flour and sugar balls
+magas,Magas,Indian,Roasted gram flour fudge with ghee and nuts
+makhan-bada,Makhan bada,Indian,Fried maida and yogurt dough in syrup
+makkan-peda,Makkan peda,Indian,Nut-stuffed fried khoa balls in syrup
+mangai-pachadi,Mangai pachadi,Indian,Sweet and sour raw mango jaggery relish
+mati-handi-mangsa,Mati handi mangsa,Indian,Odia mutton slow-cooked in a clay pot
+mor-milagai,Mor milagai,Indian,"Sun-dried yogurt-soaked chillies, fried"
+naatu-kozhi-rasam,Naatu kozhi rasam,Indian,Country chicken pepper soup
+nandu-rasam,Nandu rasam,Indian,Spicy crab rasam
+nenju-elumbu-soup,Nenju elumbu soup,Indian,Mutton rib bone pepper soup
+ou-tenga-maas,Ou tenga maas,Indian,Assamese sour fish curry with elephant apple
+paravannam,Paravannam,Indian,Andhra rice and jaggery pudding
+paruppu-podi,Paruppu podi,Indian,Roasted lentil powder eaten with rice and ghee
+paruppu-sadam,Paruppu sadam,Indian,Tamil rice cooked with toor dal and ghee
+patal-bhaji,Patal bhaji,Indian,Thin leafy curry with buttermilk and gram flour
+patoleo,Patoleo,Indian,Goan rice sweet steamed in turmeric leaf
+pavakkai-pitlai,Pavakkai pitlai,Indian,Bitter gourd in tamarind lentil gravy
+pidi,Pidi,Indian,Rice-flour dumplings in coconut milk gravy
+pineapple-rasam,Pineapple rasam,Indian,Sweet and sour rasam with pineapple
+poondu-kuzhambu,Poondu kuzhambu,Indian,Tamil garlic and tamarind gravy
+poondu-rasam,Poondu rasam,Indian,Garlic rasam
+sambhariyu-shaak,Sambhariyu shaak,Indian,Stuffed baby vegetables in spiced gram flour
+sandige,Sandige,Indian,"Sun-dried rice or sago crisps, deep fried"
+sanpiau,Sanpiau,Indian,Mizo rice porridge with meat and toppings
+sarbhaja,Sarbhaja,Indian,Fried milk cream layers soaked in syrup
+sawhchiar,Sawhchiar,Indian,Mizo rice cooked thick with pork or chicken
+senai-kizhangu-varuval,Senai kizhangu varuval,Indian,Spiced fried elephant foot yam
+singori,Singori,Indian,Khoa and coconut sweet wrapped in leaf
+sodhi,Sodhi,Indian,Tirunelveli vegetable stew in coconut milk
+sukke,Sukke,Indian,Konkani dry coconut curry with vegetables
+surnoli,Surnoli,Indian,Soft sweet Konkani rice pancakes
+taler-bora,Taler bora,Indian,Sugar palm pulp and rice flour fritters
+then-mittai,Then mittai,Indian,Fried batter balls filled with sugar syrup
+uddamethi,Uddamethi,Indian,Goan mackerel curry with fenugreek
+nzuddi,'Nzuddi,Italian,Messina almond and orange cookies
+acciughe-ripiene,Acciughe ripiene,Italian,"Stuffed anchovies, usually fried"
+acciuleddi,Acciuleddi,Italian,Sardinian braided fried dough in honey
+agnolotti-pavesi,Agnolotti pavesi,Italian,Pavia filled pasta stuffed with braised beef
+alici-indorate-e-fritte,Alici indorate e fritte,Italian,Egg-battered fried boneless anchovies
+anguilla-marinata,Anguilla marinata,Italian,Comacchio eel cooked and marinated in vinegar
+azime-dolci,Azime dolci,Italian,Venetian Jewish fennel seed cookies
+bardiccio,Bardiccio,Italian,Tuscan fennel-spiced pork sausage
+bastardi-affucati,Bastardi affucati,Italian,Sicilian cauliflower braised in red wine
+bianchini,Bianchini,Italian,Sardinian meringue pyramids topped with almonds
+biroldo,Biroldo,Italian,Tuscan spiced blood sausage
+biscotti-di-fonni,Biscotti di Fonni,Italian,Sardinian ladyfinger-style lemon sponge biscuits
+bozza-pratese,Bozza pratese,Italian,Saltless country loaf from Prato
+bucconettes,Bucconettes,Italian,Barbagia honeyed hazelnut balls wrapped in paper
+caffe-in-forchetta,Caffè in forchetta,Italian,Coffee custard baked in a water bath
+capra-e-fagioli,Capra e fagioli,Italian,Ligurian goat stewed with beans
+capuliato,Capuliato,Italian,Sicilian minced sun-dried tomato condiment
+capunti,Capunti,Italian,"Apulian hand-rolled pasta pods, often with greens"
+caragnoli,Caragnoli,Italian,Molise honey-coated fried pastry spirals
+cassatella-di-agira,Cassatella di Agira,Italian,Agira pastry with almond and cocoa filling
+chinulille,Chinulille,Italian,Calabrian fried ravioli with sweet filling
+ciappe,Ciappe,Italian,Thin crisp Ligurian olive oil crackers
+ciarduna,Ciarduna,Italian,Sicilian crisp wafer filled with ricotta
+ciopa,Ciopa,Italian,Cross-scored Venetian white bread roll
+coccoi-a-pitzus,Coccoi a pitzus,Italian,Ornate Sardinian semolina festive bread
+copulettas,Copulettas,Italian,Sardinian shortcrust disks filled with sapa
+crocetta-di-caltanissetta,Crocetta di Caltanissetta,Italian,Cross-shaped almond and lemon pastry
+cuddrireddra,Cuddrireddra,Italian,Delia crown-shaped fried cinnamon pastry
+cutturidd,Cutturidd,Italian,Lucanian mutton stew with potatoes and tomatoes
+fichi-impaccati,Fichi impaccati,Italian,Dried figs pressed with almonds and fennel
+frittata-di-scammaro,Frittata di scammaro,Italian,Neapolitan Lenten pasta frittata with olives
+ginestrata,Ginestrata,Italian,Tuscan broth thickened with egg yolks and Marsala
+gueffus,Gueffus,Italian,Sardinian almond paste balls in paper wrappers
+insalata-di-trippa,Insalata di trippa,Italian,Ligurian cold boiled tripe salad
+intorchiate,Intorchiate,Italian,Apulian twisted biscuits topped with almonds
+involtini-di-cotenna,Involtini di cotenna,Italian,Pork rind rolls braised in tomato sauce
+lattacciolo,Lattacciolo,Italian,"Abruzzo baked milk, egg and sugar custard"
+lorighittas,Lorighittas,Italian,Braided Sardinian ring pasta from Morgongiori
+lucanica-di-picerno,Lucanica di Picerno,Italian,Lucanian dry pork sausage with fennel
+macarrones-de-busa,Macarrones de busa,Italian,Sardinian pasta rolled around an iron rod
+maccheroni-alla-pastora,Maccheroni alla pastora,Italian,"Calabrian pasta with ricotta, pecorino and sausage"
+maro,Marò,Italian,Ligurian pounded fava bean and mint sauce
+mazzafegato,Mazzafegato,Italian,Pork liver sausage from Umbria and Marche
+mazzarelle,Mazzarelle,Italian,Lamb offal wrapped in greens and braised
+micoula,Micoula,Italian,Aosta rye bread with chestnuts and raisins
+moscardini-alla-ligure,Moscardini alla ligure,Italian,Ligurian baby octopus stewed in tomato
+nidi-di-rondine,Nidi di rondine,Italian,Baked rolled egg pasta with ham and béchamel
+orecchiette-alla-materana,Orecchiette alla materana,Italian,"Baked orecchiette with lamb, tomato and cheese"
+orilletas,Orilletas,Italian,Sardinian honey-glazed fried pastry ribbons
+pan-caciato,Pan caciato,Italian,"Umbrian bread with walnuts, pecorino and pepper"
+pane-di-laterza,Pane di Laterza,Italian,Apulian durum wheat sourdough loaf
+parafrittus,Parafrittus,Italian,Sardinian ring-shaped Carnival doughnuts
+petrafennula,Petrafennula,Italian,"Sicilian citrus, honey and almond nougat"
+pistiddu,Pistiddu,Italian,Sardinian pastry filled with sapa
+pitina,Pitina,Italian,Friulian smoked patties of minced game meat
+quatara,Quatara,Italian,Salento fishermen's mixed fish soup
+rafanata,Rafanata,Italian,Lucanian baked omelet with horseradish and pecorino
+risotto-ai-fegatini,Risotto ai fegatini,Italian,Venetian risotto with chicken livers
+risotto-all-isolana,Risotto all'isolana,Italian,Veronese risotto with pork and veal
+risotto-alla-valdostana,Risotto alla valdostana,Italian,Aosta Valley risotto with fontina cheese
+risotto-alle-ortiche,Risotto alle ortiche,Italian,Risotto with foraged nettles
+rujolos,Rujolos,Italian,Sardinian fried ricotta balls with citrus peel
+sagne-ncannulate,Sagne 'ncannulate,Italian,Twisted Salento pasta ribbons with tomato and ricotta
+salame-d-oca,Salame d'oca,Italian,Goose salami from Mortara
+salame-genovese-di-sant-olcese,Salame genovese di Sant'Olcese,Italian,"Ligurian pork and beef salami, lightly smoked"
+scaldatelli,Scaldatelli,Italian,Calabrian boiled then baked bread rings
+scapece-alla-vastese,Scapece alla vastese,Italian,Fried skate preserved in saffron vinegar
+scapece-gallipolina,Scapece gallipolina,Italian,Fried fish layered with saffron vinegar breadcrumbs
+scarpinocc,Scarpinocc,Italian,Bergamo shoe-shaped filled pasta with cheese
+scroccafusi,Scroccafusi,Italian,Marche Carnival fried dough balls
+spaghetti-alla-vesuviana,Spaghetti alla vesuviana,Italian,"Neapolitan spaghetti with tomato, olives and capers"
+spalla-di-san-secondo,Spalla di San Secondo,Italian,"Parma pork shoulder, sold cooked or raw"
+spezzatino-di-musso,Spezzatino di musso,Italian,Venetian donkey stew served with polenta
+spiritosa-di-carote,Spiritosa di carote,Italian,Neapolitan carrots in spicy vinegar marinade
+stomatico,Stomatico,Italian,Reggio Calabria honey and spice biscuit
+stringozzi-ai-funghi-e-tartufi,Stringozzi ai funghi e tartufi,Italian,Umbrian hand-rolled noodles with mushrooms and truffle
+stroncatura,Stroncatura,Italian,Calabrian rough pasta with anchovies and breadcrumbs
+sugolo,Sugolo,Italian,Grape must pudding thickened with flour
+torta-monferrina,Torta monferrina,Italian,Piedmont pumpkin or apple cake with amaretti
+tortelli-maremmani,Tortelli maremmani,Italian,Maremma square tortelli with spinach and ricotta
+troccoli,Troccoli,Italian,Thick square-cut fresh Apulian spaghetti
+uova-alla-monachina,Uova alla monachina,Italian,"Neapolitan stuffed hard-boiled eggs, breaded and fried"
+zemin-di-ceci,Zemin di ceci,Italian,Ligurian chickpea and chard soup
+age-onigiri,Age onigiri,Japanese,Deep-fried rice ball
+aruheito,Aruheito,Japanese,Pulled sugar candy of Portuguese origin
+ayu-meshi,Ayu meshi,Japanese,Rice cooked with whole sweetfish
+gansu,Gansu,Japanese,Hiroshima breaded fried fish paste cutlet
+hakuto-jelly,Hakuto jelly,Japanese,White peach jelly summer dessert
+hamo-shabu,Hamo shabu,Japanese,Pike conger swished in hot broth
+harihari-nabe,Harihari nabe,Japanese,Whale meat and mizuna hot pot
+hoba-maki,Hoba maki,Japanese,Bean paste mochi wrapped in magnolia leaf
+hocho,Hocho,Japanese,Oita thin udon in dipping sauce
+iga-mochi,Iga mochi,Japanese,Bean paste mochi topped with colored rice
+itokoni,Itokoni,Japanese,Azuki beans simmered with vegetables
+kagoshima-tonkotsu,Kagoshima tonkotsu,Japanese,Pork ribs braised in shochu and miso
+kaki-namasu,Kaki namasu,Japanese,Daikon and carrot namasu with dried persimmon
+kankoro-mochi,Kankoro mochi,Japanese,Dried sweet potato and glutinous rice cake
+karashizuke,Karashizuke,Japanese,Vegetables pickled with hot mustard
+kazo-udon,Kazo udon,Japanese,"Hand kneaded udon from Kazo, Saitama"
+kujira-katsu,Kujira katsu,Japanese,Breaded fried whale cutlet
+kujira-jiru,Kujira-jiru,Japanese,Salted whale and vegetable miso soup
+mamakari-zushi,Mamakari zushi,Japanese,Okayama sushi of vinegared scaled sardine
+momiji-nabe,Momiji nabe,Japanese,Venison hot pot in miso broth
+moso-jiru,Moso-jiru,Japanese,Bamboo shoot soup with miso and sake lees
+naabeeraa-nbushi,Naabeeraa nbushi,Japanese,Okinawan luffa simmered in miso
+naaberaa-nbushi,Naaberaa nbushi,Japanese,Okinawan luffa and tofu stewed in miso
+nagasaki-milkshake,Nagasaki milkshake,Japanese,Spoon-eaten icy milk and egg shake
+oboro-udon,Oboro udon,Japanese,Udon in dashi with shaved kombu
+okinawa-champon,Okinawa champon,Japanese,"Stir-fried vegetables, meat and egg on rice"
+ota-yakisoba,Ota yakisoba,Japanese,"Thick sauce yakisoba from Ota, Gunma"
+sakezushi,Sakezushi,Japanese,Kagoshima scattered sushi seasoned with sake
+shimotsukare,Shimotsukare,Japanese,"Salmon head, soybeans and sake lees simmered"
+soba-maki,Soba maki,Japanese,Cold soba rolled in nori like sushi
+teppo-jiru,Teppo-jiru,Japanese,Hokkaido miso soup with hanasaki crab
+tetchan,Tetchan,Japanese,Grilled beef large intestine
+tori-bento,Tori bento,Japanese,Gunma boxed lunch of sauced chicken on rice
+torisuki,Torisuki,Japanese,Chicken cooked sukiyaki style
+kibbeh-summaqiyeh,Kibbeh summaqiyeh,Levantine,Aleppo kibbeh in sumac and chard sauce
+naem,Naem,Levantine,Fried thin dough drizzled with date syrup
+suwar-el-sit,Suwar el sit,Levantine,Ring pastry filled with pistachio in syrup
+belutak,Belutak,Malaysian & Singaporean,Dried beef sausage from Sabah and Brunei
+bubur-asyura,Bubur asyura,Malaysian & Singaporean,Grain and bean porridge for Islamic New Year
+hinompuka,Hinompuka,Malaysian & Singaporean,Kadazan-Dusun steamed glutinous rice cake
+kebebe,Kebebe,Malaysian & Singaporean,Perak salad of thirteen fruits and herbs
+kuih-jala,Kuih jala,Malaysian & Singaporean,Lacy fried rice batter nests
+kuih-lidah,Kuih lidah,Malaysian & Singaporean,"Tongue-shaped sponge biscuit from Papar, Sabah"
+roti-golok,Roti golok,Malaysian & Singaporean,Soft buttery sweet bread from Kelantan
+yi-buah,Yi buah,Malaysian & Singaporean,Hainanese banana-leaf dumpling with coconut and peanut
+caldo-de-oso,Caldo de oso,Mexican,Chihuahua catfish soup with chile and tomato
+chiles-chipotles-rellenos,Chiles chipotles rellenos,Mexican,Xalapa stuffed chipotle chiles
+cuachala,Cuachala,Mexican,Jalisco chicken in thick chile masa sauce
+sopa-de-guias,Sopa de guías,Mexican,Oaxacan soup of squash vines and corn
+anar-bij,Anar bij,Persian,Gilan meatballs in pomegranate walnut sauce
+kuku-eshpel,Kuku eshpel,Persian,Gilan kuku made with fish roe
+mahyaveh,Mahyaveh,Persian,Larestan fermented fish sauce
+gboma-dessi,Gboma dessi,West African,Togolese spinach stew with meat
+altoona-style-pizza,Altoona-style pizza,American,Square pizza topped with American cheese
+amish-preaching-soup,Amish preaching soup,American,Bean soup served after Amish church services
+boiled-dressing,Boiled dressing,American,"Cooked egg, vinegar and mustard salad dressing"
+brier-hill-pizza,Brier Hill pizza,American,Thick pizza with peppers and Romano
+cherokee-bean-bread,Cherokee bean bread,American,Hominy and bean dough boiled in corn leaves
+chokecherry-jelly,Chokecherry jelly,American,Tart jelly made from wild chokecherries
+chop-suey-sandwich,Chop suey sandwich,American,Chicken chop suey on a hamburger bun
+couche-couche,Couche-couche,American,Fried cornmeal porridge with cane syrup
+crab-norfolk,Crab Norfolk,American,Crabmeat sautéed in butter and vinegar
+cracker-pudding,Cracker pudding,American,Milk pudding thickened with saltine crackers
+cranberry-wild-rice-bread,Cranberry wild rice bread,American,Yeast bread with wild rice and cranberries
+cudighi,Cudighi,American,Spiced Italian-style pork sausage from Michigan
+dayton-style-pizza,Dayton-style pizza,American,Thin cornmeal crust pizza cut in squares
+dolly-varden-cake,Dolly Varden cake,American,Layer cake with contrasting colored layers
+fried-green-chile-strips,Fried green chile strips,American,Battered and fried strips of green chile
+guber-burger,Guber burger,American,Burger topped with melted peanut butter
+hatteras-clam-chowder,Hatteras clam chowder,American,Clear clam chowder with potatoes and bacon
+henry-bain-sauce,Henry Bain sauce,American,Chutney-based steak sauce
+huckabuck,Huckabuck,American,Sweet fruit drink frozen in a cup
+india-relish,India relish,American,Sweet spiced cucumber and pepper relish
+jelly-pie,Jelly pie,American,Custard pie flavored with fruit jelly
+jersey-breakfast-dog,Jersey breakfast dog,American,Bacon-wrapped fried hot dog with egg
+mayfair-dressing,Mayfair dressing,American,Creamy anchovy and garlic salad dressing
+minorcan-clam-chowder,Minorcan clam chowder,American,Spicy tomato clam chowder with datil pepper
+mock-chow-mein,Mock chow mein,American,"Ground beef, rice and celery hotdish"
+old-sour,Old Sour,American,Fermented key lime juice condiment
+oysters-kirkpatrick,Oysters Kirkpatrick,American,Baked oysters with bacon and ketchup sauce
+pashofa,Pashofa,American,Chickasaw cracked white corn and pork soup
+pastry-heart,Pastry heart,American,Heart-shaped sugared puff pastry from Buffalo
+pine-bark-stew,Pine bark stew,American,Fish stew with bacon and tomatoes
+rolled-oysters,Rolled oysters,American,Louisville oysters rolled in batter and fried
+seafoam-salad,Seafoam salad,American,Lime gelatin salad with pears and cream cheese
+seafood-muddle,Seafood muddle,American,Outer Banks fish and potato stew
+sofkee,Sofkee,American,Thin hominy corn porridge
+sonofabitch-stew,Sonofabitch stew,American,Cowboy stew of beef and offal
+spaghetti-con-chile,Spaghetti con chile,American,Spaghetti in mild chili sauce
+spaghetti-sandwich,Spaghetti sandwich,American,Spaghetti and sauce in bread
+spiced-ham-sandwich,Spiced ham sandwich,American,Spiced ham and mozzarella on rye
+spicy-cheese-bread,Spicy cheese bread,American,Soft loaf studded with cheese and red pepper
+spinach-madeleine,Spinach Madeleine,American,Baked spinach in spicy cheese sauce
+squash-relish,Squash relish,American,Sweet pickled relish of yellow squash
+sweet-potato-dumplings,Sweet potato dumplings,American,Sweet potato wrapped in dough and baked
+tater-kegs,Tater kegs,American,Large stuffed and fried tater tots
+teaberry-ice-cream,Teaberry ice cream,American,Pink ice cream flavored with teaberry
+terrapin-stew,Terrapin stew,American,Diamondback terrapin in cream and sherry
+turkey-devonshire,Turkey Devonshire,American,Open-faced hot turkey with cheese sauce
+wild-rice-porridge,Wild rice porridge,American,Wild rice cooked into a breakfast porridge
+woodford-pudding,Woodford pudding,American,Baked blackberry jam pudding with caramel sauce
+ah-bho-liang,Ah bho liang,Chinese,Large Teochew glutinous rice balls in sweet soup
+anfu-ham,Anfu ham,Chinese,"Dry-cured ham from Anfu, Jiangxi"
+anyuan-sanxian-fen,Anyuan sanxian fen,Chinese,Rice noodles with three fresh toppings
+bama-roast-pork,Bama roast pork,Chinese,Roasted Bama miniature pig from Guangxi
+bohe-gao,Bohe gao,Chinese,Steamed rice cake flavored with mint
+ciba-yu,Ciba yu,Chinese,"Marinated grass carp, fried, from Wuhan"
+crispy-skin-fish-rolls,Crispy skin fish rolls,Chinese,Fried tofu skin rolls with fish filling
+dali-shaguo-yu,Dali shaguo yu,Chinese,Erhai Lake fish stewed in an earthen pot
+dongjiang-rouwan,Dongjiang rouwan,Chinese,Hakka pork meatballs from the Dongjiang region
+gannan-xiao-chao-yu,Gannan xiao chao yu,Chinese,Small fish stir-fried over low heat
+hualiu-liji,Hualiu liji,Chinese,Velveted pork tenderloin in thick gravy
+huangpi-sanhe,Huangpi sanhe,Chinese,"Fish balls, pork balls and pork braised together"
+jianshui-ba,Jianshui ba,Chinese,Jiangxi rice cake made with alkaline water
+jinggang-smoked-bamboo-shoots,Jinggang smoked bamboo shoots,Chinese,Smoked bamboo shoots stir-fried with chili
+jinsi-gao,Jinsi gao,Chinese,Glazed fried egg dough cake
+jiujiang-radish-cake,Jiujiang radish cake,Chinese,Fried batter cake filled with shredded radish
+jixi-yipin-guo,Jixi yipin guo,Chinese,"Layered pot of meats, tofu and egg dumplings"
+juangao,Juangao,Chinese,Rolled glutinous rice cake with bean paste
+lama-gao,Lama gao,Chinese,Old Beijing steamed sponge cake
+liulin-wantuan,Liulin wantuan,Chinese,"Buckwheat batter steamed in bowls, sliced, sauced"
+lizi-geng,Lizi geng,Chinese,Thick sweet chestnut soup
+minbagu,Minbagu,Chinese,Short pressed noodles from Shanxi
+mizhi-hulu,Mizhi hulu,Chinese,Honey-glazed fried dough gourds
+nanpie,Nanpie,Chinese,Dai relish of pounded fresh herbs and spices
+nanrou-chunsun,Nanrou chunsun,Chinese,Salted pork simmered with spring bamboo shoots
+naren-chop,Naren chöp,Chinese,Uyghur noodles in peppery lamb and onion sauce
+night-blooming-cereus-soup,Night-blooming cereus soup,Chinese,Cantonese soup of dried cereus flowers and pork
+pagao,Pagao,Chinese,Cold buckwheat cake with garlic and vinegar
+poyang-lake-fish-head,Poyang Lake fish head,Chinese,Fish head stewed with red pepper
+ruizhou-shaomai,Ruizhou shaomai,Chinese,Jiangxi open-topped steamed dumplings
+shengbao-shanpian,Shengbao shanpian,Chinese,Battered swamp eel stir-fried with garlic and vinegar
+shuijing-gao,Shuijing gao,Chinese,Glazed steamed glutinous rice cake
+sichuan-zongzi,Sichuan zongzi,Chinese,"Peppery cured pork zongzi, boiled then roasted"
+six-flavors-soup,Six flavors soup,Chinese,Sweet herbal soup for hot days
+songhua-tuanzi,Songhua tuanzi,Chinese,Glutinous rice rolls coated in pine pollen
+songzi-yumi,Songzi yumi,Chinese,Diced fish stir-fried with pine nuts
+suykash,Suykash,Chinese,Uyghur noodle soup with meat and vegetables
+three-nested-duck,Three-nested duck,Chinese,Duck stuffed with a wild duck and pigeon
+xianguo-tu,Xianguo tu,Chinese,Zigong rabbit cooked fresh in a spicy pot
+youbao-hailuo,Youbao hailuo,Chinese,Quick-fried sea whelk slices
+zha-juanguo,Zha juanguo,Chinese,Fried tofu skin roll with savory filling
+zha-sanjiao,Zha sanjiao,Chinese,Fried triangular pastry with jellied pork filling
+zhe-ergen-chao-larou,Zhe'ergen chao larou,Chinese,Houttuynia root stir-fried with cured pork
+zisu-ya,Zisu ya,Chinese,Duck braised with perilla leaves
+adadiya,Adadiya,Indian,"Winter fudge of urad flour, ghee and gum"
+amba-barfi,Amba barfi,Indian,Mango and milk fudge
+ananas-menaskai,Ananas menaskai,Indian,Konkani pineapple in jaggery and tamarind gravy
+batata-saung,Batata saung,Indian,Potatoes in chilli and tamarind gravy
+batata-song,Batata song,Indian,Konkani potatoes in tamarind and chilli gravy
+bengena-pitika,Bengena pitika,Indian,Assamese mashed roasted eggplant
+chagem-pomba,Chagem pomba,Indian,"Manipuri fermented soy, greens and rice stew"
+chandrapuli,Chandrapuli,Indian,Khoa and coconut sweet cooked in ghee
+chhena-murki,Chhena murki,Indian,Chhena cubes coated in thickened sugar
+chicken-chinthamani,Chicken chinthamani,Indian,Erode chicken sauteed with dried chillies and shallots
+chicken-indad,Chicken indad,Indian,Mangalorean Catholic sweet-sour spiced chicken curry
+chutagi,Chutagi,Indian,Ladakhi bow-shaped noodles in vegetable broth
+chutney-pudi,Chutney pudi,Indian,Dry chutney powder of dal and chillies
+dahi-ki-chutney,Dahi ki chutney,Indian,Spiced yogurt dip served with tahari
+dhondas,Dhondas,Indian,Baked cucumber and semolina cake
+dosakaya-pachadi,Dosakaya pachadi,Indian,Yellow cucumber chutney
+halvasan,Halvasan,Indian,"Khambhat sweet of milk, cracked wheat and nuts"
+kadalai-paruppu-payasam,Kadalai paruppu payasam,Indian,Chana dal and jaggery payasam
+kandi-pachadi,Kandi pachadi,Indian,Roasted toor dal and red chilli chutney
+kanghou,Kanghou,Indian,Manipuri stir-fried mixed vegetables
+karadantu,Karadantu,Indian,"Gokak sweet of edible gum, nuts and jaggery"
+karuveppilai-podi,Karuveppilai podi,Indian,Curry leaf and lentil powder
+kathirikai-rasavangi,Kathirikai rasavangi,Indian,"Brinjal in tamarind, dal and roasted spices"
+keerai-sadam,Keerai sadam,Indian,Tamil rice mixed with cooked greens
+khorisa,Khorisa,Indian,Assamese fermented bamboo shoot
+machha-chhencheda,Machha chhencheda,Indian,Odia fish head mashed with vegetables
+mangodi-ki-sabzi,Mangodi ki sabzi,Indian,Sun-dried moong dal nuggets in spiced gravy
+metkut,Metkut,Indian,Roasted lentil and spice powder for rice
+milagu-kuzhambu,Milagu kuzhambu,Indian,Tamil black pepper and tamarind gravy
+muri-naru,Muri naru,Indian,Puffed rice and jaggery balls
+narthangai-pickle,Narthangai pickle,Indian,Citron pickled with chilli and salt
+nga-thongba,Nga thongba,Indian,Manipuri fish curry
+nganam,Nganam,Indian,Manipuri fish baked with herbs
+paaknam,Paaknam,Indian,Manipuri herb and pea-flour cake in leaves
+pachi-pulusu,Pachi pulusu,Indian,Uncooked tamarind and onion soup
+pakam-undalu,Pakam undalu,Indian,"Rice flour, jaggery and peanut balls"
+palathalikalu,Palathalikalu,Indian,Rice flour noodles cooked in sweet milk
+pelakai-appa,Pelakai appa,Indian,Sweet ripe jackfruit fritters
+samarachi-kodi,Samarachi kodi,Indian,Goan curry of fresh and dried prawns
+sunga-pitha,Sunga pitha,Indian,Rice cake cooked in a bamboo tube
+talakaya-pulusu,Talakaya pulusu,Indian,Charred goat head stewed in tamarind
+tambuli,Tambuli,Indian,Coconut and buttermilk side with herbs
+til-ki-chutney,Til ki chutney,Indian,Hyderabadi sesame chutney
+vazhakkai-podimas,Vazhakkai podimas,Indian,Crumbled raw banana with coconut
+baccala-al-verde,Baccalà al verde,Italian,Salt cod in green herb sauce
+baccala-all-abruzzese,Baccalà all'abruzzese,Italian,"Salt cod with potatoes, tomatoes and olives"
+baccala-alla-potentina,Baccalà alla potentina,Italian,"Salt cod with tomato, olives and raisins"
+batsoa,Batsoà,Italian,Breaded fried pig trotters
+boghe-in-scabeccio,Boghe in scabeccio,Italian,Ligurian fried bogue fish in vinegar marinade
+burrida-a-sa-casteddaja,Burrida a sa casteddaja,Italian,Cagliari dogfish in vinegar and walnut sauce
+capra-alla-neretese,Capra alla neretese,Italian,Abruzzo goat braised with tomatoes and peppers
+capunsei,Capunsei,Italian,Mantuan bread and cheese gnocchi with butter
+cecamariti,Cecamariti,Italian,"Salento soup of fava, greens and fried bread"
+cervellatine,Cervellatine,Italian,Thin Neapolitan pork sausages
+cervo-al-civet,Cervo al civet,Italian,Venison stewed in red wine
+frascarelli,Frascarelli,Italian,Flour crumbs cooked like a porridge
+gnocchi-all-ossolana,Gnocchi all'ossolana,Italian,Ossola potato and pumpkin gnocchi
+gnocchi-di-malga,Gnocchi di malga,Italian,Alpine Veronese gnocchi with butter and cheese
+minestra-de-bobici,Minestra de bobici,Italian,Trieste corn and borlotti bean soup
+modditzosu,Modditzosu,Italian,"Soft round Sardinian bread, often with potato"
+mortadella-di-campotosto,Mortadella di Campotosto,Italian,Oval cured pork sausage sold in pairs
+mosciame,Mosciame,Italian,Salted air-dried tuna fillet
+oseleti-scapadi,Oseleti scapadi,Italian,Venetian rolled meat and sage skewers
+padellaccia-di-maiale,Padellaccia di maiale,Italian,"Pan-stewed pork pieces, a peasant dish"
+pasta-alla-trabaccolara,Pasta alla trabaccolara,Italian,Viareggio pasta with fishermen's fish sauce
+pasta-ca-nunnata,Pasta ca nunnata,Italian,Palermo pasta with newborn fish and garlic
+pastin,Pastin,Italian,Belluno spiced pork and beef mince
+pistocu,Pistocu,Italian,Dry twice-baked Sardinian shepherds' bread
+polenta-incassata,Polenta incassata,Italian,Polenta layered with meat sauce and baked
+polenta-saracena,Polenta saracena,Italian,Buckwheat polenta from the Alps
+polpette-alla-mammolese,Polpette alla mammolese,Italian,Pork and goat cheese meatballs in spicy sauce
+picula-d-cavall,Pìcula 'd cavall,Italian,Minced horse meat stewed with tomato
+rigatoni-alla-silana,Rigatoni alla silana,Italian,"Calabrian rigatoni with sausage, bacon and pecorino"
+riso-in-cagnone,Riso in cagnone,Italian,"Boiled rice with browned butter, sage and cheese"
+risotto-al-tastasal,Risotto al tastasal,Italian,Veronese risotto with seasoned pork mince
+risotto-con-le-rane,Risotto con le rane,Italian,Lombard risotto with frogs' legs
+sfilacci-di-cavallo,Sfilacci di cavallo,Italian,Dried shredded horse meat from Padua
+slinzega,Slinzega,Italian,"Valtellina air-dried beef, a small bresaola"
+stracotto-d-asinina,Stracotto d'asinina,Italian,Piacenza slow-braised donkey meat
+tapulon,Tapulon,Italian,Minced donkey meat stewed in red wine
+torresani-allo-spiedo,Torresani allo spiedo,Italian,Spit-roasted young pigeons from Breganze
+zampina,Zampina,Italian,Apulian coiled mixed-meat sausage
+chiiriichi,Chiiriichi,Japanese,Okinawan pork stir-fried with pig blood
+choboyaki,Choboyaki,Japanese,Osaka griddled batter snack with fillings
+dojo-jiru,Dojo-jiru,Japanese,Miso soup with pond loach
+fukuregashi,Fukuregashi,Japanese,Steamed brown sugar flour cake
+gurukun-karaage,Gurukun karaage,Japanese,Okinawan whole fried banana fish
+hokkaidon,Hokkaidon,Japanese,Sliced raw salmon over rice
+ichijiku-no-kanroni,Ichijiku no kanroni,Japanese,Figs simmered in sugar syrup
+italian-yakisoba,Italian yakisoba,Japanese,Niigata yakisoba topped with tomato sauce
+mimi-udon,Mimi udon,Japanese,Ear shaped noodle soup from Tochigi
+nakami-irichi,Nakami irichi,Japanese,Okinawan stir-fried pork intestines
+romen,Romen,Japanese,Ina steamed noodles stir-fried with mutton
+tsuki-no-shizuku,Tsuki no shizuku,Japanese,Whole grapes coated in sugar
+acorn-bread,Acorn bread,American,Native Californian bread of leached acorn meal
+acorn-mush,Acorn mush,American,Leached acorn meal cooked into mush
+apees,Apees,American,Old Philadelphia caraway sugar cookies
+banaha,Banaha,American,Choctaw cornmeal dumpling steamed in corn husk
+bean-bread,Bean bread,American,"Cherokee cornmeal bread with beans, boiled in husks"
+bear-sign,Bear sign,American,Cowboy-style ring doughnuts
+blarney-stones,Blarney stones,American,Cake squares frosted and rolled in peanuts
+boiled-cider,Boiled cider,American,Apple cider reduced to a tart syrup
+buffalo-ribs,Buffalo ribs,American,Breaded fried ribs of buffalo fish
+cantaloupe-pie,Cantaloupe pie,American,Cantaloupe custard pie topped with meringue
+cashew-pie,Cashew pie,American,Pecan-style pie made with cashews
+chestnut-bread,Chestnut bread,American,Cherokee boiled bread of cornmeal and chestnuts
+chestnut-pie,Chestnut pie,American,Custard pie made with chestnuts
+church-spread,Church spread,American,"Peanut butter, marshmallow and syrup spread"
+diablo-sandwich,Diablo sandwich,American,Spicy ground beef sandwich in tomato sauce
+egg-gravy,Egg gravy,American,Bacon-drippings gravy with beaten egg stirred in
+eggs-beauregard,Eggs Beauregard,American,Biscuits and gravy topped with egg and sausage
+garfish-balls,Garfish balls,American,Fried patties of minced garfish
+heel-sandwich,Heel sandwich,American,Bread heel stuffed with meat sauce
+kanuchi,Kanuchi,American,Cherokee hickory nut soup served with hominy
+kitchen-pepper,Kitchen pepper,American,Colonial blend of pepper and warm spices
+minneapolis-style-pizza,Minneapolis-style pizza,American,"Thin round pizza cut in squares, spicy sauce"
+mon-valley-red-top,Mon Valley red top,American,Double-crust pizza with sauce on top
+nun-s-puffs,Nun's puffs,American,Eggy puffs baked from choux-style batter
+oostburger,Oostburger,American,Burger topped with a bratwurst patty
+peppermint-pig,Peppermint pig,American,Pink peppermint candy pig smashed at Christmas
+pickled-northern-pike,Pickled northern pike,American,Vinegar-pickled northern pike pieces
+pork-cake,Pork cake,American,Old spiced fruit cake made with salt pork
+sour-corn,Sour corn,American,Fermented sweet corn kernels
+tennessee-onions,Tennessee onions,American,Baked sweet onions layered with cheese
+bawang-bieji,Bawang bieji,Chinese,Softshell turtle and chicken stewed together
+caterpillar-fungus-duck,Caterpillar fungus duck,Chinese,Duck stewed with cordyceps fungus
+chengyao-gao,Chengyao gao,Chinese,Sliced fried glutinous rice cake for spring
+cong-pa-yangrou,Cong pa yangrou,Chinese,Mutton braised with scallions
+cujiao-yu,Cujiao yu,Chinese,Fish in vinegar and pepper sauce
+daobanxiang-larou,Daobanxiang larou,Chinese,"Sun-dried cured pork from Huizhou, sliced and steamed"
+dongpo-moyu,Dongpo moyu,Chinese,Leshan fried whole fish in spicy sweet-sour sauce
+dunbobo,Dunbobo,Chinese,Baked sweet flour cake from Beijing
+furong-rou,Furong rou,Chinese,Shredded pork stir-fried with egg white
+gan-doujiao-zheng-larou,Gan doujiao zheng larou,Chinese,Smoked pork steamed with dried long beans
+gan-gue-to,Gan guê to,Chinese,Steamed then fried rice cake with brown sugar
+hechuan-roupian,Hechuan roupian,Chinese,Hechuan-style stir-fried sliced pork
+hibiscus-mud-crab,Hibiscus mud crab,Chinese,Mud crab cooked with egg and Shaoxing wine
+huangmen-tianji,Huangmen tianji,Chinese,Frog braised in rice wine
+huangmen-yuchi,Huangmen yuchi,Chinese,Shark's fin braised in rich rice wine sauce
+huangshan-stewed-pigeon,Huangshan stewed pigeon,Chinese,Pigeon stewed with Chinese yam
+jian-pa-qingyu-touwei,Jian pa qingyu touwei,Chinese,Kaifeng pan-fried black carp head and tail
+jun-an-steamed-pig,Jun'an steamed pig,Chinese,Whole pig steamed Shunde style
+pashao-zhengzhutou,Pashao zhengzhutou,Chinese,Whole pig's head braised in brown sauce
+pengao,Pengao,Chinese,Rice cake with kidney beans and jujubes
+pingxiang-smoked-meat,Pingxiang smoked meat,Chinese,Smoked cured pork from Jiangxi
+shao-xia-qiu,Shao xia qiu,Chinese,Shrimp balls wrapped in fried egg batter
+sophora-flower-noodle-soup,Sophora flower noodle soup,Chinese,Sophora rice noodles in chilled syrup
+suan-sun-ji,Suan sun ji,Chinese,Chicken cooked with sour bamboo shoots
+suzao-rou,Suzao rou,Chinese,Pork simmered in a spiced broth
+taiyang-gao,Taiyang gao,Chinese,Old Beijing cake for the sun festival
+wujiang-doufu-yu,Wujiang doufu yu,Chinese,Guizhou fish braised with tofu
+wulong-tuzhu,Wulong tuzhu,Chinese,Sea cucumber braised with quail eggs
+wushan-gong-e,Wushan gong'e,Chinese,Anhui braised goose with a salty fragrant flavor
+wuyi-smoked-goose,Wuyi smoked goose,Chinese,Goose smoked with tea and glutinous rice
+xia-bao-shanbei,Xia bao shanbei,Chinese,Quick-fried eel backs with shrimp
+yapma,Yapma,Chinese,Uyghur stew of lamb with potatoes and tomatoes
+yingmian-bobo,Yingmian bobo,Chinese,Dense sweet baked wheat cake from Beijing
+zao-la-yu,Zao la yu,Chinese,Crispy whole fish with fermented chili sauce
+zhuangyuan-ti,Zhuangyuan ti,Chinese,Brined and braised pig trotters from Guizhou
+farcidure,Farcidure,French,Limousin potato and greens dumpling
+gaudes,Gaudes,French,Toasted cornmeal porridge from Bresse
+mounjetado,Mounjetado,French,Ariège white bean and pork stew
+pulenda,Pulenda,French,Corsican chestnut flour polenta
+amsulache-saar,Amsulache saar,Indian,Thin spiced kokum broth
+chuda-ghasa,Chuda ghasa,Indian,"Flattened rice with jaggery, ghee and coconut"
+danyachi-amti,Danyachi amti,Indian,Peanut soup eaten on fast days
+guvar-nu-shaak,Guvar nu shaak,Indian,Gujarati cluster bean curry
+halasina-kadubu,Halasina kadubu,Indian,Jackfruit and rice batter steamed in leaves
+ingi-murappa,Ingi murappa,Indian,Ginger and jaggery candy
+kandarappam,Kandarappam,Indian,Chettinad fried rice and jaggery cakes
+kansar,Kansar,Indian,Sweet cracked wheat cooked with ghee
+kharoli,Kharoli,Indian,Assamese fermented mustard seed paste
+khurchan,Khurchan,Indian,Parsi spiced offal and potato breakfast dish
+makuti,Makuti,Indian,Bihari moong dal and milk pudding
+mande,Mande,Indian,Paper-thin flatbread cooked on an inverted pot
+moode,Moode,Indian,Rice batter steamed in screw pine leaves
+mundhiri-kothu,Mundhiri kothu,Indian,Green gram and jaggery balls fried in batter
+onla,Onla,Indian,Bodo curry of ground rice and herbs
+pappula-podi,Pappula podi,Indian,Roasted gram and chilli powder
+pirandai-thuvaiyal,Pirandai thuvaiyal,Indian,Adamant creeper chutney
+ratha-poriyal,Ratha poriyal,Indian,Tamil stir-fried goat blood with onion
+satorya,Satorya,Indian,Flatbread stuffed with khoa and sugar
+shikran,Shikran,Indian,Sliced banana in sweetened milk
+tindoda-nu-shaak,Tindoda nu shaak,Indian,Gujarati ivy gourd stir-fry
+vella-seedai,Vella seedai,Indian,Sweet fried rice flour balls with jaggery
+veppampoo-rasam,Veppampoo rasam,Indian,Rasam with fried neem flowers
+ndocca-ndocca,'Ndocca 'ndocca,Italian,"Teramo stew of pork ears, snout and trotters"
+battolli,Battolli,Italian,Ligurian chestnut pasta with pesto and potatoes
+carne-alla-ciappa,Carne alla ciappa,Italian,Meat cooked on a hot slate slab
+casca,Cascà,Italian,Carloforte couscous with vegetables
+cozze-allo-zafferano,Cozze allo zafferano,Italian,Mussels steamed in white wine and saffron
+gallina-alla-canevera,Gallina alla canèvera,Italian,Hen boiled with vegetables inside a pig bladder
+jambon-de-bosses,Jambon de Bosses,Italian,Aosta Valley mountain ham cured with herbs
+oca-in-onto,Oca in onto,Italian,Goose preserved in its own fat
+ortziadas,Ortziadas,Italian,Floured fried sea anemones
+pasta-a-paolina,Pasta â Paolina,Italian,Palermo long pasta with anchovies and almonds
+pastuccia,Pastuccia,Italian,Abruzzo cornmeal bake with sausage and eggs
+paeta-al-malgaragno,Paèta al malgaragno,Italian,Young turkey cooked with pomegranate juice
+polenta-e-renga,Polenta e renga,Italian,Pickled salted herring served with polenta
+rovelline-lucchesi,Rovelline lucchesi,Italian,Breaded fried beef slices in tomato sauce
+stecchi-alla-genovese,Stecchi alla genovese,Italian,Fried skewers of mixed meats and offal
+su-ghisadu,Su ghisadu,Italian,Sardinian sheep or pork stewed with tomato
+trattalia,Trattalia,Italian,Lamb offal spit-roasted in caul fat
+zurrette,Zurrette,Italian,Sardinian sheep blood pudding cooked in stomach
+radioyaki,Radioyaki,Japanese,"Early Osaka batter ball, takoyaki forerunner"
+rye-n-injun,Rye 'n' Injun,American,Colonial bread of rye and cornmeal
+wohanpi,Wohanpi,American,Lakota bison soup with prairie turnips
+bai-niao-chao-feng,Bai niao chao feng,Chinese,Clay-pot chicken ringed with small dumplings
+bingtang-jiayu,Bingtang jiayu,Chinese,Softshell turtle braised with rock sugar
+cuipi-yu-juan,Cuipi yu juan,Chinese,"Fish paste rolled in bean curd skin, fried"
+danzao-xiangluo-pian,Danzao xiangluo pian,Chinese,Sea snail slices cooked with wine lees
+dtowa-katsa,Dtowa katsa,Chinese,Tibetan stewed tripe with curry and fennel
+e-huang-rou,E huang rou,Chinese,Pork rolled in egg skin and fried
+fang-la-yu,Fang la yu,Chinese,Anhui braised whole fish dish
+huotong-shenxian-ya,Huotong shenxian ya,Chinese,Duck stewed with Jinhua ham
+jian-zao-manyu,Jian zao manyu,Chinese,Eel pan-fried with red wine lees
+jinyu-xi-lian,Jinyu xi lian,Chinese,"Squid cut like goldfish, fried, sour and spicy"
+lunggoi-katsa,Lunggoi katsa,Chinese,Tibetan stewed sheep's head with spices
+luohan-prawns,Luohan prawns,Chinese,"Prawns cut in three, each part cooked differently"
+mianjin-hongshao-paigu,Mianjin hongshao paigu,Chinese,Spare ribs braised with wheat gluten
+naizhi-feiwang-yu,Naizhi feiwang yu,Chinese,Huainan fish simmered in a milky broth
+san-si-qiao-yu,San si qiao yu,Chinese,"Pounded fish slices with ham, chicken and abalone"
+tai-chi-prawns,Tai chi prawns,Chinese,Fujian prawns arranged in a yin-yang pattern
+taosi-bao,Taosi bao,Chinese,"Kaifeng bird stuffed inside a larger bird, steamed"
+xigua-ji,Xigua ji,Chinese,Chicken steamed inside a hollowed watermelon
+yang-shuangchang,Yang shuangchang,Chinese,"Sheep intestine filled with blood, Beijing style"
+yu-fu-cang-yangrou,Yu fu cang yangrou,Chinese,Whole fish stuffed with mutton and braised
+tumact-me-tulez,Tumact me tulez,Italian,"Arbëreshë tagliatelle with tomato, anchovies and walnuts"
