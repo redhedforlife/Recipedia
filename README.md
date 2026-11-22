@@ -13,7 +13,7 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 
 ## Open decisions
 
-- simplechinesefood.com (about 65 recipes) takes recipes from home cooks under usernames. They are in the app for now. Drop or keep.
+- simplechinesefood.com (88 recipes) takes recipes from home cooks under usernames. They are in the app for now. Drop or keep.
 - What next: techniques, a second pass on the skipped dishes, or historical recipes from vintage cookbooks (thefoodhistorian.com/vintage-cookbooks.html, mostly 1870s to 1920s American).
 - Whether Start should be the default view, and when to bring back zoom, galaxy and globe (hidden since v20.1).
 
