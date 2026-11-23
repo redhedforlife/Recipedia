@@ -6,9 +6,9 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 ## Status (Nov 22 2026, app v21)
 
 - 11,101 recipes. 9,250 of 11,534 dishes (80%) have at least one recipe.
-- v21 added the wave 2 recipes (7,972, one per dish that had none) to app/data.json. Nothing else in the app changed from v20.1.
+- v21 added the wave 2 recipes (7,972, one per dish that had none) to docs/data.json. Nothing else in the app changed from v20.1.
 - 2,284 dishes still have no recipe:
-  - 588 are handed to ChatGPT (handoff/). When its CSV comes back, run `python3 pipeline/add_recipes.py that.csv`, check the summary, then publish app/data.json.
+  - 588 are handed to ChatGPT (handoff/). When its CSV comes back, run `python3 pipeline/add_recipes.py that.csv`, check the summary, then publish docs/data.json.
   - About 1,690 were skipped because no trustworthy recipe turned up (data/wave2-skipped.tsv). Some Japanese, Chinese and Brazilian skips were too strict and are worth a second pass.
 
 ## Open decisions
@@ -21,7 +21,7 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 
 | Path | What |
 |---|---|
-| app/ | The published app: index.html, data.json, globe.json, d3.min.js |
+| docs/ | The published app: index.html, data.json, globe.json, d3.min.js |
 | data/dishes.csv | All 11,534 dishes |
 | data/recipes-original.csv | Recipes before wave 1 |
 | data/wave2-recipes.csv | Wave 2 rows as merged (dish_id, cook, source, recipe_title, note, url) |

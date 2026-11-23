@@ -1,4 +1,4 @@
-"""Append recipe rows from a CSV to app/data.json.
+"""Append recipe rows from a CSV to docs/data.json.
 
 Usage: python3 pipeline/add_recipes.py path/to/new.csv
 CSV columns: dish_id, cook, source, recipe_title, note, url
@@ -16,7 +16,7 @@ BLOCK = ['pinterest.', 'youtube.', 'youtu.be', 'tiktok.', 'instagram.', 'faceboo
          'quora.', 'yummly.', 'wikipedia.', 'food52.com/recipes/community', 'amazon.', 'tasteatlas.',
          'slurrp.', 'flavor365.', '/tag/', '/category/']
 
-path = 'app/data.json'
+path = 'docs/data.json'
 d = json.load(open(path))
 idx = {x[0]: i for i, x in enumerate(d['D'])}
 have = {r[4] for r in d['Rc']}

@@ -2188,7 +2188,7 @@ document.addEventListener('pointerdown', e => { if (!VMENU.hidden && !e.target.c
 // export: the data the page already holds, written out as CSV in the browser (nothing is fetched)
 const csvCell = v => { v = v == null ? '' : Array.isArray(v) ? v.join('; ') : String(v); return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
 let DL = null; // the viewer's download capability: the export items show only where it is available
-Promise.resolve(window.claude && window.claude.use ? window.claude.use('downloads') : null).then(d => { DL = d; if (d) VMENU.querySelectorAll('.xp').forEach(el => { el.hidden = false; }); }).catch(() => {});
+Promise.resolve(window.claude && window.claude.use ? window.claude.use('downloads') : { save: async ({ filename, data }) => { const a = document.createElement('a'); a.href = URL.createObjectURL(data); a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); } }).then(d => { DL = d; if (d) VMENU.querySelectorAll('.xp').forEach(el => { el.hidden = false; }); }).catch(() => {});
 async function downloadCSV(name, rows) {
   if (!DL) { LIVE.textContent = 'Downloads are not available here.'; return; }
   const blob = new Blob(['﻿' + rows.map(r => r.map(csvCell).join(',')).join('\r\n')], { type: 'text/csv;charset=utf-8' });
