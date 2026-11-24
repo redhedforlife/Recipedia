@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Recipedia review queue</title>
+<style>
+:root{color-scheme:light dark;--paper:#F4EFE6;--card:#FCFAF6;--ink:#1E1B16;--graphite:#665F54;--rule:#E2DACB;--ok:#2f6f45;--no:#9a3324;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root{--paper:#15130F;--card:#1D1A15;--ink:#EEE7DA;--graphite:#ADA597;--rule:#342E26;--ok:#7fc495;--no:#e08a78}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 var(--sans)}
+main{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+h1{font:600 22px var(--sans);margin:0 0 4px}
+.sub{color:var(--graphite);margin:0 0 20px;font-size:13.5px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;margin:10px 0}
+label{display:block;font-size:12.5px;color:var(--graphite);margin:10px 0 4px}
+input{width:100%;padding:9px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);font:15px var(--sans)}
+button{font:500 14px var(--sans);border:1px solid var(--rule);background:var(--card);color:var(--ink);border-radius:6px;padding:7px 14px;cursor:pointer}
+button.pri{background:var(--ink);color:var(--card);border-color:var(--ink)}
+button.ok{border-color:var(--ok);color:var(--ok)}
+button.no{border-color:var(--no);color:var(--no)}
+button:disabled{opacity:.5;cursor:default}
+.tabs{display:flex;gap:6px;margin:18px 0 6px;flex-wrap:wrap}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.meta{font-size:12.5px;color:var(--graphite);margin:0 0 6px}
+.meta a{color:inherit}
+.body{font-size:15px;margin:2px 0 10px;white-space:pre-wrap;word-break:break-word}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.msg{color:var(--graphite);font-size:13.5px;min-height:1.2em;margin:8px 0}
+.empty{color:var(--graphite);padding:20px 0}
+.st{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.st.approved{color:var(--ok)}.st.rejected{color:var(--no)}
+a{color:var(--ink)}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><h1>Review queue</h1><button id="out" hidden>Sign out</button></div>
+  <p class="sub">Tweaks and recipe links sent from <a href="/">Recipedia</a>. Nothing shows on the site until you approve it.</p>
+  <section id="login" class="card" hidden>
+    <form id="lf">
+      <label for="em">Email</label><input id="em" type="email" autocomplete="username" required>
+      <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" required minlength="8">
+      <div class="row" style="margin-top:14px"><button class="pri" type="submit">Sign in</button><button type="button" id="su">Create account</button></div>
+    </form>
+    <p class="msg" id="lm"></p>
+  </section>
+  <section id="app" hidden>
+    <div class="tabs" role="tablist">
+      <button data-tab="tweaks" aria-pressed="true">Tweaks <span id="ct"></span></button>
+      <button data-tab="recipe_submissions" aria-pressed="false">Recipe links <span id="cr"></span></button>
+      <button data-tab="done" aria-pressed="false">Reviewed</button>
+    </div>
+    <p class="msg" id="am"></p>
+    <div id="list"></div>
+  </section>
+</main>
+<script>
+const SB = { url: 'https://vfitqbrwpnwwlmhxhbox.supabase.co', key: 'sb_publishable_BQ2xpju8Ay-wpFC2T0buNQ_QUQkGRvc' };
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pretty = id => id.replace(/-/g, ' ').replace(/^./, c => c.toUpperCase());
+let session = null, tab = 'tweaks';
+try { session = JSON.parse(localStorage.getItem('recipedia.review') || 'null'); } catch (e) {}
+
+async function auth(path, body) {
+  const r = await fetch(`${SB.url}/auth/v1/${path}`, { method: 'POST', headers: { apikey: SB.key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.msg || j.error_description || j.message || 'Sign in failed');
+  return j;
+}
+function save(j) { session = { access: j.access_token, refresh: j.refresh_token, exp: Date.now() + (j.expires_in || 3600) * 1000 - 60000, email: j.user && j.user.email }; localStorage.setItem('recipedia.review', JSON.stringify(session)); }
+async function token() {
+  if (!session) return null;
+  if (Date.now() > session.exp) { try { save(await auth('token?grant_type=refresh_token', { refresh_token: session.refresh })); } catch (e) { signOut(); return null; } }
+  return session.access;
+}
+async function api(path, opts = {}) {
+  const t = await token(); if (!t) throw new Error('Signed out');
+  const r = await fetch(`${SB.url}/rest/v1/${path}`, { ...opts, headers: { apikey: SB.key, Authorization: `Bearer ${t}`, 'Content-Type': 'application/json', ...(opts.headers || {}) } });
+  if (!r.ok) { const j = await r.json().catch(() => ({})); throw new Error(j.message || `Error ${r.status}`); }
+  return r.status === 204 ? null : r.json();
+}
+function signOut() { session = null; localStorage.removeItem('recipedia.review'); show(); }
+
+async function show() {
+  $('out').hidden = !session; $('login').hidden = !!session; $('app').hidden = !session;
+  if (!session) return;
+  try {
+    const me = await api('admins?select=user_id');
+    if (!me.length) { $('app').hidden = true; $('login').hidden = false; $('lm').textContent = `Signed in as ${session.email || 'you'}, but this account is not an admin yet. Ask Claude to add it.`; return; }
+    load();
+  } catch (e) { $('lm').textContent = e.message; }
+}
+async function counts() {
+  for (const [t, el] of [['tweaks', 'ct'], ['recipe_submissions', 'cr']]) {
+    const rows = await api(`${t}?select=id&status=eq.pending`); $(el).textContent = rows.length ? `(${rows.length})` : '';
+  }
+}
+async function load() {
+  $('am').textContent = 'Loading…'; $('list').innerHTML = '';
+  try {
+    counts();
+    let rows;
+    if (tab === 'done') {
+      const a = await api('tweaks?select=*&status=neq.pending&order=reviewed_at.desc.nullslast&limit=40');
+      const b = await api('recipe_submissions?select=*&status=neq.pending&order=reviewed_at.desc.nullslast&limit=40');
+      rows = [...a.map(r => ({ ...r, _t: 'tweaks' })), ...b.map(r => ({ ...r, _t: 'recipe_submissions' }))].sort((x, y) => String(y.reviewed_at).localeCompare(String(x.reviewed_at)));
+    } else rows = (await api(`${tab}?select=*&status=eq.pending&order=created_at.asc&limit=100`)).map(r => ({ ...r, _t: tab }));
+    $('am').textContent = '';
+    $('list').innerHTML = rows.length ? rows.map(card).join('') : `<p class="empty">${tab === 'done' ? 'Nothing reviewed yet.' : 'All caught up.'}</p>`;
+  } catch (e) { $('am').textContent = e.message; }
+}
+function card(r) {
+  const when = new Date(r.created_at).toLocaleString(), dish = `<a href="/#d-${encodeURIComponent(r.dish_id)}" target="_blank" rel="noopener">${esc(pretty(r.dish_id))}</a>`;
+  const st = r.status !== 'pending' ? `<span class="st ${r.status}">${r.status}</span> · ` : '';
+  const body = r._t === 'tweaks'
+    ? `<p class="meta">${st}Tweak for ${dish} · ${esc(r.name || 'no name')} · ${when}</p><p class="body">${esc(r.body)}</p>`
+    : `<p class="meta">${st}Recipe link for ${dish} · ${when}</p><p class="body"><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title || r.url)}</a>\n${esc([r.cook, r.site].filter(Boolean).join(' · '))}${r.note ? '\n' + esc(r.note) : ''}</p>`;
+  const btn = r.status === 'pending'
+    ? `<button class="ok" data-set="approved">Approve</button><button class="no" data-set="rejected">Reject</button>`
+    : `<button data-set="pending">Undo</button>${r.status === 'approved' ? '<button class="no" data-set="rejected">Take down</button>' : '<button class="ok" data-set="approved">Approve</button>'}`;
+  return `<div class="card" data-t="${r._t}" data-id="${r.id}">${body}<div class="row">${btn}</div></div>`;
+}
+$('list').addEventListener('click', async e => {
+  const b = e.target.closest('[data-set]'); if (!b) return;
+  const c = b.closest('.card'), status = b.dataset.set;
+  c.querySelectorAll('button').forEach(x => { x.disabled = true; });
+  try {
+    await api(`${c.dataset.t}?id=eq.${c.dataset.id}`, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ status, reviewed_at: status === 'pending' ? null : new Date().toISOString() }) });
+    c.remove(); counts(); if (!$('list').children.length) $('list').innerHTML = '<p class="empty">All caught up.</p>';
+  } catch (err) { $('am').textContent = err.message; c.querySelectorAll('button').forEach(x => { x.disabled = false; }); }
+});
+document.querySelector('.tabs').addEventListener('click', e => {
+  const b = e.target.closest('[data-tab]'); if (!b) return; tab = b.dataset.tab;
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b)); load();
+});
+$('lf').addEventListener('submit', async e => {
+  e.preventDefault(); $('lm').textContent = 'Signing in…';
+  try { save(await auth('token?grant_type=password', { email: $('em').value.trim(), password: $('pw').value })); $('lm').textContent = ''; show(); }
+  catch (err) { $('lm').textContent = err.message; }
+});
+$('su').addEventListener('click', async () => {
+  if (!$('lf').reportValidity()) return; $('lm').textContent = 'Creating your account…';
+  try { const j = await auth('signup', { email: $('em').value.trim(), password: $('pw').value }); if (j.access_token) { save(j); show(); } else $('lm').textContent = 'Account created. Tell Claude, so it can confirm it and make you an admin, then sign in.'; }
+  catch (err) { $('lm').textContent = err.message; }
+});
+$('out').addEventListener('click', signOut);
+show();
+</script>
+</body>
+</html>

@@ -97,6 +97,16 @@ body.ishome .key>span:first-child,body.ishome .key>span:nth-child(2){display:non
 .raddf label{display:block;font-size:12px;color:var(--graphite)}
 .raddf .raddm{font-size:12.5px;color:var(--graphite);margin:0 0 8px;min-height:1em}
 .raddf .radda{display:flex;gap:8px}
+.raddf .raddn{font-size:12px;color:var(--graphite);margin:0 0 8px}
+ul.tweaks{list-style:none;margin:6px 0 4px;padding:0}
+ul.tweaks li{padding:8px 0 8px 18px;position:relative;border-bottom:1px solid var(--rule);font-size:14px;line-height:1.45}
+ul.tweaks li:last-child{border-bottom:0}
+ul.tweaks li::before{content:"";position:absolute;left:3px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--faint)}
+ul.tweaks li .by{display:block;font-size:12px;color:var(--graphite);margin-top:2px}
+.twf textarea{width:100%;box-sizing:border-box;min-height:70px;resize:vertical;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);font:14px var(--sans);padding:8px 10px;margin:4px 0 6px}
+.twf .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.twf .cnt{font-size:11.5px;color:var(--graphite);float:right}
+.twdone{font-size:13px;color:var(--graphite);margin:8px 0 2px}
 .raddf button[type=submit]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .rc .mine{grid-column:1/-1;font-size:12.5px;color:var(--graphite);margin-top:6px;display:flex;align-items:center;gap:8px}
 .mine button{padding:2px 8px;min-height:26px;font-size:12px}
@@ -2825,6 +2835,7 @@ function renderPanel(dir = 0) {
       h += addHtml();
       h += searchOut(d.name, 'Look for more versions:');
     } else h += addHtml() + searchOut(d.name, 'No recipe is linked here yet. Search trusted sites:');
+    h += `<div id="vrec" data-d="${d.id}"></div>` + tweaksHtml(d);
     const near = d.sub || d.group, nearList = F(near.dishes).filter(x => x !== d);
     const nearName = d.sub ? `More ${d.sub.name.toLowerCase()} from ${d.cuisine.name}` : `More ${d.family.name.toLowerCase()} from ${d.cuisine.name}`;
     if (nearList.length) {
@@ -2898,7 +2909,7 @@ function renderPanel(dir = 0) {
 // --- add a recipe by pasting its link (see guessRecipe)
 const mineHtml = r => (r.mine ? `<span class="mine">Added by you <button type="button" data-rdel="${esc(r.url)}">Remove</button></span>` : '');
 const addHtml = () => `<div class="radd"><button type="button" class="raddb" data-radd="open">+ Add a recipe link</button>${MINE.length ? `<button type="button" class="raddc" data-radd="copy">Copy my ${plural(MINE.length, 'added recipe')}</button>` : ''}</div>`;
-const addForm = () => `<form class="raddf" novalidate><input class="filter" name="u" type="url" inputmode="url" placeholder="Paste the recipe link" aria-label="Recipe link" autocomplete="off" spellcheck="false"><div class="raddx" hidden><label>Title<input class="filter" name="t" autocomplete="off"></label><label>Cook<input class="filter" name="a" autocomplete="off"></label><label>Site<input class="filter" name="s" autocomplete="off"></label><label>Note (optional)<input class="filter" name="n" autocomplete="off" maxlength="120" placeholder="What makes this one different"></label></div><p class="raddm" role="status"></p><div class="radda"><button type="submit" class="raddb">Save</button><button type="button" data-radd="cancel">Cancel</button></div></form>`;
+const addForm = () => `<form class="raddf" novalidate><input class="filter" name="u" type="url" inputmode="url" placeholder="Paste the recipe link" aria-label="Recipe link" autocomplete="off" spellcheck="false"><div class="raddx" hidden><label>Title<input class="filter" name="t" autocomplete="off"></label><label>Cook<input class="filter" name="a" autocomplete="off"></label><label>Site<input class="filter" name="s" autocomplete="off"></label><label>Note (optional)<input class="filter" name="n" autocomplete="off" maxlength="120" placeholder="What makes this one different"></label></div><p class="raddm" role="status"></p><p class="raddn">It shows for you right away, and goes to the editor to review for everyone.</p><div class="radda"><button type="submit" class="raddb">Add</button><button type="button" data-radd="cancel">Cancel</button></div></form>`;
 function fillAdd(f) { // fill title, cook and site from the pasted link, without overwriting what was typed
   const g = guessRecipe(f.u.value), x = f.querySelector('.raddx'), msg = f.querySelector('.raddm');
   if (!g) { msg.textContent = f.u.value.trim() ? 'That does not look like a link.' : ''; return null; }
@@ -2908,15 +2919,17 @@ function fillAdd(f) { // fill title, cook and site from the pasted link, without
   msg.textContent = dup ? `Already in Recipedia under ${dup.dish.name}.` : g.known ? 'Filled in from the link. Fix anything that is off.' : 'A site Recipedia has not seen. Check the title, cook and site.';
   return dup ? null : g;
 }
-P.addEventListener('input', e => { const f = e.target.closest('.raddf'); if (!f) return; if (e.target.name === 'u') fillAdd(f); else e.target.dataset.touched = '1'; });
+P.addEventListener('input', e => { const f = e.target.closest('.raddf:not(.twf)'); if (!f) return; if (e.target.name === 'u') fillAdd(f); else e.target.dataset.touched = '1'; });
 P.addEventListener('submit', e => {
-  const f = e.target.closest('.raddf'); if (!f) return; e.preventDefault();
+  const f = e.target.closest('.raddf:not(.twf)'); if (!f) return; e.preventDefault();
   const g = fillAdd(f), d = S.dish, msg = f.querySelector('.raddm'); if (!g || !d) return;
   const t = f.t.value.trim(), s = f.s.value.trim(), a = f.a.value.trim() || s;
   if (!t || !s) { msg.textContent = 'Give it a title and a site.'; return; }
   MINE.push({ d: d.id, u: g.url, t, a, s, n: f.n.value.trim() });
   if (!saveMine()) { MINE.pop(); msg.textContent = 'This browser would not save it.'; return; }
-  location.reload(); // the map is rebuilt with the new recipe in it
+  msg.textContent = 'Adding…'; track('Sent recipe link', { dish: d.name, site: s });
+  sbSend('recipe_submissions', { dish_id: d.id, url: g.url, title: t.slice(0, 200), cook: a.slice(0, 120), site: s.slice(0, 120), note: f.n.value.trim().slice(0, 300) || null })
+    .catch(() => {}).finally(() => location.reload()); // the map is rebuilt with the new recipe in it
 });
 P.addEventListener('click', e => {
   const del = e.target.closest('[data-rdel]');
@@ -3276,6 +3289,56 @@ document.getElementById('favbtn').onclick = () => {
   panelShut = false; syncPanel(); renderPanel(0);
   setTimeout(() => { const k = document.getElementById('kadd'); if (k) k.focus({ preventScroll: true }); }, 350);
 };
+
+
+/* ---------------- tweaks and the review queue (Supabase) ----------------
+   Suggested tweaks are written into tweaks.json. Visitors' own tweaks and recipe links go to Supabase as pending;
+   only approved tweaks are readable, and only admins can approve (row level security). */
+const SB = { url: 'https://vfitqbrwpnwwlmhxhbox.supabase.co', key: 'sb_publishable_BQ2xpju8Ay-wpFC2T0buNQ_QUQkGRvc' };
+const sbHead = { apikey: SB.key, 'Content-Type': 'application/json' };
+async function sbSend(table, row) {
+  const r = await fetch(`${SB.url}/rest/v1/${table}`, { method: 'POST', headers: { ...sbHead, Prefer: 'return=minimal' }, body: JSON.stringify(row) });
+  if (!r.ok) { let m = ''; try { m = (await r.json()).message || ''; } catch (e) {} throw new Error(m || 'Could not send'); }
+}
+let TWEAKS = null, tweaksLoading = null; const userTweaks = new Map();
+function loadTweaks(d) {
+  if (!TWEAKS && !tweaksLoading) tweaksLoading = fetch('tweaks.json').then(r => r.ok ? r.json() : {}).catch(() => ({})).then(j => { TWEAKS = j; });
+  const got = userTweaks.has(d.id) ? Promise.resolve() : fetch(`${SB.url}/rest/v1/tweaks?select=body,name&dish_id=eq.${encodeURIComponent(d.id)}&status=eq.approved&order=created_at.asc&limit=30`, { headers: sbHead })
+    .then(r => r.ok ? r.json() : []).catch(() => []).then(rows => { userTweaks.set(d.id, rows); });
+  fetch(`${SB.url}/rest/v1/recipe_submissions?select=url,title,cook,site,note&dish_id=eq.${encodeURIComponent(d.id)}&status=eq.approved&order=created_at.asc&limit=20`, { headers: sbHead })
+    .then(r => r.ok ? r.json() : []).catch(() => []).then(rows => {
+      const el = document.getElementById('vrec'); if (!el || el.dataset.d !== d.id || !rows.length) return;
+      const fresh = rows.filter(x => !recipes.some(r => r.url === x.url)); if (!fresh.length) return;
+      el.innerHTML = sec('Shared by visitors', fresh.length) + `<ul class="tweaks">${fresh.map(x => { let h2 = ''; try { h2 = new URL(x.url).hostname.replace(/^www\./, ''); } catch (e) {} return `<li><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer nofollow ugc">${esc(x.title || h2)}</a><span class="by">${esc([x.cook, x.site || h2].filter(Boolean).join(' · '))}${x.note ? ' · ' + esc(x.note) : ''}</span></li>`; }).join('')}</ul>`;
+    });
+  Promise.all([tweaksLoading || Promise.resolve(), got]).then(() => { const el = document.getElementById('tweaks'); if (el && el.dataset.d === d.id && !el.querySelector('form')) el.innerHTML = tweaksInner(d); });
+}
+function tweaksInner(d) {
+  const mine = (TWEAKS && TWEAKS[d.id]) || [], theirs = userTweaks.get(d.id) || [], n = mine.length + theirs.length;
+  let h = sec('Tweaks to try', n || '');
+  if (n) h += `<ul class="tweaks">${mine.map(t => `<li>${esc(t)}</li>`).join('')}${theirs.map(t => `<li>${esc(t.body)}<span class="by">from ${esc(t.name || 'a visitor')}</span></li>`).join('')}</ul>`;
+  else if (TWEAKS) h += `<p class="note">No tweaks for this one yet. Made it your own way? Share it.</p>`;
+  return h + `<div class="radd"><button type="button" data-tw="open">+ Add your own tweak</button></div>`;
+}
+function tweaksHtml(d) { setTimeout(() => loadTweaks(d), 0); return `<section id="tweaks" data-d="${d.id}">${tweaksInner(d)}</section>`; }
+const twForm = () => `<form class="raddf twf" novalidate><label for="twb">Your tweak</label><textarea id="twb" name="b" maxlength="280" placeholder="e.g. a spoon of curry powder with the onions"></textarea><span class="cnt" id="twc">0 / 280</span><label>Your name (optional)<input class="filter" name="nm" maxlength="40" autocomplete="nickname"></label><span class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></span><p class="raddm" role="status"></p><p class="raddn">The editor reviews every tweak before it shows here.</p><div class="radda"><button type="submit" class="raddb">Send</button><button type="button" data-tw="cancel">Cancel</button></div></form>`;
+P.addEventListener('click', e => {
+  const b = e.target.closest('[data-tw]'); if (!b) return;
+  const el = document.getElementById('tweaks'); if (!el) return;
+  if (b.dataset.tw === 'open') { el.querySelector('.radd').outerHTML = twForm(); el.querySelector('textarea').focus(); track('Opened tweak form', { dish: S.dish && S.dish.name }); }
+  else el.innerHTML = tweaksInner(S.dish);
+});
+P.addEventListener('input', e => { if (e.target.id === 'twb') { const c = document.getElementById('twc'); if (c) c.textContent = `${e.target.value.length} / 280`; } });
+P.addEventListener('submit', async e => {
+  const f = e.target.closest('.twf'); if (!f) return; e.preventDefault();
+  const d = S.dish, msg = f.querySelector('.raddm'), body = f.b.value.trim(), nm = f.nm.value.trim();
+  if (!d) return;
+  if (f.website.value) { f.outerHTML = '<p class="twdone">Thanks. It will show here once it is reviewed.</p>'; return; } // a bot filled the hidden field
+  if (body.length < 3) { msg.textContent = 'Write a few words about your tweak.'; return; }
+  f.querySelector('[type=submit]').disabled = true; msg.textContent = 'Sending…';
+  try { await sbSend('tweaks', { dish_id: d.id, body, name: nm || null }); track('Sent tweak', { dish: d.name, length: body.length }); f.outerHTML = '<p class="twdone">Thanks. It will show here once it is reviewed.</p>'; }
+  catch (err) { msg.textContent = err.message || 'Could not send. Try again in a minute.'; f.querySelector('[type=submit]').disabled = false; }
+});
 
 /* ---------------- controls, hint, boot ---------------- */
 function setOnlyRec(on) {

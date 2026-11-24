@@ -1,0 +1,151 @@
+# Suggested tweaks, three per dish. Format: dish-id | tweak | tweak | tweak
+burger | Smash it thin on a very hot pan and press thinly sliced onion into the raw side | Mix a spoon of white miso into the beef | Swap ketchup for a quick chipotle mayo
+sushi | Brush the fish with a little soy and lime before it goes on the rice | Fold chopped pickled ginger into the rice | Torch salmon nigiri with a dab of miso mayo
+pizza-margherita | Add a handful of torn basil after baking, not before | Drizzle with hot honey at the table | Swap half the mozzarella for smoked provola
+cheeseburger | Pimento cheese instead of sliced cheddar | A swipe of gochujang mayo on the bun | Cook sliced onions into the patty as it smashes
+fried-rice | Use day-old rice and fry an egg into it at the very end | Add a spoon of kimchi and its juice | Finish with crispy fried shallots and lime
+hot-dog | Wrap it in bacon and grill until crisp | Top with kimchi and a little mayo | Chili, onions and mustard, Coney Island style
+fried-chicken | Add a spoon of hot sauce to the buttermilk brine | Toss the hot chicken in hot honey | Season the flour with curry powder and serve with lime
+ramen | Stir a spoon of peanut butter and chili oil into the broth | Add a jammy soy-marinated egg | Finish with a pat of butter and sweet corn, Sapporo style
+pepperoni-pizza | Use cup-and-char pepperoni so the edges crisp | Add pickled jalapeños and a drizzle of honey | Dot with ricotta before baking
+pancakes | Fold brown butter into the batter | Add ricotta and lemon zest for a lighter stack | Swap the syrup for warm berries cooked down with a little sugar
+chocolate-chip-cookies | Brown the butter first | Add a pinch of flaky salt on top before baking | Swap half the chips for chopped toffee
+cheesecake | Swap the crust for crushed gingersnaps | Swirl in salted caramel before baking | Add a spoon of miso to the filling for a salty edge
+burrito | Crisp the whole burrito seam side down in a dry pan | Add a spoon of salsa macha | Swap the rice for crispy roasted potatoes
+fish-and-chips | Use cold beer in the batter for a crisper shell | Serve with mushy peas and a squeeze of lemon | Season the chips with malt vinegar powder or salt and vinegar
+croissant | Fill day-old ones with almond cream and bake again | Split and make a ham and cheese toastie | Brush with honey butter while warm
+lasagna | Mix a little nutmeg and lemon zest into the ricotta | Swap the meat sauce for mushroom and sausage | Use fresh pasta sheets and add a layer of spinach
+doner-kebab | Add pickled red cabbage and chili sauce | Swap the bread for a wrap toasted on the grill | Add garlic yogurt with sumac on top
+pad-thai | Add a spoon of tamarind paste for more tang | Swap the shrimp for crispy tofu | Top with extra crushed peanuts and fresh lime
+ketchup | Add smoked paprika and a little chipotle | Cook in a spoon of gochujang | Swap some of the tomato for roasted red pepper
+butter-chicken | Char the chicken under the broiler first | Finish with a spoon of honey and kasuri methi | Swap chicken for paneer or roasted cauliflower
+brownies | Swirl tahini through the top | Add a spoon of espresso powder | Fold in chopped pretzels for crunch and salt
+buffalo-wings | Bake with baking powder for crisp skin without frying | Toss in buffalo sauce with a little honey | Swap blue cheese dip for ranch with herbs
+naan | Brush with garlic and cilantro butter | Stuff with cheese before cooking | Add nigella seeds to the dough
+mac-and-cheese | Top with buttered breadcrumbs and broil | Add a spoon of mustard to the sauce | Stir in roasted green chiles
+apple-pie | Add a spoon of cheddar to the crust | Mix in a little cardamom with the cinnamon | Swap some apples for pears
+caesar-salad | Grill the romaine halves first | Add crispy capers instead of croutons | Swap anchovies for a spoon of miso in the dressing
+nachos | Layer the cheese twice so every chip gets some | Add pickled red onions | Use pulled pork or chorizo instead of beef
+baguette | Make garlic bread with roasted garlic | Slice, toast and rub with tomato, pan con tomate style | Turn stale ones into a bread pudding
+spaghetti-carbonara | Add a handful of peas with the pasta water | Swap half the guanciale for smoked salmon and add lemon zest | Add plenty of black pepper toasted in the fat
+tiramisu | Swap coffee for espresso and a splash of amaretto | Add a layer of fresh raspberries | Use matcha instead of cocoa on top
+shawarma | Add a spoon of pomegranate molasses to the marinade | Serve with garlic toum and pickled turnips | Swap chicken for mushrooms or cauliflower
+peking-duck | Add a few slices of cucumber and mango to the wrap | Use leftover duck in fried rice | Swap hoisin for plum sauce with a little chili
+biryani | Add saffron milk and fried onions between the layers | Swap chicken for lamb shoulder | Seal the pot with dough while it steams
+chicken-nuggets | Coat in crushed cornflakes for crunch | Make a hot honey dipping sauce | Use thigh meat for juicier nuggets
+paella | Let the bottom crisp into socarrat before serving | Add chorizo and smoked paprika | Swap seafood for chicken and artichokes
+baklava | Add orange zest to the syrup | Use pistachios and a pinch of cardamom | Brush with brown butter instead of plain butter
+tempura | Use ice-cold sparkling water in the batter | Try shiso leaves and sweet potato | Serve with matcha salt instead of dipping sauce
+samosa | Add green peas and a little dried mango powder | Bake brushed with butter instead of frying | Serve with tamarind and mint chutneys
+tacos-al-pastor | Grill pineapple until charred | Add a spoon of achiote to the marinade | Serve with avocado salsa verde
+chicken-tikka-masala | Add a spoon of smoked paprika for a char flavor | Finish with cream and a squeeze of lime | Swap chicken for prawns
+crepes | Fill with ham, gruyère and an egg | Spread with Nutella and banana | Add a little beer to the batter
+creme-brulee | Infuse the cream with earl grey | Add a little orange zest and cardamom | Swap sugar on top for brown sugar
+omelette | Fold in Boursin and chives | Add a spoon of kimchi and cheese | Make it fluffy by whisking the whites separately
+bolognese | Add a splash of milk while it simmers | Use half pork, half beef | Add a parmesan rind to the pot
+gelato | Swirl in salted caramel | Add olive oil and sea salt to a vanilla base | Try pistachio with a little lemon zest
+bagels | Add everything seasoning to the dough as well as the top | Spread with scallion cream cheese | Make a lox bagel with capers and red onion
+kung-pao-chicken | Add a spoon of black vinegar to the sauce | Toast the chilies and Sichuan pepper first | Swap peanuts for cashews
+pho | Char the onion and ginger before they go in the broth | Add a squeeze of lime and Sriracha at the table | Swap beef for chicken thighs
+kimchi | Add Asian pear to the paste for sweetness | Make a quick cucumber version | Fry old kimchi into fried rice or pancakes
+cupcakes | Fill the centers with jam | Add brown butter to the frosting | Use cream cheese frosting with lemon
+french-toast | Use brioche or challah | Add orange zest and cardamom to the custard | Stuff with cream cheese and berries
+waffles | Add a little cornmeal to the batter | Top with fried chicken and hot honey | Fold in chocolate chips and orange zest
+new-york-style-pizza | Use a cold-fermented dough for 2 days | Add hot honey and sausage | Finish with grated pecorino and oregano
+barbecue-ribs | Add a coffee rub before smoking | Glaze with gochujang and honey | Finish under the broiler for a sticky crust
+chili-con-carne | Add a square of dark chocolate | Use chunks of chuck instead of ground beef | Stir in a spoon of masa to thicken
+churros | Add cinnamon to the dough as well as the sugar | Dip in dulce de leche | Serve with a cardamom chocolate sauce
+hummus | Add a spoon of ice water while blending for a fluffier texture | Top with spiced ground lamb | Blend in roasted red pepper or beetroot
+spring-rolls | Add glass noodles and mushrooms to the filling | Serve with a peanut hoisin dip | Bake brushed with oil instead of frying
+chow-mein | Crisp the noodles in the pan first | Add a spoon of oyster sauce and a little sugar | Swap meat for shiitake and tofu
+banh-mi | Add a smear of pâté and Maggi | Use crispy pork belly | Pickle the carrot and daikon with chili
+cinnamon-roll | Add cardamom to the filling | Top with brown butter cream cheese frosting | Pour cream over before baking for gooey rolls
+spaghetti-and-meatballs | Add ricotta to the meatballs for softness | Brown the meatballs in the oven | Simmer the sauce with a parmesan rind
+pulled-pork | Add a cup of coffee to the braise | Finish with a vinegar slaw | Serve in tacos with pickled onions
+fajitas | Add a splash of orange juice to the marinade | Cook in a very hot cast iron for char | Serve with grilled pineapple salsa
+guacamole | Add roasted corn | Stir in a little pomegranate | Use lime and a pinch of cumin
+quesadillas | Add a slice of Oaxaca cheese and squash blossoms | Crisp cheese on the outside of the tortilla | Stuff with leftover pulled pork
+macarons | Fill with salted caramel buttercream | Try raspberry and rose | Add matcha to the shells
+boeuf-bourguignon | Brown the beef in batches for a deep sear | Add a strip of orange peel to the pot | Serve over buttered egg noodles
+roast-chicken | Dry brine it overnight | Stuff butter and herbs under the skin | Roast over potatoes so they catch the fat
+neapolitan-pizza | Add a little potato and rosemary | Top with burrata after baking | Add anchovies and capers
+pesto-alla-genovese | Add a handful of arugula with the basil | Use walnuts instead of pine nuts | Stir in potatoes and green beans with the pasta
+gyros | Add a little oregano and lemon to the meat | Serve with fries inside the pita | Use chicken thighs
+falafel | Use soaked dried chickpeas, not canned | Add plenty of herbs | Serve with amba and tahini
+couscous | Add apricots and toasted almonds | Steam it over the stew | Stir in preserved lemon
+shish-kebab | Add a spoon of yogurt to the marinade | Grill onions and peppers on the same skewers | Serve with sumac onions
+xiaolongbao | Add a little ginger and scallion to the filling | Serve with black vinegar and ginger | Try crab and pork filling
+sashimi | Add a drop of yuzu and soy | Serve with fresh wasabi | Lightly sear the edges for tataki
+korean-fried-chicken | Fry twice for extra crunch | Toss in soy garlic glaze | Serve with pickled radish
+tandoori-chicken | Marinate overnight in yogurt and spices | Cook over high heat for char | Serve with mint chutney and onions
+chicken-curry | Use bone-in thighs | Add coconut milk at the end | Finish with garam masala and cilantro
+ice-cream-sundae | Olive oil and flaky salt over vanilla | Miso caramel instead of plain caramel | Crumbled waffle cone and toasted coconut on top
+eggs-benedict | Swap ham for smoked salmon and add capers | Chipotle hollandaise on a corn tortilla | Use a crispy potato rösti instead of the muffin
+hash-browns | Mix in grated zucchini and feta | Top with a fried egg and chili crisp | Season with Old Bay and serve with lemon mayo
+philly-cheesesteak | Add sliced hot cherry peppers | Swap the steak for thin-sliced chicken and buffalo sauce | Melt in some kimchi with the onions
+smoked-brisket | Slice leftovers into tacos with salsa verde | Glaze the burnt ends with gochujang and honey | Stir chopped brisket into mac and cheese
+chicken-parmesan | Swap the red sauce for vodka sauce | Use pounded chicken thighs and add hot honey | Make it a sandwich on garlic bread
+grilled-cheese | Butter the outside with mayo and add a slice of apple | Add kimchi and gochujang | Fill with pimento cheese and pickled jalapeños
+hawaiian-pizza | Add pickled jalapeños for heat | Grill the pineapple first | Swap ham for spicy soppressata
+poke | Add mango and a spoon of chili crisp | Swap tuna for salmon with yuzu kosho | Serve over cold soba instead of rice
+empanadas | Add raisins and green olives to the beef | Fill with corn, cheese and poblano | Serve with chimichurri for dipping
+enchiladas | Make them with mole instead of red sauce | Fill with sweet potato and black beans | Stack them flat and top with a fried egg
+full-english-breakfast | Swap baked beans for spiced chickpeas | Add bubble and squeak from leftover potatoes | Serve the mushrooms with garlic and thyme
+french-onion-soup | Add a splash of sherry and a little miso | Swap gruyère for raclette | Make it a grilled cheese and dip it in the soup
+ratatouille | Bake it with eggs cracked on top, like shakshuka | Toss leftovers with pasta and feta | Add a spoon of harissa
+coq-au-vin | Use white wine and tarragon instead of red | Add a few prunes to the braise | Swap chicken for duck legs
+bruschetta | Top with ricotta, peaches and basil | Use charred corn and lime | Swap tomatoes for white beans, garlic and rosemary
+fettuccine-alfredo | Add lemon zest and black pepper | Stir in a spoon of white miso | Toss with roasted mushrooms and spinach
+ravioli | Fill with butternut squash and amaretti | Sauce with brown butter, sage and hazelnuts | Fry leftover ravioli for a crispy snack
+tomato-sauce | Simmer with a halved onion and butter | Add a pinch of chili flakes and a few anchovies | Roast the tomatoes first for a smoky sauce
+wiener-schnitzel | Swap veal for pork or chicken | Add parmesan to the breadcrumbs | Serve with lingonberry jam and lemon
+chorizo | Cook into a hash with potatoes and eggs | Stir into clams with white wine | Crumble into a queso dip
+greek-salad | Add grilled peaches or watermelon | Toss in crispy chickpeas | Grill the feta wrapped in foil
+tzatziki | Add grated beet for color | Swap dill for mint and sumac | Use it as a dressing for potato salad
+sweet-and-sour-pork | Swap pork for crispy tofu | Use mango instead of pineapple | Add a little chili for a spicy version
+jiaozi | Add shrimp and chives to the pork | Use kimchi in the filling | Serve with a chili crisp and black vinegar dip
+wonton-soup | Add a spoon of chili oil to the broth | Swap the broth for a light curry broth | Fill with chicken and ginger
+mapo-tofu | Add mushrooms instead of pork | Stir in a little peanut butter | Serve over noodles instead of rice
+green-curry | Add pineapple and shrimp | Use butternut squash for a vegetarian version | Finish with crispy shallots
+japanese-curry | Grate apple and a little dark chocolate into the roux | Top with a fried egg and cheese | Serve over udon
+teriyaki-chicken | Add pineapple to the glaze | Grill and serve over a rice bowl with kimchi | Use salmon instead of chicken
+gyoza | Fill with kimchi and pork | Make a crispy lace skirt with a starch slurry | Use a chili crisp dip
+miso-soup | Add clams | Stir in a little butter and corn | Use white miso with spinach and tofu
+udon | Make it carbonara style with egg and bacon | Stir-fry with butter, soy and mushrooms | Add a curry broth
+masala-dosa | Fill with cheese and chili | Add beetroot to the potato filling | Serve with peanut chutney
+chicken-noodle-soup | Add lemon, dill and orzo | Stir in ginger and turmeric | Top with chili crisp
+banana-bread | Add tahini and chocolate chunks | Swap walnuts for pecans and add bourbon | Toast slices in butter and top with ricotta
+pumpkin-pie | Add a little miso to the filling | Swap the crust for gingersnaps | Top with toasted meringue
+carrot-cake | Add a spoon of grated ginger | Use brown butter cream cheese frosting | Swap walnuts for pistachios and cardamom
+orange-chicken | Add Sichuan pepper and dried chilies | Swap chicken for cauliflower | Use blood orange
+garlic-bread | Use roasted garlic and anchovy butter | Add mozzarella and chili flakes | Make it on naan with cilantro
+chicago-deep-dish-pizza | Add giardiniera | Swap sausage for spinach and ricotta | Brush the crust with garlic butter
+avocado-toast | Add chili crisp and a fried egg | Top with smoked salmon and capers | Use pickled red onion and feta
+poutine | Swap the gravy for butter chicken sauce | Add pulled pork and pickled jalapeños | Use sweet potato fries
+red-velvet-cake | Turn it into cookies with white chocolate | Add a little espresso to the batter | Use mascarpone frosting
+tamales | Fill with green chile and cheese | Make sweet ones with pineapple and raisins | Fry leftovers for breakfast with eggs
+flan | Add coconut milk | Infuse with coffee | Add a spoon of cream cheese for a denser flan
+ceviche | Add mango and avocado | Use coconut milk and lime | Swap fish for shrimp with tomato, Mexican style
+shepherd-s-pie | Top with sweet potato mash | Swap lamb for lentils and mushrooms | Add cheddar and mustard to the mash
+beef-wellington | Swap beef for salmon | Use mushrooms and chestnuts for a vegetarian version | Wrap in prosciutto before the pastry
+eclair | Fill with coffee cream | Try pistachio cream and raspberries | Fill with savory cheese and herbs
+pain-au-chocolat | Add a stick of marzipan with the chocolate | Brush with honey and sea salt | Make a bread pudding from stale ones
+chocolate-mousse | Add a pinch of chili and cinnamon | Use olive oil instead of butter | Top with flaky salt and olive oil
+focaccia | Press grapes and rosemary into the top | Add caramelized onions and olives | Use it for a sandwich with mortadella
+gnocchi | Make them with ricotta instead of potato | Fry in brown butter with sage | Bake them in tomato sauce with mozzarella
+caprese-salad | Add peaches or strawberries | Swap mozzarella for burrata | Drizzle with pesto instead of olive oil
+prosciutto | Wrap around grilled peaches | Crisp it in the oven and crumble over pasta | Serve with figs and blue cheese
+belgian-waffle | Use pearl sugar | Top with fried chicken | Serve with speculoos spread
+pretzels | Stuff with cheese | Brush with garlic butter | Serve with beer cheese dip
+bratwurst | Simmer in beer and onions first | Serve with kimchi | Slice into a curry ketchup currywurst
+danish-pastry | Fill with cream cheese and cherries | Add cardamom to the dough | Try apple and cinnamon
+swedish-meatballs | Add a little allspice and nutmeg | Serve with lingonberry jam | Make them with turkey
+gazpacho | Make it with watermelon | Add a little cucumber and mint | Top with crispy croutons and olive oil
+cheese-fondue | Add a spoon of mustard | Swap wine for cider | Serve with roasted potatoes and pickles
+souvlaki | Use chicken thighs with lemon and oregano | Serve with fries in the pita | Grill halloumi skewers instead
+goulash | Add a spoon of smoked paprika | Serve with buttered egg noodles | Add potatoes for a soupier version
+borscht | Add a little smoked meat | Serve cold in summer | Top with dill and garlic toast
+pita | Brush with za'atar oil before baking | Stuff with fried eggplant and tahini | Use for pita chips with sumac
+turkish-delight | Add rosewater and pistachios | Try lemon and mint | Dust with coconut
+char-siu | Add a little five spice | Use pork shoulder | Stuff into bao buns
+hot-and-sour-soup | Add shiitake and tofu | Finish with chili oil | Add shrimp
