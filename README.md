@@ -45,6 +45,7 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- v27 (Nov 23 2026): an About button replaces the Has recipes filter and opens the panel with the about text first. CSV exports are out of the View menu (the code stays). Menu reworded: Your kitchen (find your next dish, from what you cook today), The whole plate (explore the world's cuisines), Browse.
 - v26 (Nov 23 2026): the panel opens only when you pick something: tap a dish or recipe, choose a search result, or open a link to a dish. Zooming, and tapping a cuisine or family, keeps the plate clear. Tapping the dish the zoom has settled on opens it.
 - v25 (Nov 23 2026): search groups results: matching categories in bold with their dishes indented under them (Burgers, then Burger, Cheeseburger...), and a sub-group no longer matches on its family's name alone. Dish panel reordered and folded: recipes, then More X from Y and Related dishes (three each, then a quiet "… N more" row), cookbooks two then more; lens lists show ten then more. On desktop the search sits atop the open panel and floats in the header when the panel is closed.
 - v24 (Nov 23 2026): the plate opens alone. Search floats in the header; the panel slides in when something is picked (bottom sheet at half height on phones) and closes with its X. The home panel (dish types, websites, cuisines, About) moved to View > Browse and about. Removed the Area = popularity and More dishes keys.

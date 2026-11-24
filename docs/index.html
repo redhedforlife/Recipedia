@@ -351,24 +351,20 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
     <div class="foot">
       <div class="hint" id="hint">Click to go one level in. Scroll or pinch to zoom.</div>
       <div class="key" id="key">
-        <button class="toggle" id="onlyRec" aria-pressed="false" title="Show only dishes with recipes from named cooks"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="3" fill="currentColor"/></svg>Has recipes</button>
+        <button class="toggle" id="aboutbtn" title="What Recipedia is, and ways to browse it">About</button>
         <button class="toggle" id="cookbtn" aria-pressed="false" title="Add this dish to the ones you cook" hidden><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 6.4l2.5 2.5 5.1-5.6"/></svg>I cook this</button>
       </div>
     </div>
     <div class="viewsw" id="viewsw">
       <button class="vbtn" id="vbtn" aria-haspopup="true" aria-expanded="false" aria-controls="vmenu"><span class="vk">View</span><b id="vname">Plate</b><svg class="i" viewBox="0 0 16 16"><path d="M4.5 6.5L8 10l3.5-3.5"/></svg></button>
       <div class="vmenu" id="vmenu" role="menu" aria-label="View" hidden>
-        <button role="menuitemradio" aria-checked="false" data-v="start"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><b>Start where you are</b><span>What you cook, and what is one step away.</span></button>
+        <button role="menuitemradio" aria-checked="false" data-v="start"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><b>Your kitchen</b><span>Find your next dish, from what you cook today.</span></button>
         <button role="menuitemradio" aria-checked="false" data-v="zoom" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><circle cx="11" cy="12" r="4.4"/><circle cx="11.6" cy="13.2" r="1.8"/></svg><b>Infinite zoom</b><span>Keep zooming. Every dish opens onto a cousin.</span></button>
-        <button role="menuitemradio" aria-checked="true" data-v="plate"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 2v8l6.4 4.8M10 10l-7 3.6"/></svg><b>Flat plate</b><span>Every cuisine on one plate.</span></button>
+        <button role="menuitemradio" aria-checked="true" data-v="plate"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 2v8l6.4 4.8M10 10l-7 3.6"/></svg><b>The whole plate</b><span>Explore the world's cuisines.</span></button>
         <button role="menuitemradio" aria-checked="false" data-v="galaxy" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 10c1.6-1.4 3.6 0 3.2 2-.5 2.8-4.5 3.6-6.6 1.4C4 10.9 5.3 6.5 9 5.6c4.8-1.2 8.6 3 7.4 7.6"/><circle cx="10" cy="10" r="1.2" fill="currentColor" stroke="none"/></svg><b>Spiral galaxy</b><span>Every dish a star, one arm per region.</span></button>
         <button role="menuitemradio" aria-checked="false" data-v="globe" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M2.6 7.2l5 1.6 2.4-6.6M8 8.8l-.6 9M7.6 8.8l9.8 1.4M12.6 10.6l-1.4 7.3"/></svg><b>Tiled globe</b><span>Cuisines tile the world.</span></button>
         <div class="vsep" role="separator"></div>
-        <button role="menuitem" data-browse="1"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8"/></svg><b>Browse and about</b><span>Dish types, recipe websites, every cuisine, and how this was made.</span></button>
-        <div class="vsep xp" role="separator" hidden></div>
-        <div class="vhead xp" aria-hidden="true" hidden>Export to CSV</div>
-        <button role="menuitem" data-x="dishes" class="xp" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9M6.5 8.5L10 12l3.5-3.5M4 15.5h12"/></svg><b>Dishes</b><span>Every dish, with cuisine, family, popularity and flavor profile.</span></button>
-        <button role="menuitem" data-x="recipes" class="xp" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v9M6.5 8.5L10 12l3.5-3.5M4 15.5h12"/></svg><b>Recipes</b><span>Every recipe link, with its dish, cook, source and note.</span></button>
+        <button role="menuitem" data-browse="1"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8"/></svg><b>Browse</b><span>Dish types, recipe websites and every cuisine.</span></button>
       </div>
     </div>
     <div class="zoom">
@@ -791,7 +787,7 @@ const S = { mode: 'world', cuisine: null, kc: null, group: null, sub: null, dish
 let hover = null, onlyRec = false;
 const depthOf = s => s.mode === 'world' ? 0 : s.mode === 'lens' || s.mode === 'cuisine' ? 1 : s.mode === 'course' ? 2 : s.mode === 'group' ? 3 : s.mode === 'sub' ? 4 : s.recipe ? 6 : 5;
 // the plate opens alone; the panel slides in once something is picked, and closes with its X
-let panelShut = false, worldPanel = false, openDish = null; // the panel opens for a dish you picked, never for one you only zoomed onto
+let panelShut = false, worldPanel = false, openDish = null, aboutFirst = false; // aboutFirst: the About button puts the about text at the top // the panel opens for a dish you picked, never for one you only zoomed onto
 function syncPanel() {
   const want = (S.mode === 'lens' || (S.mode === 'dish' && S.dish === openDish) || HOME || worldPanel) && !panelShut;
   if (document.body.classList.contains('nopanel') === !want) return;
@@ -821,7 +817,7 @@ function setState(next, { camera = true, history = 'push', auto = false } = {}) 
   if (S.mode === 'lens') { lensT0 = now(); lensRank = new Map([...S.members].sort(byScore).map((d, i, a) => [d, i / Math.max(1, a.length - 1)])); } else lensT0 = 0;
   hover = null; litGroups = new Set(); hideTip(); if (S.mode !== 'world') hideHint();
   if (!auto) openDish = S.mode === 'dish' ? S.dish : null; else if (S.mode !== 'dish' || S.dish !== openDish) openDish = null;
-  panelShut = false; if (S.mode !== 'world') worldPanel = false; syncPanel(); shown.clear();
+  panelShut = false; if (S.mode !== 'world') worldPanel = false; aboutFirst = false; syncPanel(); shown.clear();
   renderPanel(Math.sign(depthOf(S) - before)); renderCrumbs(); announce();
   if (history !== 'none') writeHash(history);
   lastFlyMs = 0; if (camera) fly();
@@ -889,7 +885,7 @@ addEventListener('hashchange', () => { const h = curHash(); if (h === lastHash) 
 /* one line for screen readers whenever the focus changes */
 const LIVE = document.getElementById('live');
 function describe(s = S) {
-  if (s.mode === 'world') return HOME ? `Start where you are. ${KITCHEN.size} dishes you cook.` : `Whole plate. ${cuisines.length} cuisines.`;
+  if (s.mode === 'world') return HOME ? `Your kitchen. ${KITCHEN.size} dishes you cook.` : `Whole plate. ${cuisines.length} cuisines.`;
   if (s.mode === 'cuisine') return `${s.cuisine.name}, cuisine. ${s.cuisine.kcs.length} courses, ${s.cuisine.dishes.length} dishes.`;
   if (s.mode === 'course') return `${s.kc.course.name}, ${s.cuisine.name}. ${s.kc.groups.length} families.`;
   if (s.mode === 'group') return `${s.group.family.name}, ${s.cuisine.name}. ${s.group.dishes.length} dishes${s.group.subs.length ? ` in ${s.group.subs.length} groups` : ''}.`;
@@ -2167,7 +2163,7 @@ const sugRow = (x, sub) => `<li><a class="row" href="${hD(x.d)}" data-d="${x.d.i
 const COOK_ICON = '<svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 6.4l2.5 2.5 5.1-5.6"/></svg>';
 function kitchenPanel() {
   const mine = kitchen(), M = homeModel(), nSug = M.t ? TIERS.reduce((s, k) => s + M.t[k].length, 0) : 0;
-  let h = head('var(--graphite)', `<h2>Start where you are</h2><p class="meta">${mine.length ? `<span class="nw"><b>${mine.length}</b> ${mine.length === 1 ? 'dish' : 'dishes'} you cook</span> · <span class="nw"><b>${nSug}</b> one step away</span>` : 'Mark the dishes you already cook, and see what is one step away.'}</p>`);
+  let h = head('var(--graphite)', `<h2>Your kitchen</h2><p class="meta">${mine.length ? `<span class="nw"><b>${mine.length}</b> ${mine.length === 1 ? 'dish' : 'dishes'} you cook</span> · <span class="nw"><b>${nSug}</b> one step away</span>` : 'Mark the dishes you already cook, and see what is one step away.'}</p>`);
   h += `<div class="kadd"><input class="filter" id="kadd" type="search" placeholder="Add a dish you cook" aria-label="Add a dish you cook" autocomplete="off" spellcheck="false"><ul class="list" id="kres"></ul></div>`;
   if (!mine.length) return h + sec('Or start with one of these') + `<div class="chips">${STARTERS.map(d => `<button class="chip" data-cook="${d.id}" data-d="${d.id}"><i style="background:${rcVar(d)}"></i>${esc(d.name)}</button>`).join('')}</div>`;
   h += `<div class="chips">${mine.map(d => `<button class="chip on" data-cook="${d.id}" data-d="${d.id}" aria-label="Remove ${esc(d.name)}"><i style="background:${rcVar(d)}"></i>${esc(d.name)}<span class="x" aria-hidden="true">×</span></button>`).join('')}</div>`;
@@ -2200,9 +2196,9 @@ document.addEventListener('keydown', e => { if (e.target.id === 'kadd' && e.key 
    Start where you are, infinite zoom, the flat plate (the default), the spiral galaxy and the tiled globe all share one state, one panel, one search and
    the same links. Switching keeps what you had open and moves the camera to it. The choice is remembered on this device. */
 const VIEWS = {
-  start: { name: 'Start where you are', short: 'Start', live: 'Start where you are. The dishes you cook are in the middle, with what is one step away around them.' },
+  start: { name: 'Your kitchen', short: 'Kitchen', live: 'Your kitchen. The dishes you cook are in the middle, with what is one step away around them.' },
   zoom: { name: 'Infinite zoom', short: 'Zoom', live: 'Infinite zoom. Keep zooming into a dish to go through to its cousin.' },
-  plate: { name: 'Flat plate', short: 'Plate', live: 'Flat plate view.' },
+  plate: { name: 'The whole plate', short: 'Plate', live: 'The whole plate.' },
   galaxy: { name: 'Spiral galaxy', short: 'Galaxy', live: 'Galaxy view. Every dish is a star. Scroll to fly in, click a star to open it.' },
   globe: { name: 'Tiled globe', short: 'Globe', live: 'Globe view. Drag to spin, scroll to zoom.' },
 };
@@ -2248,7 +2244,7 @@ function openViews(on) {
   if (on) (VMENU.querySelector('[aria-checked="true"]') || VMENU.querySelector('[data-v]')).focus();
 }
 VBTN.addEventListener('click', e => { e.stopPropagation(); openViews(VMENU.hidden); });
-VMENU.addEventListener('click', e => { if (e.target.closest('[data-browse]')) { openViews(false); worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
+VMENU.addEventListener('click', e => { if (e.target.closest('[data-browse]')) { openViews(false); aboutFirst = false; worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
 VMENU.addEventListener('keydown', e => {
   const items = [...VMENU.querySelectorAll('button:not([hidden])')], i = items.indexOf(document.activeElement);
   if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); }
@@ -2259,7 +2255,7 @@ document.addEventListener('pointerdown', e => { if (!VMENU.hidden && !e.target.c
 // export: the data the page already holds, written out as CSV in the browser (nothing is fetched)
 const csvCell = v => { v = v == null ? '' : Array.isArray(v) ? v.join('; ') : String(v); return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
 let DL = null; // the viewer's download capability: the export items show only where it is available
-Promise.resolve(window.claude && window.claude.use ? window.claude.use('downloads') : { save: async ({ filename, data }) => { const a = document.createElement('a'); a.href = URL.createObjectURL(data); a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); } }).then(d => { DL = d; if (d) VMENU.querySelectorAll('.xp').forEach(el => { el.hidden = false; }); }).catch(() => {});
+Promise.resolve(window.claude && window.claude.use ? window.claude.use('downloads') : { save: async ({ filename, data }) => { const a = document.createElement('a'); a.href = URL.createObjectURL(data); a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); } }).then(d => { DL = d; }).catch(() => {});
 async function downloadCSV(name, rows) {
   if (!DL) { LIVE.textContent = 'Downloads are not available here.'; return; }
   const blob = new Blob(['﻿' + rows.map(r => r.map(csvCell).join(',')).join('\r\n')], { type: 'text/csv;charset=utf-8' });
@@ -2655,14 +2651,20 @@ function groupList(g) { // every dish, ranked; a split family lists them under i
   if (!n) h += `<p class="empty">No ${esc(g.family.name.toLowerCase())} here have recipes yet.</p>`;
   return h;
 }
+function aboutHTML() {
+  let h = '';
+    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p></div>`;
+  return h;
+}
 function renderPanel(dir = 0) {
   let h = '';
-  if (S.mode === 'world' && HOME) h += kitchenPanel();
+  if (S.mode === 'world' && HOME && !aboutFirst) h += kitchenPanel();
   else if (S.mode === 'world') {
     const nRec = recipes.length;
     h += head('var(--graphite)', `<h2>The world's dishes</h2><p class="meta"><span class="nw"><b>${cuisines.length}</b> cuisines</span> · <span class="nw"><b>${dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec.toLocaleString()}</b> recipes</span> · <span class="nw"><b>${books.length}</b> cookbooks</span></p>`,
       specimen({ bb: [-R, -R, R, R], poly: [] }, cuisines.map(c => ({ poly: c.poly, w: 1, color: `var(--${c.region.id})` })), 'var(--graphite)', { plate: true, box: [-R * 1.02, -R * 1.02, R * 1.02, R * 1.02] }));
     h += `<div class="legend" aria-label="Regions">${regions.map(r => `<button data-region="${r.i}"><i style="background:var(--${r.id})"></i>${esc(r.name)}</button>`).join('')}</div>`;
+    if (aboutFirst) h += aboutHTML();
     h += recNote();
     h += sec('Most popular dishes') + `<ul class="list">${F(dishRank).slice(0, 12).map((d, k) => dishRow(d, d.rankW, d.cuisine.name)).join('')}</ul>`;
     const all = shown.has('cuisines'), maxW = cuisineRank[0].weight;
@@ -2675,7 +2677,7 @@ function renderPanel(dir = 0) {
     h += sec('Recipe websites', siteRank.length) + `<ul class="list">${siteRank.slice(0, allW ? 60 : 10).map((w, k) => `<li><a class="row" href="${hW(w)}"><span class="g">${glyph(w.recipes[0].dish, gsize(w.recipes.length, siteRank[0].recipes.length), 'var(--graphite)')}</span><span class="nm">${esc(w.name)}</span><span class="rk">${w.recipes.length}</span><span class="sub">${w.cuisines.size === 1 ? '1 cuisine' : w.cuisines.size + ' cuisines'} · ${esc([...w.cuisines].slice(0, 3).map(c => c.name).join(', '))}</span></a></li>`).join('')}</ul>`;
     if (!allW) h += `<div class="actions"><button class="linkbtn" data-show="sites">Show top 60 websites ${ICON.fwd}</button></div>`;
     h += sec('Cookbooks every kitchen should have') + `<ul class="books">${generalBooks.slice(0, 6).map(b => bookItem(b)).join('')}</ul>`;
-    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p></div>`;
+    if (!aboutFirst) h += aboutHTML();
   } else if (S.mode === 'cuisine') {
     const c = S.cuisine, nRec = c.dishes.reduce((s, d) => s + d.recipes.length, 0);
     let inner = `<h2>${esc(c.name)}</h2><p class="meta">${esc(c.region.name)} · <b>#${c.rank}</b> of ${cuisines.length} · <span class="nw"><b>${c.dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec}</b> recipes</span></p>`;
@@ -2997,11 +2999,10 @@ function setSnap(i, recenter = true) {
 /* ---------------- controls, hint, boot ---------------- */
 function setOnlyRec(on) {
   onlyRec = on;
-  document.getElementById('onlyRec').setAttribute('aria-pressed', on);
   litGroups = new Set(); renderPanel(0); draw();
   LIVE.textContent = on ? `Showing the ${withRecipes.size} dishes that have recipes.` : 'Showing every dish.';
 }
-document.getElementById('onlyRec').onclick = () => setOnlyRec(!onlyRec);
+document.getElementById('aboutbtn').onclick = () => { worldPanel = true; setState({ mode: 'world' }, { history: S.mode === 'world' ? 'replace' : 'push' }); aboutFirst = true; renderPanel(0); }; // refits the plate above the open panel
 document.getElementById('pclose').onclick = () => { panelShut = true; worldPanel = false; syncPanel(); };
 document.getElementById('zin').onclick = () => zoomBy(1.7);
 document.getElementById('zout').onclick = () => zoomBy(1 / 1.7);
