@@ -385,7 +385,7 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
       <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
       <div class="psearch">
       <svg class="i" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.2"/><path d="M10.2 10.2L13.5 13.5"/></svg>
-      <input id="q" class="search" type="search" placeholder="Search dishes, cooks, books" autocomplete="off" spellcheck="false" aria-label="Search dishes, cooks and cookbooks" aria-controls="results">
+      <input id="q" class="search" type="search" placeholder="Search dishes, cuisines, cooks" autocomplete="off" spellcheck="false" aria-label="Search dishes, cuisines and cooks" aria-controls="results">
       <span class="kbd" id="kbd">&#8984;K</span>
       <ul class="results" id="results" role="listbox" hidden></ul>
     </div>
@@ -834,9 +834,10 @@ const S = { mode: 'world', cuisine: null, kc: null, group: null, sub: null, dish
 let hover = null, onlyRec = false;
 const depthOf = s => s.mode === 'world' ? 0 : s.mode === 'lens' || s.mode === 'cuisine' ? 1 : s.mode === 'course' ? 2 : s.mode === 'group' ? 3 : s.mode === 'sub' ? 4 : s.recipe ? 6 : 5;
 // the plate opens alone; the panel slides in once something is picked, and closes with its X
+let fList = false; // the filter's list panel, opened from the filter
 let panelShut = false, worldPanel = false, openDish = null, aboutFirst = false; // aboutFirst: the About button puts the about text at the top // the panel opens for a dish you picked, never for one you only zoomed onto
 function syncPanel() {
-  const want = (S.mode === 'lens' || (S.mode === 'dish' && S.dish === openDish) || HOME || worldPanel) && !panelShut;
+  const want = ((S.mode === 'lens' && (S.lens.type !== 'filter' || fList)) || (S.mode === 'dish' && S.dish === openDish) || HOME || worldPanel) && !panelShut;
   if (document.body.classList.contains('nopanel') === !want) return;
   document.body.classList.toggle('nopanel', !want);
   if (want && mobile() && typeof snap !== 'undefined') snap = 1; // on a phone the sheet opens half way, so the plate stays in view
@@ -2758,7 +2759,7 @@ function renderPanel(dir = 0) {
   if (S.mode === 'world' && HOME && !aboutFirst) h += kitchenPanel();
   else if (S.mode === 'world') {
     const nRec = recipes.length;
-    h += head('var(--graphite)', `<h2>The world's dishes</h2><p class="meta"><span class="nw"><b>${cuisines.length}</b> cuisines</span> · <span class="nw"><b>${dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec.toLocaleString()}</b> recipes</span> · <span class="nw"><b>${books.length}</b> cookbooks</span></p>`,
+    h += head('var(--graphite)', `<h2>The world's dishes</h2><p class="meta"><span class="nw"><b>${cuisines.length}</b> cuisines</span> · <span class="nw"><b>${dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec.toLocaleString()}</b> recipes</span></p>`,
       specimen({ bb: [-R, -R, R, R], poly: [] }, cuisines.map(c => ({ poly: c.poly, w: 1, color: `var(--${c.region.id})` })), 'var(--graphite)', { plate: true, box: [-R * 1.02, -R * 1.02, R * 1.02, R * 1.02] }));
     h += `<div class="legend" aria-label="Regions">${regions.map(r => `<button data-region="${r.i}"><i style="background:var(--${r.id})"></i>${esc(r.name)}</button>`).join('')}</div>`;
     if (aboutFirst) h += aboutHTML();
@@ -2773,7 +2774,6 @@ function renderPanel(dir = 0) {
     const allW = shown.has('sites');
     h += sec('Recipe websites', siteRank.length) + `<ul class="list">${siteRank.slice(0, allW ? 60 : 10).map((w, k) => `<li><a class="row" href="${hW(w)}"><span class="g">${glyph(w.recipes[0].dish, gsize(w.recipes.length, siteRank[0].recipes.length), 'var(--graphite)')}</span><span class="nm">${esc(w.name)}</span><span class="rk">${w.recipes.length}</span><span class="sub">${w.cuisines.size === 1 ? '1 cuisine' : w.cuisines.size + ' cuisines'} · ${esc([...w.cuisines].slice(0, 3).map(c => c.name).join(', '))}</span></a></li>`).join('')}</ul>`;
     if (!allW) h += `<div class="actions"><button class="linkbtn" data-show="sites">Show top 60 websites ${ICON.fwd}</button></div>`;
-    h += sec('Cookbooks every kitchen should have') + `<ul class="books">${generalBooks.slice(0, 6).map(b => bookItem(b)).join('')}</ul>`;
     if (!aboutFirst) h += aboutHTML();
   } else if (S.mode === 'cuisine') {
     const c = S.cuisine, nRec = c.dishes.reduce((s, d) => s + d.recipes.length, 0);
@@ -2782,7 +2782,6 @@ function renderPanel(dir = 0) {
     h += head(rcVar(c), inner, specimen(c, c.kcs.map(k => ({ poly: k.poly, w: k.weight })), rcVar(c)));
     h += recNote();
     for (const kc of c.kcs) { const nk = F(kc.dishes).length; if (onlyRec && !nk) continue; h += `<section class="course"><a class="coursehead" href="${hK(kc)}" data-k="${kc.i}"><span class="t">${esc(kc.course.name)}</span><span class="c">${onlyRec ? `${nk} of ${kc.dishes.length}` : kc.dishes.length}${ICON.fwd}</span></a>` + kc.groups.map(g => famBlock(g, false)).join('') + `</section>`; }
-    if (c.books.length) h += sec('Cookbooks', c.books.length) + `<ul class="books">${c.books.map(b => bookItem(b, b.tag ? esc(b.tag) : '')).join('')}</ul>`;
   } else if (S.mode === 'course') {
     const kc = S.kc;
     h += head(rcVar(kc), `<h2>${esc(kc.course.name)}</h2><p class="meta"><a href="${hC(kc.cuisine)}" data-c="${kc.cuisine.id}">${esc(kc.cuisine.name)}</a> · <span class="nw"><b>${kc.dishes.length}</b> dishes</span> · <span class="nw"><b>${kc.groups.length}</b> families</span></p>`, specimen(kc, kc.groups.map(g => ({ poly: g.poly, w: g.weight })), rcVar(kc)));
@@ -2791,7 +2790,6 @@ function renderPanel(dir = 0) {
     h += sec('Families, most popular first', fams.length) + `<div>${fams.join('')}</div>`;
     if (!fams.length) h += `<p class="empty">No ${esc(kc.course.name.toLowerCase())} here have recipes yet.</p>`;
     const bk = kc.cuisine.books.filter(b => b.families.some(f => f.course === kc.course));
-    if (bk.length) h += sec('Cookbooks for this course') + `<ul class="books">${bk.map(b => bookItem(b)).join('')}</ul>`;
   } else if (S.mode === 'group') {
     const g = S.group;
     const kids = g.subs.length ? g.subs.map(sg => ({ poly: sg.poly, w: sg.weight })) : g.dishes.map(d => ({ poly: d.poly, w: dishW(d.score) }));
@@ -2799,7 +2797,6 @@ function renderPanel(dir = 0) {
     h += recNote() + groupList(g);
     h += `<div class="actions" style="margin-top:14px"><a class="linkbtn" href="${hF(g.family)}">${esc(g.family.name)} in every cuisine ${ICON.fwd}</a></div>`;
     const bk = g.cuisine.books.filter(b => b.families.includes(g.family));
-    if (bk.length) h += sec('Cookbooks') + `<ul class="books">${bk.map(b => bookItem(b, `Strong on ${esc(g.family.name.toLowerCase())}`)).join('')}</ul>`;
   } else if (S.mode === 'sub') {
     const sg = S.sub, g = sg.g, l = F(sg.dishes);
     h += head(rcVar(sg), `<h2>${esc(sg.name)}</h2><p class="meta"><a href="${hG(g)}" data-g="${g.i}">${esc(g.family.name)}</a> · <a href="${hC(sg.cuisine)}" data-c="${sg.cuisine.id}">${esc(sg.cuisine.name)}</a> · <span class="nw"><b>${sg.dishes.length}</b> dishes</span></p>`, specimen(sg, sg.dishes.map(d => ({ poly: d.poly, w: dishW(d.score) })), rcVar(sg)));
@@ -2843,7 +2840,6 @@ function renderPanel(dir = 0) {
     const famB = cb.filter(b => b.families.includes(d.family)), tagB = d.tag ? cb.filter(b => b.tag === d.tag && !famB.includes(b)) : [];
     const rest = cb.filter(b => !b.families.length && !b.tag);
     const list = [...sig.map(b => [b, 'Recipe in this book']), ...famB.map(b => [b, `Strong on ${d.family.name.toLowerCase()}`]), ...tagB.map(b => [b, `${esc(d.tag)} cooking`]), ...rest.slice(0, Math.max(0, 3 - sig.length - famB.length - tagB.length)).map(b => [b, ''])];
-    if (list.length) h += sec('Cookbooks', list.length) + `<ul class="books">${foldList('books', list, 2).map(([b, n]) => bookItem(b, n)).join('')}</ul>` + moreRow('books', list, 2);
     h += `<p style="margin-top:22px"><a class="ext" href="https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(d.name)}" target="_blank" rel="noopener noreferrer">Read about ${esc(d.name)} on Wikipedia ${ICON.ext}</a></p>`;
   } else if (S.mode === 'lens') {
     const L = S.lens, CAP = 10;
@@ -2869,7 +2865,6 @@ function renderPanel(dir = 0) {
       h += head(rcVar(t.cuisine), `<h2>${esc(t.name)}</h2><p class="meta">Regional style of <a href="${hC(t.cuisine)}">${esc(t.cuisine.name)}</a> · <span class="nw"><b>${t.dishes.length}</b> dishes</span></p>`);
       h += recNote() + ranked(t.dishes, d => d.family.name, 'Most popular first');
       const tb = t.cuisine.books.filter(b => b.tag === t.name);
-      if (tb.length) h += sec('Cookbooks') + `<ul class="books">${tb.map(b => bookItem(b)).join('')}</ul>`;
     } else if (L.type === 'site') {
       const w = L.ref;
       h += head('var(--graphite)', `<h2>${esc(w.name)}</h2><p class="meta">Website · <span class="nw"><b>${w.recipes.length}</b> ${w.recipes.length === 1 ? 'recipe' : 'recipes'}</span> across <span class="nw"><b>${w.cuisines.size}</b> ${w.cuisines.size === 1 ? 'cuisine' : 'cuisines'}</span>, lit on the plate</p><a class="cta" href="https://${esc(w.host)}/" target="_blank" rel="noopener noreferrer">Open ${esc(w.host)} ${ICON.ext}</a>`);
@@ -2996,7 +2991,6 @@ const index = [
   ...cuisines.flatMap(c => c.tags.map(t => ({ n: t.name, t: `${c.name} style · ${t.dishes.length}`, w: 1400, go: () => goLens('tag', t), f: 1, cat: t.dishes }))),
   ...dishes.map(d => ({ n: d.name, t: d.cuisine.name + (d.recipes.length ? ` · ${plural(d.recipes.length, 'recipe')}` : ''), w: d.score, go: () => goDish(d), f: 1, dish: d })),
   ...[...authors.values()].map(a => ({ n: a.name, t: `Cook · ${plural(a.recipes.length, 'recipe')}`, w: 300 + a.recipes.length, go: () => goLens('author', a), f: 1 })),
-  ...books.map(b => ({ n: mainTitle(b.title), t: `Cookbook · ${b.author}`, w: 200, go: () => goLens('book', b), f: 1 })),
 ].map(x => ({ ...x, k: norm(x.n), cat: x.cat ? new Set(x.cat) : null }));
 function lev(a, b, max) {
   if (Math.abs(a.length - b.length) > max) return max + 1;
@@ -3174,18 +3168,20 @@ if (HEAT) { // the controls and the numbers behind them
 const FPROT = { chicken: 'chicken', beef: 'beef', pork: 'pork', 'cured-pork': 'bacon-ham', sausage: 'sausage', lamb: 'lamb-goat', goat: 'lamb-goat', fish: 'fish', shrimp: 'shellfish', seafood: 'shellfish', egg: 'egg', cheese: 'cheese', legume: 'beans', tofu: 'tofu', duck: 'poultry', turkey: 'poultry', offal: 'offal', veg: 'meatless' };
 const FGROUPS = [
   ['Difficulty', [['effort:1', 'Easy'], ['effort:2', 'Medium'], ['effort:3', 'A project']]],
-  ['Proteins', [['chicken', 'Chicken'], ['beef', 'Beef'], ['pork', 'Pork'], ['bacon-ham', 'Bacon & ham'], ['sausage', 'Sausage'], ['lamb-goat', 'Lamb & goat'], ['poultry', 'Duck & turkey'], ['fish', 'Fish'], ['shellfish', 'Shrimp & seafood'], ['egg', 'Eggs'], ['tofu', 'Tofu'], ['beans', 'Beans & lentils'], ['offal', 'Offal'], ['meatless', 'No meat']]],
+  ['Proteins', [['chicken', 'Chicken'], ['beef', 'Beef'], ['pork', 'Pork'], ['bacon-ham', 'Bacon & ham'], ['sausage', 'Sausage'], ['lamb-goat', 'Lamb & goat'], ['poultry', 'Duck & turkey'], ['fish', 'Fish'], ['shellfish', 'Shrimp & seafood'], ['egg', 'Eggs'], ['tofu', 'Tofu'], ['beans', 'Beans & lentils'], ['offal', 'Offal'], ['meatless', 'No meat or fish']]],
   ['Vegetables & fruit', [['tomato', 'Tomato'], ['onion', 'Onion'], ['garlic', 'Garlic'], ['potato', 'Potato'], ['peppers', 'Bell peppers'], ['chili', 'Chiles'], ['greens', 'Leafy greens'], ['cabbage', 'Cabbage'], ['carrot', 'Carrot'], ['mushroom', 'Mushrooms'], ['eggplant', 'Eggplant'], ['corn', 'Corn'], ['root', 'Root vegetables'], ['beet', 'Beets'], ['scallion', 'Scallions'], ['avocado', 'Avocado'], ['olives', 'Olives'], ['plantain', 'Plantain'], ['coconut', 'Coconut'], ['lemon', 'Lemon'], ['lime', 'Lime'], ['fruit', 'Other fruit']]],
   ['Grains & breads', [['rice', 'Rice'], ['noodles', 'Noodles & pasta'], ['bread', 'Bread'], ['tortilla', 'Tortillas'], ['flatbread', 'Flatbread'], ['bun', 'Buns'], ['dough', 'Dough'], ['pastry', 'Pastry'], ['batter', 'Batter'], ['breadcrumb', 'Breadcrumbs'], ['grain', 'Other grains']]],
   ['Dairy', [['cheese', 'Cheese'], ['butter', 'Butter'], ['cream', 'Cream'], ['milk', 'Milk'], ['yogurt', 'Yogurt'], ['sour-cream', 'Sour cream']]],
   ['Sauces & seasonings', [['soy', 'Soy sauce'], ['fish-sauce', 'Fish sauce'], ['miso', 'Miso'], ['gochujang', 'Gochujang'], ['curry-paste', 'Curry paste'], ['shrimp-paste', 'Shrimp paste'], ['vinegar', 'Vinegar'], ['mustard', 'Mustard'], ['mayo', 'Mayo'], ['herbs', 'Fresh herbs'], ['herb-sauce', 'Herb sauce'], ['spice', 'Spices'], ['warm-spice', 'Warm spices'], ['cajun-spice', 'Cajun spice'], ['saffron', 'Saffron'], ['ginger', 'Ginger'], ['sesame', 'Sesame'], ['tamarind', 'Tamarind'], ['zaatar', "Za'atar"], ['trinity', 'Holy trinity'], ['broth', 'Broth'], ['gravy', 'Gravy'], ['roux', 'Roux'], ['wine', 'Wine'], ['beer', 'Beer'], ['olive-oil', 'Olive oil'], ['pickles', 'Pickles'], ['fermented', 'Fermented'], ['seaweed', 'Seaweed'], ['nuts', 'Nuts'], ['peanut', 'Peanuts']]],
   ['Sweet', [['sugar', 'Sugar'], ['honey', 'Honey'], ['chocolate', 'Chocolate'], ['vanilla', 'Vanilla'], ['caramel', 'Caramel'], ['jam', 'Jam'], ['coffee', 'Coffee'], ['tea', 'Tea']]],
 ];
+const FMEAT = new Set(['chicken', 'beef', 'pork', 'cured-pork', 'sausage', 'lamb', 'goat', 'fish', 'shrimp', 'seafood', 'duck', 'turkey', 'offal']);
 const FLABEL = new Map(FGROUPS.flatMap(([, o]) => o));
 const FTAGS = new Map(); // dish -> its filter keys
 for (const p of RAW.P || []) {
   const d = dishes[p[0]]; if (!d) continue;
   const t = new Set(p[2]); for (const x of p[3]) if (FPROT[x]) t.add(FPROT[x]); if (t.has('beans')) t.add('beans');
+  t.delete('meatless'); if (!p[3].some(x => FMEAT.has(x))) t.add('meatless'); // veg-led dishes that still carry meat are not meatless
   if (p[8]) t.add('effort:' + p[8]);
   FTAGS.set(d, t);
 }
@@ -3198,7 +3194,7 @@ document.body.appendChild(FSHEET);
 function fRender() {
   const m = fmatch(), cnt = new Map();
   for (const d of m) for (const k of FTAGS.get(d)) cnt.set(k, (cnt.get(k) || 0) + 1);
-  let h = `<div class="fh"><h3>Filter</h3><span class="ct" aria-live="polite">${fsel.length ? `${m.length.toLocaleString()} ${m.length === 1 ? 'dish' : 'dishes'}` : 'Pick what you want to cook with'}</span>${fsel.length ? '<button data-fclear>Clear</button>' : ''}<button class="done" data-fdone>Done</button></div><div class="fb">`;
+  let h = `<div class="fh"><h3>Filter</h3><span class="ct" aria-live="polite">${fsel.length ? `${m.length.toLocaleString()} ${m.length === 1 ? 'dish' : 'dishes'}` : 'Pick what you want to cook with'}</span>${fsel.length ? '<button data-fclear>Clear</button>' : ''}${fsel.length && m.length ? `<button data-flist>List ${m.length > 999 ? '' : m.length}</button>` : ''}<button class="done" data-fdone>Done</button></div><div class="fb">`;
   if (fsel.length) h += `<div class="fsel">${fsel.map(k => `<button class="fo" aria-pressed="true" data-fk="${k}" aria-label="Remove ${esc(FLABEL.get(k))}">${esc(FLABEL.get(k))} ×</button>`).join('')}</div>`;
   for (const [g, opts] of FGROUPS) {
     const live = opts.filter(([k]) => !fsel.includes(k)).map(([k, l]) => [k, l, cnt.get(k) || 0]);
@@ -3220,6 +3216,7 @@ function fApply() { // light the matches on the plate, with the list in the pane
 }
 function fSync() { // picks are forgotten once you leave the filter for anything but a dish
   if (fsel.length && !(S.mode === 'lens' && S.lens.type === 'filter') && S.mode !== 'dish') fsel = [];
+  if (!fsel.length) fList = false;
   const fb = document.getElementById('fbtn'), fn = document.getElementById('fn'); fb.classList.toggle('on', !!fsel.length); fn.hidden = !fsel.length; fn.textContent = fsel.length ? '· ' + fsel.length : '';
 }
 function fOpen(open = FSHEET.hidden) {
@@ -3230,7 +3227,8 @@ function fOpen(open = FSHEET.hidden) {
 document.getElementById('fbtn').onclick = e => { e.stopPropagation(); closeSurprise(); fOpen(); };
 FSHEET.addEventListener('click', e => {
   e.stopPropagation();
-  const b = e.target.closest('[data-fk],[data-fclear],[data-fdone],[data-fg]'); if (!b) return;
+  const b = e.target.closest('[data-fk],[data-fclear],[data-fdone],[data-fg],[data-flist]'); if (!b) return;
+  if ('flist' in b.dataset) { fList = true; fOpen(false); panelShut = false; syncPanel(); renderPanel(0); track('Opened filter list', { picks: fname(fsel) }); return; }
   if (b.dataset.fg) { fShown.add(b.dataset.fg); fRender(); return; }
   if ('fdone' in b.dataset) { fOpen(false); return; }
   if ('fclear' in b.dataset) { fsel = []; track('Filtered', { picks: '', matches: 0 }); fApply(); return; }

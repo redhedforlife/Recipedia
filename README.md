@@ -45,6 +45,7 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- v32 (Nov 24 2026): No meat now means no meat or fish in the dish's proteins. Filtering lights the plate without opening the panel; the filter's List button opens it. Cookbook recommendations removed from every panel, the browse header and search (the data and #b- links still work).
 - v31 (Nov 24 2026): Filter (ingredients by group, plus difficulty; every pick narrows, options show what's left; lens type 'filter', hash #x-key+key), Surprise me (random dish with recipes by course, from the filter when one is on), Pick 3 favorites (front door to Your kitchen). Events: Opened filter, Filtered, Surprise me, Tapped Pick 3 favorites.
 - v30 (Nov 24 2026): private heatmap. docs/index.html draws a heat overlay only when window.HEAT_MODE is set and heat.json loads (never on the public site). heat/build.py turns a PostHog export of Looked at, Tapped plate and Opened dish/recipe rows into heat/out/ (a copy of the site plus heat.json), published as the private claude.ai artifact "Recipedia heatmap". Raw rows stay out of git.
 - v29 (Nov 24 2026): heatmap data. PostHog heatmaps on (page clicks, rage clicks, scroll). Plate events in plate coordinates (x, y from -1 to 1, zoom 1 = whole plate): Tapped plate (what was hit) and Looked at (a view held 1.5 s or more, with seconds, cuisine, dish, whether the panel was open).
