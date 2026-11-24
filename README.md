@@ -17,6 +17,7 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 - Visitor stats: none yet (GoatCounter is a free option).
 
 - What next: techniques, a second pass on the skipped dishes, or historical recipes from vintage cookbooks (thefoodhistorian.com/vintage-cookbooks.html, mostly 1870s to 1920s American).
+- A plate laid out by dish type (a second tiling, families first). Not built: the script that made the plate's weighted-Voronoi layout was lost on Nov 2, so it would need a new tiler. v23 covers the browsing side with lenses instead.
 - Whether Start should be the default view, and when to bring back zoom, galaxy and globe (hidden since v20.1).
 
 ## Layout
@@ -44,5 +45,6 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- v23 (Nov 23 2026): browse by dish type and by website. Home panel lists the 42 dish types and the top recipe websites. A dish type opens lit across the plate with a By cuisine list (Sandwiches, then American, then every American sandwich). Each website has its own lens (#w-host), and a recipe's source links to it.
 - v22 (Nov 23 2026): public-release cleanup. Page title, description, link preview and icon; About note on the home panel; dropped 88 Simple Chinese Food recipes (user-submitted); one site name per website; 104 cook first names filled in, 56 usernames replaced by the site name; CSV export works outside Claude.
 - v21 (Nov 22 2026): wave 2 recipes added (7,972).

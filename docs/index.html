@@ -475,6 +475,10 @@ const recipes = RAW.Rc.map(([di, title, author, source, url, note], i) => {
   return r;
 });
 for (const a of authors.values()) a.recipes.sort((x, y) => byScore(x.dish, y.dish));
+const sites = new Map(); // one entry per website, keyed by its host, named by the name most of its recipes use
+for (const r of recipes) { const h = hostOf(r.url); if (!h) continue; let w = sites.get(h); if (!w) sites.set(h, w = { id: h, host: h, names: new Map(), recipes: [] }); w.recipes.push(r); w.names.set(r.source, (w.names.get(r.source) || 0) + 1); r.site = w; }
+for (const w of sites.values()) { w.name = [...w.names].sort((a, b) => b[1] - a[1])[0][0]; w.recipes.sort((x, y) => byScore(x.dish, y.dish)); w.cuisines = new Set(w.recipes.map(r => r.dish.cuisine)); }
+const siteRank = [...sites.values()].sort((a, b) => b.recipes.length - a.recipes.length);
 const books = RAW.B.map(([title, author, year, why, cs, fs, ds, tag], i) => {
   const b = { i, title, author, year, why, tag: tag || '', cuisines: cs.filter(x => x >= 0).map(x => cuisines[x]), general: cs.includes(-1), families: fs.map(x => families[x]), dishes: ds.map(x => dishes[x]) };
   b.cuisines.forEach(c => c.books.push(b)); b.dishes.forEach(d => d.books.push(b));
@@ -774,7 +778,7 @@ const goCourse = k => setState({ mode: 'course', kc: k });
 const goGroup = g => setState({ mode: 'group', group: g });
 const goSub = s => setState({ mode: 'sub', sub: s });
 const goDish = (d, r = null) => setState({ mode: 'dish', dish: d, recipe: r });
-const lensMembers = (type, ref) => type === 'family' || type === 'sub' ? ref.dishes : type === 'author' ? ref.recipes.map(r => r.dish) : type === 'tag' ? ref.dishes : ref.dishes.length ? ref.dishes : ref.cuisines.flatMap(c => c.dishes.slice(0, 12));
+const lensMembers = (type, ref) => type === 'family' || type === 'sub' ? ref.dishes : type === 'author' || type === 'site' ? ref.recipes.map(r => r.dish) : type === 'tag' ? ref.dishes : ref.dishes.length ? ref.dishes : ref.cuisines.flatMap(c => c.dishes.slice(0, 12));
 const goLens = (type, ref) => setState({ mode: 'lens', lens: { type, ref }, members: new Set(lensMembers(type, ref)) });
 function goBack() {
   if (HOME && S.mode !== 'world') return S.mode === 'dish' && TRAIL.length > 1 ? goDish(TRAIL[TRAIL.length - 2].d) : goWorld(); // in the start view, back retraces your path, then returns to your kitchen
@@ -795,7 +799,7 @@ function hashFor(s = S) {
   if (s.mode === 'group') return 'g-' + s.cuisine.id + '.' + s.group.family.id;
   if (s.mode === 'sub') return 's-' + s.cuisine.id + '.' + s.group.family.id + '.' + s.sub.slug;
   if (s.mode === 'dish') return s.recipe ? 'r-' + s.recipe.i : 'd-' + s.dish.id;
-  if (s.mode === 'lens') return { family: () => 'f-' + s.lens.ref.id, sub: () => 'v-' + s.lens.ref.id, author: () => 'a-' + s.lens.ref.id, book: () => 'b-' + s.lens.ref.i, tag: () => 't-' + s.lens.ref.cuisine.id + '.' + slug(s.lens.ref.name) }[s.lens.type]();
+  if (s.mode === 'lens') return { family: () => 'f-' + s.lens.ref.id, sub: () => 'v-' + s.lens.ref.id, author: () => 'a-' + s.lens.ref.id, site: () => 'w-' + s.lens.ref.id, book: () => 'b-' + s.lens.ref.i, tag: () => 't-' + s.lens.ref.cuisine.id + '.' + slug(s.lens.ref.name) }[s.lens.type]();
   return '';
 }
 let lastHash = null;
@@ -819,6 +823,7 @@ function parseHash(h) {
   if (p === 'f' && famById.has(id)) return lens('family', famById.get(id));
   if (p === 'v' && subLens.has(id)) return lens('sub', subLens.get(id));
   if (p === 'a' && authors.has(id)) return lens('author', authors.get(id));
+  if (p === 'w' && sites.has(id)) return lens('site', sites.get(id));
   if (p === 'b' && books[+id]) return lens('book', books[+id]);
   if (p === 't') { const [cid, ts] = id.split('.'); const t = cuisineById.get(cid)?.tags.find(t => slug(t.name) === ts); if (t) return lens('tag', t); }
   return null;
@@ -2541,7 +2546,7 @@ const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;
 const PL = { dish: 'dishes', family: 'families' };
 const plural = (n, w) => `${n.toLocaleString()} ${n === 1 ? w : (PL[w] || w + 's')}`;
 const mainTitle = t => t.split(':')[0].trim();
-const hC = c => '#c-' + c.id, hK = k => '#k-' + k.cuisine.id + '.' + k.course.id, hG = g => '#g-' + g.cuisine.id + '.' + g.family.id, hS = sg => '#s-' + sg.cuisine.id + '.' + sg.family.id + '.' + sg.slug, hV = l => '#v-' + l.id, hD = d => '#d-' + d.id, hR = r => '#r-' + r.i, hF = f => '#f-' + f.id, hA = a => '#a-' + a.id, hB = b => '#b-' + b.i, hT = t => '#t-' + t.cuisine.id + '.' + slug(t.name);
+const hC = c => '#c-' + c.id, hK = k => '#k-' + k.cuisine.id + '.' + k.course.id, hG = g => '#g-' + g.cuisine.id + '.' + g.family.id, hS = sg => '#s-' + sg.cuisine.id + '.' + sg.family.id + '.' + sg.slug, hV = l => '#v-' + l.id, hD = d => '#d-' + d.id, hR = r => '#r-' + r.i, hF = f => '#f-' + f.id, hA = a => '#a-' + a.id, hW = w => '#w-' + w.id, hB = b => '#b-' + b.i, hT = t => '#t-' + t.cuisine.id + '.' + slug(t.name);
 const KSHORT = { cousin: 'Cousin', origin: 'Origin', variant: 'Version', version: 'Version', sibling: 'Sister dish', pairs: 'Eaten with', shares: 'Shares', cook: 'Same cook' };
 const F = list => onlyRec ? list.filter(d => d.recipes.length) : list;
 const recNote = () => onlyRec ? `<p class="note">Showing dishes with recipes only. <button class="linkbtn" data-unrec>Show every dish</button></p>` : '';
@@ -2604,6 +2609,12 @@ function renderPanel(dir = 0) {
     const all = shown.has('cuisines'), maxW = cuisineRank[0].weight;
     h += sec('Cuisines', cuisines.length) + `<ul class="list">` + cuisineRank.slice(0, all ? 999 : 20).map(c => `<li><a class="row" href="${hC(c)}" data-c="${c.id}"><span class="g">${glyph(c, gsize(c.weight, maxW), `var(--${c.region.id})`)}</span><span class="nm">${esc(c.name)}</span><span class="rk">${c.rank}</span><span class="sub">${esc(c.dishes.slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('') + `</ul>`;
     if (!all) h += `<div class="actions"><button class="linkbtn" data-show="cuisines">Show all ${cuisines.length} cuisines ${ICON.fwd}</button></div>`;
+    const famRank = families.filter(f => F(f.dishes).length).map(f => ({ f, w: f.groups.reduce((a, g) => a + g.weight, 0), top: f.groups.slice().sort((a, b) => b.weight - a.weight)[0] })).sort((a, b) => b.w - a.w), allF = shown.has('fams'), maxF = famRank.length ? famRank[0].w : 1;
+    h += sec('Dish types', famRank.length) + `<ul class="list">${famRank.slice(0, allF ? 999 : 12).map(({ f, w, top }, k) => `<li><a class="row" href="${hF(f)}"><span class="g">${glyph(top, gsize(w, maxF), 'var(--graphite)')}</span><span class="nm">${esc(f.name)}</span><span class="rk">${k + 1}</span><span class="sub">${F(f.dishes).length.toLocaleString()} dishes · ${esc(F(f.dishes).slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('')}</ul>`;
+    if (famRank.length > 12 && !allF) h += `<div class="actions"><button class="linkbtn" data-show="fams">Show all ${famRank.length} dish types ${ICON.fwd}</button></div>`;
+    const allW = shown.has('sites');
+    h += sec('Recipe websites', siteRank.length) + `<ul class="list">${siteRank.slice(0, allW ? 60 : 10).map((w, k) => `<li><a class="row" href="${hW(w)}"><span class="g">${glyph(w.recipes[0].dish, gsize(w.recipes.length, siteRank[0].recipes.length), 'var(--graphite)')}</span><span class="nm">${esc(w.name)}</span><span class="rk">${w.recipes.length}</span><span class="sub">${w.cuisines.size === 1 ? '1 cuisine' : w.cuisines.size + ' cuisines'} · ${esc([...w.cuisines].slice(0, 3).map(c => c.name).join(', '))}</span></a></li>`).join('')}</ul>`;
+    if (!allW) h += `<div class="actions"><button class="linkbtn" data-show="sites">Show top 60 websites ${ICON.fwd}</button></div>`;
     h += sec('Cookbooks every kitchen should have') + `<ul class="books">${generalBooks.slice(0, 6).map(b => bookItem(b)).join('')}</ul>`;
     h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p></div>`;
   } else if (S.mode === 'cuisine') {
@@ -2642,7 +2653,7 @@ function renderPanel(dir = 0) {
     h += sec(`More ${g.family.name.toLowerCase()}`, g.subs.length - 1) + `<ul class="list">${g.subs.filter(x => x !== sg).map(x => `<li><a class="row" href="${hS(x)}" data-s="${x.i}"><span class="g">${glyph(x, gsize(x.weight, maxW), rcVar(x))}</span><span class="nm">${esc(x.name)}</span><span class="rk">${x.dishes.length}</span><span class="sub">${esc(x.dishes.slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('')}</ul>`;
   } else if (S.mode === 'dish' && S.recipe) {
     const r = S.recipe, more = r.who.recipes.filter(x => x !== r), others = r.dish.recipes.filter(x => x !== r);
-    h += head(rcVar(r.dish), `<a class="back" href="${hD(r.dish)}">${ICON.back}${esc(r.dish.name)}</a><h2 class="sm">${esc(r.title)}</h2><p class="meta"><a href="${hA(r.who)}">${esc(r.author)}</a> · ${esc(r.source)}</p>${r.note ? `<p class="gloss">${esc(r.note)}</p>` : ''}<a class="cta" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Open recipe on ${esc(r.source)} ${ICON.ext}</a>`, specimen(geom(r.dish) || r.dish, recipeTiles(r.dish).length ? recipeTiles(r.dish).map(t => ({ poly: t.poly, w: t.r === r ? 4 : 1 })) : [{ poly: (geom(r.dish) || r.dish).poly, w: 1 }], rcVar(r.dish)));
+    h += head(rcVar(r.dish), `<a class="back" href="${hD(r.dish)}">${ICON.back}${esc(r.dish.name)}</a><h2 class="sm">${esc(r.title)}</h2><p class="meta"><a href="${hA(r.who)}">${esc(r.author)}</a> · ${r.site ? `<a href="${hW(r.site)}">${esc(r.source)}</a>` : esc(r.source)}</p>${r.note ? `<p class="gloss">${esc(r.note)}</p>` : ''}<a class="cta" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Open recipe on ${esc(r.source)} ${ICON.ext}</a>`, specimen(geom(r.dish) || r.dish, recipeTiles(r.dish).length ? recipeTiles(r.dish).map(t => ({ poly: t.poly, w: t.r === r ? 4 : 1 })) : [{ poly: (geom(r.dish) || r.dish).poly, w: 1 }], rcVar(r.dish)));
     if (more.length) h += sec(`More from ${r.author}`, more.length) + `<ul class="list">${more.map(x => recipeRow(x, '', `${x.dish.cuisine.name} · ${x.title}`)).join('')}</ul>`;
     if (others.length) h += sec('Other versions', others.length) + `<ul class="list">${others.map(x => `<li><a class="row" href="${hR(x)}" data-r="${x.i}"><span class="g">${glyph(x.dish, 16, rcVar(x.dish))}</span><span class="nm">${esc(x.author)}</span><span class="rk"></span><span class="sub">${esc(x.source)}${x.note ? ' · ' + esc(x.note) : ''}</span></a></li>`).join('')}</ul>`;
   } else if (S.mode === 'dish') {
@@ -2684,13 +2695,24 @@ function renderPanel(dir = 0) {
     } else if (L.type === 'family') {
       const f = L.ref, cs = new Set(f.dishes.map(d => d.cuisine));
       h += head('var(--graphite)', `<h2>${esc(f.name)} everywhere</h2><p class="meta"><span class="nw"><b>${f.dishes.length}</b> dishes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span>, lit on the plate</p>`);
-      h += recNote() + ranked(f.dishes, d => d.cuisine.name, 'Most popular first');
+      h += recNote();
+      const gs = f.groups.filter(g => F(g.dishes).length).sort((a, b) => b.weight - a.weight), allG = shown.has('fgroups'), maxG = gs.length ? gs[0].weight : 1;
+      h += sec('By cuisine', gs.length) + `<ul class="list">${gs.slice(0, allG ? 999 : 12).map((g, k) => `<li><a class="row" href="${hG(g)}"><span class="g">${glyph(g, gsize(g.weight, maxG), rcVar(g.cuisine))}</span><span class="nm">${esc(g.cuisine.name)}</span><span class="rk">${k + 1}</span><span class="sub">${plural(F(g.dishes).length, 'dish')} · ${esc(F(g.dishes).slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('')}</ul>`;
+      if (gs.length > 12 && !allG) h += `<div class="actions"><button class="linkbtn" data-show="fgroups">Show all ${gs.length} cuisines ${ICON.fwd}</button></div>`;
+      h += ranked(f.dishes, d => d.cuisine.name, 'Most popular first');
     } else if (L.type === 'tag') {
       const t = L.ref;
       h += head(rcVar(t.cuisine), `<h2>${esc(t.name)}</h2><p class="meta">Regional style of <a href="${hC(t.cuisine)}">${esc(t.cuisine.name)}</a> · <span class="nw"><b>${t.dishes.length}</b> dishes</span></p>`);
       h += recNote() + ranked(t.dishes, d => d.family.name, 'Most popular first');
       const tb = t.cuisine.books.filter(b => b.tag === t.name);
       if (tb.length) h += sec('Cookbooks') + `<ul class="books">${tb.map(b => bookItem(b)).join('')}</ul>`;
+    } else if (L.type === 'site') {
+      const w = L.ref;
+      h += head('var(--graphite)', `<h2>${esc(w.name)}</h2><p class="meta">Website · <span class="nw"><b>${w.recipes.length}</b> ${w.recipes.length === 1 ? 'recipe' : 'recipes'}</span> across <span class="nw"><b>${w.cuisines.size}</b> ${w.cuisines.size === 1 ? 'cuisine' : 'cuisines'}</span>, lit on the plate</p><a class="cta" href="https://${esc(w.host)}/" target="_blank" rel="noopener noreferrer">Open ${esc(w.host)} ${ICON.ext}</a>`);
+      const byC = [...w.cuisines].map(c => [c, w.recipes.filter(r => r.dish.cuisine === c).length]).sort((a, b) => b[1] - a[1]);
+      if (byC.length > 1) h += `<div class="chips" style="margin-top:16px">${byC.slice(0, 12).map(([c, n]) => `<a class="chip" href="${hC(c)}"><i style="background:var(--${c.region.id})"></i>${esc(c.name)} <span class="n">${n}</span></a>`).join('')}</div>`;
+      h += sec('Recipes, most popular dish first', w.recipes.length) + `<ul class="list">${w.recipes.slice(0, shown.has('lens') ? 99999 : 100).map((r, k) => recipeRow(r, k + 1, `${r.dish.cuisine.name} · ${r.author !== w.name ? r.author + ' · ' : ''}${r.title}`)).join('')}</ul>`;
+      if (w.recipes.length > 100 && !shown.has('lens')) h += `<div class="actions"><button class="linkbtn" data-show="lens">Show all ${w.recipes.length} ${ICON.fwd}</button></div>`;
     } else if (L.type === 'author') {
       const a = L.ref, cs = new Set(a.recipes.map(r => r.dish.cuisine));
       h += head('var(--graphite)', `<h2>${esc(a.name)}</h2><p class="meta">Cook · <span class="nw"><b>${a.recipes.length}</b> recipes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span></p>`);
