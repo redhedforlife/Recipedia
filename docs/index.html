@@ -297,6 +297,21 @@ h2.sm{font-size:28px}
 body.loadingView .vmenu button[data-v="globe"],body.loadingView .vbtn{cursor:progress;opacity:.7}
 </style>
 
+<script>
+/* Usage tracking (PostHog, US region). Runs only on tryrecipedia.com, never in previews or on localhost.
+   Session replays include the plate canvas at 2 frames a second. Events are sent with track(name, props). */
+const PH_ON = /(^|\.)tryrecipedia\.com$/.test(location.hostname), phq = [];
+function track(ev, props) { try { if (!PH_ON) return; if (window.posthog && posthog.__loaded) posthog.capture(ev, props); else phq.push([ev, props]); } catch (e) {} }
+if (PH_ON) {
+  const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://us-assets.i.posthog.com/static/array.full.js';
+  s.onload = () => { try {
+    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true,
+      session_recording: { captureCanvas: { recordCanvas: true, canvasFps: 2, canvasQuality: '0.4' } } });
+    phq.splice(0).forEach(([e, p]) => posthog.capture(e, p));
+  } catch (e) {} };
+  document.head.appendChild(s);
+}
+</script>
 </head>
 <body class="nopanel">
 <style id="v24">
@@ -823,7 +838,23 @@ function setState(next, { camera = true, history = 'push', auto = false } = {}) 
   lastFlyMs = 0; if (camera) fly();
   threadsStart(lastFlyMs);
   draw();
+  trackNav(auto, history);
 }
+function trackNav(auto, history) { // one event per place someone lands, marked by whether they picked it or zoomed onto it
+  if (history === 'none' && !auto) return; // first load from a link is covered by the pageview
+  const p = { how: auto ? 'zoom' : 'pick', view: wantView || 'plate' }, nm = x => x && (x.name || x.title || (x.family && x.family.name) || x.id || '');
+  if (S.mode === 'dish') track(S.recipe ? 'Opened recipe' : 'Opened dish', Object.assign(p, { dish: S.dish.name, cuisine: S.cuisine && S.cuisine.name, recipes: S.dish.recipes.length }, S.recipe ? { cook: S.recipe.author } : {}));
+  else if (S.mode === 'lens') track('Opened list', Object.assign(p, { type: S.lens.type, name: nm(S.lens.ref) }));
+  else if (S.mode === 'cuisine') track('Opened cuisine', Object.assign(p, { cuisine: S.cuisine.name }));
+  else if (S.mode === 'course' || S.mode === 'group' || S.mode === 'sub') track('Opened group', Object.assign(p, { level: S.mode, cuisine: S.cuisine && S.cuisine.name, name: nm(S.mode === 'sub' ? S.sub : S.mode === 'group' ? S.group : S.kc && S.kc.course) }));
+  else if (S.mode === 'world') track('Whole plate', p);
+}
+document.addEventListener('click', e => { // links out: recipes, Wikipedia, cookbook shops, recipe searches
+  const a = e.target.closest('a[target="_blank"]'); if (!a) return;
+  let host = ''; try { host = new URL(a.href).hostname.replace(/^www\./, ''); } catch (x) {}
+  const kind = a.closest('.buy') ? 'book' : a.closest('.out') ? 'recipe search' : /wikipedia\.org$/.test(host) ? 'wikipedia' : 'recipe';
+  track('Clicked out', { kind, site: host, dish: S.dish && S.dish.name, cuisine: S.cuisine && S.cuisine.name });
+}, true);
 const goWorld = () => setState({ mode: 'world' });
 const goCuisine = c => setState({ mode: 'cuisine', cuisine: c });
 const goCourse = k => setState({ mode: 'course', kc: k });
@@ -1979,7 +2010,7 @@ function setCook(d, on = !KITCHEN.has(d)) {
   draw();
 }
 const COOKBTN = document.getElementById('cookbtn');
-COOKBTN.onclick = () => { if (S.dish) setCook(S.dish); };
+COOKBTN.onclick = () => { if (S.dish) { track('Tapped I cook this', { dish: S.dish.name }); setCook(S.dish); } };
 function syncCook() { // the "I cook this" switch beside the map key, for the dish in the middle
   const on = HOME && S.mode === 'dish'; COOKBTN.hidden = !on;
   if (on) COOKBTN.setAttribute('aria-pressed', String(KITCHEN.has(S.dish)));
@@ -2210,6 +2241,7 @@ function markView(v) {
   VMENU.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === v)));
 }
 function setView(v, { save = true } = {}) {
+  if (save) track('Switched view', { view: v });
   if (!VIEWS[v] || !ON_VIEWS.has(v)) v = 'plate';
   wantView = v;
   if (v === 'globe' && !GL) { // the globe's layout is a separate file, fetched the first time someone asks for it
@@ -2244,7 +2276,7 @@ function openViews(on) {
   if (on) (VMENU.querySelector('[aria-checked="true"]') || VMENU.querySelector('[data-v]')).focus();
 }
 VBTN.addEventListener('click', e => { e.stopPropagation(); openViews(VMENU.hidden); });
-VMENU.addEventListener('click', e => { if (e.target.closest('[data-browse]')) { openViews(false); aboutFirst = false; worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
+VMENU.addEventListener('click', e => { if (e.target.closest('[data-browse]')) { track('Opened browse'); openViews(false); aboutFirst = false; worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
 VMENU.addEventListener('keydown', e => {
   const items = [...VMENU.querySelectorAll('button:not([hidden])')], i = items.indexOf(document.activeElement);
   if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); }
@@ -2653,7 +2685,7 @@ function groupList(g) { // every dish, ranked; a split family lists them under i
 }
 function aboutHTML() {
   let h = '';
-    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p></div>`;
+    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p><p>Visits are recorded anonymously, including where people tap and zoom, to see how the map gets used and make it better.</p></div>`;
   return h;
 }
 function renderPanel(dir = 0) {
@@ -2836,7 +2868,7 @@ P.addEventListener('click', e => {
   if (!t) return;
   const ds = t.dataset;
   if (ds.cook) { setCook(dishById.get(ds.cook)); if (ds.refocus) { const f = document.getElementById('kadd'); if (f) f.focus(); } return; }
-  if (ds.show) { shown.add(ds.show); const top = P.scrollTop; renderPanel(0); P.scrollTop = top; return; }
+  if (ds.show) { track('Expanded list', { list: ds.show, dish: S.dish && S.dish.name }); shown.add(ds.show); const top = P.scrollTop; renderPanel(0); P.scrollTop = top; return; }
   if (ds.unrec !== undefined) return setOnlyRec(false);
   if (ds.region && VIEW3D) { const r = regions[+ds.region]; let x = 0, y = 0, z = 0; for (const c of r.cuisines) { const a = c.g3.c[1] * D2R, b = c.g3.c[0] * D2R; x += Math.cos(a) * Math.cos(b); y += Math.cos(a) * Math.sin(b); z += Math.sin(a); } return fly3d({ lon: Math.atan2(y, x) / D2R, lat: Math.atan2(z, Math.hypot(x, y)) / D2R, s: s30 * 1.7 }); }
   if (ds.region && GALAXY) { const r = regions[+ds.region]; stopInertia(); sel.interrupt().transition().duration(reduceMotion ? 0 : 700).ease(easeEmph).call(zoom.transform, fitBox(gbox(r.cuisines.flatMap(c => c.dishes)), 40)); return; }
@@ -2947,7 +2979,7 @@ function search() {
   RES.innerHTML = (fuzzy && hits.length ? `<li class="note" aria-disabled="true">No exact match. Closest:</li>` : '') + (hits.length ? shownRows.map(([x, kind], i) => `<li role="option" class="${kind}" aria-selected="${i === hi}" data-i="${i}"><span class="n">${esc(x.n)}</span><span class="t">${esc(kind === 'kid' ? x.dish.cuisine.name + (x.dish.recipes.length ? ' · ' + plural(x.dish.recipes.length, 'recipe') : '') : x.t)}</span></li>`).join('') : `<li aria-disabled="true"><span class="t">No match for "${esc(Q.value.trim())}". Check the spelling or try one word.</span></li>`);
   RES.hidden = false;
 }
-function choose(i) { const x = hits[i]; if (!x) return; Q.value = ''; RES.hidden = true; Q.blur(); hideHint(); x.go(); }
+function choose(i) { const x = hits[i]; if (!x) return; track('Searched', { query: Q.value.trim(), picked: x.n, rank: i }); Q.value = ''; RES.hidden = true; Q.blur(); hideHint(); x.go(); }
 Q.addEventListener('input', search);
 
 Q.addEventListener('keydown', e => {
@@ -3002,8 +3034,8 @@ function setOnlyRec(on) {
   litGroups = new Set(); renderPanel(0); draw();
   LIVE.textContent = on ? `Showing the ${withRecipes.size} dishes that have recipes.` : 'Showing every dish.';
 }
-document.getElementById('aboutbtn').onclick = () => { worldPanel = true; setState({ mode: 'world' }, { history: S.mode === 'world' ? 'replace' : 'push' }); aboutFirst = true; renderPanel(0); }; // refits the plate above the open panel
-document.getElementById('pclose').onclick = () => { panelShut = true; worldPanel = false; syncPanel(); };
+document.getElementById('aboutbtn').onclick = () => { track('Tapped About'); worldPanel = true; setState({ mode: 'world' }, { history: S.mode === 'world' ? 'replace' : 'push' }); aboutFirst = true; renderPanel(0); }; // refits the plate above the open panel
+document.getElementById('pclose').onclick = () => { track('Closed panel', { mode: S.mode, dish: S.dish && S.dish.name }); panelShut = true; worldPanel = false; syncPanel(); };
 document.getElementById('zin').onclick = () => zoomBy(1.7);
 document.getElementById('zout').onclick = () => zoomBy(1 / 1.7);
 document.getElementById('zhome').onclick = () => goWorld();
