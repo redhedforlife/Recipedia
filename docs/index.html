@@ -1,7 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Recipedia: a map of what the world cooks</title>
+<title>Recipedia: find your next dish</title>
 <meta name="description" content="A map of 11,534 dishes from 66 cuisines. Zoom from cuisines to families to single dishes, and find a recipe for each one from the cooks who know it best.">
-<meta property="og:title" content="Recipedia: a map of what the world cooks">
+<meta property="og:title" content="Recipedia: find your next dish">
 <meta property="og:description" content="A map of 11,534 dishes from 66 cuisines. Zoom from cuisines to families to single dishes, and find a recipe for each one from the cooks who know it best.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://tryrecipedia.com/preview.png">
@@ -2660,7 +2660,7 @@ function renderPanel(dir = 0) {
   if (S.mode === 'world' && HOME) h += kitchenPanel();
   else if (S.mode === 'world') {
     const nRec = recipes.length;
-    h += head('var(--graphite)', `<h2>What the world cooks</h2><p class="meta"><span class="nw"><b>${cuisines.length}</b> cuisines</span> · <span class="nw"><b>${dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec.toLocaleString()}</b> recipes</span> · <span class="nw"><b>${books.length}</b> cookbooks</span></p>`,
+    h += head('var(--graphite)', `<h2>The world's dishes</h2><p class="meta"><span class="nw"><b>${cuisines.length}</b> cuisines</span> · <span class="nw"><b>${dishes.length.toLocaleString()}</b> dishes</span> · <span class="nw"><b>${nRec.toLocaleString()}</b> recipes</span> · <span class="nw"><b>${books.length}</b> cookbooks</span></p>`,
       specimen({ bb: [-R, -R, R, R], poly: [] }, cuisines.map(c => ({ poly: c.poly, w: 1, color: `var(--${c.region.id})` })), 'var(--graphite)', { plate: true, box: [-R * 1.02, -R * 1.02, R * 1.02, R * 1.02] }));
     h += `<div class="legend" aria-label="Regions">${regions.map(r => `<button data-region="${r.i}"><i style="background:var(--${r.id})"></i>${esc(r.name)}</button>`).join('')}</div>`;
     h += recNote();
