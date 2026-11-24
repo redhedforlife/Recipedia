@@ -305,7 +305,7 @@ function track(ev, props) { try { if (!PH_ON) return; if (window.posthog && post
 if (PH_ON) {
   const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://us-assets.i.posthog.com/static/array.full.js';
   s.onload = () => { try {
-    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true,
+    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
       session_recording: { captureCanvas: { recordCanvas: true, canvasFps: 2, canvasQuality: '0.4' } } });
     phq.splice(0).forEach(([e, p]) => posthog.capture(e, p));
   } catch (e) {} };
@@ -2503,7 +2503,35 @@ function act(h) {
   if (h.type === 'dish') return h.here ? null : goDish(h.ref);
   if (h.type === 'recipe') return goDish(h.ref.dish, h.ref);
 }
-sel.on('click', e => { const r = canvas.getBoundingClientRect(); hideHint(); act(pick(e.clientX - r.left, e.clientY - r.top)); });
+sel.on('click', e => { const r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top, h = pick(mx, my); hideHint(); tapAt(mx, my, h); act(h); });
+/* Plate heatmap data. Taps and resting views are sent in plate coordinates (x, y from -1 to 1, centre 0,0, zoom 1 = whole plate),
+   so the same spot means the same dish whatever the camera did. Only on the flat plate, only where tracking is on. */
+function tapAt(mx, my, h) {
+  if (!PH_ON || VIEW3D || GALAXY || HOME || !W) return;
+  const [wx, wy] = T.invert([mx, my]), r = h && h.ref;
+  track('Tapped plate', { x: +(wx / R).toFixed(3), y: +(wy / R).toFixed(3), zoom: +(T.k / k0).toFixed(1), hit: h ? h.type : 'nothing', name: r ? r.name || r.title || '' : '' });
+}
+const LOOK = { key: '', t0: 0 };
+function lookNow() {
+  if (!PH_ON || document.hidden || VIEW3D || GALAXY || HOME || !W) return null;
+  const [wx, wy] = T.invert([W / 2, insetTop + (H - insetTop - insetBottom) / 2]), z = T.k / k0, st = 0.05 / Math.max(1, z);
+  const x = Math.round(wx / R / st) * st, y = Math.round(wy / R / st) * st, zz = Math.round(Math.log2(Math.max(1, z)) * 2);
+  return { key: `${x.toFixed(4)},${y.toFixed(4)},${zz}`, x: +(wx / R).toFixed(3), y: +(wy / R).toFixed(3), zoom: +z.toFixed(1) };
+}
+function lookFlush(end) {
+  if (LOOK.key && end - LOOK.t0 >= 1500) track('Looked at', { x: LOOK.x, y: LOOK.y, zoom: LOOK.zoom, seconds: Math.round((end - LOOK.t0) / 100) / 10, cuisine: LOOK.cuisine, dish: LOOK.dish, mode: LOOK.mode, panel: LOOK.panel });
+  LOOK.key = '';
+}
+if (PH_ON) {
+  setInterval(() => { // every second: if the view has moved, log how long the last one was held
+    const l = lookNow(), t = Date.now();
+    if (l && l.key === LOOK.key) return;
+    lookFlush(t);
+    if (l) Object.assign(LOOK, l, { t0: t, cuisine: S.cuisine ? S.cuisine.name : '', dish: S.dish ? S.dish.name : '', mode: S.mode, panel: !document.body.classList.contains('nopanel') });
+  }, 1000);
+  addEventListener('pagehide', () => lookFlush(Date.now()));
+  document.addEventListener('visibilitychange', () => { if (document.hidden) lookFlush(Date.now()); });
+}
 
 /* keyboard: arrows move between neighbors on the map, Enter goes in, Escape goes out */
 function siblings() {

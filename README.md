@@ -45,6 +45,7 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- v29 (Nov 24 2026): heatmap data. PostHog heatmaps on (page clicks, rage clicks, scroll). Plate events in plate coordinates (x, y from -1 to 1, zoom 1 = whole plate): Tapped plate (what was hit) and Looked at (a view held 1.5 s or more, with seconds, cuisine, dish, whether the panel was open).
 - v28 (Nov 24 2026): PostHog usage tracking on tryrecipedia.com only (US project, session replay with the canvas at 2 fps). Named events: Opened dish/recipe/cuisine/group/list (with how: pick or zoom), Whole plate, Searched, Clicked out (recipe, wikipedia, book, recipe search), Tapped About, Opened browse, Switched view, Closed panel, Expanded list, Tapped I cook this. About text says visits are recorded anonymously.
 - v27 (Nov 23 2026): an About button replaces the Has recipes filter and opens the panel with the about text first. CSV exports are out of the View menu (the code stays). Menu reworded: Your kitchen (find your next dish, from what you cook today), The whole plate (explore the world's cuisines), Browse.
 - v26 (Nov 23 2026): the panel opens only when you pick something: tap a dish or recipe, choose a search result, or open a link to a dish. Zooming, and tapping a cuisine or family, keeps the plate clear. Tapping the dish the zoom has settled on opens it.
