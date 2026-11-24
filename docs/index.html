@@ -742,7 +742,7 @@ function settle() {
   const same = target.mode === S.mode && (target.mode === 'world' || target.cuisine === S.cuisine && !target.kc || target.kc === S.kc && !target.group || target.group === S.group && !target.dish && !target.sub || target.sub === S.sub && !target.dish || target.dish === S.dish);
   if (same) return;
   if (S.recipe && target.dish === S.dish) return;
-  setState(target, { camera: false, history: 'replace' });
+  setState(target, { camera: false, history: 'replace', auto: true });
 }
 
 /* every dish appears once a family is big enough on screen; zooming back out folds it to the top 5 again */
@@ -791,9 +791,9 @@ const S = { mode: 'world', cuisine: null, kc: null, group: null, sub: null, dish
 let hover = null, onlyRec = false;
 const depthOf = s => s.mode === 'world' ? 0 : s.mode === 'lens' || s.mode === 'cuisine' ? 1 : s.mode === 'course' ? 2 : s.mode === 'group' ? 3 : s.mode === 'sub' ? 4 : s.recipe ? 6 : 5;
 // the plate opens alone; the panel slides in once something is picked, and closes with its X
-let panelShut = false, worldPanel = false;
+let panelShut = false, worldPanel = false, openDish = null; // the panel opens for a dish you picked, never for one you only zoomed onto
 function syncPanel() {
-  const want = (S.mode !== 'world' || HOME || worldPanel) && !panelShut;
+  const want = (S.mode === 'lens' || (S.mode === 'dish' && S.dish === openDish) || HOME || worldPanel) && !panelShut;
   if (document.body.classList.contains('nopanel') === !want) return;
   document.body.classList.toggle('nopanel', !want);
   if (want && mobile() && typeof snap !== 'undefined') snap = 1; // on a phone the sheet opens half way, so the plate stays in view
@@ -808,7 +808,7 @@ function placeSearch() { // desktop: the search sits atop the open panel, so a l
   else if (!inPanel && ps.parentNode !== top) top.appendChild(ps);
 }
 addEventListener('resize', () => placeSearch());
-function setState(next, { camera = true, history = 'push' } = {}) {
+function setState(next, { camera = true, history = 'push', auto = false } = {}) {
   const before = depthOf(S), prevGroup = S.group;
   if (!diving && dives.length) clearDives(); // going anywhere else commits you to the frame you are in
   Object.assign(S, { cuisine: null, kc: null, group: null, sub: null, dish: null, recipe: null, lens: null, members: null }, next);
@@ -820,6 +820,7 @@ function setState(next, { camera = true, history = 'push' } = {}) {
   openFam = S.group || (openFam && S.kc && openFam.kc === S.kc ? openFam : null);
   if (S.mode === 'lens') { lensT0 = now(); lensRank = new Map([...S.members].sort(byScore).map((d, i, a) => [d, i / Math.max(1, a.length - 1)])); } else lensT0 = 0;
   hover = null; litGroups = new Set(); hideTip(); if (S.mode !== 'world') hideHint();
+  if (!auto) openDish = S.mode === 'dish' ? S.dish : null; else if (S.mode !== 'dish' || S.dish !== openDish) openDish = null;
   panelShut = false; if (S.mode !== 'world') worldPanel = false; syncPanel(); shown.clear();
   renderPanel(Math.sign(depthOf(S) - before)); renderCrumbs(); announce();
   if (history !== 'none') writeHash(history);
@@ -1488,7 +1489,7 @@ function settle3d() {
   const target = next ? { mode: next[0], [{ cuisine: 'cuisine', course: 'kc', group: 'group', sub: 'sub', dish: 'dish' }[next[0]]]: next[1] } : { mode: 'world' };
   const same = target.mode === S.mode && (target.mode === 'world' || target.cuisine === S.cuisine && !target.kc || target.kc === S.kc && !target.group || target.group === S.group && !target.dish && !target.sub || target.sub === S.sub && !target.dish || target.dish === S.dish);
   if (same || S.mode === 'lens') return;
-  setState(target, { camera: false, history: 'replace' });
+  setState(target, { camera: false, history: 'replace', auto: true });
 }
 function pick3d(mx, my) {
   if (!PJ) return null;
@@ -1728,11 +1729,11 @@ function galTarget() {
 function settleGal() { // flying all the way out lets go of what you had open; flying into a cluster opens that cuisine
   if (S.mode === 'lens' || !W) return;
   const vh = Math.min(W, H - insetTop - insetBottom);
-  if (GT.k <= gk0 * 1.35) { if (S.mode !== 'world') setState({ mode: 'world' }, { camera: false, history: 'replace' }); return; }
+  if (GT.k <= gk0 * 1.35) { if (S.mode !== 'world') setState({ mode: 'world' }, { camera: false, history: 'replace', auto: true }); return; }
   if (S.mode !== 'world') return;
   const [x, y] = GT.invert([W / 2, insetTop + (H - insetTop - insetBottom) / 2]);
   const d = GQ.find(x, y, 60 / GT.k), c = d && !d.core ? d.cuisine : null;
-  if (c && (c.gbb[2] - c.gbb[0] + c.gbb[3] - c.gbb[1]) / 2 * GT.k > 0.5 * vh) setState({ mode: 'cuisine', cuisine: c }, { camera: false, history: 'replace' });
+  if (c && (c.gbb[2] - c.gbb[0] + c.gbb[3] - c.gbb[1]) / 2 * GT.k > 0.5 * vh) setState({ mode: 'cuisine', cuisine: c }, { camera: false, history: 'replace', auto: true });
 }
 function pickGal(mx, my) {
   if (!GQ) return null;
@@ -2368,14 +2369,14 @@ function dive(P) {
   dives.push({ host: P.host, q: P.q, M: P.M, armed: true });
   for (const [d, t0] of splitP[1]) if (!splitAt.has(d)) splitAt.set(d, t0);
   splitP[1] = splitP[2]; splitP[2] = new Map();
-  diving = true; try { setState({ mode: 'dish', dish: P.q }, { camera: false, history: 'push' }); } finally { diving = false; }
+  diving = true; try { setState({ mode: 'dish', dish: P.q }, { camera: false, history: 'push', auto: true }); } finally { diving = false; }
   setExtent(); hideTip();
   LIVE.textContent = `Through ${P.host.name} into ${P.q.name}, ${P.q.cuisine.name}.`;
 }
 function pop() {
   const f = dives.pop(), Mi = invT(f.M);
   ZF = compose(ZF, Mi); T = compose(T, Mi);
-  diving = true; try { setState({ mode: 'dish', dish: f.host }, { camera: false, history: 'replace' }); } finally { diving = false; }
+  diving = true; try { setState({ mode: 'dish', dish: f.host }, { camera: false, history: 'replace', auto: true }); } finally { diving = false; }
   setExtent(); hideTip();
   LIVE.textContent = `Back out to ${f.host.name}, ${f.host.cuisine.name}.`;
 }
@@ -2455,7 +2456,7 @@ const hkey = h => h ? h.type + (h.ref.i ?? h.ref.id) : '';
 canvas.addEventListener('mousemove', e => {
   const r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
   const h = pick(mx, my);
-  canvas.classList.toggle('pointer', !!h && !h.here);
+  canvas.classList.toggle('pointer', !!h && (!h.here || (S.mode === 'dish' && openDish !== S.dish)));
   const nh = h && h.type === 'more' ? { type: 'more', ref: h.ref.more, g: h.ref } : h;
   if (hkey(nh) !== hkey(hover)) { hover = nh; draw(); threadHover(h && h.type === 'dish' ? h.ref : null); }
   showTip(h && !h.here ? h : null, mx, my);
@@ -2463,7 +2464,7 @@ canvas.addEventListener('mousemove', e => {
 canvas.addEventListener('mouseleave', () => { hover = null; hideTip(); draw(); threadHover(null); });
 function act(h) {
   if (!h) return goBack();
-  if (h.here) return null;
+  if (h.here) { if (S.mode === 'dish' && openDish !== S.dish) { openDish = S.dish; panelShut = false; syncPanel(); } return null; } // tapping the dish you zoomed onto opens it
   if (h.add) return setCook(h.ref, true);
   if (h.type === 'portal') return diveTo(h.P);
   if (h.type === 'cuisine') return goCuisine(h.ref);
