@@ -119,6 +119,34 @@ button.row .rk{font-family:var(--sans)}
 .toggle{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);background:var(--card);border-radius:4px;padding:3px 9px 3px 7px;font-size:12px;color:var(--graphite);cursor:pointer;transition:border-color .15s,color .15s,background .15s}
 .toggle:hover{color:var(--ink);border-color:var(--graphite)}
 .toggle[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.toggle .fn{font-weight:600;color:var(--ink);margin-left:-2px}
+#fbtn.on{border-color:var(--ink);color:var(--ink)}
+.sw{position:relative;display:inline-flex}
+.smenu{position:absolute;left:0;bottom:calc(100% + 6px);width:230px;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:4px;box-shadow:0 12px 32px rgba(var(--shadow),.18);display:flex;flex-direction:column;gap:1px;z-index:9}
+.smenu[hidden]{display:none}
+.smenu .sh{font-size:11px;color:var(--graphite);padding:6px 9px 4px}
+.smenu button{all:unset;cursor:pointer;padding:7px 9px;border-radius:5px;font-size:13px;color:var(--ink)}
+.smenu button:hover,.smenu button:focus-visible{background:var(--hover)}
+.fsheet{position:fixed;z-index:30;left:20px;bottom:calc(64px + var(--inset,0px));width:380px;max-height:min(70vh,620px);display:flex;flex-direction:column;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:10px;box-shadow:0 16px 40px rgba(var(--shadow),.22)}
+.fsheet[hidden]{display:none}
+.fsheet .fh{display:flex;align-items:baseline;gap:10px;padding:14px 16px 10px;border-bottom:1px solid var(--rule)}
+.fsheet .fh h3{margin:0;font:600 15px var(--sans)}
+.fsheet .fh .ct{color:var(--graphite);font-size:12.5px;flex:1}
+.fsheet .fh button{all:unset;cursor:pointer;font-size:12.5px;color:var(--graphite);padding:2px 4px}
+.fsheet .fh button.done{color:var(--card);background:var(--ink);border-radius:5px;padding:4px 10px;font-weight:600}
+.fsheet .fb{overflow:auto;padding:4px 16px 14px;overscroll-behavior:contain}
+.fsheet .fsel{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 2px}
+.fsheet .fg h4{margin:14px 0 6px;font:600 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+.fsheet .fc{display:flex;flex-wrap:wrap;gap:6px}
+.fsheet .fo{all:unset;cursor:pointer;display:inline-flex;align-items:baseline;gap:5px;border:1px solid var(--rule);border-radius:999px;padding:5px 10px;font-size:13px;line-height:1.2;color:var(--ink);background:var(--card)}
+.fsheet .fo i{font-style:normal;font-size:11px;color:var(--graphite)}
+.fsheet .fo:hover{border-color:var(--graphite)}
+.fsheet .fo[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.fsheet .fo[aria-pressed="true"] i{color:var(--card);opacity:.75}
+.fsheet .fo:disabled{opacity:.35;cursor:default}
+.fsheet .fmore{all:unset;cursor:pointer;font-size:12.5px;color:var(--graphite);padding:5px 4px}
+.fsheet .fnote{font-size:12px;color:var(--graphite);margin:14px 0 0}
+@media(max-width:760px){.fsheet{left:8px;right:8px;width:auto;bottom:8px;max-height:72vh}}
 .tip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:8px 11px;max-width:270px;box-shadow:0 6px 18px rgba(var(--shadow),.12);z-index:6}
 .tip b{display:block;font-weight:500;font-size:14px}
 .tip span{display:block;font-size:12.5px;color:var(--graphite);margin-top:2px;line-height:1.35}
@@ -366,6 +394,9 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
     <div class="foot">
       <div class="hint" id="hint">Click to go one level in. Scroll or pinch to zoom.</div>
       <div class="key" id="key">
+        <button class="toggle" id="fbtn" aria-haspopup="dialog" aria-expanded="false" title="Filter dishes by ingredient or difficulty"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>Filter<b class="fn" id="fn" hidden></b></button>
+        <div class="sw"><button class="toggle" id="sbtn" aria-haspopup="menu" aria-expanded="false" title="Go to a random dish"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2.5"/><circle cx="5.8" cy="5.8" r=".9" fill="currentColor"/><circle cx="10.2" cy="10.2" r=".9" fill="currentColor"/><circle cx="10.2" cy="5.8" r=".9" fill="currentColor"/><circle cx="5.8" cy="10.2" r=".9" fill="currentColor"/></svg>Surprise me</button><div class="smenu" id="smenu" role="menu" hidden></div></div>
+        <button class="toggle" id="favbtn" title="Pick dishes you love and see what to try next">Pick 3 favorites</button>
         <button class="toggle" id="aboutbtn" title="What Recipedia is, and ways to browse it">About</button>
         <button class="toggle" id="cookbtn" aria-pressed="false" title="Add this dish to the ones you cook" hidden><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 6.4l2.5 2.5 5.1-5.6"/></svg>I cook this</button>
       </div>
@@ -840,6 +871,7 @@ function setState(next, { camera = true, history = 'push', auto = false } = {}) 
   threadsStart(lastFlyMs);
   draw();
   trackNav(auto, history);
+  if (typeof fSync === 'function') fSync();
 }
 function trackNav(auto, history) { // one event per place someone lands, marked by whether they picked it or zoomed onto it
   if (history === 'none' && !auto) return; // first load from a link is covered by the pageview
@@ -862,7 +894,7 @@ const goCourse = k => setState({ mode: 'course', kc: k });
 const goGroup = g => setState({ mode: 'group', group: g });
 const goSub = s => setState({ mode: 'sub', sub: s });
 const goDish = (d, r = null) => setState({ mode: 'dish', dish: d, recipe: r });
-const lensMembers = (type, ref) => type === 'family' || type === 'sub' ? ref.dishes : type === 'author' || type === 'site' ? ref.recipes.map(r => r.dish) : type === 'tag' ? ref.dishes : ref.dishes.length ? ref.dishes : ref.cuisines.flatMap(c => c.dishes.slice(0, 12));
+const lensMembers = (type, ref) => type === 'filter' ? ref.dishes : type === 'family' || type === 'sub' ? ref.dishes : type === 'author' || type === 'site' ? ref.recipes.map(r => r.dish) : type === 'tag' ? ref.dishes : ref.dishes.length ? ref.dishes : ref.cuisines.flatMap(c => c.dishes.slice(0, 12));
 const goLens = (type, ref) => setState({ mode: 'lens', lens: { type, ref }, members: new Set(lensMembers(type, ref)) });
 function goBack() {
   if (HOME && S.mode !== 'world') return S.mode === 'dish' && TRAIL.length > 1 ? goDish(TRAIL[TRAIL.length - 2].d) : goWorld(); // in the start view, back retraces your path, then returns to your kitchen
@@ -883,6 +915,7 @@ function hashFor(s = S) {
   if (s.mode === 'group') return 'g-' + s.cuisine.id + '.' + s.group.family.id;
   if (s.mode === 'sub') return 's-' + s.cuisine.id + '.' + s.group.family.id + '.' + s.sub.slug;
   if (s.mode === 'dish') return s.recipe ? 'r-' + s.recipe.i : 'd-' + s.dish.id;
+  if (s.mode === 'lens' && s.lens.type === 'filter') return 'x-' + s.lens.ref.sel.join('+');
   if (s.mode === 'lens') return { family: () => 'f-' + s.lens.ref.id, sub: () => 'v-' + s.lens.ref.id, author: () => 'a-' + s.lens.ref.id, site: () => 'w-' + s.lens.ref.id, book: () => 'b-' + s.lens.ref.i, tag: () => 't-' + s.lens.ref.cuisine.id + '.' + slug(s.lens.ref.name) }[s.lens.type]();
   return '';
 }
@@ -909,6 +942,7 @@ function parseHash(h) {
   if (p === 'a' && authors.has(id)) return lens('author', authors.get(id));
   if (p === 'w' && sites.has(id)) return lens('site', sites.get(id));
   if (p === 'b' && books[+id]) return lens('book', books[+id]);
+  if (p === 'x') { const sel = id.split('+').filter(k => FLABEL.has(k)); if (sel.length) { fsel = sel; const m = fmatch(sel); if (m.length) return { mode: 'lens', lens: { type: 'filter', ref: { name: fname(sel), sel, dishes: m } }, members: new Set(m) }; } }
   if (p === 't') { const [cid, ts] = id.split('.'); const t = cuisineById.get(cid)?.tags.find(t => slug(t.name) === ts); if (t) return lens('tag', t); }
   return null;
 }
@@ -2196,8 +2230,9 @@ const sugRow = (x, sub) => `<li><a class="row" href="${hD(x.d)}" data-d="${x.d.i
 const COOK_ICON = '<svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 6.4l2.5 2.5 5.1-5.6"/></svg>';
 function kitchenPanel() {
   const mine = kitchen(), M = homeModel(), nSug = M.t ? TIERS.reduce((s, k) => s + M.t[k].length, 0) : 0;
-  let h = head('var(--graphite)', `<h2>Your kitchen</h2><p class="meta">${mine.length ? `<span class="nw"><b>${mine.length}</b> ${mine.length === 1 ? 'dish' : 'dishes'} you cook</span> · <span class="nw"><b>${nSug}</b> one step away</span>` : 'Mark the dishes you already cook, and see what is one step away.'}</p>`);
-  h += `<div class="kadd"><input class="filter" id="kadd" type="search" placeholder="Add a dish you cook" aria-label="Add a dish you cook" autocomplete="off" spellcheck="false"><ul class="list" id="kres"></ul></div>`;
+  let h = head('var(--graphite)', `<h2>Your kitchen</h2><p class="meta">${mine.length ? `<span class="nw"><b>${mine.length}</b> ${mine.length === 1 ? 'dish' : 'dishes'} you cook</span> · <span class="nw"><b>${nSug}</b> one step away</span>` : 'Pick 3 dishes you love or cook, and see what to try next.'}</p>`);
+  if (mine.length && mine.length < 3) h += `<p class="note" style="margin-top:14px">Pick ${3 - mine.length} more ${3 - mine.length === 1 ? 'dish' : 'dishes'} you love for better suggestions.</p>`;
+  h += `<div class="kadd"><input class="filter" id="kadd" type="search" placeholder="Add a dish you love" aria-label="Add a dish you love" autocomplete="off" spellcheck="false"><ul class="list" id="kres"></ul></div>`;
   if (!mine.length) return h + sec('Or start with one of these') + `<div class="chips">${STARTERS.map(d => `<button class="chip" data-cook="${d.id}" data-d="${d.id}"><i style="background:${rcVar(d)}"></i>${esc(d.name)}</button>`).join('')}</div>`;
   h += `<div class="chips">${mine.map(d => `<button class="chip on" data-cook="${d.id}" data-d="${d.id}" aria-label="Remove ${esc(d.name)}"><i style="background:${rcVar(d)}"></i>${esc(d.name)}<span class="x" aria-hidden="true">×</span></button>`).join('')}</div>`;
   h += recNote();
@@ -2813,7 +2848,11 @@ function renderPanel(dir = 0) {
   } else if (S.mode === 'lens') {
     const L = S.lens, CAP = 10;
     const ranked = (list, sub, title) => { list = F(list); return sec(title, list.length) + `<ul class="list">${foldList('lens', list, CAP).map((d, k) => dishRow(d, k + 1, sub(d))).join('')}</ul>` + moreRow('lens', list, CAP); };
-    if (L.type === 'sub') {
+    if (L.type === 'filter') {
+      const m = L.ref.dishes, cs = new Set(m.map(d => d.cuisine));
+      h += head('var(--graphite)', `<h2>${esc(L.ref.name)}</h2><p class="meta"><span class="nw"><b>${m.length.toLocaleString()}</b> ${m.length === 1 ? 'dish' : 'dishes'}</span> across <span class="nw"><b>${cs.size}</b> cuisines</span>, lit on the plate · <button class="linkbtn" data-fedit>Edit filter</button> · <button class="linkbtn" data-fclear2>Clear</button></p>`);
+      h += ranked(m, d => d.cuisine.name + (FTAGS.get(d) && FTAGS.get(d).has('effort:1') ? ' · easy' : FTAGS.get(d) && FTAGS.get(d).has('effort:3') ? ' · a project' : ''), 'Most popular first');
+    } else if (L.type === 'sub') {
       const l = L.ref, cs = new Set(l.dishes.map(d => d.cuisine));
       h += head('var(--graphite)', `<h2>${esc(l.name)}</h2><p class="meta"><a href="${hF(l.family)}">${esc(l.family.name)}</a> in every cuisine · <span class="nw"><b>${l.dishes.length}</b> dishes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span>, lit on the plate</p>`);
       h += recNote() + ranked(l.dishes, d => d.cuisine.name, 'Most popular first');
@@ -3127,6 +3166,118 @@ if (HEAT) { // the controls and the numbers behind them
   addEventListener('resize', () => { heatGrid = null; });
   sync();
 }
+
+
+/* ---------------- filter, surprise me, pick 3 favorites ---------------- */
+/* Filter: every pick narrows the dishes (all picks must match), and each option shows how many would be left.
+   Ingredient and difficulty data come from RAW.P, which covers the most popular ~3,800 dishes. */
+const FPROT = { chicken: 'chicken', beef: 'beef', pork: 'pork', 'cured-pork': 'bacon-ham', sausage: 'sausage', lamb: 'lamb-goat', goat: 'lamb-goat', fish: 'fish', shrimp: 'shellfish', seafood: 'shellfish', egg: 'egg', cheese: 'cheese', legume: 'beans', tofu: 'tofu', duck: 'poultry', turkey: 'poultry', offal: 'offal', veg: 'meatless' };
+const FGROUPS = [
+  ['Difficulty', [['effort:1', 'Easy'], ['effort:2', 'Medium'], ['effort:3', 'A project']]],
+  ['Proteins', [['chicken', 'Chicken'], ['beef', 'Beef'], ['pork', 'Pork'], ['bacon-ham', 'Bacon & ham'], ['sausage', 'Sausage'], ['lamb-goat', 'Lamb & goat'], ['poultry', 'Duck & turkey'], ['fish', 'Fish'], ['shellfish', 'Shrimp & seafood'], ['egg', 'Eggs'], ['tofu', 'Tofu'], ['beans', 'Beans & lentils'], ['offal', 'Offal'], ['meatless', 'No meat']]],
+  ['Vegetables & fruit', [['tomato', 'Tomato'], ['onion', 'Onion'], ['garlic', 'Garlic'], ['potato', 'Potato'], ['peppers', 'Bell peppers'], ['chili', 'Chiles'], ['greens', 'Leafy greens'], ['cabbage', 'Cabbage'], ['carrot', 'Carrot'], ['mushroom', 'Mushrooms'], ['eggplant', 'Eggplant'], ['corn', 'Corn'], ['root', 'Root vegetables'], ['beet', 'Beets'], ['scallion', 'Scallions'], ['avocado', 'Avocado'], ['olives', 'Olives'], ['plantain', 'Plantain'], ['coconut', 'Coconut'], ['lemon', 'Lemon'], ['lime', 'Lime'], ['fruit', 'Other fruit']]],
+  ['Grains & breads', [['rice', 'Rice'], ['noodles', 'Noodles & pasta'], ['bread', 'Bread'], ['tortilla', 'Tortillas'], ['flatbread', 'Flatbread'], ['bun', 'Buns'], ['dough', 'Dough'], ['pastry', 'Pastry'], ['batter', 'Batter'], ['breadcrumb', 'Breadcrumbs'], ['grain', 'Other grains']]],
+  ['Dairy', [['cheese', 'Cheese'], ['butter', 'Butter'], ['cream', 'Cream'], ['milk', 'Milk'], ['yogurt', 'Yogurt'], ['sour-cream', 'Sour cream']]],
+  ['Sauces & seasonings', [['soy', 'Soy sauce'], ['fish-sauce', 'Fish sauce'], ['miso', 'Miso'], ['gochujang', 'Gochujang'], ['curry-paste', 'Curry paste'], ['shrimp-paste', 'Shrimp paste'], ['vinegar', 'Vinegar'], ['mustard', 'Mustard'], ['mayo', 'Mayo'], ['herbs', 'Fresh herbs'], ['herb-sauce', 'Herb sauce'], ['spice', 'Spices'], ['warm-spice', 'Warm spices'], ['cajun-spice', 'Cajun spice'], ['saffron', 'Saffron'], ['ginger', 'Ginger'], ['sesame', 'Sesame'], ['tamarind', 'Tamarind'], ['zaatar', "Za'atar"], ['trinity', 'Holy trinity'], ['broth', 'Broth'], ['gravy', 'Gravy'], ['roux', 'Roux'], ['wine', 'Wine'], ['beer', 'Beer'], ['olive-oil', 'Olive oil'], ['pickles', 'Pickles'], ['fermented', 'Fermented'], ['seaweed', 'Seaweed'], ['nuts', 'Nuts'], ['peanut', 'Peanuts']]],
+  ['Sweet', [['sugar', 'Sugar'], ['honey', 'Honey'], ['chocolate', 'Chocolate'], ['vanilla', 'Vanilla'], ['caramel', 'Caramel'], ['jam', 'Jam'], ['coffee', 'Coffee'], ['tea', 'Tea']]],
+];
+const FLABEL = new Map(FGROUPS.flatMap(([, o]) => o));
+const FTAGS = new Map(); // dish -> its filter keys
+for (const p of RAW.P || []) {
+  const d = dishes[p[0]]; if (!d) continue;
+  const t = new Set(p[2]); for (const x of p[3]) if (FPROT[x]) t.add(FPROT[x]); if (t.has('beans')) t.add('beans');
+  if (p[8]) t.add('effort:' + p[8]);
+  FTAGS.set(d, t);
+}
+let fsel = []; // picked keys, in the order picked
+const fmatch = (sel = fsel) => { const out = []; for (const [d, t] of FTAGS) if (sel.every(k => t.has(k))) out.push(d); return out; };
+const fname = sel => sel.map(k => FLABEL.get(k) || k).join(' · ');
+const fShown = new Set();
+const FSHEET = document.createElement('div'); FSHEET.className = 'fsheet'; FSHEET.id = 'fsheet'; FSHEET.setAttribute('role', 'dialog'); FSHEET.setAttribute('aria-label', 'Filter dishes'); FSHEET.hidden = true;
+document.body.appendChild(FSHEET);
+function fRender() {
+  const m = fmatch(), cnt = new Map();
+  for (const d of m) for (const k of FTAGS.get(d)) cnt.set(k, (cnt.get(k) || 0) + 1);
+  let h = `<div class="fh"><h3>Filter</h3><span class="ct" aria-live="polite">${fsel.length ? `${m.length.toLocaleString()} ${m.length === 1 ? 'dish' : 'dishes'}` : 'Pick what you want to cook with'}</span>${fsel.length ? '<button data-fclear>Clear</button>' : ''}<button class="done" data-fdone>Done</button></div><div class="fb">`;
+  if (fsel.length) h += `<div class="fsel">${fsel.map(k => `<button class="fo" aria-pressed="true" data-fk="${k}" aria-label="Remove ${esc(FLABEL.get(k))}">${esc(FLABEL.get(k))} ×</button>`).join('')}</div>`;
+  for (const [g, opts] of FGROUPS) {
+    const live = opts.filter(([k]) => !fsel.includes(k)).map(([k, l]) => [k, l, cnt.get(k) || 0]);
+    if (g !== 'Difficulty') live.sort((a, b) => b[2] - a[2]);
+    const any = live.some(x => x[2]); if (!any) continue;
+    const cap = g === 'Difficulty' || fShown.has(g) ? 99 : 8, vis = live.filter(x => x[2]).slice(0, cap), rest = live.filter(x => x[2]).length - vis.length;
+    h += `<div class="fg"><h4>${esc(g)}</h4><div class="fc">${vis.map(([k, l, n]) => `<button class="fo" aria-pressed="false" data-fk="${k}">${esc(l)}<i>${n.toLocaleString()}</i></button>`).join('')}${rest > 0 ? `<button class="fmore" data-fg="${esc(g)}">… ${rest} more</button>` : ''}</div></div>`;
+  }
+  h += `<p class="fnote">Ingredient and difficulty info covers the ${FTAGS.size.toLocaleString()} most popular dishes, so the long tail drops out when you filter.</p></div>`;
+  FSHEET.innerHTML = h;
+  const fb = document.getElementById('fbtn'); fb.classList.toggle('on', !!fsel.length); const fn = document.getElementById('fn'); fn.hidden = !fsel.length; fn.textContent = fsel.length ? '· ' + fsel.length : '';
+}
+function fApply() { // light the matches on the plate, with the list in the panel
+  if (fsel.length) {
+    const m = fmatch(), inF = S.mode === 'lens' && S.lens.type === 'filter';
+    setState({ mode: 'lens', lens: { type: 'filter', ref: { name: fname(fsel), sel: fsel.slice(), dishes: m } }, members: new Set(m) }, { history: inF ? 'replace' : 'push' });
+  } else if (S.mode === 'lens' && S.lens.type === 'filter') setState({ mode: 'world' }, { history: 'replace' });
+  fRender();
+}
+function fSync() { // picks are forgotten once you leave the filter for anything but a dish
+  if (fsel.length && !(S.mode === 'lens' && S.lens.type === 'filter') && S.mode !== 'dish') fsel = [];
+  const fb = document.getElementById('fbtn'), fn = document.getElementById('fn'); fb.classList.toggle('on', !!fsel.length); fn.hidden = !fsel.length; fn.textContent = fsel.length ? '· ' + fsel.length : '';
+}
+function fOpen(open = FSHEET.hidden) {
+  if (open && fsel.length && !(S.mode === 'lens' && S.lens.type === 'filter')) fApply(); // reopening from a dish goes back to the filtered plate
+  FSHEET.hidden = !open; document.getElementById('fbtn').setAttribute('aria-expanded', open);
+  if (open) { fRender(); track('Opened filter'); const b = FSHEET.querySelector('.fo'); if (b) b.focus({ preventScroll: true }); }
+}
+document.getElementById('fbtn').onclick = e => { e.stopPropagation(); closeSurprise(); fOpen(); };
+FSHEET.addEventListener('click', e => {
+  e.stopPropagation();
+  const b = e.target.closest('[data-fk],[data-fclear],[data-fdone],[data-fg]'); if (!b) return;
+  if (b.dataset.fg) { fShown.add(b.dataset.fg); fRender(); return; }
+  if ('fdone' in b.dataset) { fOpen(false); return; }
+  if ('fclear' in b.dataset) { fsel = []; track('Filtered', { picks: '', matches: 0 }); fApply(); return; }
+  const k = b.dataset.fk; fsel = fsel.includes(k) ? fsel.filter(x => x !== k) : fsel.concat(k);
+  track('Filtered', { picks: fname(fsel), added: fsel.includes(k) ? FLABEL.get(k) : '', matches: fmatch().length });
+  fApply();
+});
+document.addEventListener('click', e => { if (!FSHEET.hidden && !e.target.closest('#fsheet,#fbtn')) fOpen(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!FSHEET.hidden) fOpen(false); closeSurprise(); } });
+
+/* Surprise me: a random dish with recipes, by course, from the filter when one is on */
+const SMENU = document.getElementById('smenu');
+function closeSurprise() { SMENU.hidden = true; document.getElementById('sbtn').setAttribute('aria-expanded', 'false'); }
+document.getElementById('sbtn').onclick = e => {
+  e.stopPropagation(); if (!FSHEET.hidden) fOpen(false);
+  if (!SMENU.hidden) return closeSurprise();
+  const inF = S.mode === 'lens' && S.lens.type === 'filter';
+  SMENU.innerHTML = `<div class="sh">${inF ? 'A random dish from your filter' : 'A random dish with a recipe'}</div><button data-sk="">Anything</button>${courses.map(c => `<button data-sk="${c.id}">${esc(c.name)}</button>`).join('')}`;
+  SMENU.hidden = false; document.getElementById('sbtn').setAttribute('aria-expanded', 'true'); SMENU.querySelector('button').focus({ preventScroll: true });
+};
+SMENU.addEventListener('click', e => {
+  e.stopPropagation(); const b = e.target.closest('[data-sk]'); if (!b) return;
+  const ck = b.dataset.sk, inF = S.mode === 'lens' && S.lens.type === 'filter';
+  let pool = (inF ? [...S.members] : [...withRecipes]).filter(d => !ck || d.course.id === ck);
+  if (inF && pool.some(d => d.recipes.length)) pool = pool.filter(d => d.recipes.length);
+  closeSurprise();
+  if (!pool.length) { LIVE.textContent = 'Nothing in that course matches your filter.'; return; }
+  const w = pool.map(d => Math.sqrt(d.score + 4)), tot = w.reduce((a, x) => a + x, 0); let r = Math.random() * tot, i = 0;
+  while (i < pool.length - 1 && (r -= w[i]) > 0) i++;
+  if (pool[i] === S.dish && pool.length > 1) i = (i + 1) % pool.length;
+  track('Surprise me', { course: ck || 'any', from_filter: inF, dish: pool[i].name });
+  goDish(pool[i]);
+});
+document.addEventListener('click', e => { if (!SMENU.hidden && !e.target.closest('#smenu,#sbtn')) closeSurprise(); });
+
+/* Pick 3 favorites: the front door to Your kitchen */
+document.addEventListener('click', e => { // Edit filter and Clear, from the filter's panel
+  const b = e.target.closest('[data-fedit],[data-fclear2]'); if (!b) return; e.stopPropagation();
+  if ('fedit' in b.dataset) fOpen(true); else { fsel = []; fApply(); }
+}, true);
+document.getElementById('favbtn').onclick = () => {
+  track('Tapped Pick 3 favorites', { have: KITCHEN.size }); closeSurprise(); if (!FSHEET.hidden) fOpen(false);
+  if (!HOME) setView('start');
+  if (S.mode !== 'world') goWorld();
+  panelShut = false; syncPanel(); renderPanel(0);
+  setTimeout(() => { const k = document.getElementById('kadd'); if (k) k.focus({ preventScroll: true }); }, 350);
+};
 
 /* ---------------- controls, hint, boot ---------------- */
 function setOnlyRec(on) {
