@@ -13,7 +13,7 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 
 ## Open decisions
 
-- og:image in docs/index.html is the relative path preview.png. Change it to the full Pages URL (https://<user>.github.io/recipedia/preview.png) once the site is live, or Reddit and others will not show the preview.
+- Live at https://redhedforlife.github.io/Recipedia/ (GitHub Pages, main branch, /docs folder). og:image points at the absolute preview.png URL there.
 - Visitor stats: none yet (GoatCounter is a free option).
 
 - What next: techniques, a second pass on the skipped dishes, or historical recipes from vintage cookbooks (thefoodhistorian.com/vintage-cookbooks.html, mostly 1870s to 1920s American).
