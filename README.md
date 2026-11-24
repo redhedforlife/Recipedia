@@ -13,7 +13,7 @@ Live app: https://claude.ai/artifact/U9qbH6hrrkRWBcwQhThTRU
 
 ## Open decisions
 
-- Live at https://redhedforlife.github.io/Recipedia/ (GitHub Pages, main branch, /docs folder). og:image points at the absolute preview.png URL there.
+- Live at https://tryrecipedia.com (GitHub Pages, main branch, /docs folder; docs/CNAME holds the domain, registered at Namecheap). redhedforlife.github.io/Recipedia redirects there. og:image points at https://tryrecipedia.com/preview.png.
 - Visitor stats: none yet (GoatCounter is a free option).
 
 - What next: techniques, a second pass on the skipped dishes, or historical recipes from vintage cookbooks (thefoodhistorian.com/vintage-cookbooks.html, mostly 1870s to 1920s American).
