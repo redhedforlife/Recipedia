@@ -299,6 +299,17 @@ body.loadingView .vmenu button[data-v="globe"],body.loadingView .vbtn{cursor:pro
 </head>
 <body class="nopanel">
 <style id="v24">
+.morebtn{display:flex;align-items:center;gap:10px;width:100%;margin:2px 0 0;padding:7px 6px;background:none;border:0;border-radius:5px;color:var(--graphite);font:13px var(--sans);text-align:left;cursor:pointer;transition:background .15s,color .15s}
+.morebtn .dots{width:26px;text-align:center;font-size:16px;letter-spacing:1px;line-height:1}
+.morebtn:hover{background:var(--hover);color:var(--ink)}
+.results li.cat .n{font-weight:600}
+.results li.kid{padding-left:30px;position:relative}
+.results li.kid::before{content:"";position:absolute;left:15px;top:0;bottom:0;border-left:1px solid var(--rule)}
+.results li.kid .n{font-weight:400}
+.results li.more{padding-left:30px;position:relative}
+.results li.more::before{content:"";position:absolute;left:15px;top:0;height:50%;border-left:1px solid var(--rule)}
+.results li.more .n{font-weight:400;font-size:12.5px;color:var(--graphite)}
+.results li.cat + li:not(.kid):not(.more), .results li.kid + li:not(.kid):not(.more), .results li.more + li{margin-top:4px}
 /* v24: the plate opens alone, search floats in the header, the panel slides in when something is picked */
 .top .psearch{position:relative;margin-left:auto;padding:0;border:0;width:300px;flex:none;align-self:center}
 .top .psearch .i{left:12px;top:12px}
@@ -308,7 +319,9 @@ body.nopanel .app{grid-template-columns:minmax(0,1fr) 0}
 body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
 .pclose{position:absolute;top:10px;right:10px;z-index:6;width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--rule);border-radius:6px;background:var(--card);color:var(--graphite);cursor:pointer;transition:background .15s,color .15s}
 .pclose:hover{color:var(--ink);background:var(--hover)}
-.panel .spec{padding-right:56px}
+.panel .psearch{padding-right:58px}
+.panel .psearch .kbd{right:68px}
+.pclose{top:18px}
 @media (max-width:760px){
   .top{flex-wrap:wrap}
   .crumbs{flex:1 1 0;min-width:0}
@@ -783,8 +796,17 @@ function syncPanel() {
   if (document.body.classList.contains('nopanel') === !want) return;
   document.body.classList.toggle('nopanel', !want);
   if (want && mobile() && typeof snap !== 'undefined') snap = 1; // on a phone the sheet opens half way, so the plate stays in view
+  placeSearch();
   if (typeof booted !== 'undefined' && booted) { applyInsets(); resize(); lastInset = insetBottom; lastW = W; }
 }
+function placeSearch() { // desktop: the search sits atop the open panel, so a long breadcrumb keeps the header; otherwise it floats in the header
+  const ps = document.querySelector('.psearch'), top = document.querySelector('.top'), pn = document.getElementById('panel');
+  if (!ps || !top || !pn) return;
+  const inPanel = !document.body.classList.contains('nopanel') && !matchMedia('(max-width:760px)').matches;
+  if (inPanel && ps.parentNode !== pn) pn.insertBefore(ps, document.getElementById('pbody'));
+  else if (!inPanel && ps.parentNode !== top) top.appendChild(ps);
+}
+addEventListener('resize', () => placeSearch());
 function setState(next, { camera = true, history = 'push' } = {}) {
   const before = depthOf(S), prevGroup = S.group;
   if (!diving && dives.length) clearDives(); // going anywhere else commits you to the frame you are in
@@ -797,7 +819,7 @@ function setState(next, { camera = true, history = 'push' } = {}) {
   openFam = S.group || (openFam && S.kc && openFam.kc === S.kc ? openFam : null);
   if (S.mode === 'lens') { lensT0 = now(); lensRank = new Map([...S.members].sort(byScore).map((d, i, a) => [d, i / Math.max(1, a.length - 1)])); } else lensT0 = 0;
   hover = null; litGroups = new Set(); hideTip(); if (S.mode !== 'world') hideHint();
-  panelShut = false; if (S.mode !== 'world') worldPanel = false; syncPanel();
+  panelShut = false; if (S.mode !== 'world') worldPanel = false; syncPanel(); shown.clear();
   renderPanel(Math.sign(depthOf(S) - before)); renderCrumbs(); announce();
   if (history !== 'none') writeHash(history);
   lastFlyMs = 0; if (camera) fly();
@@ -2605,6 +2627,9 @@ function head(rc, inner, spec) { return `<header class="spec" style="--rc:${rc}"
 
 let openFam = null;
 const shown = new Set();
+const FOLD = 3; // lists in the panel show a few, then a quiet "…" row that opens the rest in place
+const foldList = (key, items, n = FOLD) => shown.has(key) ? items : items.slice(0, n);
+const moreRow = (key, items, n = FOLD) => !shown.has(key) && items.length > n ? `<button class="morebtn" data-show="${key}"><span class="dots" aria-hidden="true">…</span>${items.length - n} more</button>` : '';
 function famBlock(g, link) {
   const open = !link && openFam === g, maxW = g.kc.groups[0].weight, nr = F(g.dishes).length;
   if (onlyRec && !nr) return ''; // "Has recipes" hides families with nothing to cook from yet
@@ -2702,24 +2727,26 @@ function renderPanel(dir = 0) {
       h += addHtml();
       h += searchOut(d.name, 'Look for more versions:');
     } else h += addHtml() + searchOut(d.name, 'No recipe is linked here yet. Search trusted sites:');
-    h += stepsSection(d);
-    if (d.related.length) {
-      h += sec('Related dishes', d.related.length) + `<ul class="list">${d.related.map(x => `<li><a class="row" href="${hD(x.dish)}" data-d="${x.dish.id}"><span class="g">${glyph(x.dish, gsize(x.dish.score, 100), rcVar(x.dish))}</span><span class="nm">${esc(x.dish.name)}</span><span class="rk"></span><span class="sub">${esc(KSHORT[x.kind] || x.kind)} · ${esc(x.dish.cuisine.name)} · ${esc(x.why)}</span></a></li>`).join('')}</ul>`;
+    const near = d.sub || d.group, nearList = F(near.dishes).filter(x => x !== d);
+    const nearName = d.sub ? `More ${d.sub.name.toLowerCase()} from ${d.cuisine.name}` : `More ${d.family.name.toLowerCase()} from ${d.cuisine.name}`;
+    if (nearList.length) {
+      h += sec(nearName, nearList.length) + `<ul class="list">${foldList('near', nearList).map(x => dishRow(x, d.sub ? near.dishes.indexOf(x) + 1 : x.rankG, '')).join('')}</ul>` + moreRow('near', nearList);
+      if (shown.has('near')) h += `<div class="actions"><a class="linkbtn" href="${d.sub ? hS(d.sub) : hG(d.group)}">See them on the plate ${ICON.fwd}</a></div>`;
     }
+    const st = HOME ? homeModel().t : SG.tiers([d], { n: 3, onlyRec }), seen = new Set([d, ...d.related.map(x => x.dish)]);
+    const relRows = [...d.related.map(x => `<li><a class="row" href="${hD(x.dish)}" data-d="${x.dish.id}"><span class="g">${glyph(x.dish, gsize(x.dish.score, 100), rcVar(x.dish))}</span><span class="nm">${esc(x.dish.name)}</span><span class="rk"></span><span class="sub">${esc(KSHORT[x.kind] || x.kind)} · ${esc(x.dish.cuisine.name)} · ${esc(x.why)}</span></a></li>`),
+      ...(st ? TIERS.flatMap(k => st[k].map(x => [k, x])) : []).filter(([, x]) => !seen.has(x.d) && seen.add(x.d)).map(([k, x]) => sugRow(x, `${TIER[k][1]} · ${x.d.cuisine.name}${x.why ? ' · ' + x.why : ''}`))];
+    if (relRows.length) h += sec('Related dishes', relRows.length) + `<ul class="list">${foldList('rel', relRows).join('')}</ul>` + moreRow('rel', relRows);
     if (d.also.length) h += sec('Also cooked in') + `<div class="chips">${d.also.map(chipC).join('')}</div>`;
-    const near = d.sub || d.group, nearName = d.sub ? `${d.sub.name}, ${d.cuisine.name} ${d.family.name.toLowerCase()}` : `More ${d.family.name.toLowerCase()} in ${d.cuisine.name}`;
-    h += sec(nearName, near.dishes.length);
-    h += `<ul class="list">${F(near.dishes).slice(0, TOP).map(x => dishRow(x, d.sub ? near.dishes.indexOf(x) + 1 : x.rankG, '', x === d ? ' hl' : '')).join('')}</ul>`;
-    if (near.dishes.length > TOP) h += `<div class="actions"><a class="linkbtn" href="${d.sub ? hS(d.sub) : hG(d.group)}">All ${near.dishes.length} ${ICON.fwd}</a></div>`;
     const sig = d.books, cb = d.cuisine.books.filter(b => !sig.includes(b));
     const famB = cb.filter(b => b.families.includes(d.family)), tagB = d.tag ? cb.filter(b => b.tag === d.tag && !famB.includes(b)) : [];
     const rest = cb.filter(b => !b.families.length && !b.tag);
     const list = [...sig.map(b => [b, 'Recipe in this book']), ...famB.map(b => [b, `Strong on ${d.family.name.toLowerCase()}`]), ...tagB.map(b => [b, `${esc(d.tag)} cooking`]), ...rest.slice(0, Math.max(0, 3 - sig.length - famB.length - tagB.length)).map(b => [b, ''])];
-    if (list.length) h += sec('Cookbooks') + `<ul class="books">${list.map(([b, n]) => bookItem(b, n)).join('')}</ul>`;
+    if (list.length) h += sec('Cookbooks', list.length) + `<ul class="books">${foldList('books', list, 2).map(([b, n]) => bookItem(b, n)).join('')}</ul>` + moreRow('books', list, 2);
     h += `<p style="margin-top:22px"><a class="ext" href="https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(d.name)}" target="_blank" rel="noopener noreferrer">Read about ${esc(d.name)} on Wikipedia ${ICON.ext}</a></p>`;
   } else if (S.mode === 'lens') {
-    const L = S.lens, CAP = 100;
-    const ranked = (list, sub, title) => { list = F(list); const all = shown.has('lens'); let x = sec(title, list.length) + `<ul class="list">${list.slice(0, all ? 99999 : CAP).map((d, k) => dishRow(d, k + 1, sub(d))).join('')}</ul>`; if (list.length > CAP && !all) x += `<div class="actions"><button class="linkbtn" data-show="lens">Show all ${list.length} ${ICON.fwd}</button></div>`; return x; };
+    const L = S.lens, CAP = 10;
+    const ranked = (list, sub, title) => { list = F(list); return sec(title, list.length) + `<ul class="list">${foldList('lens', list, CAP).map((d, k) => dishRow(d, k + 1, sub(d))).join('')}</ul>` + moreRow('lens', list, CAP); };
     if (L.type === 'sub') {
       const l = L.ref, cs = new Set(l.dishes.map(d => d.cuisine));
       h += head('var(--graphite)', `<h2>${esc(l.name)}</h2><p class="meta"><a href="${hF(l.family)}">${esc(l.family.name)}</a> in every cuisine · <span class="nw"><b>${l.dishes.length}</b> dishes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span>, lit on the plate</p>`);
@@ -2729,8 +2756,8 @@ function renderPanel(dir = 0) {
       h += head('var(--graphite)', `<h2>${esc(f.name)} everywhere</h2><p class="meta"><span class="nw"><b>${f.dishes.length}</b> dishes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span>, lit on the plate</p>`);
       h += recNote();
       const gs = f.groups.filter(g => F(g.dishes).length).sort((a, b) => b.weight - a.weight), allG = shown.has('fgroups'), maxG = gs.length ? gs[0].weight : 1;
-      h += sec('By cuisine', gs.length) + `<ul class="list">${gs.slice(0, allG ? 999 : 12).map((g, k) => `<li><a class="row" href="${hG(g)}"><span class="g">${glyph(g, gsize(g.weight, maxG), rcVar(g.cuisine))}</span><span class="nm">${esc(g.cuisine.name)}</span><span class="rk">${k + 1}</span><span class="sub">${plural(F(g.dishes).length, 'dish')} · ${esc(F(g.dishes).slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('')}</ul>`;
-      if (gs.length > 12 && !allG) h += `<div class="actions"><button class="linkbtn" data-show="fgroups">Show all ${gs.length} cuisines ${ICON.fwd}</button></div>`;
+      h += sec('By cuisine', gs.length) + `<ul class="list">${gs.slice(0, allG ? 999 : 5).map((g, k) => `<li><a class="row" href="${hG(g)}"><span class="g">${glyph(g, gsize(g.weight, maxG), rcVar(g.cuisine))}</span><span class="nm">${esc(g.cuisine.name)}</span><span class="rk">${k + 1}</span><span class="sub">${plural(F(g.dishes).length, 'dish')} · ${esc(F(g.dishes).slice(0, 3).map(d => d.name).join(', '))}</span></a></li>`).join('')}</ul>`;
+      h += moreRow('fgroups', gs, 5);
       h += ranked(f.dishes, d => d.cuisine.name, 'Most popular first');
     } else if (L.type === 'tag') {
       const t = L.ref;
@@ -2743,12 +2770,12 @@ function renderPanel(dir = 0) {
       h += head('var(--graphite)', `<h2>${esc(w.name)}</h2><p class="meta">Website · <span class="nw"><b>${w.recipes.length}</b> ${w.recipes.length === 1 ? 'recipe' : 'recipes'}</span> across <span class="nw"><b>${w.cuisines.size}</b> ${w.cuisines.size === 1 ? 'cuisine' : 'cuisines'}</span>, lit on the plate</p><a class="cta" href="https://${esc(w.host)}/" target="_blank" rel="noopener noreferrer">Open ${esc(w.host)} ${ICON.ext}</a>`);
       const byC = [...w.cuisines].map(c => [c, w.recipes.filter(r => r.dish.cuisine === c).length]).sort((a, b) => b[1] - a[1]);
       if (byC.length > 1) h += `<div class="chips" style="margin-top:16px">${byC.slice(0, 12).map(([c, n]) => `<a class="chip" href="${hC(c)}"><i style="background:var(--${c.region.id})"></i>${esc(c.name)} <span class="n">${n}</span></a>`).join('')}</div>`;
-      h += sec('Recipes, most popular dish first', w.recipes.length) + `<ul class="list">${w.recipes.slice(0, shown.has('lens') ? 99999 : 100).map((r, k) => recipeRow(r, k + 1, `${r.dish.cuisine.name} · ${r.author !== w.name ? r.author + ' · ' : ''}${r.title}`)).join('')}</ul>`;
-      if (w.recipes.length > 100 && !shown.has('lens')) h += `<div class="actions"><button class="linkbtn" data-show="lens">Show all ${w.recipes.length} ${ICON.fwd}</button></div>`;
+      h += sec('Recipes, most popular dish first', w.recipes.length) + `<ul class="list">${foldList('lens', w.recipes, 10).map((r, k) => recipeRow(r, k + 1, `${r.dish.cuisine.name} · ${r.author !== w.name ? r.author + ' · ' : ''}${r.title}`)).join('')}</ul>`;
+      h += moreRow('lens', w.recipes, 10);
     } else if (L.type === 'author') {
       const a = L.ref, cs = new Set(a.recipes.map(r => r.dish.cuisine));
       h += head('var(--graphite)', `<h2>${esc(a.name)}</h2><p class="meta">Cook · <span class="nw"><b>${a.recipes.length}</b> recipes</span> across <span class="nw"><b>${cs.size}</b> cuisines</span></p>`);
-      h += sec('Recipes, most popular dish first', a.recipes.length) + `<ul class="list">${a.recipes.map((r, k) => recipeRow(r, k + 1, `${r.dish.cuisine.name} · ${r.title}`)).join('')}</ul>`;
+      h += sec('Recipes, most popular dish first', a.recipes.length) + `<ul class="list">${foldList('lens', a.recipes, 10).map((r, k) => recipeRow(r, k + 1, `${r.dish.cuisine.name} · ${r.title}`)).join('')}</ul>` + moreRow('lens', a.recipes, 10);
     } else {
       const b = L.ref;
       let inner = `<h2 class="sm">${esc(b.title)}</h2><p class="meta">Cookbook · ${esc(b.author)}${b.year ? ' · ' + b.year : ''}</p>`;
@@ -2855,17 +2882,17 @@ document.getElementById('home').onclick = () => goWorld();
 const Q = document.getElementById('q'), RES = document.getElementById('results');
 function norm(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
 const index = [
-  ...cuisines.map(c => ({ n: c.name, t: 'Cuisine', w: 2000 + c.weight / 50, go: () => goCuisine(c), f: 1 })),
+  ...cuisines.map(c => ({ n: c.name, t: `Cuisine · ${plural(c.dishes.length, 'dish')}`, w: 2000 + c.weight / 50, go: () => goCuisine(c), f: 1, cat: c.dishes })),
   ...kcs.map(k => ({ n: `${k.cuisine.name} ${k.course.name.toLowerCase()}`, t: 'Course', w: 1200 + k.weight / 100, go: () => goCourse(k) })),
-  ...groups.map(g => ({ n: `${g.cuisine.name} ${g.family.name.toLowerCase()}`, t: `${g.dishes.length} dishes`, w: 1000 + g.weight / 100, go: () => goGroup(g) })),
-  ...families.map(f => ({ n: f.name, t: 'Every cuisine', w: 1500, go: () => goLens('family', f), f: 1 })),
-  ...subs.map(sg => ({ n: `${sg.cuisine.name} ${sg.name.toLowerCase()}`, t: `${sg.family.name} · ${sg.dishes.length}`, w: 900 + sg.weight / 100, go: () => goSub(sg) })),
-  ...[...subLens.values()].map(l => ({ n: subLensName(l), t: `Every cuisine · ${l.dishes.length}`, w: 1300, go: () => goLens('sub', l), f: 1 })),
-  ...cuisines.flatMap(c => c.tags.map(t => ({ n: t.name, t: `${c.name} style · ${t.dishes.length}`, w: 1400, go: () => goLens('tag', t), f: 1 }))),
-  ...dishes.map(d => ({ n: d.name, t: d.cuisine.name + (d.recipes.length ? ` · ${plural(d.recipes.length, 'recipe')}` : ''), w: d.score, go: () => goDish(d), f: 1 })),
+  ...groups.map(g => ({ n: `${g.cuisine.name} ${g.family.name.toLowerCase()}`, t: plural(g.dishes.length, 'dish'), w: 1000 + g.weight / 100, go: () => goGroup(g), cat: g.dishes, t: `In ${g.cuisine.name} · ${plural(g.dishes.length, 'dish')}` })),
+  ...families.map(f => ({ n: f.name, t: `Dish type · ${plural(f.dishes.length, 'dish')}`, w: 1500, go: () => goLens('family', f), f: 1, cat: f.dishes })),
+  ...subs.map(sg => ({ n: `${sg.cuisine.name} ${sg.name.toLowerCase()}`, t: `${sg.family.name} · ${sg.dishes.length}`, w: 900 + sg.weight / 100, go: () => goSub(sg), cat: sg.dishes })),
+  ...[...subLens.values()].map(l => ({ n: l.name, t: `Kind of ${l.family.name.toLowerCase()} · ${plural(l.dishes.length, 'dish')}`, w: 1300, go: () => goLens('sub', l), f: 1, cat: l.dishes, k2: norm(subLensName(l)) })),
+  ...cuisines.flatMap(c => c.tags.map(t => ({ n: t.name, t: `${c.name} style · ${t.dishes.length}`, w: 1400, go: () => goLens('tag', t), f: 1, cat: t.dishes }))),
+  ...dishes.map(d => ({ n: d.name, t: d.cuisine.name + (d.recipes.length ? ` · ${plural(d.recipes.length, 'recipe')}` : ''), w: d.score, go: () => goDish(d), f: 1, dish: d })),
   ...[...authors.values()].map(a => ({ n: a.name, t: `Cook · ${plural(a.recipes.length, 'recipe')}`, w: 300 + a.recipes.length, go: () => goLens('author', a), f: 1 })),
   ...books.map(b => ({ n: mainTitle(b.title), t: `Cookbook · ${b.author}`, w: 200, go: () => goLens('book', b), f: 1 })),
-].map(x => ({ ...x, k: norm(x.n) }));
+].map(x => ({ ...x, k: norm(x.n), cat: x.cat ? new Set(x.cat) : null }));
 function lev(a, b, max) {
   if (Math.abs(a.length - b.length) > max) return max + 1;
   let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
@@ -2879,8 +2906,8 @@ function search() {
   const terms = q.split(/\s+/);
   let list = [];
   for (const x of index) {
-    if (!terms.every(t => x.k.includes(t))) continue;
-    const i = x.k.indexOf(terms[0]);
+    if (!terms.every(t => x.k.includes(t)) && !(x.k2 && terms.length > 1 && terms.every(t => x.k2.includes(t)))) continue;
+    const i = Math.max(0, x.k.indexOf(terms[0]));
     list.push([x.k === q ? -1 : i === 0 ? 0 : x.k[i - 1] === ' ' ? 1 : 2, -x.w, x.k.length, x]);
   }
   fuzzy = false;
@@ -2894,8 +2921,26 @@ function search() {
     fuzzy = list.some(a => a[0] >= 3);
   }
   list.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
-  hits = list.slice(0, 10).map(a => a[3]); hi = 0;
-  RES.innerHTML = (fuzzy && hits.length ? `<li class="note" aria-disabled="true">No exact match. Closest:</li>` : '') + (hits.length ? hits.map((x, i) => `<li role="option" aria-selected="${i === hi}" data-i="${i}"><span class="n">${esc(x.n)}</span><span class="t">${esc(x.t)}</span></li>`).join('') : `<li aria-disabled="true"><span class="t">No match for "${esc(Q.value.trim())}". Check the spelling or try one word.</span></li>`);
+  const ranked = list.map(a => a[3]);
+  const cats = ranked.filter(x => x.cat).slice(0, 4), dishHits = ranked.filter(x => x.dish).slice(0, 40), rest = ranked.filter(x => !x.cat && !x.dish);
+  const home = new Map(); // each dish goes under the smallest matching category that holds it
+  for (const x of dishHits) { const c = cats.filter(c => c.cat.has(x.dish)).sort((a, b) => a.cat.size - b.cat.size)[0]; if (c) home.set(x, c); }
+  const rows = []; // [item, kind]: kind is 'cat', 'kid', 'more' or ''
+  const firstDish = ranked.findIndex(x => x.dish), firstCat = ranked.findIndex(x => x.cat);
+  const loose = dishHits.filter(x => !home.has(x));
+  const pushLoose = () => loose.slice(0, 5).forEach(x => rows.push([x, '']));
+  if (firstDish >= 0 && (firstCat < 0 || firstDish < firstCat) && loose.length && loose[0] === dishHits[0]) { pushLoose(); loose.length = 0; } // an exact dish name comes first
+  for (const c of cats) {
+    rows.push([c, 'cat']);
+    const kids = dishHits.filter(x => home.get(x) === c).sort((a, b) => (b.k === q) - (a.k === q) || b.dish.score - a.dish.score);
+    kids.slice(0, 3).forEach(x => rows.push([x, 'kid']));
+    if (kids.length > 3) rows.push([{ n: `${kids.length - 3} more matching in ${c.n}`, t: '', go: c.go }, 'more']);
+  }
+  pushLoose();
+  rest.slice(0, Math.max(2, 12 - rows.length)).forEach(x => rows.push([x, '']));
+  const shownRows = rows.slice(0, 14);
+  hits = shownRows.map(r => r[0]); hi = 0;
+  RES.innerHTML = (fuzzy && hits.length ? `<li class="note" aria-disabled="true">No exact match. Closest:</li>` : '') + (hits.length ? shownRows.map(([x, kind], i) => `<li role="option" class="${kind}" aria-selected="${i === hi}" data-i="${i}"><span class="n">${esc(x.n)}</span><span class="t">${esc(kind === 'kid' ? x.dish.cuisine.name + (x.dish.recipes.length ? ' · ' + plural(x.dish.recipes.length, 'recipe') : '') : x.t)}</span></li>`).join('') : `<li aria-disabled="true"><span class="t">No match for "${esc(Q.value.trim())}". Check the spelling or try one word.</span></li>`);
   RES.hidden = false;
 }
 function choose(i) { const x = hits[i]; if (!x) return; Q.value = ''; RES.hidden = true; Q.blur(); hideHint(); x.go(); }
