@@ -45,6 +45,7 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- v24 (Nov 23 2026): the plate opens alone. Search floats in the header; the panel slides in when something is picked (bottom sheet at half height on phones) and closes with its X. The home panel (dish types, websites, cuisines, About) moved to View > Browse and about. Removed the Area = popularity and More dishes keys.
 - v23 (Nov 23 2026): browse by dish type and by website. Home panel lists the 42 dish types and the top recipe websites. A dish type opens lit across the plate with a By cuisine list (Sandwiches, then American, then every American sandwich). Each website has its own lens (#w-host), and a recipe's source links to it.
 - v22 (Nov 23 2026): public-release cleanup. Page title, description, link preview and icon; About note on the home panel; dropped 88 Simple Chinese Food recipes (user-submitted); one site name per website; 104 cook first names filled in, 56 usernames replaced by the site name; CSV export works outside Claude.
 - v21 (Nov 22 2026): wave 2 recipes added (7,972).
