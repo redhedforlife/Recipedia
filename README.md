@@ -39,12 +39,20 @@ Keys: D dishes, Rc recipes, B cookbooks, P flavor profiles, X recipe comparisons
 A recipe row is `[dish_index, title, cook, source, url, note]`, where dish_index points into D.
 Serialize with `json.dump(d, f, separators=(',', ':'), ensure_ascii=False)` to keep the same format.
 
+## UAT (test site)
+
+- https://tryrecipedia.com/uat/ is the test copy, from docs/uat/. Changes go there first; prod (docs/index.html) only changes once they're approved.
+- The UAT page is the same file as prod. It sees /uat/ in its address and then turns off PostHog, adds noindex and shows a "UAT build, not live" badge. docs/robots.txt also blocks /uat/.
+- Promote to prod: `cp docs/uat/index.html docs/index.html` (plus any data file that changed in docs/uat/), commit, push.
+- UAT forms still send tweaks and recipe links to the real Supabase review queue. Reject test entries in review.html.
+
 ## Picking up in a new chat
 
 Read this README, then work in the repo. Commit each change with a clear message, so the history is the changelog.
 
 ## Changelog
 
+- v34 (Nov 26 2026, UAT only at /uat/, not yet in prod): fixes from the design critique. One-line promise under the wordmark; Start from dishes you cook (was Pick 3 favorites) and Surprise me as the main buttons; Surprise me works in one click, with an arrow for courses; About as quiet text and in the View menu. Phone: map fits above the real toolbar, one-row toolbar, 44px targets, an empty kitchen opens the sheet tall. Keyboard: focus rings on filter and Surprise items, focus returns on close, arrow keys in the Surprise menu, search is a combobox, map after the header in tab order. Search: no "No exact match" above exact matches, full names for repeated categories, a "Filter by" row for ingredient words. Plate key (has a recipe, more dishes inside, size); About explains the plate; no bare popularity number. Errors in plain words with a retry; a failed recipe-link send no longer reloads; one document head; 3:1 control borders.
 - v33 (Nov 24 2026): Tweaks. docs/tweaks.json holds three suggested tweaks for the 150 most popular dishes (source: data/tweaks-top150.txt). Visitors can add their own tweak or a recipe link; both go to Supabase (project recipedia, vfitqbrwpnwwlmhxhbox) as pending and show on the dish only once approved. Review page: tryrecipedia.com/review.html (admin sign-in; admins listed in public.admins). Row level security: anyone can insert pending rows, only approved rows are readable, only admins can change status; a trigger caps sends at 60 per 10 minutes.
 - v32 (Nov 24 2026): No meat now means no meat or fish in the dish's proteins. Filtering lights the plate without opening the panel; the filter's List button opens it. Cookbook recommendations removed from every panel, the browse header and search (the data and #b- links still work).
 - v31 (Nov 24 2026): Filter (ingredients by group, plus difficulty; every pick narrows, options show what's left; lens type 'filter', hash #x-key+key), Surprise me (random dish with recipes by course, from the filter when one is on), Pick 3 favorites (front door to Your kitchen). Events: Opened filter, Filtered, Surprise me, Tapped Pick 3 favorites.
