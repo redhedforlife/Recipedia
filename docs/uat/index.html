@@ -119,6 +119,21 @@ button.row .rk{font-family:var(--sans)}
 .top{padding-right:132px}
 .foot{position:absolute;left:20px;right:72px;bottom:calc(16px + var(--inset) + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:flex-start;gap:8px;pointer-events:none;z-index:3;transition:bottom .3s var(--ease)}
 .foot>*{pointer-events:auto}
+.coach{position:absolute;left:50%;top:calc((100% - var(--inset,0px)) / 2);transform:translate(-50%,-50%);z-index:6;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 20px 14px;border-radius:14px;background:color-mix(in srgb,var(--card) 95%,transparent);border:1px solid var(--rule);color:var(--ink);box-shadow:0 12px 36px rgba(var(--shadow),.22);pointer-events:none;opacity:0;transition:opacity .45s var(--ease);max-width:240px;text-align:center}
+.coach.on{opacity:1}
+.coach[hidden]{display:none}
+.coach p{margin:0;font:500 13.5px/1.35 var(--sans)}
+.coach .cp{display:none}
+.coach.touch .cm{display:none}.coach.touch .cp{display:block}
+.coach .wheel{animation:cw 1.4s var(--ease) infinite}
+.coach .arr{animation:ca 1.4s var(--ease) infinite}
+@keyframes cw{0%,15%{transform:translateY(0);opacity:1}55%{transform:translateY(-5px);opacity:.35}100%{transform:translateY(0);opacity:1}}
+@keyframes ca{0%,20%{opacity:.15;transform:translateY(3px)}55%{opacity:1;transform:translateY(0)}100%{opacity:.15;transform:translateY(3px)}}
+.coach .f1{animation:cf1 1.6s var(--ease) infinite}
+.coach .f2{animation:cf2 1.6s var(--ease) infinite}
+@keyframes cf1{0%,12%{transform:translate(4px,-4px)}60%,80%{transform:translate(-7px,7px)}100%{transform:translate(4px,-4px)}}
+@keyframes cf2{0%,12%{transform:translate(-4px,4px)}60%,80%{transform:translate(7px,-7px)}100%{transform:translate(-4px,4px)}}
+@media (prefers-reduced-motion:reduce){.coach .wheel,.coach .arr,.coach .f1,.coach .f2{animation:none}}
 .hint{font-size:12.5px;color:var(--graphite);transition:opacity .3s var(--ease);pointer-events:none}
 .hint.gone{opacity:0}
 .key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:12px;color:var(--graphite);background:color-mix(in srgb,var(--paper) 86%,transparent);border-radius:6px;padding:5px 8px 5px 6px}
@@ -460,6 +475,11 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
     </header>
     <canvas id="map" tabindex="0" role="application" aria-roledescription="map" aria-label="Recipedia map. Arrow keys move between neighbors, Enter opens, Escape goes up a level, plus and minus zoom."></canvas>
     <div class="tip" id="tip" hidden></div>
+    <div class="coach" id="coach" aria-hidden="true" hidden>
+      <svg class="cm" viewBox="0 0 64 64" width="64" height="64"><rect x="20" y="9" width="24" height="38" rx="12" fill="none" stroke="currentColor" stroke-width="2.4"/><line x1="32" y1="9" x2="32" y2="22" stroke="currentColor" stroke-width="1.6" opacity=".45"/><rect class="wheel" x="29.5" y="14" width="5" height="8" rx="2.5" fill="currentColor"/><path class="arr" d="M52 22 l4 -5 l4 5 M52 34 l4 -5 l4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="cp" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4" opacity=".45"/><circle class="f1" cx="26" cy="38" r="6.5" fill="currentColor"/><circle class="f2" cx="38" cy="26" r="6.5" fill="currentColor"/></svg>
+      <p id="coacht"></p>
+    </div>
     <div class="foot">
       <div class="hint" id="hint">Click to go one level in. Scroll or pinch to zoom.</div>
       <div class="pkey" id="pkey" hidden><span><svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><text x="0" y="8.5" font-size="9" fill="currentColor" font-family="var(--sans)">Aa</text><circle cx="13.5" cy="5.5" r="2" fill="currentColor"/></svg>has a recipe</span><span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x=".5" y=".5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-opacity=".5"/><path d="M-1 5L5-1M-1 11L11-1M5 13L13 5" stroke="currentColor" stroke-width=".9" stroke-opacity=".7"/></svg>more dishes inside</span><span><svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><rect x=".5" y="5.5" width="5" height="5" rx="1" fill="currentColor" fill-opacity=".35"/><rect x="6.5" y="1.5" width="7" height="9" rx="1.2" fill="currentColor" fill-opacity=".35"/></svg>bigger = better known</span><button type="button" id="pkeyx" aria-label="Hide this key"><svg class="i" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></button></div>
@@ -3445,7 +3465,21 @@ function hintText(v) {
 }
 hint.textContent = hintText('plate');
 let hinted = false;
-function hideHint() { if (!hinted) { hinted = true; if (document.activeElement === canvas && canvas.matches(':focus-visible')) return; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
+function hideHint() { hideCoach(); if (!hinted) { hinted = true; if (document.activeElement === canvas && canvas.matches(':focus-visible')) return; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
+/* Zoom coach: on a first visit, a small animation in the middle of the plate shows how to zoom (a scroll wheel on desktop,
+   a pinch on touch screens). It goes away on the first zoom, tap or click, or after 8 seconds, and shows on two visits at most. */
+const COACH = document.getElementById('coach'); let coachT = 0;
+function hideCoach() { if (COACH.hidden) return; clearTimeout(coachT); COACH.classList.remove('on'); setTimeout(() => { COACH.hidden = true; }, 450); }
+function showCoach() {
+  if (window.HEAT_MODE || HOME || wantView !== 'plate' || S.mode !== 'world') return;
+  let n = 0; try { n = +localStorage.getItem('recipedia.coach') || 0; localStorage.setItem('recipedia.coach', n + 1); } catch (e) {}
+  if (n >= 2) return;
+  COACH.classList.toggle('touch', touchOnly);
+  document.getElementById('coacht').textContent = touchOnly ? 'Pinch to zoom in, or tap a cuisine' : 'Scroll to zoom in, or click a cuisine';
+  COACH.hidden = false; requestAnimationFrame(() => COACH.classList.add('on'));
+  coachT = setTimeout(hideCoach, 8000); track('Saw zoom hint', { touch: touchOnly });
+}
+for (const ev of ['wheel', 'pointerdown', 'touchstart', 'keydown']) addEventListener(ev, () => { if (!COACH.hidden) hideCoach(); }, { passive: true, capture: true });
 // keyboard users get the keys spelled out while the map has focus
 canvas.addEventListener('focus', () => { if (!canvas.matches(':focus-visible')) return; hint.textContent = 'Arrow keys move between neighbors. Enter opens, Esc goes up a level, + and \u2212 zoom.'; hint.hidden = false; hint.classList.remove('gone'); measureChrome(); });
 canvas.addEventListener('blur', () => { if (hinted) { hint.classList.add('gone'); hint.hidden = true; measureChrome(); } else hint.textContent = hintText(VIEW || 'plate'); });
@@ -3484,6 +3518,7 @@ const qv = new URLSearchParams(location.search).get('view'); if (VIEWS[qv]) v0 =
 setView(v0, { save: false });
 if (TEST) window.__rp = { KITCHEN, setCook, homeModel, SG, get HT() { return HT; }, get TRAIL() { return TRAIL; }, S, cuisines, dishes, groups, dishById, cuisineById, setView, goDish, goCuisine, goWorld, setState, dives, portalFor, cuisineAt3, buildGeo, get T() { return T; }, get ZF() { return ZF; }, get G3() { return G3; }, get PJ() { return PJ; }, get PORTAL() { return PORTAL; }, get GT() { return GT; }, get VIEW() { return VIEW; }, get k0() { return k0; }, get gk0() { return gk0; } };
 document.getElementById('boot').remove();
+setTimeout(showCoach, 1200);
 })().catch(e => bootFail(e.message || String(e)));
 </script>
 
