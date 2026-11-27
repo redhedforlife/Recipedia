@@ -119,6 +119,9 @@ button.row .rk{font-family:var(--sans)}
 .top{padding-right:132px}
 .foot{position:absolute;left:20px;right:72px;bottom:calc(16px + var(--inset) + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:flex-start;gap:8px;pointer-events:none;z-index:3;transition:bottom .3s var(--ease)}
 .foot>*{pointer-events:auto}
+.rgo{position:absolute;z-index:5;transform:translate(-50%,0);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:7px 12px;border-radius:999px;background:var(--ink);color:var(--card);font:600 13px var(--sans);text-decoration:none;box-shadow:0 6px 18px rgba(var(--shadow),.3);max-width:min(280px,80vw);overflow:hidden;text-overflow:ellipsis}
+.rgo[hidden]{display:none}
+.rgo:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .coach{position:absolute;left:50%;top:calc((100% - var(--inset,0px)) / 2);transform:translate(-50%,-50%);z-index:6;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 20px 14px;border-radius:14px;background:color-mix(in srgb,var(--card) 95%,transparent);border:1px solid var(--rule);color:var(--ink);box-shadow:0 12px 36px rgba(var(--shadow),.22);pointer-events:none;opacity:0;transition:opacity .45s var(--ease);max-width:240px;text-align:center}
 .coach.on{opacity:1}
 .coach[hidden]{display:none}
@@ -359,9 +362,11 @@ if (UAT) { document.title = 'Recipedia UAT'; document.head.insertAdjacentHTML('b
 const PH_ON = !UAT && /(^|\.)tryrecipedia\.com$/.test(location.hostname), phq = [];
 function track(ev, props) { try { if (!PH_ON) return; if (window.posthog && posthog.__loaded) posthog.capture(ev, props); else phq.push([ev, props]); } catch (e) {} }
 if (PH_ON) {
-  const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://us-assets.i.posthog.com/static/array.full.js';
+  // PH_PROXY: PostHog's managed proxy on our own subdomain, so ad blockers don't drop events. Empty means talk to PostHog directly.
+  const PH_PROXY = '', phHost = PH_PROXY || 'https://us.i.posthog.com';
+  const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = (PH_PROXY || 'https://us-assets.i.posthog.com') + '/static/array.full.js';
   s.onload = () => { try {
-    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
+    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: phHost, ui_host: 'https://us.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
       session_recording: { captureCanvas: { recordCanvas: true, canvasFps: 2, canvasQuality: '0.4' } } });
     phq.splice(0).forEach(([e, p]) => posthog.capture(e, p));
   } catch (e) {} };
@@ -476,6 +481,7 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
     </header>
     <canvas id="map" tabindex="0" role="application" aria-roledescription="map" aria-label="Recipedia map. Arrow keys move between neighbors, Enter opens, Escape goes up a level, plus and minus zoom."></canvas>
     <div class="tip" id="tip" hidden></div>
+    <a class="rgo" id="rgo" target="_blank" rel="noopener noreferrer" hidden></a>
     <div class="coach" id="coach" aria-hidden="true" hidden>
       <svg class="cm" viewBox="0 0 64 64" width="64" height="64"><rect x="20" y="9" width="24" height="38" rx="12" fill="none" stroke="currentColor" stroke-width="2.4"/><line x1="32" y1="9" x2="32" y2="22" stroke="currentColor" stroke-width="1.6" opacity=".45"/><rect class="wheel" x="29.5" y="14" width="5" height="8" rx="2.5" fill="currentColor"/><path class="arr" d="M52 22 l4 -5 l4 5 M52 34 l4 -5 l4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <svg class="cp" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4" opacity=".45"/><circle class="f1" cx="26" cy="38" r="6.5" fill="currentColor"/><circle class="f2" cx="38" cy="26" r="6.5" fill="currentColor"/></svg>
@@ -767,6 +773,12 @@ const easeEmph = (() => { // cubic-bezier(.16,1,.3,1) for camera flights
 
 let userZoom = false, settleTimer = 0, drag = [], inertiaRaf = 0;
 const zoom = d3.zoom().clickDistance(5)
+  .constrain(t => { // on the flat plate, the middle of the view always stays over the plate, so it can't be dragged away
+    if (VIEW3D || GALAXY || HOME || !W) return t;
+    const cx = W / 2, cy = insetTop + (H - insetTop - insetBottom) / 2, wx = (cx - t.x) / t.k, wy = (cy - t.y) / t.k, d = Math.hypot(wx, wy), lim = R * 0.85;
+    if (d <= lim) return t;
+    const f = lim / d; return d3.zoomIdentity.translate(cx - wx * f * t.k, cy - wy * f * t.k).scale(t.k);
+  })
   .on('start', e => { if (e.sourceEvent) { userZoom = true; stopInertia(); clearTimeout(settleTimer); drag = []; } })
   .on('zoom', e => {
     if (VIEW3D) return globeGesture(e);
@@ -1365,7 +1377,17 @@ function paint() {
   ownBox = null;
   ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   if (PT && PT.sr > 3 && paintPortal(PT)) more = true;
+  placeRgo();
   if (more) draw();
+}
+const RGO = document.getElementById('rgo');
+function placeRgo() { // the Open pill sits just under the chosen recipe's tile while the tile is big enough to read
+  const r = S.mode === 'dish' && S.recipe, tl = r && !HOME && !GALAXY && !VIEW3D && tileOf(r);
+  if (!tl) { RGO.hidden = true; return; }
+  const x = T.applyX(tl.lx), y = T.applyY(tl.ly), rr = tl.lr * T.k, top = y + Math.min(rr * 0.5, rr - 18);
+  if (rr < 26 || x < 40 || x > W - 40 || top < insetTop + 10 || top > H - insetBottom - 40) { RGO.hidden = true; return; }
+  if (RGO.dataset.r !== String(r.i)) { RGO.dataset.r = r.i; RGO.href = r.url; RGO.textContent = `Open on ${r.source} ↗`; RGO.setAttribute('aria-label', `Open ${r.title} on ${r.source} (new tab)`); }
+  RGO.style.left = x + 'px'; RGO.style.top = top + 'px'; RGO.hidden = false;
 }
 const lum = hex => { const n = parseInt(hex.slice(1), 16), f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(n >> 16 & 255) + 0.7152 * f(n >> 8 & 255) + 0.0722 * f(n & 255); };
 const hexMix = (a, b, t) => { const x = parseInt(a.slice(1), 16), y = parseInt(b.slice(1), 16); return '#' + [16, 8, 0].map(sh => Math.round(((x >> sh) & 255) * (1 - t) + ((y >> sh) & 255) * t).toString(16).padStart(2, '0')).join(''); };
@@ -2633,7 +2655,15 @@ function act(h) {
   if (h.type === 'sub') return goSub(h.ref);
   if (h.type === 'more') return goGroup(h.ref); // the family fills the view, so every dish appears
   if (h.type === 'dish') return h.here ? null : goDish(h.ref);
-  if (h.type === 'recipe') return goDish(h.ref.dish, h.ref);
+  if (h.type === 'recipe') {
+    if (S.recipe === h.ref) { // a second tap on the chosen recipe opens it
+      window.open(h.ref.url, '_blank', 'noopener');
+      let site = ''; try { site = new URL(h.ref.url).hostname.replace(/^www\./, ''); } catch (e) {}
+      track('Clicked out', { kind: 'recipe', via: 'tile', site, dish: h.ref.dish.name, cuisine: h.ref.dish.cuisine.name });
+      return null;
+    }
+    return goDish(h.ref.dish, h.ref);
+  }
 }
 sel.on('click', e => { const r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top, h = pick(mx, my); hideHint(); tapAt(mx, my, h); act(h); });
 /* Plate heatmap data. Taps and resting views are sent in plate coordinates (x, y from -1 to 1, centre 0,0, zoom 1 = whole plate),
