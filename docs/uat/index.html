@@ -404,21 +404,19 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
 
 .uatbadge{position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:40;font:600 10.5px/1 var(--sans);letter-spacing:.02em;background:#B04E27;color:#fff;border-radius:0 0 8px 8px;padding:4px 10px 5px;pointer-events:none}
 /* v34: first screen, phone layout, focus, polish */
-.promise{margin:0;font:italic 400 15.5px/1.3 var(--serif);color:var(--graphite);white-space:nowrap;align-self:baseline}
-.crumbs:not(:empty) + .promise{display:none}
 .key{background:none;padding:0;gap:8px;align-items:center;flex-wrap:nowrap}
 .toggle,.vbtn,.zoom,.search,.filter,.fsheet .fo,.pclose,.radd button,.raddf button,.go,.btn,.twf textarea,.out a{border-color:var(--edge)}
-.toggle.act{min-height:34px;box-sizing:border-box;padding:6px 13px 6px 11px;font-size:13.5px;border-radius:6px;gap:8px;color:var(--ink);font-weight:500}
+.toggle.act{min-height:28px;box-sizing:border-box;padding:4px 11px 4px 9px;font-size:12.5px;border-radius:6px;gap:7px;color:var(--ink);font-weight:500}
 .toggle.prime{background:var(--ink);border-color:var(--ink);color:var(--card)}
 .toggle.prime:hover{background:var(--ink);border-color:var(--ink);color:var(--card);opacity:.88}
 .toggle.second{border-color:var(--ink)}
 .toggle.second:hover{background:var(--hover);border-color:var(--ink)}
 .sw #sbtn{border-radius:6px 0 0 6px}
-.sw .scaret{border-radius:0 6px 6px 0;margin-left:-1px;padding:6px 9px}
+.sw .scaret{border-radius:0 6px 6px 0;margin-left:-1px;padding:4px 7px}
 .sw .scaret[aria-expanded="true"]{background:var(--hover)}
 #fbtn.act{font-weight:400}
 .key .lbl-s{display:none}
-.quiet{background:color-mix(in srgb,var(--paper) 86%,transparent);border:0;border-radius:4px;padding:6px 6px;margin-left:4px;font:13px var(--sans);color:var(--graphite);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--edge);cursor:pointer}
+.quiet{background:color-mix(in srgb,var(--paper) 86%,transparent);border:0;border-radius:4px;padding:4px 5px;margin-left:2px;font:12px var(--sans);color:var(--graphite);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--edge);cursor:pointer}
 .quiet:hover{color:var(--ink);text-decoration-color:var(--ink)}
 #cookbtn{display:none!important}
 .pkey{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:12px;color:var(--graphite);background:color-mix(in srgb,var(--paper) 86%,transparent);border-radius:6px;padding:3px 4px 3px 2px}
@@ -435,16 +433,15 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
 .cmpt{table-layout:auto}
 .cmpt th,.cmpt td{overflow-wrap:normal;hyphens:manual}
 @media (max-width:760px){
-  .promise{order:6;flex:1 0 100%;margin:8px -96px 0 0;font-size:14.5px;white-space:normal}
-  body:not(.nopanel) .promise{display:none}
   .pkey{flex-wrap:nowrap}
   .pkey span:nth-child(3){display:none}
   .foot{left:12px;right:12px}
-  .zoom{bottom:calc(16px + 52px + var(--inset) + env(safe-area-inset-bottom,0px))}
+  .zoom{bottom:calc(16px + 44px + var(--inset) + env(safe-area-inset-bottom,0px))}
+  .zoom button{width:36px;height:36px}
   .key{gap:6px}
-  .toggle.act{min-height:44px;font-size:13px;padding:6px 11px 6px 10px;gap:7px}
-  .sw .scaret{padding:6px 10px}
-  #fbtn.act{padding:0 13px}
+  .toggle.act{min-height:36px;font-size:12.5px;padding:4px 10px 4px 9px;gap:6px}
+  .sw .scaret{padding:4px 9px}
+  #fbtn.act{padding:0 11px}
   #fbtn .lblf{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .key .lbl{display:none}
   .key .lbl-s{display:inline}
@@ -471,7 +468,6 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
     <header class="top">
       <button class="mark" id="home" title="Whole plate">Recipedia</button>
       <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
-      <p class="promise" id="promise">11,534 dishes from 66 cuisines. Find your next one.</p>
       <div class="psearch">
       <svg class="i" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.2"/><path d="M10.2 10.2L13.5 13.5"/></svg>
       <input id="q" class="search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" placeholder="Search dishes, cuisines, cooks" autocomplete="off" spellcheck="false" aria-label="Search dishes, cuisines and cooks" aria-controls="results">
@@ -1080,7 +1076,6 @@ function measureChrome() {
   insetTop = Math.max(56, TOPEL.getBoundingClientRect().bottom - sr.top + 8);
   blocked = [rel(document.getElementById('home')), rel(ZOOMEL), rel(document.getElementById('key')), rel(document.getElementById('viewsw'))];
   const pk = document.getElementById('pkey'); if (pk && !pk.hidden) blocked.push(rel(pk));
-  const pr = document.getElementById('promise'); if (pr && pr.offsetParent) blocked.push(rel(pr));
   if (CRB.childElementCount) blocked.push(rel(CRB));
   const hn = document.getElementById('hint'); if (hn && !hn.hidden && !hn.classList.contains('gone')) blocked.push(rel(hn)); // the first-visit hint, while it shows
 }
@@ -3514,7 +3509,6 @@ for (const ev of ['wheel', 'pointerdown', 'touchstart', 'keydown']) addEventList
 // keyboard users get the keys spelled out while the map has focus
 canvas.addEventListener('focus', () => { if (!canvas.matches(':focus-visible')) return; hint.textContent = 'Arrow keys move between neighbors. Enter opens, Esc goes up a level, + and \u2212 zoom.'; hint.hidden = false; hint.classList.remove('gone'); measureChrome(); });
 canvas.addEventListener('blur', () => { if (hinted) { hint.classList.add('gone'); hint.hidden = true; measureChrome(); } else hint.textContent = hintText(VIEW || 'plate'); });
-document.getElementById('promise').textContent = `${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. Find your next one.`;
 // the plate key: shown once you are inside the plate, until hidden with its X
 const PKEY = document.getElementById('pkey'); let pkeyOff = false; try { pkeyOff = localStorage.getItem('recipedia.keyhidden') === '1'; } catch (e) {}
 function syncKey() { const on = !pkeyOff && booted && !HOME && !VIEW3D && !GALAXY && S.mode !== 'world'; if (PKEY.hidden === !on) return; PKEY.hidden = !on; measureChrome(); if (mobile()) applyInsets(); } // before the camera flies, so the map fits above it
