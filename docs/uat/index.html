@@ -397,7 +397,7 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
 .panel .psearch .kbd{right:68px}
 .pclose{top:18px}
 
-.uatbadge{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:40;font:600 11px var(--sans);background:#B04E27;color:#fff;border-radius:999px;padding:3px 10px;pointer-events:none}
+.uatbadge{position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:40;font:600 10.5px/1 var(--sans);letter-spacing:.02em;background:#B04E27;color:#fff;border-radius:0 0 8px 8px;padding:4px 10px 5px;pointer-events:none}
 /* v34: first screen, phone layout, focus, polish */
 .promise{margin:0;font:italic 400 15.5px/1.3 var(--serif);color:var(--graphite);white-space:nowrap;align-self:baseline}
 .crumbs:not(:empty) + .promise{display:none}
@@ -457,6 +457,7 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
   .top .psearch .results{left:0;right:0;width:auto;top:50px}
   body.nopanel .panel{transform:translateY(105%)}
   .pclose{top:4px;right:8px}
+  .top .psearch{margin-top:14px} /* clears the 44px view button */
 }
 </style>
 <div class="app">
