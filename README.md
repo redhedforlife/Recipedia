@@ -52,6 +52,7 @@ Read this README, then work in the repo. Commit each change with a clear message
 
 ## Changelog
 
+- Nov 28 2026: v34 to v37 released to prod. docs/index.html now matches docs/uat/index.html.
 - v37 (Nov 27 2026, UAT only): calmer dish panel and phone screen. Each recipe is one row: cook, time and the one thing that sets it apart; the whole row opens the recipe. The comparison table sits behind "Compare side by side". Add a recipe link, Add your own tweak and the recipe-search sites are quiet text links. Phones: the toolbar steps aside once you are inside the plate (a Filter chip stays when a filter is on); search is an icon that opens the field; the view button is icon-only.
 - v36 (Nov 27 2026, UAT only at /uat/): recipe tiles. Choosing a recipe tile on the plate shows an "Open on {site}" pill under it, and a second tap on the same tile opens the recipe in a new tab (event Clicked out, via: tile). The flat plate can no longer be dragged away: the middle of the view always stays over the plate (zoom.constrain). PostHog host is now one setting, PH_PROXY, ready for the managed proxy at r.tryrecipedia.com once it is live (empty = direct).
 - v35 (Nov 26 2026, UAT only at /uat/, not yet in prod): zoom coach. On the first two visits a small animation in the middle of the plate shows how to zoom (a scroll wheel on desktop, a pinch on touch screens, with "or click/tap a cuisine"); it leaves on the first interaction or after 8 seconds. Event: Saw zoom hint. Heatmap rebuilt from Nov 24 to 26 outside visits; heat/build.py also reads a compact L/T/O export.

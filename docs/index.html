@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Recipedia: find your next dish</title>
 <meta name="description" content="A map of 11,534 dishes from 66 cuisines. Zoom from cuisines to families to single dishes, and find a recipe for each one from the cooks who know it best.">
 <meta property="og:title" content="Recipedia: find your next dish">
@@ -8,13 +12,8 @@
 <meta property="og:url" content="https://tryrecipedia.com/">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23f3efe6' stroke='%23c9c1b0'/%3E%3Cpath d='M16 16V2A14 14 0 0 1 29.3 11.7Z' fill='%23d9a9a0'/%3E%3Cpath d='M16 16L29.3 11.7A14 14 0 0 1 22 28.6Z' fill='%23e8d48f'/%3E%3Cpath d='M16 16L22 28.6A14 14 0 0 1 3.4 22Z' fill='%23a9c4b4'/%3E%3Cpath d='M16 16L3.4 22A14 14 0 0 1 16 2Z' fill='%23b9b4d6'/%3E%3C/svg%3E"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Recipedia</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23f3efe6' stroke='%23c9c1b0'/%3E%3Cpath d='M16 16V2A14 14 0 0 1 29.3 11.7Z' fill='%23d9a9a0'/%3E%3Cpath d='M16 16L29.3 11.7A14 14 0 0 1 22 28.6Z' fill='%23e8d48f'/%3E%3Cpath d='M16 16L22 28.6A14 14 0 0 1 3.4 22Z' fill='%23a9c4b4'/%3E%3Cpath d='M16 16L3.4 22A14 14 0 0 1 16 2Z' fill='%23b9b4d6'/%3E%3C/svg%3E">
+<style>[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <link rel="preload" href="data.json" as="fetch" crossorigin>
 <link rel="preload" href="d3.min.js" as="script">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +23,7 @@
 /* The plate (nested Voronoi: region > cuisine > course > family > dish > recipe) owns the window and never moves on its own.
    The panel speaks the plate's grammar: tile glyphs sized by popularity, a specimen of the current node, squared tiles for chips. */
 :root{
-  --paper:#F4EFE6; --plate:#FAF7F1; --card:#FCFAF6; --ink:#1E1B16; --graphite:#665F54; --faint:#A39B8E; --rule:#E2DACB; --hover:#EFE9DE; --sel:#E4D9C3;
+  --paper:#F4EFE6; --plate:#FAF7F1; --card:#FCFAF6; --ink:#1E1B16; --graphite:#665F54; --faint:#8F8677; --rule:#E2DACB; --hover:#EFE9DE; --sel:#E4D9C3; --edge:#8F8677;
   --na:#B04E27; --latam:#A0406C; --eu:#8C9A45; --mena:#93393F; --ssa:#2F4A7E; --sa:#C99A2B; --ea:#9C74B4; --sea:#1F6F74; --oce:#3E86A8;
   --wash:.2; --shadow:30,27,22;
   --serif:'Newsreader',Georgia,'Times New Roman',serif;
@@ -33,10 +32,10 @@
   --panel-w:408px; --ease:cubic-bezier(.16,1,.3,1); --inset:0px; --rc:var(--graphite);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#15130F; --plate:#1B1814; --card:#1D1A15; --ink:#EEE7DA; --graphite:#ADA597; --faint:#7A7266; --rule:#342E26; --hover:#27231D; --sel:#3D3529;
+  --paper:#15130F; --plate:#1B1814; --card:#1D1A15; --ink:#EEE7DA; --graphite:#ADA597; --faint:#7A7266; --rule:#342E26; --hover:#27231D; --sel:#3D3529; --edge:#736B5F;
   --na:#D9774A; --latam:#CF6E97; --eu:#A9B862; --mena:#C9636B; --ssa:#7F98CC; --sa:#DDB24E; --ea:#B99AD3; --sea:#4FA6A9; --oce:#6FB0CF; --wash:.3; --shadow:0,0,0; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#15130F; --plate:#1B1814; --card:#1D1A15; --ink:#EEE7DA; --graphite:#ADA597; --faint:#7A7266; --rule:#342E26; --hover:#27231D; --sel:#3D3529;
+  --paper:#15130F; --plate:#1B1814; --card:#1D1A15; --ink:#EEE7DA; --graphite:#ADA597; --faint:#7A7266; --rule:#342E26; --hover:#27231D; --sel:#3D3529; --edge:#736B5F;
   --na:#D9774A; --latam:#CF6E97; --eu:#A9B862; --mena:#C9636B; --ssa:#7F98CC; --sa:#DDB24E; --ea:#B99AD3; --sea:#4FA6A9; --oce:#6FB0CF; --wash:.3; --shadow:0,0,0; color-scheme:dark}
 html,body{height:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
@@ -120,6 +119,24 @@ button.row .rk{font-family:var(--sans)}
 .top{padding-right:132px}
 .foot{position:absolute;left:20px;right:72px;bottom:calc(16px + var(--inset) + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:flex-start;gap:8px;pointer-events:none;z-index:3;transition:bottom .3s var(--ease)}
 .foot>*{pointer-events:auto}
+.rgo{position:absolute;z-index:5;transform:translate(-50%,0);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:7px 12px;border-radius:999px;background:var(--ink);color:var(--card);font:600 13px var(--sans);text-decoration:none;box-shadow:0 6px 18px rgba(var(--shadow),.3);max-width:min(280px,80vw);overflow:hidden;text-overflow:ellipsis}
+.rgo[hidden]{display:none}
+.rgo:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.coach{position:absolute;left:50%;top:calc((100% - var(--inset,0px)) / 2);transform:translate(-50%,-50%);z-index:6;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 20px 14px;border-radius:14px;background:color-mix(in srgb,var(--card) 95%,transparent);border:1px solid var(--rule);color:var(--ink);box-shadow:0 12px 36px rgba(var(--shadow),.22);pointer-events:none;opacity:0;transition:opacity .45s var(--ease);max-width:240px;text-align:center}
+.coach.on{opacity:1}
+.coach[hidden]{display:none}
+.coach p{margin:0;font:500 13.5px/1.35 var(--sans)}
+.coach .cp{display:none}
+.coach.touch .cm{display:none}.coach.touch .cp{display:block}
+.coach .wheel{animation:cw 1.4s var(--ease) infinite}
+.coach .arr{animation:ca 1.4s var(--ease) infinite}
+@keyframes cw{0%,15%{transform:translateY(0);opacity:1}55%{transform:translateY(-5px);opacity:.35}100%{transform:translateY(0);opacity:1}}
+@keyframes ca{0%,20%{opacity:.15;transform:translateY(3px)}55%{opacity:1;transform:translateY(0)}100%{opacity:.15;transform:translateY(3px)}}
+.coach .f1{animation:cf1 1.6s var(--ease) infinite}
+.coach .f2{animation:cf2 1.6s var(--ease) infinite}
+@keyframes cf1{0%,12%{transform:translate(4px,-4px)}60%,80%{transform:translate(-7px,7px)}100%{transform:translate(4px,-4px)}}
+@keyframes cf2{0%,12%{transform:translate(-4px,4px)}60%,80%{transform:translate(7px,-7px)}100%{transform:translate(-4px,4px)}}
+@media (prefers-reduced-motion:reduce){.coach .wheel,.coach .arr,.coach .f1,.coach .f2{animation:none}}
 .hint{font-size:12.5px;color:var(--graphite);transition:opacity .3s var(--ease);pointer-events:none}
 .hint.gone{opacity:0}
 .key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:12px;color:var(--graphite);background:color-mix(in srgb,var(--paper) 86%,transparent);border-radius:6px;padding:5px 8px 5px 6px}
@@ -338,12 +355,18 @@ body.loadingView .vmenu button[data-v="globe"],body.loadingView .vbtn{cursor:pro
 <script>
 /* Usage tracking (PostHog, US region). Runs only on tryrecipedia.com, never in previews or on localhost.
    Session replays include the plate canvas at 2 frames a second. Events are sent with track(name, props). */
-const PH_ON = /(^|\.)tryrecipedia\.com$/.test(location.hostname), phq = [];
+// tryrecipedia.com/uat/ is the test copy (UAT): same file as prod, but no analytics, hidden from search, and marked on screen
+const UAT = /\/uat(\/|$)/.test(location.pathname);
+if (UAT) { document.title = 'Recipedia UAT'; document.head.insertAdjacentHTML('beforeend', '<meta name="robots" content="noindex,nofollow">');
+  addEventListener('DOMContentLoaded', () => document.body.insertAdjacentHTML('beforeend', '<div class="uatbadge" aria-hidden="true">UAT build, not live</div>')); }
+const PH_ON = !UAT && /(^|\.)tryrecipedia\.com$/.test(location.hostname), phq = [];
 function track(ev, props) { try { if (!PH_ON) return; if (window.posthog && posthog.__loaded) posthog.capture(ev, props); else phq.push([ev, props]); } catch (e) {} }
 if (PH_ON) {
-  const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://us-assets.i.posthog.com/static/array.full.js';
+  // PH_PROXY: PostHog's managed proxy on our own subdomain, so ad blockers don't drop events. Empty means talk to PostHog directly.
+  const PH_PROXY = '', phHost = PH_PROXY || 'https://us.i.posthog.com';
+  const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = (PH_PROXY || 'https://us-assets.i.posthog.com') + '/static/array.full.js';
   s.onload = () => { try {
-    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
+    posthog.init('phc_kuto2K4KFKg399SkqTB2GHyFBpuVDs7CChg8fChLqwpk', { api_host: phHost, ui_host: 'https://us.posthog.com', person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
       session_recording: { captureCanvas: { recordCanvas: true, canvasFps: 2, canvasQuality: '0.4' } } });
     phq.splice(0).forEach(([e, p]) => posthog.capture(e, p));
   } catch (e) {} };
@@ -357,6 +380,8 @@ if (PH_ON) {
 .morebtn .dots{width:26px;text-align:center;font-size:16px;letter-spacing:1px;line-height:1}
 .morebtn:hover{background:var(--hover);color:var(--ink)}
 .results li.cat .n{font-weight:600}
+.results li.filt .n{font-weight:600}
+.results li.filt + li{margin-top:4px;border-top:1px solid var(--rule)}
 .results li.kid{padding-left:30px;position:relative}
 .results li.kid::before{content:"";position:absolute;left:15px;top:0;bottom:0;border-left:1px solid var(--rule)}
 .results li.kid .n{font-weight:400}
@@ -376,6 +401,102 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
 .panel .psearch{padding-right:58px}
 .panel .psearch .kbd{right:68px}
 .pclose{top:18px}
+
+.uatbadge{position:fixed;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);z-index:40;font:600 10.5px/1 var(--sans);letter-spacing:.02em;background:#B04E27;color:#fff;border-radius:0 0 8px 8px;padding:4px 10px 5px;pointer-events:none}
+
+/* v37: calmer dish panel; on phones the toolbar steps aside inside the plate and search is an icon */
+.rc{display:block;padding:0;gap:0}
+.rrow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:baseline;column-gap:10px;row-gap:3px;padding:12px 0;text-decoration:none;color:inherit}
+.rrow .who{font-weight:500;font-size:14px}
+.rrow .tm{font-size:12.5px;color:var(--graphite);white-space:nowrap}
+.rrow .ext{color:var(--graphite);align-self:center;display:grid}
+.rrow .ext svg{width:12px;height:12px}
+.rrow .diff{grid-column:1/-1;font-family:var(--serif);font-size:15px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rrow .diff.q{font:13px var(--sans);color:var(--graphite)}
+.rrow:hover .who{text-decoration:underline;text-underline-offset:3px}
+.rrow:hover .ext{color:var(--ink)}
+.rrow:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.rc .mine{margin:-4px 0 10px}
+.rfoot{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin:8px 0 0}
+.rfoot .radd{display:contents}
+.rfoot .raddf{flex:1 0 100%}
+.qlink,.rfoot .radd button,.radd button[data-tw="open"]{background:none;border:0;padding:8px 0;font:13px var(--sans);color:var(--ink);text-decoration:underline;text-decoration-color:var(--edge);text-underline-offset:3px;cursor:pointer}
+.qlink:hover,.rfoot .radd button:hover,.radd button[data-tw="open"]:hover{text-decoration-color:var(--ink);background:none}
+.cmpbox{overflow-x:auto;margin:6px 0 4px}
+.out.outq{display:block;font-size:13px;color:var(--graphite);margin:10px 0 0;line-height:1.7}
+.outq a{display:inline;border:0;padding:0;font-size:13px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--edge);text-underline-offset:3px}
+.outq a:hover{text-decoration-color:var(--ink)}
+.sopen,.vbtn .vic,.fchip{display:none}
+@media (max-width:760px){
+  .cmpt{display:table;min-width:100%}
+  .top{padding-right:104px}
+  body:not(.sopen) .top .psearch{display:none}
+  body.sopen .top .psearch{margin-right:-104px}
+  .viewsw{display:flex;gap:8px;align-items:flex-start}
+  .sopen{display:inline-grid;place-items:center;width:40px;height:40px;border:1px solid var(--edge);border-radius:6px;background:var(--card);color:var(--ink);cursor:pointer;padding:0}
+  .sopen svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+  body.sopen .sopen{background:var(--hover)}
+  .vbtn{min-height:40px;padding:0 8px 0 10px;gap:4px}
+  .vbtn .vic{display:inline-grid;place-items:center}
+  .vbtn .vic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .vbtn #vname{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .foot .key{max-height:60px;transition:max-height .25s var(--ease),opacity .2s ease,visibility 0s}
+  body.deep .foot .key{max-height:0;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;margin-top:-8px;transition:max-height .25s var(--ease),opacity .2s ease,margin .25s,visibility 0s .25s}
+  .fchip:not([hidden]){display:inline-flex}
+  .fchip b{font-weight:500}
+  .zoom{transition:bottom .25s var(--ease)}
+  body.deep .zoom{bottom:calc(16px + var(--inset) + env(safe-area-inset-bottom,0px))}
+  body.deep.fon .zoom{bottom:calc(16px + var(--inset) + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.foot .key,body.deep .foot .key,.zoom{transition:none}}
+/* v34: first screen, phone layout, focus, polish */
+.key{background:none;padding:0;gap:8px;align-items:center;flex-wrap:nowrap}
+.toggle,.vbtn,.zoom,.search,.filter,.fsheet .fo,.pclose,.radd button,.raddf button,.go,.btn,.twf textarea,.out a{border-color:var(--edge)}
+.toggle.act{min-height:28px;box-sizing:border-box;padding:4px 11px 4px 9px;font-size:12.5px;border-radius:6px;gap:7px;color:var(--ink);font-weight:500}
+.toggle.prime{background:var(--ink);border-color:var(--ink);color:var(--card)}
+.toggle.prime:hover{background:var(--ink);border-color:var(--ink);color:var(--card);opacity:.88}
+.toggle.second{border-color:var(--ink)}
+.toggle.second:hover{background:var(--hover);border-color:var(--ink)}
+.sw #sbtn{border-radius:6px 0 0 6px}
+.sw .scaret{border-radius:0 6px 6px 0;margin-left:-1px;padding:4px 7px}
+.sw .scaret[aria-expanded="true"]{background:var(--hover)}
+#fbtn.act{font-weight:400}
+.key .lbl-s{display:none}
+.quiet{background:color-mix(in srgb,var(--paper) 86%,transparent);border:0;border-radius:4px;padding:4px 5px;margin-left:2px;font:12px var(--sans);color:var(--graphite);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--edge);cursor:pointer}
+.quiet:hover{color:var(--ink);text-decoration-color:var(--ink)}
+#cookbtn{display:none!important}
+.pkey{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:12px;color:var(--graphite);background:color-mix(in srgb,var(--paper) 86%,transparent);border-radius:6px;padding:3px 4px 3px 2px}
+.pkey span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.pkey svg{flex:none}
+.pkey button{background:none;border:0;padding:4px;margin-left:-6px;color:var(--graphite);cursor:pointer;display:grid;place-items:center;border-radius:4px}
+.pkey button:hover{color:var(--ink);background:var(--hover)}
+.fsheet .fo:focus-visible,.fsheet .fh button:focus-visible,.fsheet .fmore:focus-visible,.smenu button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.smenu button:focus-visible{outline-offset:-2px}
+.boot .btn{margin-left:6px;pointer-events:auto;font-family:var(--sans)}
+body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
+.ranks .nw{white-space:nowrap}
+.twf .cnt{float:none;display:block;text-align:right;margin:-2px 0 8px}
+.cmpt{table-layout:auto}
+.cmpt th,.cmpt td{overflow-wrap:normal;hyphens:manual}
+@media (max-width:760px){
+  .pkey{flex-wrap:nowrap}
+  .pkey span:nth-child(3){display:none}
+  .foot{left:12px;right:12px}
+  .zoom{bottom:calc(16px + 44px + var(--inset) + env(safe-area-inset-bottom,0px))}
+  .zoom button{width:36px;height:36px}
+  .key{gap:6px}
+  .toggle.act{min-height:36px;font-size:12.5px;padding:4px 10px 4px 9px;gap:6px}
+  .sw .scaret{padding:4px 9px}
+  #fbtn.act{padding:0 11px}
+  #fbtn .lblf{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .key .lbl{display:none}
+  .key .lbl-s{display:inline}
+  .quiet{display:none}
+  .vbtn{min-height:44px}
+  .pclose{width:44px;height:44px;top:2px;right:6px}
+  .grab{height:28px}
+  .fsheet .fo{padding:9px 12px}
+}
 @media (max-width:760px){
   .top{flex-wrap:wrap}
   .crumbs{flex:1 1 0;min-width:0}
@@ -384,35 +505,44 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
   .top .psearch .results{left:0;right:0;width:auto;top:50px}
   body.nopanel .panel{transform:translateY(105%)}
   .pclose{top:4px;right:8px}
+  .top .psearch{margin-top:14px} /* clears the 44px view button */
 }
 </style>
 <div class="app">
   <main class="stage" id="stage">
     <div class="boot" id="boot" role="status">Loading the map</div>
-    <canvas id="map" tabindex="0" role="application" aria-roledescription="map" aria-label="Recipedia map. Arrow keys move between neighbors, Enter opens, Escape goes up a level, plus and minus zoom."></canvas>
     <header class="top">
       <button class="mark" id="home" title="Whole plate">Recipedia</button>
       <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
       <div class="psearch">
       <svg class="i" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.2"/><path d="M10.2 10.2L13.5 13.5"/></svg>
-      <input id="q" class="search" type="search" placeholder="Search dishes, cuisines, cooks" autocomplete="off" spellcheck="false" aria-label="Search dishes, cuisines and cooks" aria-controls="results">
+      <input id="q" class="search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" placeholder="Search dishes, cuisines, cooks" autocomplete="off" spellcheck="false" aria-label="Search dishes, cuisines and cooks" aria-controls="results">
       <span class="kbd" id="kbd">&#8984;K</span>
       <ul class="results" id="results" role="listbox" hidden></ul>
     </div>
     </header>
+    <canvas id="map" tabindex="0" role="application" aria-roledescription="map" aria-label="Recipedia map. Arrow keys move between neighbors, Enter opens, Escape goes up a level, plus and minus zoom."></canvas>
     <div class="tip" id="tip" hidden></div>
+    <a class="rgo" id="rgo" target="_blank" rel="noopener noreferrer" hidden></a>
+    <div class="coach" id="coach" aria-hidden="true" hidden>
+      <svg class="cm" viewBox="0 0 64 64" width="64" height="64"><rect x="20" y="9" width="24" height="38" rx="12" fill="none" stroke="currentColor" stroke-width="2.4"/><line x1="32" y1="9" x2="32" y2="22" stroke="currentColor" stroke-width="1.6" opacity=".45"/><rect class="wheel" x="29.5" y="14" width="5" height="8" rx="2.5" fill="currentColor"/><path class="arr" d="M52 22 l4 -5 l4 5 M52 34 l4 -5 l4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="cp" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4" opacity=".45"/><circle class="f1" cx="26" cy="38" r="6.5" fill="currentColor"/><circle class="f2" cx="38" cy="26" r="6.5" fill="currentColor"/></svg>
+      <p id="coacht"></p>
+    </div>
     <div class="foot">
       <div class="hint" id="hint">Click to go one level in. Scroll or pinch to zoom.</div>
+      <div class="pkey" id="pkey" hidden><span><svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><text x="0" y="8.5" font-size="9" fill="currentColor" font-family="var(--sans)">Aa</text><circle cx="13.5" cy="5.5" r="2" fill="currentColor"/></svg>has a recipe</span><span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x=".5" y=".5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-opacity=".5"/><path d="M-1 5L5-1M-1 11L11-1M5 13L13 5" stroke="currentColor" stroke-width=".9" stroke-opacity=".7"/></svg>more dishes inside</span><span><svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><rect x=".5" y="5.5" width="5" height="5" rx="1" fill="currentColor" fill-opacity=".35"/><rect x="6.5" y="1.5" width="7" height="9" rx="1.2" fill="currentColor" fill-opacity=".35"/></svg>bigger = better known</span><button type="button" id="pkeyx" aria-label="Hide this key"><svg class="i" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></button></div>
       <div class="key" id="key">
-        <button class="toggle" id="fbtn" aria-haspopup="dialog" aria-expanded="false" title="Filter dishes by ingredient or difficulty"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>Filter<b class="fn" id="fn" hidden></b></button>
-        <div class="sw"><button class="toggle" id="sbtn" aria-haspopup="menu" aria-expanded="false" title="Go to a random dish"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2.5"/><circle cx="5.8" cy="5.8" r=".9" fill="currentColor"/><circle cx="10.2" cy="10.2" r=".9" fill="currentColor"/><circle cx="10.2" cy="5.8" r=".9" fill="currentColor"/><circle cx="5.8" cy="10.2" r=".9" fill="currentColor"/></svg>Surprise me</button><div class="smenu" id="smenu" role="menu" hidden></div></div>
-        <button class="toggle" id="favbtn" title="Pick dishes you love and see what to try next">Pick 3 favorites</button>
-        <button class="toggle" id="aboutbtn" title="What Recipedia is, and ways to browse it">About</button>
+        <button class="toggle act prime" id="favbtn" title="Pick 3 dishes you cook or love, and see what to try next"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><span class="lbl">Start from dishes you cook</span><span class="lbl-s">Dishes you cook</span></button>
+        <div class="sw"><button class="toggle act second" id="sbtn" title="Jump to a random dish that has a recipe"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2.5"/><circle cx="5.8" cy="5.8" r=".9" fill="currentColor"/><circle cx="10.2" cy="10.2" r=".9" fill="currentColor"/><circle cx="10.2" cy="5.8" r=".9" fill="currentColor"/><circle cx="5.8" cy="10.2" r=".9" fill="currentColor"/></svg>Surprise me</button><button class="toggle act second scaret" id="scaret" aria-haspopup="menu" aria-expanded="false" aria-controls="smenu" aria-label="Surprise me from one course" title="Pick a course"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 9.5L8 6l3.5 3.5"/></svg></button><div class="smenu" id="smenu" role="menu" aria-label="Surprise me from" hidden></div></div>
+        <button class="toggle act" id="fbtn" aria-haspopup="dialog" aria-expanded="false" title="Filter dishes by ingredient or difficulty"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg><span class="lblf">Filter</span><b class="fn" id="fn" hidden></b></button>
+        <button class="quiet" id="aboutbtn" title="How to read the plate, and where the data comes from">About</button>
         <button class="toggle" id="cookbtn" aria-pressed="false" title="Add this dish to the ones you cook" hidden><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 6.4l2.5 2.5 5.1-5.6"/></svg>I cook this</button>
       </div>
+      <button type="button" class="toggle act fchip" id="fchip" hidden title="A filter is on"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>Filter<b></b></button>
     </div>
     <div class="viewsw" id="viewsw">
-      <button class="vbtn" id="vbtn" aria-haspopup="true" aria-expanded="false" aria-controls="vmenu"><span class="vk">View</span><b id="vname">Plate</b><svg class="i" viewBox="0 0 16 16"><path d="M4.5 6.5L8 10l3.5-3.5"/></svg></button>
+      <button class="sopen" id="sopen" type="button" aria-label="Search" aria-expanded="false" aria-controls="q"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button><button class="vbtn" id="vbtn" aria-haspopup="true" aria-expanded="false" aria-controls="vmenu"><span class="vk">View</span><span class="vic" id="vic" aria-hidden="true"></span><b id="vname">Plate</b><svg class="i" viewBox="0 0 16 16"><path d="M4.5 6.5L8 10l3.5-3.5"/></svg></button>
       <div class="vmenu" id="vmenu" role="menu" aria-label="View" hidden>
         <button role="menuitemradio" aria-checked="false" data-v="start"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><b>Your kitchen</b><span>Find your next dish, from what you cook today.</span></button>
         <button role="menuitemradio" aria-checked="false" data-v="zoom" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><circle cx="11" cy="12" r="4.4"/><circle cx="11.6" cy="13.2" r="1.8"/></svg><b>Infinite zoom</b><span>Keep zooming. Every dish opens onto a cousin.</span></button>
@@ -421,6 +551,7 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
         <button role="menuitemradio" aria-checked="false" data-v="globe" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M2.6 7.2l5 1.6 2.4-6.6M8 8.8l-.6 9M7.6 8.8l9.8 1.4M12.6 10.6l-1.4 7.3"/></svg><b>Tiled globe</b><span>Cuisines tile the world.</span></button>
         <div class="vsep" role="separator"></div>
         <button role="menuitem" data-browse="1"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5.5h12M4 10h12M4 14.5h8"/></svg><b>Browse</b><span>Dish types, recipe websites and every cuisine.</span></button>
+        <button role="menuitem" data-about="1"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5"/><circle cx="10" cy="6.3" r=".6" fill="currentColor"/></svg><b>About Recipedia</b><span>How to read the plate, and where the data comes from.</span></button>
       </div>
     </div>
     <div class="zoom">
@@ -439,7 +570,7 @@ body.nopanel .panel{visibility:hidden;overflow:hidden;border-left:0}
 
 <script>
 /* if anything stops the map from starting, say so on the page instead of leaving it blank */
-window.bootFail = m => { const b = document.getElementById('boot'); if (b) { b.textContent = 'The map could not start (' + m + '). Try reloading.'; b.classList.add('err'); } };
+window.bootFail = m => { const b = document.getElementById('boot'); if (b) { b.innerHTML = 'The map could not load. Check your connection, then <button type="button" class="btn" onclick="location.reload()">Reload</button>'; b.title = String(m); b.classList.add('err'); document.body.classList.add('bootfail'); } };
 window.addEventListener('error', e => { const t = e.target; if (t && t.tagName === 'SCRIPT') bootFail('a script did not load'); else if (e.message) bootFail(e.message); }, true);
 window.addEventListener('unhandledrejection', e => bootFail((e.reason && e.reason.message) || 'data did not load'));
 </script>
@@ -685,6 +816,12 @@ const easeEmph = (() => { // cubic-bezier(.16,1,.3,1) for camera flights
 
 let userZoom = false, settleTimer = 0, drag = [], inertiaRaf = 0;
 const zoom = d3.zoom().clickDistance(5)
+  .constrain(t => { // on the flat plate, the middle of the view always stays over the plate, so it can't be dragged away
+    if (VIEW3D || GALAXY || HOME || !W) return t;
+    const cx = W / 2, cy = insetTop + (H - insetTop - insetBottom) / 2, wx = (cx - t.x) / t.k, wy = (cy - t.y) / t.k, d = Math.hypot(wx, wy), lim = R * 0.85;
+    if (d <= lim) return t;
+    const f = lim / d; return d3.zoomIdentity.translate(cx - wx * f * t.k, cy - wy * f * t.k).scale(t.k);
+  })
   .on('start', e => { if (e.sourceEvent) { userZoom = true; stopInertia(); clearTimeout(settleTimer); drag = []; } })
   .on('zoom', e => {
     if (VIEW3D) return globeGesture(e);
@@ -985,6 +1122,7 @@ function measureChrome() {
   const sr = stage.getBoundingClientRect(), rel = el => { const r = el.getBoundingClientRect(); return { x: r.left - sr.left - 6, y: r.top - sr.top - 6, w: r.width + 12, h: r.height + 12 }; };
   insetTop = Math.max(56, TOPEL.getBoundingClientRect().bottom - sr.top + 8);
   blocked = [rel(document.getElementById('home')), rel(ZOOMEL), rel(document.getElementById('key')), rel(document.getElementById('viewsw'))];
+  const pk = document.getElementById('pkey'); if (pk && !pk.hidden) blocked.push(rel(pk));
   if (CRB.childElementCount) blocked.push(rel(CRB));
   const hn = document.getElementById('hint'); if (hn && !hn.hidden && !hn.classList.contains('gone')) blocked.push(rel(hn)); // the first-visit hint, while it shows
 }
@@ -1281,7 +1419,17 @@ function paint() {
   ownBox = null;
   ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   if (PT && PT.sr > 3 && paintPortal(PT)) more = true;
+  placeRgo();
   if (more) draw();
+}
+const RGO = document.getElementById('rgo');
+function placeRgo() { // the Open pill sits just under the chosen recipe's tile while the tile is big enough to read
+  const r = S.mode === 'dish' && S.recipe, tl = r && !HOME && !GALAXY && !VIEW3D && tileOf(r);
+  if (!tl) { RGO.hidden = true; return; }
+  const x = T.applyX(tl.lx), y = T.applyY(tl.ly), rr = tl.lr * T.k, top = y + Math.min(rr * 0.5, rr - 18);
+  if (rr < 26 || x < 40 || x > W - 40 || top < insetTop + 10 || top > H - insetBottom - 40) { RGO.hidden = true; return; }
+  if (RGO.dataset.r !== String(r.i)) { RGO.dataset.r = r.i; RGO.href = r.url; RGO.textContent = `Open on ${r.source} ↗`; RGO.setAttribute('aria-label', `Open ${r.title} on ${r.source} (new tab)`); }
+  RGO.style.left = x + 'px'; RGO.style.top = top + 'px'; RGO.hidden = false;
 }
 const lum = hex => { const n = parseInt(hex.slice(1), 16), f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(n >> 16 & 255) + 0.7152 * f(n >> 8 & 255) + 0.0722 * f(n & 255); };
 const hexMix = (a, b, t) => { const x = parseInt(a.slice(1), 16), y = parseInt(b.slice(1), 16); return '#' + [16, 8, 0].map(sh => Math.round(((x >> sh) & 255) * (1 - t) + ((y >> sh) & 255) * t).toString(16).padStart(2, '0')).join(''); };
@@ -2275,7 +2423,7 @@ document.addEventListener('keydown', e => { if (e.target.id === 'kadd' && e.key 
    Start where you are, infinite zoom, the flat plate (the default), the spiral galaxy and the tiled globe all share one state, one panel, one search and
    the same links. Switching keeps what you had open and moves the camera to it. The choice is remembered on this device. */
 const VIEWS = {
-  start: { name: 'Your kitchen', short: 'Kitchen', live: 'Your kitchen. The dishes you cook are in the middle, with what is one step away around them.' },
+  start: { name: 'Your kitchen', short: 'Your kitchen', live: 'Your kitchen. The dishes you cook are in the middle, with what is one step away around them.' },
   zoom: { name: 'Infinite zoom', short: 'Zoom', live: 'Infinite zoom. Keep zooming into a dish to go through to its cousin.' },
   plate: { name: 'The whole plate', short: 'Plate', live: 'The whole plate.' },
   galaxy: { name: 'Spiral galaxy', short: 'Galaxy', live: 'Galaxy view. Every dish is a star. Scroll to fly in, click a star to open it.' },
@@ -2286,6 +2434,7 @@ let wantView = null;
 const VBTN = document.getElementById('vbtn'), VMENU = document.getElementById('vmenu');
 function markView(v) {
   document.getElementById('vname').textContent = VIEWS[v].short;
+  { const ic = document.querySelector(`#vmenu [data-v="${v}"] svg`); document.getElementById('vic').innerHTML = ic ? ic.outerHTML : ''; }
   VMENU.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.v === v)));
 }
 function setView(v, { save = true } = {}) {
@@ -2324,7 +2473,7 @@ function openViews(on) {
   if (on) (VMENU.querySelector('[aria-checked="true"]') || VMENU.querySelector('[data-v]')).focus();
 }
 VBTN.addEventListener('click', e => { e.stopPropagation(); openViews(VMENU.hidden); });
-VMENU.addEventListener('click', e => { if (e.target.closest('[data-browse]')) { track('Opened browse'); openViews(false); aboutFirst = false; worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
+VMENU.addEventListener('click', e => { if (e.target.closest('[data-about]')) { openViews(false); document.getElementById('aboutbtn').click(); return; } if (e.target.closest('[data-browse]')) { track('Opened browse'); openViews(false); aboutFirst = false; worldPanel = true; panelShut = false; if (S.mode !== 'world') goWorld(); else { syncPanel(); renderPanel(0); } return; } const x = e.target.closest('[data-x]'); if (x) { openViews(false); VBTN.focus(); exportCSV(x.dataset.x); return; } const b = e.target.closest('[data-v]'); if (!b) return; openViews(false); VBTN.focus(); setView(b.dataset.v); });
 VMENU.addEventListener('keydown', e => {
   const items = [...VMENU.querySelectorAll('button:not([hidden])')], i = items.indexOf(document.activeElement);
   if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); }
@@ -2549,7 +2698,15 @@ function act(h) {
   if (h.type === 'sub') return goSub(h.ref);
   if (h.type === 'more') return goGroup(h.ref); // the family fills the view, so every dish appears
   if (h.type === 'dish') return h.here ? null : goDish(h.ref);
-  if (h.type === 'recipe') return goDish(h.ref.dish, h.ref);
+  if (h.type === 'recipe') {
+    if (S.recipe === h.ref) { // a second tap on the chosen recipe opens it
+      window.open(h.ref.url, '_blank', 'noopener');
+      let site = ''; try { site = new URL(h.ref.url).hostname.replace(/^www\./, ''); } catch (e) {}
+      track('Clicked out', { kind: 'recipe', via: 'tile', site, dish: h.ref.dish.name, cuisine: h.ref.dish.cuisine.name });
+      return null;
+    }
+    return goDish(h.ref.dish, h.ref);
+  }
 }
 sel.on('click', e => { const r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top, h = pick(mx, my); hideHint(); tapAt(mx, my, h); act(h); });
 /* Plate heatmap data. Taps and resting views are sent in plate coordinates (x, y from -1 to 1, centre 0,0, zoom 1 = whole plate),
@@ -2716,6 +2873,7 @@ const bookItem = (b, note) => `<li class="book"><p class="bt"><a href="${hB(b)}"
 const dishRow = (d, rank, sub, cls = '') => `<li><a class="row${cls}" href="${hD(d)}" data-d="${d.id}" data-name="${esc(norm(d.name))}"><span class="g">${glyph(d, gsize(d.score, 100), rcVar(d))}</span><span class="nm">${esc(d.name)}${d.recipes.length ? `<span class="has">${plural(d.recipes.length, 'recipe')}</span>` : ''}</span><span class="rk">${rank}</span>${sub ? `<span class="sub">${esc(sub)}</span>` : ''}</a></li>`;
 const recipeRow = (r, rank, sub) => `<li><a class="row" href="${hR(r)}" data-r="${r.i}"><span class="g">${glyph(r.dish, gsize(r.dish.score, 100), rcVar(r.dish))}</span><span class="nm">${esc(r.dish.name)}</span><span class="rk">${rank}</span><span class="sub">${esc(sub)}</span></a></li>`;
 const sec = (title, n) => `<div class="sec"><h3>${esc(title)}</h3>${n !== undefined && n !== '' ? `<span class="n">${n}</span>` : ''}</div>`;
+const searchLine = name => { const q = encodeURIComponent(name), qr = encodeURIComponent(name + ' recipe'), a = (u, t) => `<a href="${u}" target="_blank" rel="noopener noreferrer">${t}</a>`; return `<p class="out outq">More on ${a('https://www.seriouseats.com/search?q=' + q, 'Serious Eats')} · ${a('https://cooking.nytimes.com/search?q=' + q, 'NYT Cooking')} · ${a('https://www.bbcgoodfood.com/search?q=' + q, 'BBC Good Food')} · ${a('https://www.google.com/search?q=' + qr, 'Google')}</p>`; };
 const searchOut = (name, lead) => { const q = encodeURIComponent(name), qr = encodeURIComponent(name + ' recipe'); return `<p class="note">${lead}</p><div class="out"><a href="https://www.seriouseats.com/search?q=${q}" target="_blank" rel="noopener noreferrer">Serious Eats ${ICON.ext}</a><a href="https://cooking.nytimes.com/search?q=${q}" target="_blank" rel="noopener noreferrer">NYT Cooking ${ICON.ext}</a><a href="https://www.bbcgoodfood.com/search?q=${q}" target="_blank" rel="noopener noreferrer">BBC Good Food ${ICON.ext}</a><a href="https://www.google.com/search?q=${qr}" target="_blank" rel="noopener noreferrer">Google ${ICON.ext}</a></div>`; };
 
 /* the specimen: the current node drawn as it sits on the plate, with its own subdivisions */
@@ -2761,7 +2919,7 @@ function groupList(g) { // every dish, ranked; a split family lists them under i
 }
 function aboutHTML() {
   let h = '';
-    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. A dish's size shows roughly how popular it is.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p><p>Visits are recorded anonymously, including where people tap and zoom, to see how the map gets used and make it better.</p></div>`;
+    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. Click or tap your way in: a cuisine, then a course, then a kind of dish, then the dish. Inside a dish, each cell is one cook's recipe.</p><p>Bigger tiles are better-known dishes. A dot after a name means it has a recipe. Striped tiles hold more dishes; zoom in to open them.</p><p><b>Start from dishes you cook</b> opens Your kitchen: pick 3 dishes you already make, and Recipedia suggests what to try next, from close cousins to a leap. <b>Surprise me</b> jumps to a random dish with a recipe; the arrow next to it picks a course.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p><p>Visits are recorded anonymously, including where people tap and zoom, to see how the map gets used and make it better.</p></div>`;
   return h;
 }
 function renderPanel(dir = 0) {
@@ -2826,20 +2984,23 @@ function renderPanel(dir = 0) {
     let inner = `<h2>${esc(d.name)}</h2>${d.gloss ? `<p class="gloss">${esc(d.gloss)}</p>` : ''}`;
     inner += `<div class="chips">${chipC(d.cuisine)}<a class="chip" href="${hK(d.kc)}" data-k="${d.kc.i}">${esc(d.course.name)}</a><a class="chip" href="${hG(d.group)}" data-g="${d.group.i}">${esc(d.family.name)}</a>${d.sub ? `<a class="chip" href="${hS(d.sub)}" data-s="${d.sub.i}">${esc(d.sub.name)}</a>` : ''}${d.tag ? `<a class="chip" href="${hT(d.cuisine.tags.find(t => t.name === d.tag) || { cuisine: d.cuisine, name: d.tag })}">${esc(d.tag)}</a>` : ''}</div>`;
     inner += `<button class="toggle" data-cook="${d.id}" aria-pressed="${KITCHEN.has(d)}">${COOK_ICON}I cook this</button>`;
-    inner += `<p class="ranks" title="Popularity is an editorial estimate, 1 to 100, of how widely a dish is known, cooked and ordered."><b>#${d.rankG}</b> in ${esc(d.family.name)} · <b>#${d.rankC}</b> in ${esc(d.cuisine.name)}${d.rankW <= 500 ? ` · <b>#${d.rankW}</b> worldwide` : ''} · popularity <b>${d.score}</b></p>`;
+    inner += `<p class="ranks" title="Ranked by how widely a dish is known, cooked and ordered (an editorial estimate)."><span class="nw"><b>#${d.rankG}</b> in ${esc(d.family.name)}</span> <span class="nw">· <b>#${d.rankC}</b> in ${esc(d.cuisine.name)}</span>${d.rankW <= 500 ? ` <span class="nw">· <b>#${d.rankW}</b> worldwide</span>` : ''}</p>`;
     h += head(rcVar(d), inner, specimen(gd, tiles.length ? tiles.map(t => ({ poly: t.poly, w: 1 })) : [{ poly: gd.poly, w: 1 }], rcVar(d)));
-    h += sec(CMP[d.id] ? 'Recipes, and how they differ' : 'Recipes', d.recipes.length || '');
+    h += sec('Recipes', d.recipes.length || '');
     if (d.recipes.length) {
-      h += cmpTable(d);
-      h += `<ul class="recipes">${d.recipes.map(r => `<li class="rc" data-r="${r.i}"><a class="who" href="${hR(r)}">${esc(r.author)}</a><a class="go" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Open ${ICON.ext}</a><span class="src">${r.author.includes(r.source) || r.source.includes(r.author) ? '' : esc(r.source)}</span>${r.note ? `<span class="note2">${esc(r.note)}</span>` : ''}${cmpHtml(r)}${mineHtml(r)}</li>`).join('')}</ul>`;
-      h += addHtml();
-      h += searchOut(d.name, 'Look for more versions:');
+      const tbl = cmpTable(d);
+      // one row per recipe: who, how long, and the one thing that sets it apart; the whole row opens the recipe
+      h += `<ul class="recipes">${d.recipes.map(r => { const c = CMP[d.id], v = c && c.r[r.url], tm = v ? cmpTime(v[c.a.length]) : ''; const diff = r.note || (r.author.includes(r.source) || r.source.includes(r.author) ? '' : r.source);
+        return `<li class="rc" data-r="${r.i}"><a class="rrow" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><span class="who">${esc(r.author)}</span>${tm ? `<span class="tm">${tm}</span>` : '<span></span>'}<span class="ext">${ICON.ext}</span>${diff ? `<span class="diff${r.note ? '' : ' q'}">${esc(diff)}</span>` : ''}</a>${mineHtml(r)}</li>`; }).join('')}</ul>`;
+      h += `<div class="rfoot">${tbl ? `<button type="button" class="qlink" data-cmp="${d.id}" aria-expanded="false" aria-controls="cmpbox">Compare side by side</button>` : ''}${addHtml()}</div>`;
+      if (tbl) h += `<div class="cmpbox" id="cmpbox" hidden>${tbl}</div>`;
+      h += searchLine(d.name);
     } else h += addHtml() + searchOut(d.name, 'No recipe is linked here yet. Search trusted sites:');
     h += `<div id="vrec" data-d="${d.id}"></div>` + tweaksHtml(d);
     const near = d.sub || d.group, nearList = F(near.dishes).filter(x => x !== d);
     const nearName = d.sub ? `More ${d.sub.name.toLowerCase()} from ${d.cuisine.name}` : `More ${d.family.name.toLowerCase()} from ${d.cuisine.name}`;
     if (nearList.length) {
-      h += sec(nearName, nearList.length) + `<ul class="list">${foldList('near', nearList).map(x => dishRow(x, d.sub ? near.dishes.indexOf(x) + 1 : x.rankG, '')).join('')}</ul>` + moreRow('near', nearList);
+      h += sec(nearName, nearList.length) + `<ul class="list">${foldList('near', nearList).map(x => dishRow(x, '', '')).join('')}</ul>` + moreRow('near', nearList);
       if (shown.has('near')) h += `<div class="actions"><a class="linkbtn" href="${d.sub ? hS(d.sub) : hG(d.group)}">See them on the plate ${ICON.fwd}</a></div>`;
     }
     const st = HOME ? homeModel().t : SG.tiers([d], { n: 3, onlyRec }), seen = new Set([d, ...d.related.map(x => x.dish)]);
@@ -2927,9 +3088,16 @@ P.addEventListener('submit', e => {
   if (!t || !s) { msg.textContent = 'Give it a title and a site.'; return; }
   MINE.push({ d: d.id, u: g.url, t, a, s, n: f.n.value.trim() });
   if (!saveMine()) { MINE.pop(); msg.textContent = 'This browser would not save it.'; return; }
-  msg.textContent = 'Adding…'; track('Sent recipe link', { dish: d.name, site: s });
+  msg.textContent = 'Adding…'; const sb = f.querySelector('[type=submit]'); if (sb) sb.disabled = true;
   sbSend('recipe_submissions', { dish_id: d.id, url: g.url, title: t.slice(0, 200), cook: a.slice(0, 120), site: s.slice(0, 120), note: f.n.value.trim().slice(0, 300) || null })
-    .catch(() => {}).finally(() => location.reload()); // the map is rebuilt with the new recipe in it
+    .then(() => { track('Sent recipe link', { dish: d.name, site: s }); location.reload(); }, // the map is rebuilt with the new recipe in it
+      err => { MINE.pop(); saveMine(); msg.textContent = netMsg(err); if (sb) sb.disabled = false; }); // nothing half-saved: the form stays, ready to try again
+});
+P.addEventListener('click', e => { // the comparison table opens under its link
+  const b = e.target.closest('[data-cmp]'); if (!b) return;
+  const box = document.getElementById('cmpbox'); if (!box) return;
+  box.hidden = !box.hidden; b.setAttribute('aria-expanded', !box.hidden); b.textContent = box.hidden ? 'Compare side by side' : 'Hide comparison';
+  if (!box.hidden) track('Compared recipes', { dish: S.dish && S.dish.name });
 });
 P.addEventListener('click', e => {
   const del = e.target.closest('[data-rdel]');
@@ -2988,6 +3156,7 @@ function renderCrumbs() {
   } else html = parts.map(([n, href], i) => (i ? '<span class="sep">/</span>' : '') + (href ? `<a href="${href}">${esc(n)}</a>` : `<span class="here" aria-current="location">${esc(n)}</span>`)).join('');
   CR.innerHTML = html;
   measureChrome();
+  try { syncKey(); syncDeep(); } catch (e) {} // not ready during boot
 }
 document.getElementById('home').onclick = () => goWorld();
 
@@ -3000,7 +3169,7 @@ const index = [
   ...groups.map(g => ({ n: `${g.cuisine.name} ${g.family.name.toLowerCase()}`, t: plural(g.dishes.length, 'dish'), w: 1000 + g.weight / 100, go: () => goGroup(g), cat: g.dishes, t: `In ${g.cuisine.name} · ${plural(g.dishes.length, 'dish')}` })),
   ...families.map(f => ({ n: f.name, t: `Dish type · ${plural(f.dishes.length, 'dish')}`, w: 1500, go: () => goLens('family', f), f: 1, cat: f.dishes })),
   ...subs.map(sg => ({ n: `${sg.cuisine.name} ${sg.name.toLowerCase()}`, t: `${sg.family.name} · ${sg.dishes.length}`, w: 900 + sg.weight / 100, go: () => goSub(sg), cat: sg.dishes })),
-  ...[...subLens.values()].map(l => ({ n: l.name, t: `Kind of ${l.family.name.toLowerCase()} · ${plural(l.dishes.length, 'dish')}`, w: 1300, go: () => goLens('sub', l), f: 1, cat: l.dishes, k2: norm(subLensName(l)) })),
+  ...[...subLens.values()].map(l => ({ n: l.name, label: subLensName(l), t: `Across cuisines · ${plural(l.dishes.length, 'dish')}`, w: 1300, go: () => goLens('sub', l), f: 1, cat: l.dishes, k2: norm(subLensName(l)) })),
   ...cuisines.flatMap(c => c.tags.map(t => ({ n: t.name, t: `${c.name} style · ${t.dishes.length}`, w: 1400, go: () => goLens('tag', t), f: 1, cat: t.dishes }))),
   ...dishes.map(d => ({ n: d.name, t: d.cuisine.name + (d.recipes.length ? ` · ${plural(d.recipes.length, 'recipe')}` : ''), w: d.score, go: () => goDish(d), f: 1, dish: d })),
   ...[...authors.values()].map(a => ({ n: a.name, t: `Cook · ${plural(a.recipes.length, 'recipe')}`, w: 300 + a.recipes.length, go: () => goLens('author', a), f: 1 })),
@@ -3014,7 +3183,7 @@ function lev(a, b, max) {
 let hits = [], hi = 0, fuzzy = false;
 function search() {
   const q = norm(Q.value.trim());
-  if (!q) { RES.hidden = true; hits = []; return; }
+  if (!q) { resShow(false); hits = []; return; }
   const terms = q.split(/\s+/);
   let list = [];
   for (const x of index) {
@@ -3030,7 +3199,7 @@ function search() {
       const d = Math.min(lev(q, x.k, max), lev(q, x.k.slice(0, q.length), max));
       if (d <= max) list.push([3 + d, -x.w, x.k.length, x]);
     }
-    fuzzy = list.some(a => a[0] >= 3);
+    fuzzy = !list.some(a => a[0] < 3); // only when nothing matched as typed
   }
   list.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2]);
   const ranked = list.map(a => a[3]);
@@ -3046,26 +3215,33 @@ function search() {
     rows.push([c, 'cat']);
     const kids = dishHits.filter(x => home.get(x) === c).sort((a, b) => (b.k === q) - (a.k === q) || b.dish.score - a.dish.score);
     kids.slice(0, 3).forEach(x => rows.push([x, 'kid']));
-    if (kids.length > 3) rows.push([{ n: `${kids.length - 3} more matching in ${c.n}`, t: '', go: c.go }, 'more']);
+    if (kids.length > 3) rows.push([{ n: `${kids.length - 3} more matching in ${c.label || c.n}`, t: '', go: c.go }, 'more']);
   }
   pushLoose();
   rest.slice(0, Math.max(2, 12 - rows.length)).forEach(x => rows.push([x, '']));
+  const fk = [...FLABEL].find(([, l]) => { const n = norm(l); return n === q || n === q + 's' || n + 's' === q; }); // an ingredient: offer the filter first
+  if (fk) { const n = fmatch([fk[0]]).length; if (n) rows.unshift([{ n: `Filter by ${fk[1].toLowerCase()}`, t: plural(n, 'dish'), go: () => { fsel = [fk[0]]; track('Filtered', { picks: fk[1], added: fk[1], matches: n, from: 'search' }); fApply(); } }, 'filt']); }
   const shownRows = rows.slice(0, 14);
   hits = shownRows.map(r => r[0]); hi = 0;
-  RES.innerHTML = (fuzzy && hits.length ? `<li class="note" aria-disabled="true">No exact match. Closest:</li>` : '') + (hits.length ? shownRows.map(([x, kind], i) => `<li role="option" class="${kind}" aria-selected="${i === hi}" data-i="${i}"><span class="n">${esc(x.n)}</span><span class="t">${esc(kind === 'kid' ? x.dish.cuisine.name + (x.dish.recipes.length ? ' · ' + plural(x.dish.recipes.length, 'recipe') : '') : x.t)}</span></li>`).join('') : `<li aria-disabled="true"><span class="t">No match for "${esc(Q.value.trim())}". Check the spelling or try one word.</span></li>`);
-  RES.hidden = false;
+  RES.innerHTML = (fuzzy && hits.length ? `<li class="note" role="presentation">No exact match. Closest:</li>` : '') + (hits.length ? shownRows.map(([x, kind], i) => `<li role="option" id="opt-${i}" class="${kind}" aria-selected="${i === hi}" data-i="${i}"><span class="n">${esc(x.label || x.n)}</span><span class="t">${esc(kind === 'kid' ? x.dish.cuisine.name + (x.dish.recipes.length ? ' · ' + plural(x.dish.recipes.length, 'recipe') : '') : x.t)}</span></li>`).join('') : `<li role="option" aria-disabled="true" id="opt-none"><span class="t">No match for "${esc(Q.value.trim())}". Check the spelling or try one word.</span></li>`);
+  resShow(true); Q.setAttribute('aria-activedescendant', hits.length ? 'opt-0' : 'opt-none');
 }
-function choose(i) { const x = hits[i]; if (!x) return; track('Searched', { query: Q.value.trim(), picked: x.n, rank: i }); Q.value = ''; RES.hidden = true; Q.blur(); hideHint(); x.go(); }
+function choose(i) { const x = hits[i]; if (!x) return; track('Searched', { query: Q.value.trim(), picked: x.n, rank: i }); Q.value = ''; resShow(false); Q.blur(); hideHint(); x.go(); }
+function resShow(on) { RES.hidden = !on; Q.setAttribute('aria-expanded', on); if (!on) Q.removeAttribute('aria-activedescendant'); }
 Q.addEventListener('input', search);
 
 Q.addEventListener('keydown', e => {
   const opts = [...RES.querySelectorAll('li[data-i]')];
-  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!hits.length) return; hi = (hi + (e.key === 'ArrowDown' ? 1 : -1) + hits.length) % hits.length; opts.forEach((li, i) => li.setAttribute('aria-selected', i === hi)); }
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!hits.length) return; hi = (hi + (e.key === 'ArrowDown' ? 1 : -1) + hits.length) % hits.length; opts.forEach((li, i) => li.setAttribute('aria-selected', i === hi)); Q.setAttribute('aria-activedescendant', 'opt-' + hi); if (opts[hi]) opts[hi].scrollIntoView({ block: 'nearest' }); }
   else if (e.key === 'Enter') { e.preventDefault(); choose(hi); }
-  else if (e.key === 'Escape') { Q.value = ''; RES.hidden = true; Q.blur(); }
+  else if (e.key === 'Escape') { Q.value = ''; resShow(false); Q.blur(); }
 });
 RES.addEventListener('mousedown', e => { const li = e.target.closest('li[data-i]'); if (li) { e.preventDefault(); choose(+li.dataset.i); } });
-Q.addEventListener('blur', () => setTimeout(() => { RES.hidden = true; }, 120));
+Q.addEventListener('blur', () => setTimeout(() => resShow(false), 120));
+const SOPEN = document.getElementById('sopen');
+function searchOpen(on) { document.body.classList.toggle('sopen', on); SOPEN.setAttribute('aria-expanded', on); if (on) Q.focus(); measureChrome(); }
+SOPEN.onclick = () => { const on = !document.body.classList.contains('sopen'); searchOpen(on); if (on) track('Opened search'); };
+Q.addEventListener('blur', () => setTimeout(() => { if (document.body.classList.contains('sopen') && document.activeElement !== Q && !Q.value.trim()) searchOpen(false); }, 160)); // closes once you leave it empty
 if (!/Mac|iPhone|iPad/.test(navigator.platform || '')) document.getElementById('kbd').textContent = 'Ctrl K';
 addEventListener('keydown', e => {
   const typing = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
@@ -3234,8 +3410,10 @@ function fSync() { // picks are forgotten once you leave the filter for anything
 }
 function fOpen(open = FSHEET.hidden) {
   if (open && fsel.length && !(S.mode === 'lens' && S.lens.type === 'filter')) fApply(); // reopening from a dish goes back to the filtered plate
+  const had = FSHEET.contains(document.activeElement);
   FSHEET.hidden = !open; document.getElementById('fbtn').setAttribute('aria-expanded', open);
-  if (open) { fRender(); track('Opened filter'); const b = FSHEET.querySelector('.fo'); if (b) b.focus({ preventScroll: true }); }
+  if (open) { hideHint(); if (!mobile()) FSHEET.style.bottom = Math.round(innerHeight - FOOT.querySelector('.key').getBoundingClientRect().top + 8) + 'px'; else FSHEET.style.bottom = ''; fRender(); track('Opened filter'); const b = FSHEET.querySelector('.fo'); if (b) b.focus({ preventScroll: true }); }
+  else if (had) document.getElementById('fbtn').focus({ preventScroll: true });
 }
 document.getElementById('fbtn').onclick = e => { e.stopPropagation(); closeSurprise(); fOpen(); };
 FSHEET.addEventListener('click', e => {
@@ -3250,34 +3428,45 @@ FSHEET.addEventListener('click', e => {
   fApply();
 });
 document.addEventListener('click', e => { if (!FSHEET.hidden && !e.target.closest('#fsheet,#fbtn')) fOpen(false); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!FSHEET.hidden) fOpen(false); closeSurprise(); } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && (!FSHEET.hidden || !SMENU.hidden)) { if (!FSHEET.hidden) fOpen(false); closeSurprise(); e.stopPropagation(); } }); // closing a sheet is all Esc does
 
 /* Surprise me: a random dish with recipes, by course, from the filter when one is on */
 const SMENU = document.getElementById('smenu');
-function closeSurprise() { SMENU.hidden = true; document.getElementById('sbtn').setAttribute('aria-expanded', 'false'); }
-document.getElementById('sbtn').onclick = e => {
+const SCARET = document.getElementById('scaret');
+function closeSurprise() { const had = SMENU.contains(document.activeElement); SMENU.hidden = true; SCARET.setAttribute('aria-expanded', 'false'); if (had) SCARET.focus({ preventScroll: true }); }
+document.getElementById('sbtn').onclick = e => { e.stopPropagation(); if (!FSHEET.hidden) fOpen(false); closeSurprise(); hideHint(); surprise(''); };
+SCARET.onclick = e => {
   e.stopPropagation(); if (!FSHEET.hidden) fOpen(false);
   if (!SMENU.hidden) return closeSurprise();
   const inF = S.mode === 'lens' && S.lens.type === 'filter';
-  SMENU.innerHTML = `<div class="sh">${inF ? 'A random dish from your filter' : 'A random dish with a recipe'}</div><button data-sk="">Anything</button>${courses.map(c => `<button data-sk="${c.id}">${esc(c.name)}</button>`).join('')}`;
-  SMENU.hidden = false; document.getElementById('sbtn').setAttribute('aria-expanded', 'true'); SMENU.querySelector('button').focus({ preventScroll: true });
+  SMENU.innerHTML = `<div class="sh" role="presentation">${inF ? 'A random dish from your filter' : 'A random dish with a recipe'}</div><button role="menuitem" data-sk="">Anything</button>${courses.map(c => `<button role="menuitem" data-sk="${c.id}">${esc(c.name)}</button>`).join('')}`;
+  SMENU.hidden = false; SCARET.setAttribute('aria-expanded', 'true'); SMENU.querySelector('button').focus({ preventScroll: true });
 };
+SMENU.addEventListener('keydown', e => {
+  const items = [...SMENU.querySelectorAll('button')], i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); }
+  else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); items[e.key === 'Home' ? 0 : items.length - 1].focus(); }
+  else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeSurprise(); }
+  else if (e.key === 'Tab') { SMENU.hidden = true; SCARET.setAttribute('aria-expanded', 'false'); }
+});
 SMENU.addEventListener('click', e => {
   e.stopPropagation(); const b = e.target.closest('[data-sk]'); if (!b) return;
-  const ck = b.dataset.sk, inF = S.mode === 'lens' && S.lens.type === 'filter';
+  closeSurprise(); surprise(b.dataset.sk);
+});
+function surprise(ck) {
+  const inF = S.mode === 'lens' && S.lens.type === 'filter';
   let pool = (inF ? [...S.members] : [...withRecipes]).filter(d => !ck || d.course.id === ck);
   if (inF && pool.some(d => d.recipes.length)) pool = pool.filter(d => d.recipes.length);
-  closeSurprise();
   if (!pool.length) { LIVE.textContent = 'Nothing in that course matches your filter.'; return; }
   const w = pool.map(d => Math.sqrt(d.score + 4)), tot = w.reduce((a, x) => a + x, 0); let r = Math.random() * tot, i = 0;
   while (i < pool.length - 1 && (r -= w[i]) > 0) i++;
   if (pool[i] === S.dish && pool.length > 1) i = (i + 1) % pool.length;
   track('Surprise me', { course: ck || 'any', from_filter: inF, dish: pool[i].name });
   goDish(pool[i]);
-});
-document.addEventListener('click', e => { if (!SMENU.hidden && !e.target.closest('#smenu,#sbtn')) closeSurprise(); });
+}
+document.addEventListener('click', e => { if (!SMENU.hidden && !e.target.closest('#smenu,#scaret')) closeSurprise(); });
 
-/* Pick 3 favorites: the front door to Your kitchen */
+/* Start from dishes you cook: the front door to Your kitchen (the event keeps its old name so PostHog history lines up) */
 document.addEventListener('click', e => { // Edit filter and Clear, from the filter's panel
   const b = e.target.closest('[data-fedit],[data-fclear2]'); if (!b) return; e.stopPropagation();
   if ('fedit' in b.dataset) fOpen(true); else { fsel = []; fApply(); }
@@ -3287,6 +3476,7 @@ document.getElementById('favbtn').onclick = () => {
   if (!HOME) setView('start');
   if (S.mode !== 'world') goWorld();
   panelShut = false; syncPanel(); renderPanel(0);
+  if (mobile() && !KITCHEN.size) setSnap(2, false);
   setTimeout(() => { const k = document.getElementById('kadd'); if (k) k.focus({ preventScroll: true }); }, 350);
 };
 
@@ -3296,6 +3486,7 @@ document.getElementById('favbtn').onclick = () => {
    only approved tweaks are readable, and only admins can approve (row level security). */
 const SB = { url: 'https://vfitqbrwpnwwlmhxhbox.supabase.co', key: 'sb_publishable_BQ2xpju8Ay-wpFC2T0buNQ_QUQkGRvc' };
 const sbHead = { apikey: SB.key, 'Content-Type': 'application/json' };
+function netMsg(err) { return err instanceof TypeError ? 'Could not reach Recipedia. Check your connection and try again.' : (err && err.message) || 'Could not send. Try again in a minute.'; }
 async function sbSend(table, row) {
   const r = await fetch(`${SB.url}/rest/v1/${table}`, { method: 'POST', headers: { ...sbHead, Prefer: 'return=minimal' }, body: JSON.stringify(row) });
   if (!r.ok) { let m = ''; try { m = (await r.json()).message || ''; } catch (e) {} throw new Error(m || 'Could not send'); }
@@ -3337,7 +3528,7 @@ P.addEventListener('submit', async e => {
   if (body.length < 3) { msg.textContent = 'Write a few words about your tweak.'; return; }
   f.querySelector('[type=submit]').disabled = true; msg.textContent = 'Sending…';
   try { await sbSend('tweaks', { dish_id: d.id, body, name: nm || null }); track('Sent tweak', { dish: d.name, length: body.length }); f.outerHTML = '<p class="twdone">Thanks. It will show here once it is reviewed.</p>'; }
-  catch (err) { msg.textContent = err.message || 'Could not send. Try again in a minute.'; f.querySelector('[type=submit]').disabled = false; }
+  catch (err) { msg.textContent = netMsg(err); f.querySelector('[type=submit]').disabled = false; }
 });
 
 /* ---------------- controls, hint, boot ---------------- */
@@ -3362,12 +3553,46 @@ function hintText(v) {
 }
 hint.textContent = hintText('plate');
 let hinted = false;
-function hideHint() { if (!hinted) { hinted = true; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
+function hideHint() { hideCoach(); if (!hinted) { hinted = true; if (document.activeElement === canvas && canvas.matches(':focus-visible')) return; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
+/* Zoom coach: on a first visit, a small animation in the middle of the plate shows how to zoom (a scroll wheel on desktop,
+   a pinch on touch screens). It goes away on the first zoom, tap or click, or after 8 seconds, and shows on two visits at most. */
+const COACH = document.getElementById('coach'); let coachT = 0;
+function hideCoach() { if (COACH.hidden) return; clearTimeout(coachT); COACH.classList.remove('on'); setTimeout(() => { COACH.hidden = true; }, 450); }
+function showCoach() {
+  if (window.HEAT_MODE || HOME || wantView !== 'plate' || S.mode !== 'world') return;
+  let n = 0; try { n = +localStorage.getItem('recipedia.coach') || 0; localStorage.setItem('recipedia.coach', n + 1); } catch (e) {}
+  if (n >= 2) return;
+  COACH.classList.toggle('touch', touchOnly);
+  document.getElementById('coacht').textContent = touchOnly ? 'Pinch to zoom in, or tap a cuisine' : 'Scroll to zoom in, or click a cuisine';
+  COACH.hidden = false; requestAnimationFrame(() => COACH.classList.add('on'));
+  coachT = setTimeout(hideCoach, 8000); track('Saw zoom hint', { touch: touchOnly });
+}
+for (const ev of ['wheel', 'pointerdown', 'touchstart', 'keydown']) addEventListener(ev, () => { if (!COACH.hidden) hideCoach(); }, { passive: true, capture: true });
+// keyboard users get the keys spelled out while the map has focus
+canvas.addEventListener('focus', () => { if (!canvas.matches(':focus-visible')) return; hint.textContent = 'Arrow keys move between neighbors. Enter opens, Esc goes up a level, + and \u2212 zoom.'; hint.hidden = false; hint.classList.remove('gone'); measureChrome(); });
+canvas.addEventListener('blur', () => { if (hinted) { hint.classList.add('gone'); hint.hidden = true; measureChrome(); } else hint.textContent = hintText(VIEW || 'plate'); });
+// the plate key: shown once you are inside the plate, until hidden with its X
+const PKEY = document.getElementById('pkey'); let pkeyOff = false; try { pkeyOff = localStorage.getItem('recipedia.keyhidden') === '1'; } catch (e) {}
+function syncKey() { const on = !pkeyOff && booted && !HOME && !VIEW3D && !GALAXY && S.mode !== 'world'; if (PKEY.hidden === !on) return; PKEY.hidden = !on; measureChrome(); if (mobile()) applyInsets(); } // before the camera flies, so the map fits above it
+// phones: inside the plate the toolbar steps aside for the map; a filter that is on stays visible as a chip
+const FCHIP = document.getElementById('fchip'), FBTN = document.getElementById('fbtn');
+function syncDeep() {
+  const deep = mobile() && booted && !HOME && !VIEW3D && !GALAXY && S.mode !== 'world', fon = FBTN.classList.contains('on');
+  const was = FCHIP.hidden; FCHIP.hidden = !(deep && fon); FCHIP.querySelector('b').textContent = fon ? ' ' + (document.getElementById('fn').textContent || '').trim() : '';
+  if (document.body.classList.contains('deep') === deep && was === FCHIP.hidden) return;
+  document.body.classList.toggle('deep', deep); measureChrome(); applyInsets();
+}
+FCHIP.onclick = () => FBTN.click();
+new MutationObserver(() => syncDeep()).observe(FBTN, { attributes: true, attributeFilter: ['class'], subtree: true, childList: true, characterData: true });
+addEventListener('resize', () => syncDeep());
+document.getElementById('pkeyx').onclick = () => { pkeyOff = true; try { localStorage.setItem('recipedia.keyhidden', '1'); } catch (e) {} track('Hid plate key'); syncKey(); };
 
 let booted = false;
 function applyInsets() { // phone: the sheet and the map key both take room from the bottom of the map
-  if (mobile() && document.body.classList.contains('nopanel')) { insetBottom = 44; stage.style.setProperty('--inset', '0px'); }
-  else if (mobile()) { const v = snaps()[snap]; PANEL.style.setProperty('--sheet', v + 'px'); const sheet = Math.min(v, snaps()[1]); stage.style.setProperty('--inset', sheet + 'px'); insetBottom = sheet + 44; }
+  const fc = document.getElementById('fchip'), kh = document.body.classList.contains('deep') ? (fc && !fc.hidden ? 44 : 0) : FOOT.querySelector('.key').offsetHeight, hn = document.getElementById('hint'), hh = hn && !hn.hidden && !hn.classList.contains('gone') ? hn.offsetHeight + 8 : 0, pk = document.getElementById('pkey'), ph = pk && !pk.hidden ? pk.offsetHeight + 8 : 0;
+  const footRoom = mobile() ? Math.max(44, kh + hh + ph + 24) : 0; // the toolbar (and the hint above it, while it shows) take room from the bottom of the map
+  if (mobile() && document.body.classList.contains('nopanel')) { insetBottom = footRoom; stage.style.setProperty('--inset', '0px'); }
+  else if (mobile()) { const v = snaps()[snap]; PANEL.style.setProperty('--sheet', v + 'px'); const sheet = Math.min(v, snaps()[1]); stage.style.setProperty('--inset', sheet + 'px'); insetBottom = sheet + footRoom; }
   else { insetBottom = 0; stage.style.setProperty('--inset', '0px'); }
 }
 let lastInset = -1, lastW = 0;
@@ -3391,6 +3616,7 @@ const qv = new URLSearchParams(location.search).get('view'); if (VIEWS[qv]) v0 =
 setView(v0, { save: false });
 if (TEST) window.__rp = { KITCHEN, setCook, homeModel, SG, get HT() { return HT; }, get TRAIL() { return TRAIL; }, S, cuisines, dishes, groups, dishById, cuisineById, setView, goDish, goCuisine, goWorld, setState, dives, portalFor, cuisineAt3, buildGeo, get T() { return T; }, get ZF() { return ZF; }, get G3() { return G3; }, get PJ() { return PJ; }, get PORTAL() { return PORTAL; }, get GT() { return GT; }, get VIEW() { return VIEW; }, get k0() { return k0; }, get gk0() { return gk0; } };
 document.getElementById('boot').remove();
+setTimeout(showCoach, 1200);
 })().catch(e => bootFail(e.message || String(e)));
 </script>
 
