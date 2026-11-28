@@ -182,6 +182,8 @@ button.row .rk{font-family:var(--sans)}
 /* panel */
 .panel{background:var(--card);border-left:1px solid var(--rule);display:flex;flex-direction:column;min-height:0;min-width:0;position:relative}
 .grab{display:none}
+.panel .spec .txt>*{transition:opacity .2s var(--ease)}
+.panel.peek .spec .txt>*:not(h2){opacity:0}
 .psearch{position:relative;padding:14px 24px 12px;border-bottom:1px solid var(--rule)}
 .psearch .i{position:absolute;left:36px;top:26px;color:var(--graphite);pointer-events:none}
 .search{width:100%;box-sizing:border-box;height:38px;border:1px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink);caret-color:var(--ink);font:14px var(--sans);padding:0 56px 0 34px;transition:border-color .15s}
@@ -316,7 +318,7 @@ h2.sm{font-size:28px}
 @media (max-width:760px){
   .app{display:block}
   .stage{position:absolute;inset:0}
-  .panel{position:fixed;left:0;right:0;bottom:0;height:88dvh;border-left:0;border-top:1px solid var(--rule);border-radius:12px 12px 0 0;box-shadow:0 -8px 24px rgba(var(--shadow),.12);transform:translateY(calc(100% - var(--sheet,148px)));transition:transform .32s var(--ease);z-index:5}
+  .panel{position:fixed;left:0;right:0;bottom:0;height:88dvh;border-left:0;border-top:1px solid var(--rule);border-radius:12px 12px 0 0;box-shadow:0 -8px 24px rgba(var(--shadow),.12);transform:translateY(calc(100% - var(--sheet,84px)));transition:transform .32s var(--ease);z-index:5}
   .panel.dragging{transition:none}
   .grab{display:block;height:22px;cursor:grab;touch-action:none;position:relative;flex:none;background:none;border:0;width:100%;padding:0}
   .grab::after{content:"";position:absolute;left:50%;top:8px;width:40px;height:5px;margin-left:-20px;border-radius:3px;background:var(--rule)}
@@ -482,6 +484,7 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
   .pkey{flex-wrap:nowrap}
   .pkey span:nth-child(3){display:none}
   .foot{left:12px;right:12px}
+  .foot .hint{max-width:calc(100% - 52px)} /* clear of the zoom button beside it */
   .zoom{bottom:calc(16px + 44px + var(--inset) + env(safe-area-inset-bottom,0px))}
   .zoom button{width:36px;height:36px}
   .key{gap:6px}
@@ -533,7 +536,7 @@ body.bootfail .foot,body.bootfail .viewsw,body.bootfail .zoom{display:none}
       <div class="hint" id="hint">Click to go one level in. Scroll or pinch to zoom.</div>
       <div class="pkey" id="pkey" hidden><span><svg width="16" height="10" viewBox="0 0 16 10" aria-hidden="true"><text x="0" y="8.5" font-size="9" fill="currentColor" font-family="var(--sans)">Aa</text><circle cx="13.5" cy="5.5" r="2" fill="currentColor"/></svg>has a recipe</span><span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x=".5" y=".5" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-opacity=".5"/><path d="M-1 5L5-1M-1 11L11-1M5 13L13 5" stroke="currentColor" stroke-width=".9" stroke-opacity=".7"/></svg>more dishes inside</span><span><svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><rect x=".5" y="5.5" width="5" height="5" rx="1" fill="currentColor" fill-opacity=".35"/><rect x="6.5" y="1.5" width="7" height="9" rx="1.2" fill="currentColor" fill-opacity=".35"/></svg>bigger = better known</span><button type="button" id="pkeyx" aria-label="Hide this key"><svg class="i" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></button></div>
       <div class="key" id="key">
-        <button class="toggle act prime" id="favbtn" title="Pick 3 dishes you cook or love, and see what to try next"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><span class="lbl">Start from dishes you cook</span><span class="lbl-s">Dishes you cook</span></button>
+        <button class="toggle act prime" id="favbtn" title="Pick 3 dishes you cook or love, and see what to try next"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="1.9" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="4.8"/><circle cx="10" cy="10" r="8" stroke-dasharray="1.4 2.7"/></svg><span class="lbl">Your kitchen</span><span class="lbl-s">Your kitchen</span></button>
         <div class="sw"><button class="toggle act second" id="sbtn" title="Jump to a random dish that has a recipe"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2.5"/><circle cx="5.8" cy="5.8" r=".9" fill="currentColor"/><circle cx="10.2" cy="10.2" r=".9" fill="currentColor"/><circle cx="10.2" cy="5.8" r=".9" fill="currentColor"/><circle cx="5.8" cy="10.2" r=".9" fill="currentColor"/></svg>Surprise me</button><button class="toggle act second scaret" id="scaret" aria-haspopup="menu" aria-expanded="false" aria-controls="smenu" aria-label="Surprise me from one course" title="Pick a course"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 9.5L8 6l3.5 3.5"/></svg></button><div class="smenu" id="smenu" role="menu" aria-label="Surprise me from" hidden></div></div>
         <button class="toggle act" id="fbtn" aria-haspopup="dialog" aria-expanded="false" title="Filter dishes by ingredient or difficulty"><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg><span class="lblf">Filter</span><b class="fn" id="fn" hidden></b></button>
         <button class="quiet" id="aboutbtn" title="How to read the plate, and where the data comes from">About</button>
@@ -987,7 +990,7 @@ function syncPanel() {
   const want = ((S.mode === 'lens' && (S.lens.type !== 'filter' || fList)) || (S.mode === 'dish' && S.dish === openDish) || HOME || worldPanel) && !panelShut;
   if (document.body.classList.contains('nopanel') === !want) return;
   document.body.classList.toggle('nopanel', !want);
-  if (want && mobile() && typeof snap !== 'undefined') snap = 1; // on a phone the sheet opens half way, so the plate stays in view
+  if (want && mobile() && typeof snap !== 'undefined') snap = worldPanel ? 1 : 0; // on a phone the sheet opens small (About opens half way); drag or tap it to see more
   placeSearch();
   if (typeof booted !== 'undefined' && booted) { applyInsets(); resize(); lastInset = insetBottom; lastW = W; }
 }
@@ -1108,7 +1111,13 @@ function describe(s = S) {
   return `${s.lens.type === 'book' ? mainTitle(s.lens.ref.title) : s.lens.type === 'sub' ? subLensTitle(s.lens.ref) : s.lens.ref.name}. ${s.members.size} dishes lit.`;
 }
 const subLensTitle = l => `${l.name} · ${l.family.name}`; // "Corn · Vegetable dishes"
-function announce() { LIVE.textContent = describe(); canvas.setAttribute('aria-label', 'Recipedia map. ' + describe() + ' Arrow keys move between neighbors, Enter opens, Escape goes up a level.'); }
+function syncHomeHint() { // Your kitchen keeps its how-to line up, and words it for where you are
+  if (!HOME || typeof hint === 'undefined') return;
+  const t = hintText('start'), was = hint.hidden || hint.classList.contains('gone');
+  if (hint.textContent !== t) hint.textContent = t;
+  if (was) { hint.hidden = false; hint.classList.remove('gone'); measureChrome(); if (typeof booted !== 'undefined' && booted) applyInsets(); }
+}
+function announce() { syncHomeHint(); LIVE.textContent = describe(); canvas.setAttribute('aria-label', 'Recipedia map. ' + describe() + ' Arrow keys move between neighbors, Enter opens, Escape goes up a level.'); }
 
 /* ---------------- drawing ---------------- */
 let queued = false;
@@ -2201,7 +2210,7 @@ function setCook(d, on = !KITCHEN.has(d)) {
   kitV++; try { localStorage.setItem('recipedia.kitchen', JSON.stringify(kitchen().map(x => x.id))); } catch (e) {}
   const top = P.scrollTop; renderPanel(0); P.scrollTop = top;
   LIVE.textContent = on ? `${d.name} added to the dishes you cook.` : `${d.name} removed from the dishes you cook.`;
-  if (HOME) { hint.textContent = hintText('start'); fly(); }
+  if (HOME) { syncHomeHint(); fly(); }
   draw();
 }
 const COOKBTN = document.getElementById('cookbtn');
@@ -2919,7 +2928,7 @@ function groupList(g) { // every dish, ranked; a split family lists them under i
 }
 function aboutHTML() {
   let h = '';
-    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. Click or tap your way in: a cuisine, then a course, then a kind of dish, then the dish. Inside a dish, each cell is one cook's recipe.</p><p>Bigger tiles are better-known dishes. A dot after a name means it has a recipe. Striped tiles hold more dishes; zoom in to open them.</p><p><b>Start from dishes you cook</b> opens Your kitchen: pick 3 dishes you already make, and Recipedia suggests what to try next, from close cousins to a leap. <b>Surprise me</b> jumps to a random dish with a recipe; the arrow next to it picks a course.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p><p>Visits are recorded anonymously, including where people tap and zoom, to see how the map gets used and make it better.</p></div>`;
+    h += sec('About') + `<div class="about"><p>Recipedia maps ${dishes.length.toLocaleString()} dishes from ${cuisines.length} cuisines. Click or tap your way in: a cuisine, then a course, then a kind of dish, then the dish. Inside a dish, each cell is one cook's recipe.</p><p>Bigger tiles are better-known dishes. A dot after a name means it has a recipe. Striped tiles hold more dishes; zoom in to open them.</p><p><b>Your kitchen</b>: pick 3 dishes you already make, and Recipedia suggests what to try next, from close cousins to a leap. <b>Surprise me</b> jumps to a random dish with a recipe; the arrow next to it picks a course.</p><p>Recipedia hosts no recipes. Each recipe is a link to the original page, credited to its cook or site, so the traffic goes to the people who wrote it.</p><p>The dishes, popularity estimates and recipe links were gathered with the help of AI. Every link was opened and checked when it was added, but expect some mistakes and gaps. Dishes with no recipe yet are ones where no trustworthy recipe turned up.</p><p>Visits are recorded anonymously, including where people tap and zoom, to see how the map gets used and make it better.</p></div>`;
   return h;
 }
 function renderPanel(dir = 0) {
@@ -3064,6 +3073,7 @@ function renderPanel(dir = 0) {
   P.scrollTop = 0;
   syncCook();
   if (!reduceMotion) P.animate(dir ? [{ opacity: 0, transform: `translateX(${dir * 12}px)` }, { opacity: 1, transform: 'none' }] : [{ opacity: 0.4 }, { opacity: 1 }], { duration: dir ? 240 : 140, easing: 'cubic-bezier(.16,1,.3,1)' });
+  try { if (booted && mobile() && snap === 0 && !document.body.classList.contains('nopanel') && Math.abs(snaps()[0] - (parseFloat(PANEL.style.getPropertyValue('--sheet')) || 0)) > 1) { applyInsets(); resize(); lastInset = insetBottom; } } catch (e) {} // the small sheet fits the new title
   const flt = document.getElementById('flt');
   if (flt) flt.addEventListener('input', () => { const q = norm(flt.value.trim()); for (const li of document.querySelectorAll('#glist .row')) li.parentElement.hidden = !!q && !li.dataset.name.includes(q); for (const sc of document.querySelectorAll('#glist .subsec')) sc.hidden = !!q && !sc.querySelector('li:not([hidden])'); });
 }
@@ -3251,7 +3261,12 @@ addEventListener('keydown', e => {
 
 /* ---------------- phone: the panel is a bottom sheet with three resting heights ---------------- */
 const PANEL = document.getElementById('panel'), GRAB = document.getElementById('grab');
-const snaps = () => [148, Math.round(innerHeight * 0.5), Math.round(innerHeight * 0.88)];
+function peekH() { // the closed sheet shows only the handle and the title, so the map keeps the screen
+  const t = PANEL.querySelector('.spec h2, h2'); if (!t) return 84;
+  const top = PANEL.getBoundingClientRect().top, b = t.getBoundingClientRect().bottom;
+  return Math.round(Math.max(72, Math.min(132, b - top + 12)));
+}
+const snaps = () => [peekH(), Math.round(innerHeight * 0.5), Math.round(innerHeight * 0.88)];
 let snap = 0;
 function setSnap(i, recenter = true) {
   snap = i;
@@ -3278,6 +3293,7 @@ function setSnap(i, recenter = true) {
     setSnap(i < 0 ? 2 : i);
   };
   GRAB.addEventListener('pointerup', up); GRAB.addEventListener('pointercancel', up);
+  PANEL.addEventListener('click', e => { if (!mobile() || snap !== 0 || e.target.closest('#grab,#pclose')) return; e.preventDefault(); e.stopPropagation(); setSnap(1); track('Opened sheet', { how: 'tap' }); }, true);
 })();
 
 
@@ -3545,7 +3561,9 @@ document.getElementById('zhome').onclick = () => goWorld();
 const hint = document.getElementById('hint');
 const touchOnly = matchMedia('(hover: none)').matches; // phones and tablets: tap and pinch, not click and scroll
 function hintText(v) {
-  if (v === 'start') return !KITCHEN.size ? (touchOnly ? 'Tap a dish you already cook.' : 'Click a dish you already cook.') : touchOnly ? 'Tap a dish to step to it.' : 'Click a dish to step to it.';
+  if (v === 'start') { const t = touchOnly ? 'Tap' : 'Click';
+    if (!KITCHEN.size) return `${t} a dish you already cook.`;
+    return S.mode === 'dish' ? `${t} a dish to keep going, or empty space to go back.` : `Your dishes sit in the middle. ${t} any to explore.`; }
   if (v === 'globe') return touchOnly ? 'Drag to spin the globe. Tap a cuisine to go in.' : 'Drag to spin the globe. Click a cuisine to go in.';
   if (v === 'galaxy') return touchOnly ? 'Pinch to fly in. Tap a star to open it.' : 'Scroll to fly in. Click a star to open it.';
   if (v === 'zoom') return touchOnly ? 'Pinch to zoom, and keep going: every dish opens onto a cousin.' : 'Scroll to zoom, and keep going: every dish opens onto a cousin.';
@@ -3553,7 +3571,7 @@ function hintText(v) {
 }
 hint.textContent = hintText('plate');
 let hinted = false;
-function hideHint() { hideCoach(); if (!hinted) { hinted = true; if (document.activeElement === canvas && canvas.matches(':focus-visible')) return; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
+function hideHint() { hideCoach(); if (HOME) return; /* in Your kitchen the how-to line stays */ if (!hinted) { hinted = true; if (document.activeElement === canvas && canvas.matches(':focus-visible')) return; hint.classList.add('gone'); setTimeout(() => { hint.hidden = true; measureChrome(); }, 400); } }
 /* Zoom coach: on a first visit, a small animation in the middle of the plate shows how to zoom (a scroll wheel on desktop,
    a pinch on touch screens). It goes away on the first zoom, tap or click, or after 8 seconds, and shows on two visits at most. */
 const COACH = document.getElementById('coach'); let coachT = 0;
@@ -3591,8 +3609,9 @@ let booted = false;
 function applyInsets() { // phone: the sheet and the map key both take room from the bottom of the map
   const fc = document.getElementById('fchip'), kh = document.body.classList.contains('deep') ? (fc && !fc.hidden ? 44 : 0) : FOOT.querySelector('.key').offsetHeight, hn = document.getElementById('hint'), hh = hn && !hn.hidden && !hn.classList.contains('gone') ? hn.offsetHeight + 8 : 0, pk = document.getElementById('pkey'), ph = pk && !pk.hidden ? pk.offsetHeight + 8 : 0;
   const footRoom = mobile() ? Math.max(44, kh + hh + ph + 24) : 0; // the toolbar (and the hint above it, while it shows) take room from the bottom of the map
+  if (!mobile()) PANEL.classList.remove('peek');
   if (mobile() && document.body.classList.contains('nopanel')) { insetBottom = footRoom; stage.style.setProperty('--inset', '0px'); }
-  else if (mobile()) { const v = snaps()[snap]; PANEL.style.setProperty('--sheet', v + 'px'); const sheet = Math.min(v, snaps()[1]); stage.style.setProperty('--inset', sheet + 'px'); insetBottom = sheet + footRoom; }
+  else if (mobile()) { PANEL.classList.toggle('peek', snap === 0); const v = snaps()[snap]; PANEL.style.setProperty('--sheet', v + 'px'); const sheet = Math.min(v, snaps()[1]); stage.style.setProperty('--inset', sheet + 'px'); insetBottom = sheet + footRoom; }
   else { insetBottom = 0; stage.style.setProperty('--inset', '0px'); }
 }
 let lastInset = -1, lastW = 0;
